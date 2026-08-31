@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长江存储科技有限责任公司 · 产能扩张与校招情报</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.rating-badge.positive{background:var(--accent-green)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+/* ---------- charts ---------- */
+.chart-wrap{border:1px solid var(--border);border-radius:2px;padding:18px 20px 10px;margin-top:14px;background:var(--bg-card)}
+.chart-title{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px}
+[data-theme="dark"] .chart-title{color:#c9d6e8}
+.chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+.axis{stroke:var(--border);stroke-width:1}
+.gridline{stroke:var(--border-soft);stroke-width:1;stroke-dasharray:3,4}
+.axis-label{fill:var(--text-muted);font-size:10.5px;font-family:'Noto Sans SC',sans-serif}
+.bar-rev{fill:var(--primary)}
+[data-theme="dark"] .bar-rev{fill:#6ea3d8}
+.bar-rev.mid{fill:var(--accent-blue)}
+[data-theme="dark"] .bar-rev.mid{fill:#5b8fc0}
+.bar-rev.low{fill:var(--border)}
+[data-theme="dark"] .bar-rev.low{fill:#3a4a5e}
+.bar-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.sh-bar{fill:var(--accent-blue)}
+.sh-bar.top{fill:var(--primary)}
+[data-theme="dark"] .sh-bar.top{fill:#6ea3d8}
+.sh-label{fill:var(--text-secondary);font-size:11.5px;font-family:'Noto Sans SC',sans-serif}
+.sh-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+
+/* ---------- flow stepper ---------- */
+.flow{display:flex;align-items:stretch;gap:6px;margin-top:12px;flex-wrap:wrap}
+.flow-step{flex:1;min-width:130px;border:1px solid var(--border);border-top:3px solid var(--accent-blue);border-radius:2px;padding:10px 12px;background:var(--kpi-flat-bg)}
+.flow-step b{display:block;font-size:12.5px;color:var(--text-primary)}
+.flow-step span{font-size:11px;color:var(--text-muted)}
+.flow-arrow{align-self:center;color:var(--accent-amber);font-weight:700;font-size:14px;padding:0 2px}
+.flow-step.now{border-top-color:var(--accent-amber)}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div class="header-left">
+        <div class="company-exchange-badge">科创板 IPO 受理中（2026-08-21）· 拟募 330 亿元</div>
+        <div class="company-name-cn">长江存储科技有限责任公司</div>
+        <div class="company-name-en">Yangtze Memory Technologies Co., Ltd.（YMTC）｜ 存储器 IDM ｜ 总部 武汉·东湖高新区</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 明 / 暗 切换</button>
+        <div class="rating-badge positive">产能扩张期 · 重点关注</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期 2026-08-31</span><span>数据来源 企查查核验 + 高校就业网 / 官方公告 / 财经媒体</span><span>类型 产能扩张与校招情报</span><span>非投资建议</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar"><div class="nav-inner">
+  <a href="#s1">① 主体身份</a><a href="#s2">② 财务与市场</a><a href="#s3">③ 现有产能</a><a href="#s4">④ 扩产计划</a><a href="#s5">⑤ 校招情报</a><a href="#s6">⑥ 风险提示</a><a href="#s7">⑦ 结论</a><a href="#s8">⑧ 附录</a>
+</div></nav>
+
+<div class="wrap"><div class="container">
+
+<!-- ================= 1 主体身份 ================= -->
+<div class="section" id="s1">
+  <div class="section-title">一、主体身份与工商核验</div>
+  <table class="kv">
+    <tr><td>企业名称</td><td style="color:var(--text-primary);font-weight:600">长江存储科技有限责任公司（长存集团 / YMTC）</td></tr>
+    <tr><td>法定代表人</td><td>陈南翔（董事长）</td></tr>
+    <tr><td>成立日期</td><td>2016-07 ｜ 总部：湖北省武汉市东湖新技术开发区未来三路 88 号</td></tr>
+    <tr><td>注册资本</td><td class="num">约 1,052.7 亿元（2023-02 增资后，据公开报道）</td></tr>
+    <tr><td>企业性质</td><td>存储器 IDM（芯片设计＋制造＋封测＋系统方案），国资背景</td></tr>
+    <tr><td>主营业务</td><td>3D NAND 闪存晶圆及颗粒、嵌入式存储（eMMC/UFS）、消费级与企业级 SSD，应用于移动通信、消费电子、服务器与数据中心</td></tr>
+    <tr><td>股权背景</td><td>无控股股东、无实际控制人；穿透后为湖北省国资委、武汉市国资委、东湖高新区管委会、国家大基金等</td></tr>
+    <tr><td>上市状态</td><td class="num">未上市 ｜ 2026-08-21 科创板 IPO 获受理，拟募 330 亿元（科创板开板以来最高）</td></tr>
+    <tr><td>研发与专利</td><td class="num">研发人员 4,704 人（2025 年末，占比约 30.7%）｜ 专利 12,000+ 项，国际专利 5,800+ 项，发明专利占比 95%</td></tr>
+  </table>
+
+  <h3 class="sub">扩产核心主体核验（企查查工商登记 T+0）</h3>
+  <table>
+    <tr><th>字段</th><th>长存三期（武汉）集成电路有限责任公司</th></tr>
+    <tr><td>统一社会信用代码</td><td class="num">91420100MAEU35CE09</td></tr>
+    <tr><td>法定代表人 / 登记状态</td><td>陈南翔 ｜ 存续（在营、开业、在册）</td></tr>
+    <tr><td>成立日期</td><td>2025-09-05（对应三期项目正式动工）</td></tr>
+    <tr><td>注册资本 / 实缴</td><td class="num">207.2 亿元 / 65.7 亿元</td></tr>
+    <tr><td>国标行业 / 注册地址</td><td>集成电路制造 ｜ 武汉东湖新技术开发区科技五路 261 号未来馆三楼</td></tr>
+    <tr><td>经营范围</td><td>集成电路制造、设计、销售；芯片及产品销售；技术服务；货物与技术进出口</td></tr>
+  </table>
+  <div class="note-box">三期项目运营主体已于 2025 年 9 月 5 日完成工商设立并实缴 65.7 亿元资本金，标志扩产进入实质性实施阶段。长存集团旗下另有宏茂微（封测）、新芯股份等子公司投递通道。</div>
+</div>
+
+<!-- ================= 2 财务与市场 ================= -->
+<div class="section" id="s2">
+  <div class="section-title">二、财务概览与市场地位</div>
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 全年营收</div><div class="kpi-value num">631.85 亿</div><div class="kpi-delta up">同比 +39.78% ▲</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026Q1 单季营收</div><div class="kpi-value num">470.42 亿</div><div class="kpi-delta up">闪存涨价超级周期 ▲</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026Q1 归母净利</div><div class="kpi-value num">333.79 亿</div><div class="kpi-delta up">≈2025 全年的 2.35 倍 ▲</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">全球 NAND 份额</div><div class="kpi-value num">14%</div><div class="kpi-delta up">2026Q2 全球第三 ▲</div></div>
+  </div>
+
+  <div class="chart-wrap" style="margin-top:0">
+    <div class="chart-title">2026Q2 全球 NAND 闪存出货容量份额（按出货容量计）</div>
+    <div class="chart-sub">数据来源 Counterpoint Research（2026Q2）｜ 单位：%</div>
+    <svg viewBox="0 0 660 220" style="width:100%;height:auto" role="img" aria-label="全球NAND闪存市场份额条形图">
+      <rect class="sh-bar" x="140" y="15"  width="287.5" height="24" rx="1"/>
+      <rect class="sh-bar" x="140" y="60"  width="253"   height="24" rx="1"/>
+      <rect class="sh-bar top" x="140" y="105" width="161" height="24" rx="1"/>
+      <rect class="sh-bar" x="140" y="150" width="448.5" height="24" rx="1"/>
+      <text class="sh-label" x="132" y="30"  text-anchor="end">三星电子</text>
+      <text class="sh-label" x="132" y="75"  text-anchor="end">SK海力士</text>
+      <text class="sh-label" x="132" y="120" text-anchor="end">长江存储</text>
+      <text class="sh-label" x="132" y="165" text-anchor="end">其他厂商</text>
+      <text class="sh-value" x="435" y="30"  text-anchor="start">25</text>
+      <text class="sh-value" x="400" y="75"  text-anchor="start">22</text>
+      <text class="sh-value" x="308" y="120" text-anchor="start">14</text>
+      <text class="sh-value" x="596" y="165" text-anchor="start">39</text>
+      <line class="axis" x1="140" y1="180" x2="620" y2="180"/>
+    </svg>
+  </div>
+
+  <h3 class="sub">关键财务与经营指标</h3>
+  <table>
+    <tr><th>指标</th><th>数值</th><th>备注</th></tr>
+    <tr><td>2025 全年营收 / 净利</td><td class="num">631.85 亿元 / 142.11 亿元</td><td>营收同比 <span class="up">+39.78%</span>，受益 AI 存储需求</td></tr>
+    <tr><td>2026Q1 营收 / 归母净利</td><td class="num">470.42 亿元 / 333.79 亿元</td><td>单季盈利约为 2025 全年的 2.35 倍</td></tr>
+    <tr><td>2026Q1 综合毛利率</td><td class="num">76.77%（NAND 78.73%）</td><td>2023 年为 5.45%，闪存涨价周期驱动</td></tr>
+    <tr><td>产能利用率</td><td class="num">98.02%</td><td>2026Q1，已近满载</td></tr>
+    <tr><td>资产负债率</td><td class="num">43.65%</td><td>2026Q1，自 2023 年 61.30% 持续优化</td></tr>
+    <tr><td>资产总额 / 归母权益</td><td class="num">2,615.88 亿元 / 1,357.78 亿元</td><td>截至 2026-03-31</td></tr>
+    <tr><td>累计研发投入</td><td class="num">159.53 亿元</td><td>2023 年至 2026Q1 累计</td></tr>
+  </table>
+  <div class="note-box">行业背景：TrendForce 预测 2026 年全球 NAND Flash 产值上调至 2,706 亿美元（同比 +281%）；企业级 SSD 占全球 NAND 位元出货量约 48%，AI 数据中心是核心拉动力。长江存储按出货容量计已首次跻身全球前三（份额 14%），出货容量同比 +22%、环比 +5%。</div>
+</div>
+
+<!-- ================= 3 现有产能 ================= -->
+<div class="section" id="s3">
+  <div class="section-title">三、现有产能与产品布局</div>
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">在运营晶圆厂</div><div class="kpi-value num">2 座</div><div class="kpi-delta">武汉 12 英寸厂</div></div>
+    <div class="kpi-card"><div class="kpi-label">合计月产能</div><div class="kpi-value num">≈20 万片</div><div class="kpi-delta">主流媒体口径</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">产能利用率</div><div class="kpi-value num">98.02%</div><div class="kpi-delta up">2026Q1 近满载 ▲</div></div>
+    <div class="kpi-card"><div class="kpi-label">量产堆叠层数</div><div class="kpi-value num">267 层</div><div class="kpi-delta">300+ 层进入量产准备</div></div>
+  </div>
+  <table>
+    <tr><th>维度</th><th>现状</th></tr>
+    <tr><td>生产基地</td><td>武汉两座 12 英寸晶圆厂（一期、二期），另在北京设有研发中心</td></tr>
+    <tr><td>核心技术</td><td>自研 Xtacking® 晶栈架构（1.0–4.0 四代迭代），双晶圆混合键合，芯片面积缩减约 25%；已量产 267 层 3D NAND，第六代产品研发中</td></tr>
+    <tr><td>产品组合</td><td>3D NAND 晶圆/颗粒、嵌入式存储（eMMC、UFS）、消费级/企业级 SSD、移动固态硬盘、存储卡</td></tr>
+    <tr><td>市场地位</td><td class="num">2026Q2 全球 NAND 出货容量份额 14%，全球第三（超铠侠），中国第一</td></tr>
+    <tr><td>专利与认证</td><td class="num">12,000+ 项专利申请；2025 年与头部国际厂商达成专利交叉授权</td></tr>
+  </table>
+  <div class="note-box">口径提示：现有产能主流媒体口径为"合计月产能约 20 万片"，招股书披露口径约为"超过 14 万片"，系统计口径（含在建/口径差异）不同所致；产能利用率 98.02% 说明现有产线已接近满载，扩产具备充分的现实驱动力。</div>
+</div>
+
+<!-- ================= 4 扩产计划 ================= -->
+<div class="section" id="s4">
+  <div class="section-title">四、扩产计划（核心）</div>
+  <div class="chart-wrap" style="margin-top:0">
+    <div class="chart-title">月产能扩张路径（万片/月）</div>
+    <div class="chart-sub">现有两厂约 20 万片/月 → 三期投产后 30 万片/月 → 三座新厂全部达产后 50 万片/月（2.5 倍）</div>
+    <svg viewBox="0 0 660 300" style="width:100%;height:auto" role="img" aria-label="月产能扩张路径柱状图">
+      <line class="gridline" x1="60" y1="250" x2="620" y2="250"/>
+      <line class="gridline" x1="60" y1="206" x2="620" y2="206"/>
+      <line class="gridline" x1="60" y1="162" x2="620" y2="162"/>
+      <line class="gridline" x1="60" y1="118" x2="620" y2="118"/>
+      <line class="gridline" x1="60" y1="74"  x2="620" y2="74"/>
+      <line class="gridline" x1="60" y1="30"  x2="620" y2="30"/>
+      <text class="axis-label" x="52" y="254" text-anchor="end">0</text>
+      <text class="axis-label" x="52" y="210" text-anchor="end">10</text>
+      <text class="axis-label" x="52" y="166" text-anchor="end">20</text>
+      <text class="axis-label" x="52" y="122" text-anchor="end">30</text>
+      <text class="axis-label" x="52" y="78"  text-anchor="end">40</text>
+      <text class="axis-label" x="52" y="34"  text-anchor="end">50</text>
+      <rect class="bar-rev low" x="110" y="162" width="80" height="88" rx="1"/>
+      <rect class="bar-rev mid" x="290" y="118" width="80" height="132" rx="1"/>
+      <rect class="bar-rev"     x="470" y="30"  width="80" height="220" rx="1"/>
+      <text class="bar-value" x="150" y="155" text-anchor="middle">20</text>
+      <text class="bar-value" x="330" y="111" text-anchor="middle">30</text>
+      <text class="bar-value" x="510" y="23"  text-anchor="middle">50</text>
+      <text class="axis-label" x="150" y="270" text-anchor="middle">现状（2026）</text>
+      <text class="axis-label" x="330" y="270" text-anchor="middle">三期达产</text>
+      <text class="axis-label" x="510" y="270" text-anchor="middle">全部达产</text>
+      <line class="axis" x1="60" y1="250" x2="620" y2="250"/>
+    </svg>
+    <div class="legend" style="display:flex;gap:22px;font-size:11.5px;color:var(--text-muted);margin-top:6px;padding:6px 0">
+      <span><i style="display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;background:var(--border)"></i>现有产能</span>
+      <span><i style="display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;background:var(--accent-blue)"></i>三期投产后</span>
+      <span><i style="display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;background:var(--primary)"></i>三座新厂全部达产</span>
+    </div>
+  </div>
+
+  <h3 class="sub">三期工厂建设时间线（进行中）</h3>
+  <table>
+    <tr><th>时间</th><th>节点</th></tr>
+    <tr><td>2025-09-05</td><td>运营主体"长存三期（武汉）集成电路有限责任公司"设立（注册资本 207.2 亿元），项目正式动工</td></tr>
+    <tr><td>2026-01 至 2026-02</td><td>建筑主体竣工，进入核心设备安装与调试阶段；国产设备采购占比突破 50%，刻蚀/沉积/检测等核心工序国产化率超 60%</td></tr>
+    <tr><td>2026 年底（预期）</td><td>建成投产；规划月产能 10 万片（百度百科口径）/ 15 万片（投中网口径），2027 年先达月产 5 万片后逐步爬坡</td></tr>
+    <tr><td>远期</td><td>三期之后计划再建两座新厂（据路透社报道）；三座新厂全部达产后月产能 50 万片，年产量折 128Gb 芯片约 60 亿颗</td></tr>
+  </table>
+
+  <h3 class="sub">扩产的资金与技术支撑</h3>
+  <ul class="bullet-list">
+    <li><b>IPO 募资 330 亿元</b>：其中 208 亿元投向量产线技术升级（推动现有产线向更高代次 3D NAND 演进），122 亿元投向研发平台建设；两个募投项目均位于武汉东湖高新区现有厂区。</li>
+    <li><b>持续高资本开支</b>：2023 年至 2026 年 3 月，购建长期资产累计现金支出约 963.90 亿元。</li>
+    <li><b>产品线延伸</b>：三期新厂区在延续 NAND 生产的同时，明确将半数产能转向 DRAM 制造，并联合国内存储封装企业协同研发、量产高带宽内存（HBM），服务 AI 计算需求。</li>
+    <li><b>技术迭代</b>：300 层以上产品进入量产准备，中长期攻坚 400 层以上堆叠；新一代产品已完成技术验证。</li>
+  </ul>
+  <div class="note-box">扩张节奏的产业意义：三期全面投产后，长江存储 NAND 年产量有望超越 SK 海力士和美光、跃居全球前三——产能扩张与其 2026Q2 已实现"出货容量全球第三"的市场地位互为支撑。</div>
+</div>
+
+<!-- ================= 5 校招情报 ================= -->
+<div class="section" id="s5">
+  <div class="section-title">五、2027 届校园招聘情报</div>
+  <h3 class="sub" style="margin-top:0">招聘规模：官方未公布，扩产逻辑指向明显扩招</h3>
+  <table>
+    <tr><th>口径</th><th>来源</th><th>数字</th></tr>
+    <tr><td>2027 届全球校招总人数</td><td>官方公告</td><td>尚未公布（截至 2026-08-31）</td></tr>
+    <tr><td>2026 届秋招（参照）</td><td>西北大学、长沙理工等高校就业网</td><td class="num">300 人</td></tr>
+    <tr><td>2026 届秋招（全年计划）</td><td>吉林大学就业网</td><td class="num">400 人（研究生 200 + 本科 200）</td></tr>
+    <tr><td>2027 届提前批（单条岗位）</td><td>华南理工就业网</td><td class="num">100 人（仅该条岗位，非总数）</td></tr>
+  </table>
+  <div class="note-box"><b>推断</b>：产能翻 2.5 倍（20 万→50 万片/月）＋三期工厂投产在即＋IPO 330 亿元到位，产线类岗位（设备/工艺/工程技术）是校招最大头，预计 2027 届秋招规模大概率超过上届的 300–400 人，落在 500 人上下甚至更高。最终以官方公告为准。</div>
+
+  <h3 class="sub">关键信息速览</h3>
+  <table class="kv">
+    <tr><td>面向人群</td><td>2027 届海内外本、硕、博毕业生（毕业时间 2027-01-01 至 2027-12-31）</td></tr>
+    <tr><td>岗位方向</td><td>八大类：电路设计 / 工艺技术 / 工程技术 / 系统解决方案 / 品质与可靠性 / 市场销售 / 信息技术 / 职能支持</td></tr>
+    <tr><td>工作地点</td><td>武汉（总部）、上海、北京、成都</td></tr>
+    <tr><td>网申入口</td><td class="num">ymtc.zhiye.com（每人最多投 3 个职位，先注册再投）</td></tr>
+    <tr><td>流程节奏</td><td>网申（即日起）→ 在线测评 → 校招面试（8 月下旬起）→ 录用沟通（10 月中旬）→ Offer/签约（10 月下旬）</td></tr>
+  </table>
+
+  <div class="flow">
+    <div class="flow-step"><b>网申投递</b><span>即日起开启</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>在线测评</b><span>网申后触发</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step now"><b>校招面试</b><span>8 月下旬起（进行中）</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>录用沟通</b><span>10 月中旬</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>Offer / 签约</b><span>10 月下旬</span></div>
+  </div>
+
+  <h3 class="sub">宣讲会行程</h3>
+  <table>
+    <tr><th>场次</th><th>时间</th><th>地点 / 状态</th></tr>
+    <tr><td>2027 届全球校招 · 北京大学站</td><td>2026-09-22（周二）18:30–20:30</td><td>英杰月光厅 ｜ <span class="pill warn">唯一已公布场次</span></td></tr>
+    <tr><td>2027 届正式批其余场次</td><td>9 月中旬起陆续公布</td><td>官方公告："秋招线下行程即将发布，敬请关注『长江存储招聘』公众号后续推文"</td></tr>
+    <tr><td>2027 届提前批（2026-06 已完成）</td><td>6 月 15 日–6 月 25 日</td><td>共 12 所：华科、武大、武汉理工、地大（武汉）、上交、复旦、浙大、中科大、清华、北大、哈工大、大连理工</td></tr>
+  </table>
+
+  <h3 class="sub">去年秋招/春招行程参照（预判今年正式批路线）</h3>
+  <table>
+    <tr><th>线路</th><th>主要站点</th></tr>
+    <tr><td>华中线</td><td>武汉（华科、武大、武汉理工）、长沙（中南、湖南大学）、郑州大学</td></tr>
+    <tr><td>华东线</td><td>上海（复旦、上交、上科大、中科院硅酸盐所）、合肥（中科大）、杭州（浙大）、苏州（南大）、厦门（厦大）、青岛（中国海洋）、宁波（中科院宁波材料所）</td></tr>
+    <tr><td>华北线</td><td>北京（清华、北大、国科大、中科院半导体所/微电子所）、天津（南开、天大）、太原（太原理工）、大连理工、东北大学、吉大、哈工大</td></tr>
+    <tr><td>西南西北线</td><td>西安（西交、西工大、西电、西北大学）、成都（电子科大、川大、西南交大）、重庆（重大）、兰州（兰大）、杨凌（西北农林）</td></tr>
+    <tr><td>华南线</td><td>广州（华南理工）、深圳（研究生专场）</td></tr>
+  </table>
+  <div class="note-box">2026 届春招共 30 余场线下活动，覆盖五大区域；预计 2027 届正式批将复刻该路线。建议：宣讲会落地前先完成网申（面试 8 月下旬已开始），并关注"长江存储招聘"公众号获取本校场次信息。</div>
+</div>
+
+<!-- ================= 6 风险 ================= -->
+<div class="section" id="s6">
+  <div class="section-title">六、风险提示</div>
+  <div class="risk-item high"><span class="pill risk">高</span>&nbsp;&nbsp;<b>实体清单与供应链：</b>2022 年底公司被列入美国商务部实体清单，先进设备与原材料的获取持续面临不确定性；三期国产化率已超 50%，但关键环节仍存断供风险。</div>
+  <div class="risk-item"><span class="pill warn">中高</span>&nbsp;&nbsp;<b>存储行业强周期：</b>闪存价格暴涨（2026 全球 NAND 产值预期 +281%）是当前业绩爆发的核心驱动，一旦供需逆转、价格下行，将对业绩形成直接冲击（2023 年毛利率曾低至 5.45%）。</div>
+  <div class="risk-item"><span class="pill warn">中</span>&nbsp;&nbsp;<b>巨额资本开支与折旧：</b>累计购建长期资产现金支出约 963.9 亿元，新产线投产将带来高额折旧摊销，持续吞噬利润；产能爬坡期盈利能力存在波动。</div>
+  <div class="risk-item"><span class="pill warn">中</span>&nbsp;&nbsp;<b>新业务执行风险：</b>三期半数产能转向 DRAM 并切入 HBM，属新工艺路线，良率、客户验证与爬坡节奏存在不确定性。</div>
+  <div class="risk-item"><span class="pill navy">提示</span>&nbsp;&nbsp;<b>信息口径：</b>现有产能存在"约 20 万片"（媒体）与"超 14 万片"（招股书披露）两种口径；三期规划产能 10–15 万片亦有差异，引用时须注明来源。</div>
+</div>
+
+<!-- ================= 7 结论 ================= -->
+<div class="section" id="s7">
+  <div class="section-title">七、结论：扩产与招聘的联动判断</div>
+  <div class="two-col">
+    <div>
+      <h3 class="sub" style="margin-top:0"><span class="pill ok">正面</span></h3>
+      <ul class="bullet-list pos">
+        <li>全球第三大 NAND 厂商（出货容量口径），2026Q1 净利 333.79 亿元、毛利率 76.77%，财务爆发力强。</li>
+        <li>三期工厂 2026 年底投产在即，加后续两座新厂，月产能 20 万→50 万片（2.5 倍），扩产确定性高、节奏清晰。</li>
+        <li>IPO 拟募 330 亿元（科创板最高），资金到位保障扩产与研发双线推进；国产设备与材料供应链自主化同步提升。</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub" style="margin-top:0"><span class="pill warn">关注</span></h3>
+      <ul class="bullet-list warn">
+        <li>业绩高度依赖闪存涨价周期，盈利弹性大、波动亦大；实体清单下供应链存在长期不确定性。</li>
+        <li>DRAM/HBM 新业务爬坡与良率是 2027 年关键变量；巨额折旧将压制报表利润。</li>
+        <li>校招总人数官方尚未公布，本报告为基于扩产逻辑与往届数据的推断。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="thesis-box">
+    <b>情报结论：</b>长江存储正处于"产能翻倍 + 上市融资 + 产品线延伸（DRAM/HBM）"的三重扩张期，对人才的需求量级同步放大。2027 届秋招规模大概率超过 2026 届的 300–400 人，预计 500 人上下；其中设备/工艺/工程技术类（对应产线扩张）为最大需求方向，电路设计/器件研发类（对应 300+ 层迭代与 DRAM 新业务）需求同步上升。宣讲会正式批行程将于 9 月中旬起陆续公布，已确认北大站 9 月 22 日，建议关注"长江存储招聘"公众号并尽早完成网申。
+  </div>
+</div>
+
+<!-- ================= 8 附录 ================= -->
+<div class="section" id="s8">
+  <div class="section-title">附录 · 数据来源与方法说明</div>
+  <table>
+    <tr><th>章节</th><th>数据来源</th></tr>
+    <tr><td>主体工商信息、三期公司登记</td><td>企查查 Connector（国家企业信用信息公示系统数据，登记类 T+0，2026-08-31 核验）</td></tr>
+    <tr><td>财务指标（2025 年报、2026Q1）</td><td>科创板招股书披露口径，转引自新浪财经、投中网等公开报道（2026-08）</td></tr>
+    <tr><td>全球 NAND 份额</td><td>Counterpoint Research 2026Q2 数据（转引自公开报道）</td></tr>
+    <tr><td>三期工厂建设进度</td><td>百度百科"长江存储三期工厂"词条、路透社报道（转引自公开报道）</td></tr>
+    <tr><td>校招人数、宣讲会行程、流程</td><td>高校就业网（北大、吉大、西北大学、华南理工、哈工大、武大等）＋长江存储官方招聘官网/公众号（2026-08-31 检索）</td></tr>
+  </table>
+  <div class="disclaimer-box" style="margin-top:14px">
+    本页为基于公开信息的产能扩张与校招情报整理，由 AI 辅助生成，仅供参考，不构成任何投资建议或求职决策依据。招聘人数与宣讲会行程存在媒体/高校站点口径差异（如 2026 届 300 人 vs 400 人、现有产能 20 万 vs 14 万片/月），最终以长江存储官方公告为准；本页已尽量标注各数据口径与来源。视觉设计参考 Equity-Research-Company 项目的机构研报模板（Apache 2.0）。
+  </div>
+</div>
+
+<footer>长江存储科技有限责任公司 · 产能扩张与校招情报 ｜ 报告日期 2026-08-31 ｜ 数据来源：企查查 / 高校就业网 / 官方公告 / 财经媒体 ｜ 非投资建议</footer>
+
+</div></div>
+
+<script>
+function toggleTheme(){
+  const html=document.documentElement;
+  html.dataset.theme = html.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+</body>
+</html>
