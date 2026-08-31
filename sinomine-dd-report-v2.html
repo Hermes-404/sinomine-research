@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中矿资源集团股份有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+/* ---------- charts ---------- */
+.chart-wrap{border:1px solid var(--border);border-radius:2px;padding:18px 20px 10px;margin-top:14px;background:var(--bg-card)}
+.chart-title{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px}
+[data-theme="dark"] .chart-title{color:#c9d6e8}
+.chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+.axis{stroke:var(--border);stroke-width:1}
+.gridline{stroke:var(--border-soft);stroke-width:1;stroke-dasharray:3,4}
+.axis-label{fill:var(--text-muted);font-size:10.5px;font-family:'Noto Sans SC',sans-serif}
+.bar-rev{fill:var(--primary)}
+[data-theme="dark"] .bar-rev{fill:#6ea3d8}
+.bar-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.line-np{stroke:var(--accent-red);stroke-width:2.5;fill:none}
+.np-dot{fill:var(--accent-red)}
+.np-label{fill:var(--accent-red);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.legend{display:flex;gap:22px;font-size:11.5px;color:var(--text-muted);margin-top:6px;padding:6px 0}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border-radius:1px}
+.sh-bar{fill:var(--accent-blue)}
+.sh-bar.top{fill:var(--primary)}
+[data-theme="dark"] .sh-bar.top{fill:#6ea3d8}
+.sh-label{fill:var(--text-secondary);font-size:11.5px;font-family:'Noto Sans SC',sans-serif}
+.sh-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div class="header-left">
+        <div class="company-exchange-badge">深圳证券交易所 · 主板 · 002738.SZ · 存续</div>
+        <div class="company-name-cn">中矿资源集团股份有限公司</div>
+        <div class="company-name-en">Sinomine Resource Group Co., Ltd. ｜ 统一社会信用代码 911100007002242324</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 明 / 暗 切换</button>
+        <div class="rating-badge neutral">周期底部 · 谨慎关注</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期 2026-08-30</span><span>数据来源 企查查（工商公示 T+0）</span><span>类型 尽职调查初筛</span><span>非投资建议</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar"><div class="nav-inner">
+  <a href="#s1">① 主体身份</a><a href="#s2">② 财务概览</a><a href="#s3">③ 股权与实控</a><a href="#s4">④ 治理团队</a><a href="#s5">⑤ 投资布局</a><a href="#s6">⑥ 沿革与担保</a><a href="#s7">⑦ 风险提示</a><a href="#s8">⑧ 尽调结论</a><a href="#s9">附录</a>
+</div></nav>
+
+<div class="wrap"><div class="container">
+
+<!-- ================= 1 主体身份 ================= -->
+<div class="section" id="s1">
+  <div class="section-title">一、主体身份与工商登记</div>
+  <table class="kv">
+    <tr><td>企业名称</td><td style="color:var(--text-primary);font-weight:600">中矿资源集团股份有限公司（曾用名：中矿资源勘探股份有限公司，2018-08 更名）</td></tr>
+    <tr><td>法定代表人</td><td>王平卫（董事长、总裁）</td></tr>
+    <tr><td>成立日期</td><td>1999-06-02 ｜ 营业期限 2008-02-04 至无固定期限</td></tr>
+    <tr><td>注册资本 / 实缴</td><td class="num">72,149.1877 万元 / 72,149.1877 万元（全额实缴）</td></tr>
+    <tr><td>企业类型</td><td>其他股份有限公司（上市）· 一般纳税人 · 进出口企业</td></tr>
+    <tr><td>注册地址</td><td>北京市丰台区金泽路161号院1号楼-4至43层101内35层08（锐中心39层）</td></tr>
+    <tr><td>登记机关</td><td>北京市丰台区市场监督管理局（最近核准 2025-05-28）</td></tr>
+    <tr><td>主营业务</td><td>锂电新能源原料开发与利用、稀有轻金属（铯、铷）资源开发与利用、固体矿产勘查与矿权开发；业务覆盖全球 40 余个国家和地区</td></tr>
+    <tr><td>上市信息</td><td class="num">2014-12-30 上市 ｜ 总市值 389.71 亿元 ｜ 总股本 7.29 亿股 ｜ 市净率 2.94 ｜ EPS 1.5402</td></tr>
+    <tr><td>联系方式</td><td>010-88588188 ｜ zkzytf@sinomine.cn ｜ www.sinomine.cn</td></tr>
+  </table>
+  <div class="note-box">母公司本部为控股平台（参保 91 人），经营实体主要在下属子公司。2018 年由"勘探股份"更名为"集团股份"并扩充经营范围，标志由地质勘查服务商向矿产资源开发集团转型。</div>
+</div>
+
+<!-- ================= 2 财务 ================= -->
+<div class="section" id="s2">
+  <div class="section-title">二、财务概览（合并报表口径）</div>
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 营业总收入</div><div class="kpi-value num">65.45 亿</div><div class="kpi-delta up">同比 +22.02% ▲</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">2025 净利润</div><div class="kpi-value num">4.59 亿</div><div class="kpi-delta down">较 2023 年 -79.1%</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">加权 ROE</div><div class="kpi-value num">3.77%</div><div class="kpi-delta down">三年 20.95% → 3.77%</div></div>
+    <div class="kpi-card"><div class="kpi-label">资产负债率</div><div class="kpi-value num">31.40%</div><div class="kpi-delta">流动比率 2.89 ｜ 速动 2.22</div></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">营收与净利润趋势（2023–2025 年报）</div>
+    <div class="chart-sub">单位：亿元 ｜ 柱状为营业总收入，折线为净利润 ｜ 注：数值涨跌配色遵循 A 股惯例（红涨绿跌）</div>
+    <svg viewBox="0 0 660 300" style="width:100%;height:auto" role="img" aria-label="营收与净利润趋势图">
+      <!-- gridlines: 0,20,40,60 亿 -->
+      <line class="gridline" x1="60" y1="250" x2="620" y2="250"/>
+      <line class="gridline" x1="60" y1="181.7" x2="620" y2="181.7"/>
+      <line class="gridline" x1="60" y1="113.3" x2="620" y2="113.3"/>
+      <line class="gridline" x1="60" y1="45" x2="620" y2="45"/>
+      <text class="axis-label" x="52" y="254" text-anchor="end">0</text>
+      <text class="axis-label" x="52" y="185" text-anchor="end">20</text>
+      <text class="axis-label" x="52" y="117" text-anchor="end">40</text>
+      <text class="axis-label" x="52" y="49" text-anchor="end">60</text>
+      <!-- bars: scale 68.2px per 20亿 -->
+      <rect class="bar-rev" x="110" y="43.7" width="80" height="206.3" rx="1"/>
+      <rect class="bar-rev" x="290" y="66" width="80" height="184" rx="1"/>
+      <rect class="bar-rev" x="470" y="25.6" width="80" height="224.4" rx="1"/>
+      <text class="bar-value" x="150" y="37" text-anchor="middle">60.13</text>
+      <text class="bar-value" x="330" y="59" text-anchor="middle">53.64</text>
+      <text class="bar-value" x="510" y="19" text-anchor="middle">65.45</text>
+      <!-- net profit line: 22.02,7.54,4.59 -->
+      <polyline class="line-np" points="150,174.7 330,224.2 510,234.4"/>
+      <circle class="np-dot" cx="150" cy="174.7" r="4.5"/>
+      <circle class="np-dot" cx="330" cy="224.2" r="4.5"/>
+      <circle class="np-dot" cx="510" cy="234.4" r="4.5"/>
+      <text class="np-label" x="150" y="162" text-anchor="middle">22.02</text>
+      <text class="np-label" x="330" y="212" text-anchor="middle">7.54</text>
+      <text class="np-label" x="510" y="222" text-anchor="middle">4.59</text>
+      <!-- x labels -->
+      <text class="axis-label" x="150" y="270" text-anchor="middle">2023 年报</text>
+      <text class="axis-label" x="330" y="270" text-anchor="middle">2024 年报</text>
+      <text class="axis-label" x="510" y="270" text-anchor="middle">2025 年报</text>
+      <line class="axis" x1="60" y1="250" x2="620" y2="250"/>
+    </svg>
+    <div class="legend">
+      <span><i style="background:var(--primary)"></i>营业总收入（亿元）</span>
+      <span><i style="background:var(--accent-red)"></i>净利润（亿元）</span>
+      <span><i style="background:var(--border-soft)"></i>网格线（每 20 亿元）</span>
+    </div>
+  </div>
+
+  <h3 class="sub">三年核心指标对比</h3>
+  <table>
+    <tr><th>指标</th><th>2023 年报</th><th>2024 年报</th><th>2025 年报</th><th>趋势解读</th></tr>
+    <tr><td>营业总收入</td><td class="num">60.13 亿元</td><td class="num">53.64 亿元</td><td class="num">65.45 亿元</td><td>2025 年重回增长 <span class="up">+22.02%</span></td></tr>
+    <tr><td>净利润</td><td class="num">22.02 亿元</td><td class="num">7.54 亿元</td><td class="num">4.59 亿元</td><td>锂价下行，连续回落</td></tr>
+    <tr><td>毛利率 / 净利率</td><td class="num">54.81% / 36.62%</td><td class="num">32.75% / 14.05%</td><td class="num">25.45% / 7.02%</td><td>盈利空间被周期压缩</td></tr>
+    <tr><td>加权 ROE</td><td class="num">20.95%</td><td class="num">6.25%</td><td class="num">3.77%</td><td>资本回报大幅走低</td></tr>
+    <tr><td>总资产 / 净资产</td><td class="num">158.85 / 122.23 亿</td><td class="num">171.93 / 124.88 亿</td><td class="num">182.04 / 124.88 亿</td><td>资产持续扩张</td></tr>
+    <tr><td>资产负债率</td><td class="num">23.05%</td><td class="num">27.36%</td><td class="num">31.40%</td><td>杠杆温和上升</td></tr>
+    <tr><td>经营性现金流</td><td class="num">30.02 亿元</td><td class="num">5.00 亿元</td><td class="num">16.02 亿元</td><td>2025 年明显修复</td></tr>
+    <tr><td>应收账款周转天数</td><td class="num">25.07 天</td><td class="num">38.59 天</td><td class="num">33.12 天</td><td>回款效率尚可</td></tr>
+  </table>
+  <div class="note-box">典型的锂价周期冲击样本：2023 年锂价高位净利率 36.62%，其后锂价下行导致净利润三年从 22.02 亿降至 4.59 亿元。但 2025 年营收恢复正增长、经营现金流 16.02 亿元、流动比率 2.89，底盘依然扎实。母公司口径 2025 年净利润 15.93 亿元（主要为子公司分红/权益性收益），2024 年母公司口径曾亏损 0.75 亿元——工商年报为母公司口径，与合并报表差异大，引用时须区分。</div>
+</div>
+
+<!-- ================= 3 股权 ================= -->
+<div class="section" id="s3">
+  <div class="section-title">三、股权结构与实际控制人</div>
+  <div class="chart-wrap" style="margin-top:0">
+    <div class="chart-title">前十大直接股东持股比例（一层持股）</div>
+    <div class="chart-sub">数据截至企查查最新公示 ｜ 单位：%</div>
+    <svg viewBox="0 0 660 368" style="width:100%;height:auto" role="img" aria-label="前十大股东持股条形图">
+      <!-- rows: scale 460px per 14% ; y start 18, step 35 -->
+      <rect class="sh-bar top" x="150" y="10"  width="442.6" height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="45"  width="178.7" height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="80"  width="40.7"  height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="115" width="34.5"  height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="150" width="33.2"  height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="185" width="30.9"  height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="220" width="23"    height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="255" width="19"    height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="290" width="18.7"  height="20" rx="1"/>
+      <rect class="sh-bar"      x="150" y="325" width="16.1"  height="20" rx="1"/>
+      <text class="sh-label" x="142" y="25"  text-anchor="end">中色矿业集团</text>
+      <text class="sh-label" x="142" y="60"  text-anchor="end">香港中央结算（北向）</text>
+      <text class="sh-label" x="142" y="95"  text-anchor="end">王平卫（董事长）</text>
+      <text class="sh-label" x="142" y="130" text-anchor="end">南方有色 ETF</text>
+      <text class="sh-label" x="142" y="165" text-anchor="end">泰信发展主题</text>
+      <text class="sh-label" x="142" y="200" text-anchor="end">魏巍（自然人）</text>
+      <text class="sh-label" x="142" y="235" text-anchor="end">高盛国际自有资金</text>
+      <text class="sh-label" x="142" y="270" text-anchor="end">社保基金四一八组合</text>
+      <text class="sh-label" x="142" y="305" text-anchor="end">嘉实新能源新材料</text>
+      <text class="sh-label" x="142" y="340" text-anchor="end">人寿传统普通保险</text>
+      <text class="sh-value" x="600" y="25"  text-anchor="start">13.47</text>
+      <text class="sh-value" x="336" y="60"  text-anchor="start">5.44</text>
+      <text class="sh-value" x="198" y="95"  text-anchor="start">1.24</text>
+      <text class="sh-value" x="192" y="130" text-anchor="start">1.05</text>
+      <text class="sh-value" x="191" y="165" text-anchor="start">1.01</text>
+      <text class="sh-value" x="188" y="200" text-anchor="start">0.94</text>
+      <text class="sh-value" x="180" y="235" text-anchor="start">0.70</text>
+      <text class="sh-value" x="176" y="270" text-anchor="start">0.58</text>
+      <text class="sh-value" x="176" y="305" text-anchor="start">0.57</text>
+      <text class="sh-value" x="173" y="340" text-anchor="start">0.49</text>
+      <line class="axis" x1="150" y1="352" x2="620" y2="352"/>
+    </svg>
+  </div>
+
+  <h3 class="sub">实际控制人（股权穿透后）—— 7 名自然人共同控制</h3>
+  <table>
+    <tr><th>实控人</th><th>穿透总持股</th><th>任职 / 备注</th></tr>
+    <tr><td>王平卫</td><td class="num">2.9884%</td><td>法定代表人、董事长、总裁；直接持股 1.24%</td></tr>
+    <tr><td>刘新国</td><td class="num">2.2172%</td><td>前董事长（2011 年工商记录）</td></tr>
+    <tr><td>欧学钢</td><td class="num">1.8036%</td><td>非独立董事</td></tr>
+    <tr><td>吴志华</td><td class="num">1.7484%</td><td>非独立董事</td></tr>
+    <tr><td>魏云峰</td><td class="num">1.7484%</td><td>董事</td></tr>
+    <tr><td>汪芳淼</td><td class="num">1.7484%</td><td>董事</td></tr>
+    <tr><td>陈海舟</td><td class="num">1.7484%</td><td>发起股东之一</td></tr>
+  </table>
+  <div class="note-box">股权高度分散，第一大股东中色矿业集团仅 13.47%，公司无控股股东。AML 受益所有人核查口径与穿透结果一致（7 名自然人，受益类型均为"单独或联合进行实际控制"）。共同实控人多为创业元老与管理层，团队稳定；但穿透持股比例均较低，需关注一致行动安排的存续状态。机构股东（公募、社保、险资、北向）合计占比可观，机构关注度较好。</div>
+</div>
+
+<!-- ================= 4 治理 ================= -->
+<div class="section" id="s4">
+  <div class="section-title">四、治理与管理团队</div>
+  <table>
+    <tr><th>姓名</th><th>职务</th><th>本届任期</th><th>持股</th></tr>
+    <tr><td>王平卫</td><td>董事长、非独立董事、总裁</td><td>2014-04 至今</td><td class="num">1.24%</td></tr>
+    <tr><td>张津伟</td><td>副总裁、董事会秘书</td><td>2017-06 至今</td><td class="num">0.23%</td></tr>
+    <tr><td>姜延龙</td><td>副总裁、财务总监</td><td>2023-05 至今</td><td class="num">0.0288%</td></tr>
+    <tr><td>欧学钢 / 吴志华</td><td>非独立董事</td><td>2023-05 起</td><td class="num">0.058% / 0.0484%</td></tr>
+    <tr><td>钱秀娟 / 张银芳</td><td>非独立董事</td><td>2026-05 起</td><td>—</td></tr>
+    <tr><td>张达 / 宋顺林 / 何燎原</td><td>独立董事</td><td>2026-05 起</td><td>—</td></tr>
+    <tr><td>谢添 / 王治伟 / 曾向阳</td><td>副总裁</td><td>2026-05 起</td><td>—</td></tr>
+    <tr><td>张晓刚</td><td>内部审计部门负责人</td><td>2023-05 至今</td><td>—</td></tr>
+  </table>
+  <div class="note-box">治理架构完整（独董 3 名、董秘、财务总监、内审负责人齐备）。2026 年 5 月完成董事会换届，新增 3 名副总裁，高管团队新老交替幅度较大，需关注管理层衔接的稳定性。</div>
+</div>
+
+<!-- ================= 5 对外投资 ================= -->
+<div class="section" id="s5">
+  <div class="section-title">五、对外投资与经营布局（共 25 条记录）</div>
+  <h3 class="sub" style="margin-top:0">核心存续子公司（节选）</h3>
+  <table>
+    <tr><th>被投资企业</th><th>持股</th><th>认缴出资</th><th>定位</th></tr>
+    <tr><td>中矿资源（江西）新材料有限公司</td><td class="num">100%</td><td class="num">10,000 万元</td><td>高纯锂盐主力基地（新余 3.5 万吨锂盐项目）</td></tr>
+    <tr><td>中矿（天津）海外矿业服务有限公司</td><td class="num">100%</td><td class="num">10,000 万元</td><td>海外矿业服务</td></tr>
+    <tr><td>中礦國際勘探（香港）控股有限公司</td><td class="num">100%</td><td class="num">3,546.49 万股</td><td>海外资产持股平台</td></tr>
+    <tr><td>中礦（香港）稀有金屬資源有限公司</td><td class="num">100%</td><td>—</td><td>铯铷业务（境外银团融资主体）</td></tr>
+    <tr><td>北京中矿国际贸易有限公司</td><td class="num">100%</td><td class="num">4,200 万元</td><td>国际贸易</td></tr>
+    <tr><td>北京中矿资源地质勘查有限公司</td><td class="num">100%</td><td class="num">3,000 万元</td><td>地勘主业平台</td></tr>
+    <tr><td>横琴国际贸易 / 横琴供应链（2025 新设）</td><td class="num">100%</td><td class="num">5,000 / 2,000 万元</td><td>横琴跨境贸易布局</td></tr>
+    <tr><td>中韵矿业发展有限公司</td><td class="num">55%</td><td class="num">3,025 万元</td><td>控股</td></tr>
+    <tr><td>贵州磷化中矿材料有限责任公司</td><td class="num">35%</td><td class="num">3,500 万元</td><td>2025 年与贵州磷化合资</td></tr>
+    <tr><td>中矿资源（海南）锂业有限责任公司</td><td class="num">12.05%</td><td class="num">5,000 万元</td><td>锂业投资（融资担保主体之一）</td></tr>
+  </table>
+  <h3 class="sub">近年布局变动</h3>
+  <ul class="bullet-list warn">
+    <li>2025 年新设：横琴国际贸易、横琴供应链（均 100%）、贵州磷化中矿材料（35%）；注销广东横琴穆西纳铜业（80%）。</li>
+    <li>已注销主体 6 家（宁波雄狮、中矿开源投资、北京凯富源等），多为贸易/投资类壳体，清理节奏正常。</li>
+    <li>战略动向：津巴布韦年产 10 万吨硫酸锂项目拟通过定增募资推进；已出售非洲雄狮矿业股权（预计带来近千万美元净利）。</li>
+  </ul>
+</div>
+
+<!-- ================= 6 沿革与担保 ================= -->
+<div class="section" id="s6">
+  <div class="section-title">六、历史沿革、对外担保与合规</div>
+  <h3 class="sub" style="margin-top:0">重大历史变更（共 48 条记录要点）</h3>
+  <ul class="bullet-list">
+    <li>2014-02 企业类型变更为上市，2014-12-30 深交所上市；脱胎于有色地质系统改制，股东由数十名自然人与多家省级有色地质局构成。</li>
+    <li>2015–2023 注册资本由 12,000 万元增至 72,981.17 万元（多轮定增/送转，2023-10 一次性增加 25,159.50 万元）。</li>
+    <li>2018-08 更名"中矿资源勘探股份有限公司"→"中矿资源集团股份有限公司"，经营范围同步扩充。</li>
+    <li>2024-12 注册资本减少 831.98 万元至 72,149.19 万元（符合回购注销股份的典型特征，建议核验回购公告）。</li>
+    <li>2025-05 办公地址迁至丰台区金泽路 161 号锐中心。</li>
+    <li>2023–2025 三年年报均按时公示，社保五险正常缴纳（2025 年 91 人），无欠缴公示记录。</li>
+  </ul>
+  <h3 class="sub">对外担保（2025 年报披露，均为对合并范围内子公司的连带责任保证）</h3>
+  <table>
+    <tr><th>债权人</th><th>被担保人</th><th>主债权数额</th><th>债务履行期</th></tr>
+    <tr><td>中信银行(国际)+汇丰联席境外银团</td><td>中矿(香港)稀有金属资源</td><td class="num">150,000 万元</td><td>2025-07 至 2028-07</td></tr>
+    <tr><td>远东宏信(天津)融资租赁</td><td>中矿资源(江西)锂业</td><td class="num">22,000 万元</td><td>2025-09 至 2027-09</td></tr>
+    <tr><td>招商银行</td><td>中矿资源(海南)锂业</td><td class="num">20,000 万元</td><td>2024-07 至 2027-07</td></tr>
+    <tr><td>华夏银行</td><td>中矿资源(海南)锂业</td><td class="num">10,000 万元</td><td>2024-12 至 2027-12</td></tr>
+  </table>
+  <div class="note-box">存续担保合计约 20.2 亿元，占 2025 年末净资产约 16%。2023 年报曾披露"无对外担保"，担保规模系 2024 年后随扩产融资上升，属集团正常融资安排，但需持续跟踪或有负债变化。</div>
+</div>
+
+<!-- ================= 7 风险 ================= -->
+<div class="section" id="s7">
+  <div class="section-title">七、风险提示</div>
+  <div class="risk-item high"><span class="pill risk">高</span>&nbsp;&nbsp;<b>行业周期风险：</b>锂价下行导致净利润三年从 22.02 亿降至 4.59 亿元，毛利率 54.81%→25.45%。业绩与锂/铯铷价格高度相关，后续弹性取决于锂价修复进度。</div>
+  <div class="risk-item"><span class="pill warn">中高</span>&nbsp;&nbsp;<b>海外经营风险：</b>业务覆盖 40 余国，津巴布韦 10 万吨硫酸锂等重点项目位于非洲，面临地缘政治、汇率、社区与矿权政策风险。</div>
+  <div class="risk-item"><span class="pill warn">中</span>&nbsp;&nbsp;<b>杠杆与担保上升：</b>资产负债率由 23.05% 升至 31.40%，存续担保约 20.2 亿元；整体仍稳健，但扩张期资本开支值得跟踪。</div>
+  <div class="risk-item"><span class="pill warn">中低</span>&nbsp;&nbsp;<b>治理交接风险：</b>无控股股东、7 名自然人共同实控（穿透持股均较低），2026 年董事会大换届；一致行动安排与管理层平稳过渡是关键。</div>
+  <div class="risk-item"><span class="pill navy">提示</span>&nbsp;&nbsp;<b>信息口径：</b>工商年报的资产/利润为母公司口径，与合并报表差异大（2025 年母公司净利 15.93 亿 vs 合并 4.59 亿），引用数据须区分口径。</div>
+</div>
+
+<!-- ================= 8 结论 ================= -->
+<div class="section" id="s8">
+  <div class="section-title">八、尽调结论</div>
+  <div class="two-col">
+    <div>
+      <h3 class="sub" style="margin-top:0"><span class="pill ok">正面</span></h3>
+      <ul class="bullet-list pos">
+        <li>上市 11 年的深市主板公司，主体资格、年报公示、社保缴纳、治理架构均合规完备；实缴资本全额到位。</li>
+        <li>财务底盘扎实：总资产 182 亿元、净资产 124.9 亿元、流动比率 2.89，2025 年经营现金流 16.02 亿元为正。</li>
+        <li>机构股东阵容（公募/社保/险资/北向）体现市场认可度；铯铷业务具全球寡头格局，是利润稳定器。</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub" style="margin-top:0"><span class="pill warn">关注</span></h3>
+      <ul class="bullet-list warn">
+        <li>盈利能力随锂价深度回落（ROE 20.95%→3.77%），锂盐业务弹性大、波动亦大。</li>
+        <li>担保与负债随津巴布韦等扩产项目上升；海外项目执行进度是 2026–2027 年关键变量。</li>
+        <li>2026 年董事会与管理层大换届，需观察治理衔接。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="thesis-box">
+    <b>尽调结论：</b>资质优良、经营正常、处于周期底部的锂业白马。主体合规性无瑕疵，财务稳健但盈利深度承压于锂价周期；核心变量在于锂价修复节奏与津巴布韦硫酸锂项目的落地执行。如用于投资决策，建议进一步核查：① 定增募投项目进展与锂价敏感性测算；② 一致行动协议/共同控制约定文本；③ 境外子公司（香港、津巴布韦）审计报表与矿权证照；④ 司法诉讼、行政处罚等风险维度（本报告未覆盖）。
+  </div>
+</div>
+
+<!-- ================= 附录 ================= -->
+<div class="section" id="s9">
+  <div class="section-title">附录 · 数据来源与方法说明</div>
+  <table>
+    <tr><th>章节</th><th>数据来源</th></tr>
+    <tr><td>工商登记 / 股东 / 实控人 / 高管 / 对外投资 / 变更记录 / 年报</td><td>企查查 Connector（国家企业信用信息公示系统数据，登记类 T+0）</td></tr>
+    <tr><td>上市信息（市值、股本、估值）</td><td>企查查（交易所公开数据）</td></tr>
+    <tr><td>财务三年数据</td><td>企查查财务数据接口（企业公示年报数据）</td></tr>
+    <tr><td>公司简介与业务动态描述</td><td>企查查企业简介（企查查编辑整理，未逐项独立核实）</td></tr>
+  </table>
+  <div class="disclaimer-box" style="margin-top:14px">
+    本报告为基于公开工商信息的尽职调查初筛，由 AI 辅助生成，仅供参考，不构成任何投资建议或交易依据。工商登记数据实时同步（T+0）；财务数据与年报依赖企业公示周期，可能存在滞后。报告中的趋势解读与风险评级行为分析性内容，非数据查询结果。视觉设计参考 Equity-Research-Company 项目的机构研报模板（Apache 2.0）。
+  </div>
+</div>
+
+<footer>中矿资源集团股份有限公司 · 尽职调查报告 ｜ 报告日期 2026-08-30 ｜ 数据来源：企查查 ｜ 非投资建议</footer>
+
+</div></div>
+
+<script>
+function toggleTheme(){
+  const html=document.documentElement;
+  html.dataset.theme = html.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+</body>
+</html>
