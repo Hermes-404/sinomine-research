@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赣锋锂业 · 尽职调查报告 V1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">002460.SZ · 深交所主板 ｜ 01772.HK · 港交所主板</span>
+        <div class="company-name-cn">江西赣锋锂业集团股份有限公司</div>
+        <div class="company-name-en">Ganfeng Lithium Group Co., Ltd.（企业简称：赣锋锂业）</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无投资评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05（企查查 T+0；中报为 2026-08-29 披露版本）</span>
+      <span>报告编号：GFXY-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    赣锋锂业是李良彬（创始人、实控人，直接持股 18.06%）控股的民企锂生态龙头（A+H 上市）：锂价周期的教科书样本——净利 45.75 亿（2023）→ -26.30 亿（2024）→ 12.63 亿（2025 扭亏，但扣非仍 -3.85 亿）。2026H1 迎来强反转：营收 230.97 亿（+175.75%，半年即超 2025 全年营收）、归母净利 42.57 亿（同比扭亏，上年同期 -5.31 亿）、锂系列产品收入 141.97 亿（+198.53%、毛利率 42.44%，同比 +34pct）、锂电池收入 78.31 亿（+163.22%，接近满产）——"资源+电池"双轮驱动。资源端"非洲+南美+澳洲"三洲布局：马里 Goulamina（65%，一期 50.6 万吨锂精矿 2025 投产、2026H1 产 23.38 万吨接近满产）、阿根廷 Cauchari-Olaroz（46.67%+控制权，全球最大盐湖提锂项目之一，资源量约 3,770 万吨 LCE，二期入选阿根廷 RIGI 计划）、澳洲 Mt Marion（50%，"露天+地下"升级后 60 万吨/年，2028 年前完成）；储能第二曲线放量（南昌 588Ah 大电芯 Q3 爬坡、东莞 10GWh 基地），固态电池 500Wh/kg 级小批量量产卡位下一代。需重点关注：①对外担保 507 笔为十家之最 + 股权质押 115 条（或有负债与质押风险穿透）；②资产负债率三年 42.95%→54.23% 抬升、有息负债 338.43 亿，2026H2-2027 资本开支上行；③锂价强周期（2026H1 先扬后抑、5 月高点后快速回调）；④2025 年扣非净利仍为负的盈利质量瑕疵。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 营业收入（合并口径）</div><div class="kpi-value num">230.82 亿</div><div class="kpi-delta up">▲ +22.08%（企查查口径；2024：189.06 亿）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 归母净利润</div><div class="kpi-value num">42.57 亿</div><div class="kpi-delta up">▲ 同比扭亏（上年同期 -5.31 亿，+901.36%）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 营业收入</div><div class="kpi-value num">230.97 亿</div><div class="kpi-delta up">▲ +175.75%（半年营收已超 2025 全年）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 锂系列产品毛利率</div><div class="kpi-value num">42.44%</div><div class="kpi-delta up">▲ 较上年同期 +34pct（收入 141.97 亿，+198.53%）</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>江西赣锋锂业集团股份有限公司（企业简称：赣锋锂业；2022-09-30 由"江西赣锋锂业股份有限公司"更名）</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">91360500716575125F</td></tr>
+      <tr><td>成立日期</td><td class="num">2000-03-02（2010-08 A 股上市；2018-10 H 股上市）</td></tr>
+      <tr><td>注册资本</td><td class="num">209,669.4404 万元（2026-04-07 由 201,716.7779 万元增至现额，+7,952.66 万元；此前 2024-08-20 曾大额增资 +57,968.89 万元，H 股发行口径）</td></tr>
+      <tr><td>法定代表人</td><td>李良彬（创始人、董事长、实际控制人）</td></tr>
+      <tr><td>注册地址</td><td>江西省新余市渝水区龙腾路</td></tr>
+      <tr><td>企业类型</td><td>其他股份有限公司（上市）</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">存续（在营）</span>（营业期限：2026-05-22 至长期——2026-06-22 核准变更，原期限届满日续期）</td></tr>
+      <tr><td>国标行业</td><td>其他常用有色金属冶炼（锂系列产品研发生产、锂电池及储能、矿产投资经营等一体化布局）</td></tr>
+      <tr><td>参保人数</td><td class="num">1,413 人（母公司口径，企查查 2026-09-05；集团合并员工数以年报/ESG 披露为准，本次未取数）</td></tr>
+      <tr><td>上市信息</td><td>A 股 002460.SZ（2010 年）+ H 股 01772.HK（2018 年）——A+H 两地上市</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年报</th><th>2024 年报</th><th>2025 年报</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业总收入</td><td class="num">329.72 亿</td><td class="num">189.06 亿</td><td class="num">230.82 亿</td><td>企查查年报，合并报表——锂价下行致 2024 腰斩</td></tr>
+        <tr><td>营收同比</td><td class="num down">-21.16%</td><td class="num down">-42.66%</td><td class="num up">+22.08%</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>净利润（含少数股东）</td><td class="num">45.75 亿</td><td class="num down">-26.30 亿</td><td class="num">12.63 亿</td><td>企查查年报，合并口径——周期底部亏损</td></tr>
+        <tr><td>归母净利润</td><td class="num">—（未取数）</td><td class="num down">-20.74 亿</td><td class="num">16.13 亿（+177.77%）</td><td>2024/2025 为财报披露口径</td></tr>
+        <tr><td>扣非归母净利润</td><td class="num">—</td><td class="num down">-8.87 亿</td><td class="num down">-3.85 亿</td><td>财报披露口径——2025 归母转正但扣非仍为负，盈利质量瑕疵</td></tr>
+        <tr><td>加权 ROE</td><td class="num">10.84%</td><td class="num down">-4.60%</td><td class="num">3.80%</td><td>企查查年报</td></tr>
+        <tr><td>毛利率</td><td class="num">13.68%</td><td class="num">10.82%</td><td class="num">15.72%</td><td>企查查年报</td></tr>
+        <tr><td>资产负债率</td><td class="num">42.95%</td><td class="num">52.80%</td><td class="num">54.23%</td><td>企查查年报——三年抬升 11.28pct；2025 年末有息负债 338.43 亿（有息负债率 55.10%）</td></tr>
+        <tr><td>经营现金流净额</td><td class="num">1.46 亿</td><td class="num">51.61 亿</td><td class="num">29.45 亿</td><td>企查查年报——亏损年份现金流反而充裕（去库存回款）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      最新动态（2026 年半年报，公司 2026-08-29 披露）：2026H1 营业收入 230.97 亿元（<span class="up">+175.75%</span>）、归母净利润 42.57 亿元（同比扭亏为盈，上年同期 -5.31 亿元，增幅 901.36%）、扣非归母净利 38.48 亿元（<span class="up">+521.56%</span>）；基本每股收益 2.04 元、加权平均 ROE 9.09%。分业务：锂系列产品收入 141.97 亿元（<span class="up">+198.53%</span>）、毛利率 42.44%（同比 +34pct，盈利改善核心）；锂电池系列产品收入 78.31 亿元（<span class="up">+163.22%</span>）、产能接近满产。单 Q2 营收 139.01 亿元（环比 +51.1%）、归母净利 24.20 亿元（Q1 为 18.37 亿元，环比续增）、Q2 销售毛利率 32.69%。H 股口径（01772.HK）：营收 263.47 亿港元、归母净利 49.02 亿港元。业绩驱动（公司业绩说明会口径，2026-08-31）：下游需求回暖（储能及新能源车出口爆发）、锂盐价格同比显著上涨、锂电池满产、上游资源项目投产爬坡带动成本优化与费用摊薄。
+    </div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究（锂 · 资源-锂盐-电池一体化）</div>
+    <h3 class="sub">行业景气与价格指标</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>电池级碳酸锂价格（2026H1 走势）</td><td class="num">先扬后抑：年初稳步上行 → 5 月上半年高点 → 快速回落</td><td class="num">中枢同比大幅抬升；半年末较 5 月高点明显回落</td><td>公司中报 + 腾讯新闻（2026-09-01）</td></tr>
+        <tr><td>锂价支撑位研判</td><td class="num">15 万元/吨附近</td><td class="num">矿价高企致锂盐厂倒算亏损，下行空间有限（调研转述口径）</td><td>投资者调研纪要（2026-06）</td></tr>
+        <tr><td>行业库存水平</td><td class="num">极低</td><td class="num">港口锂矿库存持续下降、行业周转天数处低位</td><td>公司投资者关系活动记录（2026-06-08）</td></tr>
+        <tr><td>供给端格局</td><td class="num">新增供给以存量爬坡/复产为主</td><td class="num">过去 2-3 年低锂价致资本开支匮乏；澳洲矿山复产预计延至 2026Q4-2027 年初；智利出口下滑</td><td>公司 IR 记录 + 调研转述</td></tr>
+        <tr><td>需求端结构</td><td class="num">储能 + 动力双旺</td><td class="num">储能电芯满产、海外客户 2027 年需求预计翻倍；新能源车出口强劲、单车带电量提升</td><td>公司 IR 记录（2026-06-08）</td></tr>
+        <tr><td>回收业务供给占比</td><td class="num">约 7-8%（2025 年）</td><td class="num">回收渠道全球化打通为核心难点，短期体量有限</td><td>投资者调研纪要（2026-06）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置（全球锂生态龙头 · 全产业链一体化）</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>"资源-锂盐-电池-回收"全产业链</b>：上游三洲资源自给率持续提升（低成本盐湖+优质锂辉石优先），中游锂盐产能全球领先（新余高纯碳酸锂 3 万吨/年、氟化锂 2.5 万吨/年试产），下游锂电池聚焦储能（588Ah/648Ah 大电芯行业标杆产品），回收业务补充资源来源。</li>
+        <li><b>资源成本阶梯</b>：盐湖现金成本最优（Cauchari-Olaroz、PPGS、Mariana）→ 优质锂辉石（Goulamina、Mt Marion）→ 锂云母（现金成本与隐性环保成本偏高，开发节奏取决于锂价）——公司开发优先级明确。</li>
+        <li><b>金属锂+固态电池卡位</b>：依托 Mariana 氯化锂的金属锂成本优势布局金属锂负极；固态电池 500Wh/kg 级 10Ah 产品小批量量产、400Wh/kg 循环 1,100 次工程验证；商业化落地聚焦低空飞行与机器人场景。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>储能第二曲线</b>：2026H1 锂电池收入 78.31 亿（+163.22%）接近满产满销；南昌 10GWh 新产能 588Ah 产线 2026Q3 爬坡、648Ah 加速推进；东莞 10GWh 储能基地 2026 年全面投产（达产年产值约 110 亿元，媒体口径）。</li>
+        <li><b>协同生态模式</b>：为阳光电源等系统集成商供应电芯、不自建集成避免与客户竞争；参股重庆瑞驰汽车 22.03%（整车）、广汽埃安 0.15%——产业链生态化投资布局。</li>
+        <li><b>多元化资源补充</b>：刚果（布）钾肥项目（锂伴生，预计 2027 年前投产）+ 磷矿项目（储能/磷酸铁锂原料保供，公司 IR 口径）。</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构与市场观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/渠道</th><th>日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>公司业绩说明会：锂价由供需与库存博弈决定，短期旺季订单饱满、行业库存极低，锂价基本面获支撑；公司自身锂产品库存整体偏低，将维持安全库存水平</td><td>公司管理层（业绩说明会）</td><td class="num">2026-08-31</td><td>中国证券网</td></tr>
+        <tr><td>正面解读："锂王"净利增长 9 倍，资源自给率与储能第二增长曲线构筑壁垒；Goulamina 接近满产、Mt Marion 升级、C-O 二期入选 RIGI——低成本资源放量支撑增长</td><td>腾讯新闻 / 雪球调研转述</td><td class="num">2026-09-01/06</td><td>公开报道</td></tr>
+        <tr><td>谨慎视角：锂价或跌回 10 万的质疑——2026H1 锂价完整走完"上涨到回调"周期，5 月冲高后快速回落敲响警钟；能否稳住"好业绩"存不确定性，锂行业强周期属性是常态而非例外</td><td>腾讯新闻 / 今日头条财经自媒体</td><td class="num">2026-09</td><td>公开报道（多空兼顾引用）</td></tr>
+        <tr><td>SMM 分析：H1 扭亏系"资源+产能"双轮驱动——海外多点推进（Mt Marion 升级 2028 年前完成、C-O 二期 4.5 万吨 RIGI、Goulamina 23.38 万吨）+ 国内产线高端化（高纯碳酸锂/氟化锂/金属锂试产）</td><td>SMM 上海有色网</td><td class="num">2026-08-30</td><td>news.metal.com</td></tr>
+        <tr><td>行情快照：总市值约 1,029 亿元（2026-09-04）；调研转述口径认为 15 万/吨锂价支撑强劲、澳矿复产延至 2027 年初</td><td>TOP10 汇总报告 + 调研纪要</td><td class="num">2026-09-04/05</td><td>本项目底稿</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：行业数据口径与时效——锂价走势为研报与调研纪要时点值；机构观点均为公开研报/媒体/调研转引，观点与事实分列呈现，多空兼顾，不作为事实陈述。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">主要股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>李良彬（董事长、法定代表人）</td><td class="num">18.06%（378,637,819 股）</td><td>实际控制人 · 创始人自然人持股</td><td>企查查 key_personnel（2026-09-05）</td></tr>
+        <tr><td>2</td><td>王晓申（副董事长、总裁）</td><td class="num">6.75%</td><td>联合创始人/高管持股</td><td>企查查 key_personnel</td></tr>
+        <tr><td>3</td><td>沈海博（董事）</td><td class="num">0.73%</td><td>高管持股</td><td>企查查 key_personnel</td></tr>
+        <tr><td>—</td><td>HKSCC 代理人（H 股）及 A 股流通股东、员工持股平台（新余赣锋企业咨询中心 99.98% 关联）</td><td>未取数（其余股份为 A+H 流通与持股平台）</td><td>A+H 两地流通（总股本 20.97 亿股，2026-04 增资后口径）</td><td>企查查 + 公司披露</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制与资本运作</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>民企创始人控股结构</b>：李良彬直接持股 18.06%（2007-12-06 起任董事长），叠加王晓申 6.75%、沈海博 0.73% 及员工持股平台——创始人团队控制格局，与国资系同行（江铜、山东黄金）形成对照。</li>
+        <li><b>股权质押 115 条</b>（35 项因子，2026-09-05）——A 股上市公司股份质押口径，民企扩张期融资特征明显，需关注质押比例与平仓风险（具体股东质押明细本次未取数，建议尽调阶段单独穿透）。</li>
+        <li><b>股权出质 2 条 + 动产抵押 2 条</b>——境内母公司口径融资动作克制。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>2024-08-20 大额增资</b>：注册资本 143,747.888 万 → 201,716.7779 万（+57,968.89 万，H 股发行口径）；<b>2026-04-07 再增资</b>至 209,669.4404 万（+7,952.66 万）——A+H 双平台持续融资输血资本开支。</li>
+        <li><b>员工持股生态</b>：对外投资列表中多家"新余××服务管理中心（有限合伙）"为员工持股平台载体（企查查一层口径）。</li>
+        <li><b>H 股估值参考</b>：2026H1 H 股口径归母净利 49.02 亿港元（01772.HK）——两地财报货币口径差异需注意。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任职起始</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>李良彬</td><td>董事长、法定代表人、实际控制人</td><td class="num">2007-12-06（董事长）</td><td>创始人，直接持股 18.06%（378,637,819 股）——民企创始人长期掌舵</td></tr>
+        <tr><td>王晓申</td><td>副董事长、总裁</td><td class="num">2010-12-03</td><td>联合创始人，持股 6.75%——"二号位"任职 15 年以上</td></tr>
+        <tr><td>沈海博</td><td>董事</td><td class="num">2013-12-03</td><td>持股 0.73%</td></tr>
+        <tr><td>黄婷</td><td>董事、副总裁、财务总监</td><td class="num">—（本届）</td><td>主管会计工作负责人（董事+经营层双角色）</td></tr>
+        <tr><td>罗荣 / 李承霖 / 廖萃</td><td>董事（廖萃为职工董事）</td><td class="num">廖萃 2025-10-14</td><td>职工代表进入董事会</td></tr>
+        <tr><td>黄浩钧 / 王金本 / 徐建章 / 刘崇亮</td><td>独立董事（各）</td><td class="num">2024-08 / 2022-06 / 2026-03-11 / 2026-05-20</td><td>2026 年两名独董密集新任（徐建章、刘崇亮）——董事会改组配套</td></tr>
+        <tr><td>熊训满 / 向伟东 / 傅利华 / 何佳言</td><td>副总裁（各）</td><td class="num">—（本届）</td><td>经营层"多副总裁"架构</td></tr>
+        <tr><td>任宇尘</td><td>董事会秘书</td><td class="num">2023-12-25</td><td>投资者关系活动（2026-06-08 电话会）接待人</td></tr>
+        <tr><td>黄华安</td><td>审计监察部负责人</td><td class="num">2025-04-29</td><td>内控监察条线负责人</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：主要人员信息来自企查查（共 17 条董监高记录，T+0，2026-09-05 核验）。治理观察：①创始人团队长期稳定掌舵（李良彬 2007 年起任董事长近 19 年，"创始人+二号位"结构清晰）；②2026 年治理密集调整——徐建章（2026-03-11）、刘崇亮（2026-05-20）先后新任独董，2026-06-22 董事会改组（徐光华退出董事、徐建章/刘崇亮新进）+ 营业期限同日核准变更为"至长期"；③职工董事廖萃 2025-10 新任，职工治理通道保留；④需关注 115 条股权质押记录背后的股东层面资金安排（详见风险章节）。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://www.ganfenglithium.com/career.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网人才中心 · ganfenglithium.com</a>
+      <a href="https://www.ganfenglithium.com/campus/apply" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">🎓 先进材料板块网申</a>
+      <a href="https://www.ganfengbattery.com/campus/apply" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">🔋 电池储能板块网申</a>
+    </div>
+    <div class="note-box" style="margin-top:0">企查查招聘数据库收录该主体记录共 759 条（T+0，2026-09-05）——为十强中招聘记录最多的公司（对照：江西铜业 211 条），与"锂盐+电池+矿山"三线扩张节奏匹配。以下为前 30 条样本的结构化解读。</div>
+    <h3 class="sub">招聘结构解读（企查查 759 条记录，展示前 30 条样本）</h3>
+    <div class="two-col">
+      <ul class="bullet-list pos">
+        <li><b>苏州 PACK 电池基地密集招工</b>：IPQC 班组长、生产主管（锂电/PACK）、PACK 项目工程师、动力电池 PACK 结构/电气/技术工程师、BDU 工程师、PMC 物控经理、CQE/客户质量工程师（1.2-2.3 万·13 薪档）——对应锂电池接近满产与南昌/东莞新产能的人才前置储备。</li>
+        <li><b>锡林郭勒盟矿山条线扩编</b>：化验室技术员、碳酸锂车间主任、矿山电气技术员、选矿工程师（1.4-1.7 万，10 年以上经验）、人事/仓管——对应蒙金矿业及内蒙古资源项目放量（与 IR 记录"内蒙古是国内资源布局重要区域"互证）。</li>
+        <li><b>新余锂盐总部技术岗常态化</b>：电气工程师（万吨锂盐）、生产工艺员、仪表自动化工程师——对应新余高纯碳酸锂 3 万吨/氟化锂 2.5 万吨试产爬坡。</li>
+      </ul>
+      <ul class="bullet-list warn">
+        <li><b>薪酬带宽</b>：一线操作/化验岗 4-8 千/月至设备副总经理 2-3 万/月、人力资源经理（上海高招团队）1.8-3 万·14 薪——"制造一线 + 总部职能 + 沿海高端岗"梯度分明。</li>
+        <li><b>地域分布</b>：新余（锂盐总部）、苏州（PACK 电池）、锡林郭勒盟（矿山）、赣州（再生锂——设备副总经理 2-3 万）、上饶、宁波（体系工程师）、郴州（仪表管理）、上海（集团高招团队、国际物流管理）——"江西大本营 + 华东电池带 + 内蒙古矿区 + 上海总部职能"四象限布局。</li>
+        <li><b>口径局限</b>：企查查以第三方聚合为主；公司官网"先进材料/电池储能"双板块网申体系（TOP10 报告阶段核验）覆盖更全；海外项目属地化用工不在境内招聘数据源覆盖范围。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查共 71 条对外投资记录，一层直接持股）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>认缴出资额</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>江西赣锋锂电科技股份有限公司</td><td class="num">60.87%</td><td class="num">13.00 亿</td><td>锂电池/储能主体（PACK+大电芯）</td><td>第二增长曲线载体</td></tr>
+        <tr><td>GFL International Co., Limited</td><td class="num">100%</td><td class="num">1.58 亿股</td><td>境外投融资平台</td><td>海外矿权/项目持有载体</td></tr>
+        <tr><td>青海赣锋锂业有限公司</td><td class="num">100%</td><td class="num">5.00 亿</td><td>金属锂（一期 1,000 吨试产，2026Q3 正式投产）</td><td>高端锂化学品</td></tr>
+        <tr><td>赣锋国际贸易（上海）有限公司</td><td class="num">100%</td><td class="num">5.00 亿</td><td>国际贸易（上海总部职能）</td><td>对应上海招聘</td></tr>
+        <tr><td>新余赣锋企业咨询中心</td><td class="num">99.98%</td><td class="num">5.00 亿</td><td>咨询/持股平台</td><td>或为股权安排载体</td></tr>
+        <tr><td>湖南安能赣锋新材料有限公司</td><td class="num">50%</td><td class="num">5.00 亿</td><td>新材料合资</td><td>—</td></tr>
+        <tr><td>宁都县赣锋锂业有限公司</td><td class="num">100%</td><td class="num">4.00 亿</td><td>江西宁都锂云母/锂盐</td><td>境内资源基地</td></tr>
+        <tr><td>南昌金通赣锋新能源产业投资基金</td><td class="num">24.5%</td><td class="num">3.675 亿</td><td>产业投资基金</td><td>生态化投资工具</td></tr>
+        <tr><td>内蒙古赣锋锂业有限公司</td><td class="num">70%</td><td class="num">3.50 亿</td><td>内蒙古资源加工基地</td><td>与蒙金矿业协同</td></tr>
+        <tr><td>四川赣锋锂业有限公司</td><td class="num">100%</td><td class="num">3.00 亿</td><td>磷酸二氢锂（10 万吨/年完成产线调试）</td><td>2026 即将投产</td></tr>
+        <tr><td>深圳易储数智能源有限公司</td><td class="num">40.04%</td><td class="num">2.59 亿</td><td>储能数智化</td><td>参股布局</td></tr>
+        <tr><td>江西领能锂业有限公司</td><td class="num">35.29%</td><td class="num">2.40 亿</td><td>锂盐</td><td>—</td></tr>
+        <tr><td>赣锋综合能源（青海）有限公司</td><td class="num">100%</td><td class="num">2.00 亿</td><td>综合能源</td><td>2025-07-25 设立——最新布局信号</td></tr>
+        <tr><td>重庆瑞驰汽车实业有限公司</td><td class="num">22.03%</td><td class="num">—</td><td>新能源整车（电动商用车）</td><td>参股整车企业</td></tr>
+        <tr><td>镶黄旗蒙金矿业有限公司</td><td class="num">70%</td><td class="num">—</td><td>锂矿（内蒙古，锡林郭勒招聘主体）</td><td>境内矿山资源</td></tr>
+        <tr><td>青海良承矿业有限公司</td><td class="num">100%</td><td class="num">—</td><td>矿业</td><td>—</td></tr>
+        <tr><td>江西赣锋循环科技有限公司</td><td class="num">100%</td><td class="num">—</td><td>锂电池回收</td><td>回收业务载体</td></tr>
+        <tr><td>江西西部资源锂业有限公司</td><td class="num">100%</td><td class="num">—</td><td>锂资源</td><td>—</td></tr>
+        <tr><td>山东鑫海矿业</td><td class="num">25.15%</td><td class="num">—</td><td>矿业参股</td><td>—</td></tr>
+        <tr><td>赣州腾远钴业</td><td class="num">6.09%</td><td class="num">—</td><td>钴冶炼上市同业</td><td>参股</td></tr>
+        <tr><td>稀美资源（港股）</td><td class="num">14.48%</td><td class="num">—</td><td>钽铌湿法冶金（港股上市）</td><td>跨境参股</td></tr>
+        <tr><td>广汽埃安</td><td class="num">0.15%</td><td class="num">—</td><td>新能源整车（战略协同）</td><td>象征性参股</td></tr>
+        <tr><td>其他</td><td class="num">—</td><td class="num">—</td><td>多家新余××服务管理中心（员工持股平台）；河北赣锋锂业 90%、江西江锂/领能等</td><td>注销主体 12 家（含宜春赣锋矿业 6.5 亿注销等，为历史清理）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">数据纪律与说明：以上为企查查一层直接持股口径，逐字引用，禁止据此推断穿透关系。核心海外矿权（Goulamina 65%、Cauchari-Olaroz 46.67%、Mt Marion 50%、Mariana、PPGS 等）经 GFL International 等境外平台持有，不在国内工商对外投资列表中，以公司公告/中报为准。投资版图特征："资源+锂盐+电池+回收"全产业链纵向一体，叠加整车（瑞驰/埃安）、钴业（腾远）、钽铌（稀美）、产业基金的生态化横向投资——与 507 笔对外担保的"生态型融资安排"互为表里（见第九章）。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布 ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布（非洲+南美+澳洲三洲 + 境内锂盐/电池基地）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:#f6f7f9">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到公网后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/项目资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/项目名称</th><th>所在国/地区</th><th>矿种/规模</th><th>权益结构</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>Goulamina 锂辉石矿</td><td>马里 · 南部（Bougouni 地区）</td><td>矿石量 29,932 万吨、Li₂O 399 万吨、品位 1.33%（折合锂资源约 714 万吨 LCE，TOP10 口径）</td><td class="num">65%</td><td>一期 50.6 万吨锂精矿/年 2025 年投产；2026H1 产 23.38 万吨（接近满产）；二期可研完成</td><td>2026 中报 + TOP10 报告</td></tr>
+        <tr><td>Cauchari-Olaroz 盐湖</td><td>阿根廷 · 胡胡伊省</td><td>锂资源总量约 3,770 万吨 LCE——全球最大盐湖提锂项目之一</td><td class="num">46.67% + 控制权（包销一期 76%）</td><td>一期 4 万吨 LCE/年在产，2026H1 产碳酸锂 1.9 万吨；二期 4.5 万吨入选阿根廷 RIGI 计划</td><td>2026 中报</td></tr>
+        <tr><td>Mt Marion 锂辉石矿</td><td>澳大利亚 · 西澳（Kalgoorlie 以西约 40 公里）</td><td>升级后年产能 60 万吨（折 6% 品位锂精矿）</td><td class="num">50%</td><td>在产；2026 年建设浮选厂+地下开采工程，"露天+地下"联合开采，升级预计 2028 年前完成</td><td>2026 中报</td></tr>
+        <tr><td>Mariana 盐湖</td><td>阿根廷 · 萨尔塔省</td><td>一期 2 万吨/年氯化锂</td><td class="num">控股</td><td>产能爬坡（2026 年计划产出 1 万吨以上）——金属锂前驱体（氯化锂）成本优势来源</td><td>公司 IR 记录 + 调研纪要</td></tr>
+        <tr><td>PPGS 盐湖项目</td><td>阿根廷</td><td>总设计产能 15 万吨/年 LCE</td><td class="num">控股</td><td>整合预计 2026Q3 末完成，RIGI 申请预计 2026 年底前获批（调研转述口径）</td><td>今日头条财经 + 调研纪要</td></tr>
+        <tr><td>非洲新增锂矿项目</td><td>科特迪瓦 Bambali（SMM 口径；另有报道称塞拉利昂，以公司公告为准）</td><td>详查资源量 3,882 万吨矿石、Li₂O 47.18 万吨、品位 1.22%；规划 200 万吨/年采选</td><td class="num">控股</td><td>基建期，产能爬坡预计 2027 年</td><td>SMM 上海有色网（2026-08-30）</td></tr>
+        <tr><td>刚果（布）钾肥项目</td><td>刚果共和国</td><td>钾肥（锂伴生矿）</td><td class="num">—</td><td>推进顺利，预计 2027 年前投产（公司 IR 口径）</td><td>公司 IR 记录（2026-06-08）</td></tr>
+        <tr><td>蒙金矿业</td><td>中国 · 内蒙古锡林郭勒盟镶黄旗</td><td>锂矿（含维拉斯托矿业协同，调研口径）</td><td class="num">70%</td><td>在产扩建（对应锡林郭勒密集招聘）</td><td>企查查对外投资 + 调研纪要</td></tr>
+        <tr><td>宁都赣锋锂业</td><td>中国 · 江西赣州宁都</td><td>锂云母/锂盐加工</td><td class="num">100%</td><td>在业</td><td>企查查对外投资</td></tr>
+        <tr><td>青海赣锋锂业</td><td>中国 · 青海</td><td>金属锂一期 1,000 吨/年</td><td class="num">100%</td><td>试生产，2026Q3 正式投产（中报口径）</td><td>企查查 + 2026 中报</td></tr>
+        <tr><td>锂盐/电池基地群</td><td>新余（总部）/ 东莞 / 南昌 / 苏州 / 马里·阿根廷·澳洲（海外）</td><td>高纯碳酸锂 3 万吨+氟化锂 2.5 万吨（试产）、东莞 10GWh 储能、南昌 10GWh（588Ah Q3 爬坡）、新余 20GWh 固态储能项目备案（2027-2029 建设）</td><td class="num">—</td><td>电池接近满产；固态电池 500Wh/kg 级小批量量产</td><td>2026 中报 + IR 记录 + 媒体报道</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图（合规底图）；境内项目坐标为 GCJ-02，境外项目直接使用 WGS84 坐标，精确到项目级（小数点后 2 位）。公司定位：全球"非洲（马里 Goulamina）+ 南美（阿根廷盐湖群）+ 澳洲（Mt Marion）"三洲资源布局 + 境内"江西大本营（新余/宁都）+ 内蒙古矿区 + 苏州/东莞/南昌电池带"的锂生态一体化龙头；PPGS/Mariana 等阿根廷项目与非洲新项目权益细节以公司公告为准，非洲新增锂矿项目所在地媒体报道存在口径差异（科特迪瓦/塞拉利昂），已在表中注明。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>2000-03-02</b>：新余注册成立（创始人李良彬起家于江西锂厂技术背景，为国内锂盐行业最早一批民营企业）。</li>
+        <li><b>2006-04-06</b>：由"新余市赣锋锂业有限公司"更名为"江西赣锋锂业有限公司"——走出新余、布局全省。</li>
+        <li><b>2010-08</b>：深交所 A 股上市（002460）——"锂业第一股"之一；<b>2018-10</b>：港交所 H 股上市（01772.HK），成为 A+H 双平台锂企。</li>
+        <li><b>2022-09-30</b>：更名为"江西赣锋锂业<b>集团</b>股份有限公司"——从锂业公司向锂生态集团升级。</li>
+        <li><b>2024-08-20</b>：注册资本 143,747.888 万 → 201,716.7779 万（+57,968.89 万，H 股发行口径）；<b>2026-04-07</b>：再增至 209,669.4404 万（+7,952.66 万）。</li>
+        <li><b>2026-06-22</b>：营业期限核准变更为"2026-05-22 至长期"；同日董事会改组（徐光华退出董事、徐建章/刘崇亮新进）。</li>
+        <li><b>累计变更记录</b>：企查查 75 条（十强中变更记录最多的公司之一）——与近 26 年的频繁增资、更名、治理调整相匹配，无经营异常名录记录。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>风险扫描总览</b>（企查查 35 项因子，2026-09-05）：10 项有记录、25 项无记录；<span class="pill ok">无失信记录</span> <span class="pill ok">无被执行</span> <span class="pill ok">无严重违法</span> <span class="pill ok">无环保处罚</span> <span class="pill ok">无欠税公告</span> <span class="pill ok">无股权冻结</span> <span class="pill ok">无破产重整</span>。</li>
+        <li><b>对外担保 507 笔——十家之最</b>：与生态化投资模式相关（产业链合资、项目公司融资、员工持股平台等），需穿透担保对象、担保余额与或有负债规模（TOP10 报告已列为尽调重点，本报告沿用该判断）。</li>
+        <li><b>股权质押 115 条</b>：A 股股份质押口径（含股东层面），叠加股权出质 2 条、动产抵押 2 条——民企扩张期融资特征，与国资系同行形成鲜明对照。</li>
+        <li><b>行政处罚 1 项</b>：明细本次未取数（建议尽调阶段调用明细工具核验处罚事由与金额）。</li>
+        <li><b>涉诉体量</b>：裁判文书 37、开庭公告 37、立案信息 25、法院公告 6、送达公告 4——绝对数可控，与经营体量匹配。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">① 锂价强周期波动风险</div>
+      <div>公司自身即是锂价周期的教科书样本：净利 45.75 亿（2023）→ -26.30 亿（2024）→ 12.63 亿（2025），2025 年归母 16.13 亿转正但<b>扣非仍为 -3.85 亿</b>——盈利质量瑕疵提示反转初期非经常性损益贡献较大。2026H1 锂价已完整走完"上涨→回调"周期（5 月高点后快速回落），中报 42.57 亿归母净利隐含锂盐价格与满产销量的高位持续假设；若锂价自当前中枢显著回落（谨慎观点认为存在跌回 10 万元/吨的可能），业绩弹性将反向放大。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">② 对外担保 507 笔与股权质押 115 条（十强之最）</div>
+      <div>担保笔数为十家最高——与其"资源+电池+回收+整车+基金"生态化投资模式相关，涉及大量合资平台与项目公司融资安排；股权质押 115 条（A 股股份质押口径）叠加实控人 18.06% 直接持股的集中度，形成"或有负债 + 股东质押"双重敞口。本次未穿透担保对象与质押明细（数据源限制），建议尽调阶段调用担保/质押明细工具逐笔核验担保余额、反担保安排与平仓线。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">③ 资本开支上行与杠杆抬升风险</div>
+      <div>资产负债率三年由 42.95% 抬升至 54.23%（+11.28pct），2025 年末有息负债 338.43 亿元（有息负债率 55.10%）；公司明确 2026H2-2027 年资本开支将随二期工程（Goulamina 二期、Mt Marion 升级、C-O 二期、PPGS）与电池产能（南昌/东莞/新余固态 20GWh）落地而增加——若锂价回落与资本开支高峰叠加，现金流与偿债压力将同步上升（2025 年自由现金流 -70.36 亿元，财报口径）。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 海外项目地缘与运营风险</div>
+      <div>三洲布局的地缘分散亦意味着多点风险暴露：马里 Goulamina 存在治安扰动（公司 IR 口径承认但认为长期回报率高）、阿根廷项目依赖 RIGI 政策红利（PPGS 获批进度待定）、非洲资源民族主义升温（公司明确表态暂不在津巴布韦大规模投资）；澳洲 Mt Marion 升级工程 2028 年前完成存在建设进度风险。此外 H 股与 A 股双币种财报口径（人民币/港元）及海外项目带来汇兑敞口。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">⑤ 固态电池商业化进度与安全环保风险</div>
+      <div>固态电池为公司下一代技术卡位（500Wh/kg 级小批量量产、机器人客户送样测试阶段），但行业普遍预计全固态大规模量产在 2030 年之后——新余 20GWh 固态储能项目（2027-2029 建设）的产能消化存在不确定性；锂电池制造与锂盐冶炼的安全生产、环保合规为常态化风险（风险扫描环保处罚 0 条，当前记录干净）；另存在 1 项行政处罚记录（明细未取数，待核验）。</div>
+    </div>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：李良彬（创始人/实控人，18.06%）控股的 A+H 民企锂生态龙头，2000 年成立、26 年深耕锂业，工商登记规范（75 条变更记录无经营异常），无失信/被执行/环保处罚/欠税记录——但对外担保 507 笔（十家之最）、股权质押 115 条、行政处罚 1 项（待核验），合规画像"干净但有 Massive 或有负债敞口"。<br>
+      <b>财务质量</b>：锂价周期教科书样本（净利 45.75→-26.30→12.63 亿，2025 归母 16.13 亿转正但扣非 -3.85 亿）；2026H1 强反转（营收 230.97 亿 +175.75%、归母 42.57 亿扭亏、锂系列毛利率 42.44%），ROE 回升至 9.09%；核心瑕疵：负债率三年抬升 11.28pct、有息负债 338.43 亿、2025 自由现金流 -70.36 亿，2026H2-2027 资本开支上行。<br>
+      <b>股权与治理</b>：创始人团队长期稳定掌舵（李良彬任董事长近 19 年、王晓申任二号位 15 年+），员工持股平台生态完整；2026 年治理密集调整（两名新独董+董事会改组+营业期限续期至长期）——民企治理的"强人结构"与质押融资安排需持续跟踪。<br>
+      <b>业务与资产</b>：全球唯一"资源-锂盐-电池-回收"全产业链锂生态：三洲资源（Goulamina 65% 接近满产、C-O 46.67% 全球最大盐湖提锂项目之一且二期入选 RIGI、Mt Marion 50% 升级至 60 万吨、Mariana+PPGS 阿根廷盐湖群、非洲新项目 2027 爬坡）+ 储能第二曲线满产放量（588Ah/648Ah 大电芯、东莞 10GWh、南昌 Q3 爬坡）+ 固态电池 500Wh/kg 小批量量产卡位——资源自给率提升与成本结构优化是穿越周期的核心叙事（公司 IR 口径）。<br>
+      <b>人力资源</b>：参保 1,413 人（母公司口径）；企查查 759 条招聘记录为十强之最，"苏州 PACK 电池+锡林郭勒矿山+新余锂盐+上海总部职能"四象限扩张信号明确——招聘热度与产能投放节奏互证。<br>
+      <b>综合判断</b>：民企锂生态龙头的"周期反转 + 资源放量 + 储能第二曲线"三击阶段，与江西铜业（国资冶炼巨头）同为强周期但弹性更极端——上行弹性（42.44% 毛利率）与下行风险（-26.30 亿亏损前科）都远大于国资同行。核心跟踪点：①锂价中枢与 15 万/吨支撑位有效性；②507 笔担保的或有负债穿透与 115 条质押的平仓风险；③Goulamina/Mt Marion/C-O 二期投放进度与资本开支峰值匹配度；④固态电池从送样到装车的商业化里程碑；⑤2025 扣非转正在 2026 年报的持续性验证。
+    </div>
+  </section>
+
+  <!-- ============ 附录 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 主体身份</td><td>企查查 MCP get_company_registration_info</td><td class="num">2026-09-05</td><td>T+0；参保 1,413 人为境内母公司口径，集团员工数以年报/ESG 为准（本次未取数）</td></tr>
+        <tr><td>三年财务</td><td>企查查 MCP get_financial_data（TOP10 报告阶段采集）+ 财报披露口径补充（归母/扣非，腾讯财经数据）</td><td class="num">2026-09-04/05</td><td>合并报表口径；2023 年归母净利未取数（以合并净利 45.75 亿披露）；扣非口径 2024 -8.87 亿 / 2025 -3.85 亿</td></tr>
+        <tr><td>2026 中报动态</td><td>公司《2026 年半年度报告》及摘要（巨潮资讯，2026-08-29 披露）+ 腾讯新闻 + A 股证券知识库</td><td class="num">2026-09-05</td><td>营收 230.97 亿/归母 42.57 亿/锂系列毛利率 42.44% 为中报口径；H 股口径为港元</td></tr>
+        <tr><td>业绩说明会 / 投资者关系</td><td>公司 2026 年半年度业绩说明会（2026-08-31，中国证券网报道）+ 投资者关系活动记录表 2026-006（2026-06-08 电话会，巨潮资讯）+ 雪球调研转述</td><td class="num">2026-09-05</td><td>公司管理层观点与调研转述分列；锂价研判为时点观点非事实</td></tr>
+        <tr><td>股东与实控</td><td>企查查 MCP get_key_personnel（17 条，含持股）+ TOP10 汇总报告</td><td class="num">2026-09-05</td><td>李良彬 18.06%/王晓申 6.75%/沈海博 0.73% 为企查查口径；其余股东结构未取数</td></tr>
+        <tr><td>治理团队</td><td>企查查 MCP get_key_personnel（17 条董监高）+ 变更记录交叉印证</td><td class="num">2026-09-05</td><td>T+0；2026 年董事会改组（徐光华退出/徐建章、刘崇亮新进）来自 75 条变更记录</td></tr>
+        <tr><td>招聘动态</td><td>企查查 MCP get_recruitment_info（759 条，展示前 30 条样本）+ 官网网申入口（TOP10 报告核验）</td><td class="num">2026-09-05</td><td>第三方聚合口径；海外属地化用工不覆盖</td></tr>
+        <tr><td>对外投资</td><td>企查查 MCP get_external_investments（71 条）</td><td class="num">2026-09-05</td><td>一层直接持股逐字引用；Goulamina/C-O/Mt Marion 等海外权益经境外平台持有，不在国内工商数据源覆盖范围</td></tr>
+        <tr><td>全球矿权</td><td>2026 中报（Mount Marion/Cauchari-Olaroz/Goulamina 原文）+ 公司 IR 记录 + SMM 上海有色网 + TOP10 汇总报告</td><td class="num">2026-09-05</td><td>非洲新增锂矿项目所在地媒体口径不一（科特迪瓦/塞拉利昂），以公司公告为准；PPGS 进度为调研转述口径</td></tr>
+        <tr><td>沿革与变更</td><td>企查查 MCP get_change_records（75 条）</td><td class="num">2026-09-05</td><td>工商登记口径；2010 A 股/2018 H 股上市时间为公开市场信息</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP get_company_risk_scan（35 项因子）</td><td class="num">2026-09-05</td><td>10 项有记录（担保 507、股权质押 115、裁判文书 37、开庭 37、立案 25、法院公告 6、送达 4、出质 2、动产抵押 2、行政处罚 1），无失信/被执行/环保处罚</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:14px">地图部署说明：本报告为本地交付版本（未发布到公网）。若部署公网，需在腾讯位置服务开放平台（lbs.qq.com）申请 key 并替换模板占位符、配置 Referer 白名单；未配置时地图自动降级为矿权明细表展示，不影响数据完整性。颜色规范：红涨绿跌（A 股惯例）。</div>
+  </section>
+
+<footer>在线版本：本地交付（未发布到 GitHub Pages） · 本报告由 AI 辅助生成 · 数据截至 2026-09-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'Goulamina锂辉石矿(一期50.6万吨/年)', country:'马里·南部', mineral:'锂精矿(资源约714万吨LCE)', stake:'65%', status:'在产·二期可研完成', lat:-11.15, lng:-7.45 },
+  { name:'Cauchari-Olaroz盐湖(全球最大盐湖提锂项目之一)', country:'阿根廷·胡胡伊省', mineral:'碳酸锂(资源约3,770万吨LCE)', stake:'46.67%+控制权', status:'在产·二期入选RIGI', lat:-23.65, lng:-66.85 },
+  { name:'Mt Marion锂辉石矿', country:'澳大利亚·西澳', mineral:'锂精矿(升级后60万吨/年)', stake:'50%', status:'在产·2028年前完成升级', lat:-31.00, lng:121.20 },
+  { name:'Mariana盐湖(氯化锂/金属锂前驱体)', country:'阿根廷·萨尔塔省', mineral:'氯化锂(一期2万吨/年)', stake:'控股', status:'产能爬坡', lat:-24.90, lng:-68.70 },
+  { name:'PPGS盐湖项目', country:'阿根廷', mineral:'碳酸锂(设计15万吨/年LCE)', stake:'控股', status:'整合中·RIGI申请中', lat:-24.55, lng:-66.75 },
+  { name:'非洲新增锂矿项目(Bambali)', country:'科特迪瓦(媒体口径)', mineral:'锂辉石(3,882万吨矿石)', stake:'控股', status:'基建期·2027年爬坡', lat:8.60, lng:-5.60 },
+  { name:'蒙金矿业', country:'中国·内蒙古锡林郭勒盟', mineral:'锂矿', stake:'70%', status:'在产扩建', lat:42.23, lng:113.84 },
+  { name:'宁都赣锋锂业(锂云母/锂盐)', country:'中国·江西赣州宁都', mineral:'锂盐加工', stake:'100%', status:'在业', lat:26.47, lng:116.00 },
+  { name:'新余锂盐总部基地(高纯碳酸锂/氟化锂)', country:'中国·江西新余', mineral:'锂盐+固态电池(20GWh备案)', stake:'总部', status:'试产爬坡', lat:27.82, lng:114.92 },
+  { name:'青海赣锋(金属锂1,000吨/年)', country:'中国·青海', mineral:'金属锂', stake:'100%', status:'试产·2026Q3投产', lat:36.62, lng:101.78 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(10, 40) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(10, 40), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

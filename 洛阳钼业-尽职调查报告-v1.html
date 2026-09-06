@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>洛阳栾川钼业集团股份有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+/* ---------- charts ---------- */
+.chart-wrap{border:1px solid var(--border);border-radius:2px;padding:18px 20px 10px;margin-top:14px;background:var(--bg-card)}
+.chart-title{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px}
+[data-theme="dark"] .chart-title{color:#c9d6e8}
+.chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+.axis{stroke:var(--border);stroke-width:1}
+.gridline{stroke:var(--border-soft);stroke-width:1;stroke-dasharray:3,4}
+.axis-label{fill:var(--text-muted);font-size:10.5px;font-family:'Noto Sans SC',sans-serif}
+.bar-rev{fill:var(--primary)}
+[data-theme="dark"] .bar-rev{fill:#6ea3d8}
+.bar-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.line-np{stroke:var(--accent-red);stroke-width:2.5;fill:none}
+.np-dot{fill:var(--accent-red)}
+.np-label{fill:var(--accent-red);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.legend{display:flex;gap:22px;font-size:11.5px;color:var(--text-muted);margin-top:6px;padding:6px 0}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border-radius:1px}
+.sh-bar{fill:var(--accent-blue)}
+.sh-bar.top{fill:var(--primary)}
+[data-theme="dark"] .sh-bar.top{fill:#6ea3d8}
+.sh-label{fill:var(--text-secondary);font-size:11.5px;font-family:'Noto Sans SC',sans-serif}
+.sh-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- ================= 页头：公司身份条 ================= -->
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">603993.SH · 03993.HK · A+H 双重上市</span>
+        <div class="company-name-cn">洛阳栾川钼业集团股份有限公司</div>
+        <div class="company-name-en">CMOC Group Limited · 洛阳钼业</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05（企查查 T+0 / 公开检索当日）</span>
+      <span>报告编号：CMOC-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 粘性导航 ================= -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <!-- ============ 核心结论框 ============ -->
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    洛阳钼业是 A+H 双重上市的全球头部多金属矿业公司，核心资产为刚果（金）TFM、KFM 两座世界级铜钴矿（2025 年产铜 74.11 万吨、全球前十，产钴 11.75 万吨、KFM 为全球第一大钴矿山），叠加巴西铌磷（铌全球第二、磷肥巴西第二）、IXM 全球第三大金属贸易平台，2025 年起通过收购厄瓜多尔奥丁矿业与巴西 4 座在产金矿构建「铜+金」双极格局。财务面：2025 年归母净利润 203.39 亿元（+50.30%，连续 5 年创历史新高），ROE 26.61%，营业成本同比下降 11.56%，负债率 50.34% 处于稳健区间。风险面：刚果（金）出口政策（钴配额制 / 铜钴精矿出口禁令）与铜价高位波动为核心变量；黄金资产买在金价历史高位区间，整合与减值风险需跟踪；关联交易（宁德时代 / KFM）上限大幅上调。整体资质：全球布局成熟、治理规范、盈利强劲的周期性资源龙头，尽调重点应放在资源国政策与价格敏感性压力测试。
+  </div>
+
+  <!-- ============ KPI 概览卡片 ============ -->
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">2025 营业收入</div><div class="kpi-value num">2,066.84 亿元</div><div class="kpi-delta down">同比 -2.98%</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 归母净利润</div><div class="kpi-value num">203.39 亿元</div><div class="kpi-delta up">同比 +50.30% · 连续5年新高</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">经营性净现金流</div><div class="kpi-value num">208.43 亿元</div><div class="kpi-delta down">同比 -35.64% · 历史第二高</div></div>
+    <div class="kpi-card"><div class="kpi-label">2025 铜产量</div><div class="kpi-value num">74.11 万吨</div><div class="kpi-delta">同比 +13.99% · 全球前十</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>洛阳栾川钼业集团股份有限公司</td></tr>
+      <tr><td>统一社会信用代码</td><td>91410000171080594J</td></tr>
+      <tr><td>成立日期</td><td>1999-12-22</td></tr>
+      <tr><td>注册资本</td><td>427,886.20352 万元（实缴同额）</td></tr>
+      <tr><td>法定代表人</td><td>刘建锋（董事长、执行董事、首席投资官）</td></tr>
+      <tr><td>注册地址</td><td>河南省洛阳市栾川县城东新区画眉山路伊河以北</td></tr>
+      <tr><td>企业类型</td><td>股份有限公司（港澳台投资、上市）</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">存续（在营、开业、在册）</span> 核准日期 2025-08-20</td></tr>
+      <tr><td>上市信息</td><td>A 股 603993.SH（2012-10-09 上交所）· H 股 03993.HK（2007-04-26 联交所主板）</td></tr>
+      <tr><td>所属行业</td><td>钨钼矿采选（国标）；有色金属矿采选业，主营铜、钴、钼、钨、铌、磷、金采选冶及金属贸易</td></tr>
+      <tr><td>人员规模</td><td>3,000–3,999 人（参保 3,264 人，分支机构参保 2,819 人）</td></tr>
+      <tr><td>经营范围（摘要）</td><td>钨钼系列产品的采选、冶炼、深加工；钼系列产品、化工产品出口；生产所需原辅材料、机械设备、仪器仪表、零配件进口等</td></tr>
+      <tr><td>数据来源</td><td>企查查工商登记（T+0，国家企业信用信息公示系统口径），核验于 2026-09-05</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">1,862.69 亿元</td><td class="num">2,130.29 亿元</td><td class="num">2,066.84 亿元</td><td>企查查年报 / 公司年报</td></tr>
+        <tr><td>归母净利润</td><td class="num">82.50 亿元</td><td class="num">135.32 亿元</td><td class="num"><b class="up">203.39 亿元（+50.30%）</b></td><td>公司2025年业绩公告</td></tr>
+        <tr><td>利润总额</td><td class="num">132.08 亿元</td><td class="num">251.24 亿元</td><td class="num">351.61 亿元（+39.95%）</td><td>企查查年报</td></tr>
+        <tr><td>毛利率</td><td class="num">9.72%</td><td class="num">16.55%</td><td class="num"><b class="up">23.93%</b></td><td>企查查精算字段</td></tr>
+        <tr><td>加权平均 ROE</td><td class="num">15.00%</td><td class="num">20.96%</td><td class="num"><b class="up">26.61%</b></td><td>公司年报</td></tr>
+        <tr><td>资产负债率</td><td class="num">58.40%</td><td class="num">49.52%</td><td class="num">50.34%（+0.82pct）</td><td>企查查精算字段</td></tr>
+        <tr><td>经营活动现金流净额</td><td class="num">155.42 亿元</td><td class="num">323.87 亿元</td><td class="num"><b class="down">208.43 亿元（-35.64%）</b></td><td>公司年报（历史第二高）</td></tr>
+        <tr><td>总资产</td><td class="num">1,729.75 亿元</td><td class="num">1,702.36 亿元</td><td class="num">2,009.32 亿元（+18.03%）</td><td>公司年报（首破2,000亿）</td></tr>
+        <tr><td>基本每股收益</td><td class="num">0.38 元</td><td class="num">0.63 元</td><td class="num">0.95 元（+50.79%）</td><td>公司年报</td></tr>
+      </tbody>
+    </table>
+    <div class="chart-wrap">
+      <div class="chart-title">营收与归母净利润三年趋势</div>
+      <div class="chart-sub">单位：亿元 · 柱=营业收入（左轴） · 折线=归母净利润（右轴） · 来源：公司年报/企查查</div>
+      <svg viewBox="0 0 640 230" width="100%" height="auto" role="img" aria-label="营收与归母净利润趋势图">
+        <line class="gridline" x1="70" y1="30"  x2="590" y2="30"/>
+        <line class="gridline" x1="70" y1="67.5" x2="590" y2="67.5"/>
+        <line class="gridline" x1="70" y1="105" x2="590" y2="105"/>
+        <line class="gridline" x1="70" y1="142.5" x2="590" y2="142.5"/>
+        <line class="axis" x1="70" y1="180" x2="590" y2="180"/>
+        <line class="axis" x1="70" y1="30" x2="70" y2="180"/>
+        <text class="axis-label" x="62" y="184" text-anchor="end">0</text>
+        <text class="axis-label" x="62" y="147" text-anchor="end">550</text>
+        <text class="axis-label" x="62" y="109" text-anchor="end">1,100</text>
+        <text class="axis-label" x="62" y="71" text-anchor="end">1,650</text>
+        <text class="axis-label" x="62" y="34" text-anchor="end">2,200</text>
+        <rect class="bar-rev" x="100" y="53"  width="70" height="127" rx="1"/>
+        <rect class="bar-rev" x="280" y="35"  width="70" height="145" rx="1"/>
+        <rect class="bar-rev" x="460" y="39"  width="70" height="141" rx="1"/>
+        <text class="bar-value" x="135" y="46"  text-anchor="middle">1,862.7</text>
+        <text class="bar-value" x="315" y="28"  text-anchor="middle">2,130.3</text>
+        <text class="bar-value" x="495" y="32"  text-anchor="middle">2,066.8</text>
+        <polyline class="line-np" points="135,130.4 315,98.8 495,58"/>
+        <circle class="np-dot" cx="135" cy="130.4" r="4"/>
+        <circle class="np-dot" cx="315" cy="98.8" r="4"/>
+        <circle class="np-dot" cx="495" cy="58" r="4"/>
+        <text class="np-label" x="135" y="121" text-anchor="middle">82.5</text>
+        <text class="np-label" x="315" y="90" text-anchor="middle">135.3</text>
+        <text class="np-label" x="495" y="49" text-anchor="middle">203.4</text>
+        <text class="axis-label" x="135" y="196" text-anchor="middle">2023</text>
+        <text class="axis-label" x="315" y="196" text-anchor="middle">2024</text>
+        <text class="axis-label" x="495" y="196" text-anchor="middle">2025</text>
+      </svg>
+      <div class="legend"><span><i style="background:var(--primary)"></i>营业收入（亿元，左轴）</span><span><i style="background:var(--accent-red)"></i>归母净利润（亿元，右轴 0–250）</span></div>
+    </div>
+    <div class="note-box">注：金额均为人民币、合并报表口径；数据来自公司 2025 年年度报告（2026-03-27 披露）及企查查年报数据库，两源交叉核验一致。2025 年分红预案：每 10 股派现 2.86 元（含税），并提议 2026 年中期每 10 股不少于 0.95 元。矿山端营收 777.13 亿元（占比 38%，同比提升约 7pct），其中铜产品 550.96 亿元（+31.63%）；贸易端（IXM）毛利率 2.11% 创近年新高。2025 年营业成本同比下降 11.56%。</div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>LME/国际铜价</td><td class="num">2025 年以来涨幅超 50%</td><td class="num"><span class="up">高位持续走强</span></td><td>证券时报（2026-08）</td></tr>
+        <tr><td>2026 全球铜供需缺口</td><td class="num">保守约 83 万吨</td><td class="num"><span class="up">瑞银：2026 年 21.9 万吨 → 2027 年 37.9 万吨</span></td><td>国金证券年度策略（2026-01）/ 瑞银</td></tr>
+        <tr><td>2026 铜矿供应增速</td><td class="num">约 1%（东吴预估）</td><td class="num">智利矿山老化、Grasberg 复产推迟至 2028</td><td>东吴证券 / 证券时报</td></tr>
+        <tr><td>钴：刚果（金）出口政策</td><td class="num">2025.2–10 出口禁令 → 配额制</td><td class="num"><span class="up">配额严格执行，供应受限、钴价获强支撑</span></td><td>公司公告 / 国金证券</td></tr>
+        <tr><td>钨价 / 钼价</td><td class="num">钨价持续创历史新高</td><td class="num">钼库存低位、价格中枢上行</td><td>国金证券年度策略（2026-01）</td></tr>
+        <tr><td>金价</td><td class="num">现货一度触及约 4,697 美元/盎司</td><td class="num">高位剧烈震荡，已回落跌破 4,400 美元关口</td><td>第一财经（2026-09-01）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>铜：2025 年产量 74.11 万吨，稳居<b>全球前十大铜生产商</b>；主要竞争者包括紫金矿业、嘉能可、Freeport、五矿资源（MMG）等</li>
+        <li>钴：KFM 为<b>全球第一大钴矿山</b>，公司是全球最大钴生产商之一</li>
+        <li>铌：<b>全球第二大铌生产商</b>（巴西 Catalão 矿区）；磷肥为巴西第二大生产商</li>
+        <li>贸易：IXM 为<b>全球第三大金属贸易商</b>，网络覆盖 80+ 国家</li>
+        <li>黄金：新进入者，2026 年起贡献产量（6–8 吨/年目标），规划 2029 年南美产金能力 20 吨</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>产业链卡位：上游矿山（勘探—采选—冶）+ 中游贸易（采购—仓储—运输—销售—信息）垂直一体</li>
+        <li>下游绑定：与宁德时代签署 2026–2028 年合作，销售上限 38.5 / 43 / 50 亿美元（铜、钴、镍产品）</li>
+        <li>协同机制：矿山端产品经 IXM 销售；IXM 研究能力反哺公司并购与生产节奏决策</li>
+        <li>需求端：AI 算力、电网投资、新能源车与储能为核心增量（高盛/瑞银/大摩共识）；国内地产用铜偏弱</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总（多空双方）</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>维持看涨，未来几个季度铜价看至 15,500 美元/吨；铜正从「周期品」向「战略资源」转变</td><td>瑞银财富管理</td><td class="num">2026-08</td><td>环球网财经转引</td></tr>
+        <tr><td>上调 2026 年底 LME 铜目标价至 13,735 美元/吨，2027 年均价 13,800 美元</td><td>高盛</td><td class="num">2026-06</td><td>环球网财经转引</td></tr>
+        <tr><td>短期铜价上调至 14,500 美元/吨，未来 6–12 个月目标 15,000 美元</td><td>花旗</td><td class="num">2026-08</td><td>环球网财经转引</td></tr>
+        <tr><td>2026 年全球铜供需缺口保守约 83 万吨，铜价高点或突破 1.3 万美元/吨；钴进入全球紧缺态势</td><td>国金证券</td><td class="num">2026-01-03</td><td>年度策略报告</td></tr>
+        <tr><td>看好未来两年铜价，资源标的优先享受利润；2026–2027 全元素供需缺口，关注洛阳钼业等标的</td><td>东吴证券</td><td class="num">2026</td><td>证券时报网转引</td></tr>
+        <tr><td><b>谨慎方</b>：铜价或由单边上涨转入高位震荡，关税落地后电解铜回流或致短暂供大于需；年内高点约 11 万元/吨</td><td>卓创资讯分析师</td><td class="num">2026-08</td><td>证券时报网</td></tr>
+        <tr><td><b>谨慎方（钴）</b>：下半年供需偏紧逐步缓解，配额下原料陆续到港但消费电子疲软拖累，钴价预计震荡运行</td><td>盛屯矿业（2026半年报）</td><td class="num">2026-08</td><td>搜狐财经转引</td></tr>
+        <tr><td>洛阳钼业 H 股盈喜符合预期，目标价 23.2 港元，评级「增持」</td><td>摩根士丹利</td><td class="num">2026-01</td><td>AAStocks 转引</td></tr>
+        <tr><td>巴西金矿交割后黄金与铜钴业务形成协同，上调公司 2026–2027 年盈利预期 27%–30%</td><td>摩根大通（小摩）</td><td class="num">2026-02</td><td>智通财经转引</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <ul class="bullet-list warn">
+      <li><b>刚果（金）铜钴精矿出口禁令（2026-08）</b>：政府禁止铜、钴精矿出口以推动本地产业链延伸；TFM/KFM 主要产品为阴极铜与氢氧化钴，<b>不直接受该禁令冲击</b>，但配额制下钴出口量与价格波动显著放大（公司关联交易公告已提示）</li>
+      <li><b>钴出口配额制（2025 年 10 月起）</b>：2025 年 2–10 月出口禁令转为配额管控，钴销量下滑但价格显著走高</li>
+      <li><b>美国 232 铜关税</b>：约 90 万吨铜年内流向美国，虹吸效应推升非美地区现货紧张与铜价波动</li>
+      <li><b>印尼镍矿配额审批</b>：影响镍钴中间品（HPAL）产能释放节奏，公司参股华越镍钴（印尼）需持续跟踪</li>
+      <li><b>刚果（金）电力保障</b>：公司投资 N'zilo 2 水电站（原 Heshima）及上加丹加省光储项目，保障 TFM/KFM 电力供应</li>
+    </ul>
+    <div class="note-box">注：行业数据与机构观点均来自公开渠道（券商年度策略、证券时报/环球网/第一财经等媒体转引），观点与公司披露事实已分列呈现，多空双方均覆盖；观点发布时点已逐条标注，不代表当前最新研判。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">前十大股东（企查查 T+0）</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>鸿商产业控股集团有限公司</td><td class="num">24.93%</td><td>民营投资集团（控股股东）</td><td>企查查</td></tr>
+        <tr><td>2</td><td>洛阳时代资源控股有限公司</td><td class="num">24.91%</td><td>洛矿集团旗下（洛阳国资）</td><td>企查查/年报</td></tr>
+        <tr><td>3</td><td>HKSCC NOMINEES LIMITED</td><td class="num">16.84%</td><td>H 股名义持有人（联交所）</td><td>企查查</td></tr>
+        <tr><td>4</td><td>香港中央结算有限公司</td><td class="num">2.20%</td><td>陆股通（北向资金）</td><td>企查查</td></tr>
+        <tr><td>5</td><td>南方中证申万有色 ETF（工商银行）</td><td class="num">0.43%</td><td>指数基金</td><td>企查查</td></tr>
+        <tr><td>6</td><td>万家中证工业有色金属主题 ETF（建设银行）</td><td class="num">0.27%</td><td>指数基金</td><td>企查查</td></tr>
+        <tr><td>7</td><td>中国人寿传统普通保险产品</td><td class="num">0.23%</td><td>保险资金</td><td>企查查</td></tr>
+        <tr><td>8</td><td>天弘中证工业有色金属主题 ETF（中信证券）</td><td class="num">0.21%</td><td>指数基金</td><td>企查查</td></tr>
+        <tr><td>9</td><td>华夏中证细分有色产业主题 ETF（中信银行）</td><td class="num">0.18%</td><td>指数基金</td><td>企查查</td></tr>
+        <tr><td>10</td><td>嘉实中证稀有金属主题 ETF（银河证券）</td><td class="num">0.17%</td><td>指数基金</td><td>企查查</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>实际控制人：<b>于泳</b>（鸿商产业控股集团董事长），穿透总持股比例 <b>24.7555%</b>（企查查穿透分析）</li>
+        <li>穿透链条：于泳 → 鸿商产业控股集团有限公司（直接持股 24.93%）→ 洛阳栾川钼业集团股份有限公司</li>
+        <li>第二股东洛阳时代资源（洛矿集团，洛阳市国资）持股 24.91%，与前两大股东比例接近，形成「民营控股 + 地方国资战略持股」的均衡结构</li>
+        <li>H 股（03993.HK）与 A 股（603993.SH）双重上市，HKSCC 名义持有 16.84% 反映 H 股国际投资者基础</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>股权质押：7 条记录（股东层面，需下钻核验质押方与比例）</li>
+        <li>股权出质：1 条记录</li>
+        <li>股权冻结：<b>0 条</b>（当前无记录）</li>
+        <li>无实控人变更风险迹象：鸿商集团自上市以来持续为控股股东，股权结构稳定</li>
+      </ul>
+    </div>
+    <div class="note-box">注：持股比例为企查查「一层直接」口径（T+0），禁止据此推断穿透关系；穿透结果以企查查 get_actual_controller 服务端聚合为准。2026 年 1 月公司完成 12 亿美元零息可转债发行，若全额转股（初始转股价 28.03 港元）将新增约 3.34 亿股（约占扩股后总股本 1.54%），对股权结构影响有限。</div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>刘建锋</td><td>董事长、执行董事、首席投资官</td><td class="num">2025-04 至今</td><td>法定代表人；主导「铜金双极」战略与巴西金矿、奥丁矿业等并购</td></tr>
+        <tr><td>彭旭辉</td><td>执行董事、总裁、首席执行官</td><td class="num">2025-10/12 至今</td><td>2025 年新委任，负责集团整体经营</td></tr>
+        <tr><td>林久新</td><td>副董事长、非执行董事</td><td class="num">2023-06 至今</td><td>鸿商集团提名的非执行董事</td></tr>
+        <tr><td>阙朝阳</td><td>职工董事、常务副总裁、首席运营官</td><td class="num">2025-04 至今</td><td>持有 5,000 股；执行董事（2025-05 起兼任）</td></tr>
+        <tr><td>陈兴垚</td><td>副总裁、首席财务官</td><td class="num">2025-05 至今</td><td>主导 12 亿美元零息可转债发行</td></tr>
+        <tr><td>徐辉</td><td>董事会秘书</td><td class="num">2022-10 至今</td><td>A+H 两地信息披露负责人</td></tr>
+        <tr><td>谭啸</td><td>副总裁</td><td class="num">2025-04 至今</td><td>持股 27,900 股</td></tr>
+        <tr><td>张立群</td><td>副总裁</td><td class="num">2024-08 至今</td><td>持股 158,000 股</td></tr>
+        <tr><td>梁玮</td><td>副总裁</td><td class="num">2022-08 至今</td><td>—</td></tr>
+        <tr><td>Branko Buhavac</td><td>副总裁</td><td class="num">2025-10 至今</td><td>外籍高管，体现管理层国际化</td></tr>
+        <tr><td>程钰</td><td>独立非执行董事</td><td class="num">2012-08 至今</td><td>任职超 13 年，为在任时间最长独董</td></tr>
+        <tr><td>顾红雨 / 王开国</td><td>独立非执行董事</td><td class="num">2024-06 至今</td><td>顾红雨任审计及风险委员会主任</td></tr>
+        <tr><td>李臣 / 黎宏伟</td><td>内控内审部 / 廉政稽核部负责人</td><td class="num">2024-06 至今</td><td>内控与廉洁治理双设</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：企查查主要人员 17 条记录（T+0）。治理结构：执行董事 3 名、非执行董事 3 名、独立非执行董事 3 名，下设战略及可持续发展、审计及风险、提名及管治、薪酬四个专门委员会；核数师德勤华永（标准无保留意见）；2025 年管理层换届时点密集（董事长、总裁、CFO 均为 2025 年新任），关注管理团队磨合与战略延续性。获得 2025 年国家级企业技术中心、国家科学技术进步奖，Wind ESG AAA 评级。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://www.cmoc.com/html/CareerDevelopment/JoinUs/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber,#b8860b);border-radius:8px;color:var(--accent-amber,#b8860b);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网招聘入口 · 洛阳钼业官网-社会招聘</a>
+      <a href="https://cmoc.iguopin.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber,#b8860b);border-radius:8px;color:var(--accent-amber,#b8860b);font-weight:600;text-decoration:none;font-size:13px;">🎓 全球管培生网申 · 「矿世奇才」校招通道</a>
+      <a href="https://www.cmoc.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border-soft,#d8d4cc);border-radius:8px;color:inherit;font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · cmoc.com</a>
+    </div>
+    <h3 class="sub">在招岗位明细（企查查招聘信息，共 132 条记录，下表节选代表性岗位）</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026-04-06</td><td>职能类管培生（语言类）</td><td class="num">18–33 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-03-25</td><td>安全工程师 / 选矿技术员</td><td class="num">7.5–12.5K/月</td><td>本科及以上</td><td>洛阳</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-02-26</td><td>技术类管培生（采矿-海外）</td><td class="num">18–30 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-02-19</td><td>技术类管培生（冶金化工-国内）</td><td class="num">9–15 万/年</td><td>本科 / 应届生</td><td>洛阳</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-02-08</td><td>职能类管培生（法律/法务）</td><td class="num">15–30 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-02-07</td><td>语言类管培生（西班牙语）</td><td class="num">18–33 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2025-12-27</td><td>技术类管培生（地质/勘探-海外）</td><td class="num">18–30 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2025-12-27</td><td>语言类管培生（法语）</td><td class="num">18–33 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2025-12-27</td><td>电气维修员 / 设备维修员（栾川）</td><td class="num">6千–1万</td><td>大专 / 应届生</td><td>洛阳栾川</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2025-12-25</td><td>职能类管培生（ESG / 人力资源 / 采购供应链 / 信息技术）</td><td class="num">10–30 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2025-12-25</td><td>技术类管培生（选矿/冶金化工/机械电气/安全环境-海外）</td><td class="num">18–30 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2025-12-25</td><td>语言类管培生（葡萄牙语）</td><td class="num">18–33 万/年</td><td>本科 / 应届生</td><td>上海</td><td>企查查 T+0</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>规模与结构</b>：在招记录 132 条，以校招管培生体系为主体（技术类/职能类/语言类三大序列），另含栾川本部一线技术岗与上海职能实习岗</li>
+        <li><b>薪酬信号</b>：海外技术管培生 18–30 万/年、语言类（法/西/葡）18–33 万/年，显著高于国内序列（9–15 万/年），体现海外人才的薪酬溢价</li>
+        <li><b>职能方向</b>：采矿、地质勘探、选矿、冶金化工、机械电气自动化为技术主线；法务、ESG、供应链、信息技术为职能补充</li>
+        <li><b>语言画像</b>：法语（刚果金）、葡萄牙语与西班牙语（巴西/南美）岗位常态化，直接映射海外资产版图</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>与业务扩张的呼应</b>：海外采矿/地质/冶金管培生与 TFM、KFM 扩产（KFM 二期 2027 年投产 +10 万吨铜）及巴西金矿并表直接呼应——矿山放量前置储备人才</li>
+        <li><b>与「平台化公司」战略呼应</b>：ESG、法务、信息技术管培生对应公司治理升级与 ESG AAA 评级要求</li>
+        <li><b>地点分布</b>：上海（国际化总部职能 + 海外项目派遣）与洛阳栾川（国内矿山本部）双基地，未见明显背离业务布局的信号</li>
+        <li><b>劳动力规模</b>：参保 3,264 人（不含境外雇佣），海外属地化用工未体现在国内社保口径</li>
+      </ul>
+    </div>
+    <div class="note-box">注：招聘数据来自企查查招聘信息（T+0，发布日期 2025-12 至 2026-04），共 132 条记录、系统展示前 30 条，本表为节选；海外岗位办公地点标注为「上海」系国内集结培训后派遣，实际工作地以矿山所在国为准。官网招聘入口链接核验时间 2026-09-05（来源：公司官网 cmoc.com 职业发展栏目、公司官方校招公告）。</div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查 35 条记录，存续主体节选）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本/出资</th><th>主营/角色</th><th>备注（海外资产重点标注）</th></tr></thead>
+      <tbody>
+        <tr><td>洛陽鉬業控股有限公司（CMOC Limited）</td><td class="num">99.99%</td><td class="num">4,712,349,273 股</td><td>海外矿业控股平台</td><td><b>🇭🇰 香港注册</b>，TFM/KFM/IXM/巴西/厄瓜多尔资产的持股母体</td></tr>
+        <tr><td>新疆洛钼矿业有限公司</td><td class="num">65.1%</td><td class="num">98,000 万元</td><td>钼矿采选</td><td>控股</td></tr>
+        <tr><td>施莫克（上海）国际贸易有限公司</td><td class="num">100%</td><td class="num">66,000 万元</td><td>国际贸易</td><td>贸易职能</td></tr>
+        <tr><td>北京永帛资源投资控股有限公司</td><td class="num">100%</td><td class="num">50,000 万元</td><td>投资控股</td><td>—</td></tr>
+        <tr><td>洛阳栾川钼业集团钨业有限公司</td><td class="num">100%</td><td class="num">30,000 万元</td><td>钨冶炼</td><td>—</td></tr>
+        <tr><td>洛阳国际大酒店有限公司</td><td class="num">100%</td><td class="num">29,000 万元</td><td>酒店（非主业）</td><td>经营范围含住宿餐饮</td></tr>
+        <tr><td>洛阳栾川钼业集团销售有限公司</td><td class="num">100%</td><td class="num">5,000 万元</td><td>销售</td><td>—</td></tr>
+        <tr><td>栾川县大东坡钨钼矿业有限公司</td><td class="num">50.99%</td><td class="num">3,348 万元</td><td>钨钼采选</td><td>控股</td></tr>
+        <tr><td>栾川县三强钼钨有限公司</td><td class="num">51%</td><td class="num">2,829 万元</td><td>钼钨</td><td>控股</td></tr>
+        <tr><td>洛阳环宇钼业有限公司</td><td class="num">50%</td><td class="num">2,522 万元</td><td>钼业</td><td>参股</td></tr>
+        <tr><td>洛阳豫鹭矿业有限责任公司</td><td class="num">40%</td><td class="num">2,000 万元</td><td>钼钨采选（合营）</td><td>参股公司（年报口径）</td></tr>
+        <tr><td>山东钼兴控股有限公司</td><td class="num">100%</td><td class="num">1,000 万元</td><td>控股</td><td>2024-12 新设</td></tr>
+        <tr><td>洛阳富川矿业有限公司</td><td class="num">10%</td><td class="num">500 万元</td><td>钼矿</td><td>合营公司（年报口径）</td></tr>
+        <tr><td>国创智能矿山装备研究院（洛阳）</td><td class="num">20%</td><td class="num">400 万元</td><td>智能矿山装备研发</td><td>参股</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：企查查对外投资共 35 条（存续 17 条、注销 18 条），注销主体多为历史沿革中的整合清理，属正常现象。另有<strong>华越镍钴（印尼）有限公司</strong>为公司参股公司（印尼镍钴湿法冶炼项目，经 CMOC Limited 境外持股，不在国内工商数据源覆盖范围）。境外核心资产（TFM、KFM、IXM、CMOC Brasil、奥丁矿业）均通过香港 CMOC Limited 持股，注册信息需依赖境外数据源核验。2025 年报口径：公司「在 4 个国家布局 11 座优质矿山」。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布（地图） ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细（11 座矿山，2025 年报口径）</h3>
+    <table>
+      <thead><tr><th>矿山/矿权名称</th><th>所在国/地区</th><th>矿种</th><th>持股比例</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>TFM 铜钴矿（Tenke Fungurume）</td><td>🇨🇩 刚果（金）卢阿拉巴</td><td>铜·钴</td><td class="num">80%（Gécamines 持 20%）</td><td>在产 · 全球前五大铜矿山</td><td>公司年报</td></tr>
+        <tr><td>KFM 铜钴矿（Kisanfu）</td><td>🇨🇩 刚果（金）卢阿拉巴</td><td>铜·钴</td><td class="num">控股（邦普时代参股）</td><td>在产 · 全球第一大钴矿山</td><td>公司年报/公告</td></tr>
+        <tr><td>三道庄钼钨矿</td><td>🇨🇳 中国河南栾川</td><td>钼·钨</td><td class="num">100%（矿区权益）</td><td>在产 · 主要在采钼钨矿山</td><td>公司年报</td></tr>
+        <tr><td>上房沟钼矿</td><td>🇨🇳 中国河南栾川</td><td>钼</td><td class="num">合营（公司合营公司持有）</td><td>在产</td><td>公司年报</td></tr>
+        <tr><td>Boa Vista 铌矿</td><td>🇧🇷 巴西 Goiás（Catalão）</td><td>铌</td><td class="num">100%</td><td>在产 · 全球第二大铌生产商</td><td>公司年报</td></tr>
+        <tr><td>Chapadão 磷矿</td><td>🇧🇷 巴西 Goiás（Catalão）</td><td>磷</td><td class="num">100%</td><td>在产 · 巴西第二大磷肥生产商</td><td>公司年报</td></tr>
+        <tr><td>Aurizona 金矿</td><td>🇧🇷 巴西 Maranhão</td><td>金</td><td class="num">100%</td><td>在产 · 2026-01 并表</td><td>公司公告</td></tr>
+        <tr><td>RDM 金矿</td><td>🇧🇷 巴西 Minas Gerais</td><td>金</td><td class="num">100%</td><td>在产 · 2026-01 并表</td><td>公司公告</td></tr>
+        <tr><td>Fazenda 金矿</td><td>🇧🇷 巴西 Bahia（Maria Preta 矿区）</td><td>金</td><td class="num">100%</td><td>在产 · 2026-01 并表</td><td>公司公告</td></tr>
+        <tr><td>Santa Luz 金矿</td><td>🇧🇷 巴西 Bahia（Maria Preta 矿区）</td><td>金</td><td class="num">100%</td><td>在产 · 2026-01 并表</td><td>公司公告</td></tr>
+        <tr><td>奥丁矿业金矿（Odin Mining / 凯歌豪斯）</td><td>🇪🇨 厄瓜多尔</td><td>金</td><td class="num">100%</td><td>建设中 · 预计 2029 年投产</td><td>公司公告</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">资源量与扩产规划</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>铜资源量 3,358 万吨、钴资源量 523.8 万吨（TFM+KFM 合计，全球前五大铜矿山 + 全球第一大钴矿山）</li>
+        <li>钼资源量 83.2 万吨、钨资源量 10.3 万吨（栾川矿区）；铌资源量 201.9 万吨、磷资源量 9,058.5 万吨（巴西）</li>
+        <li>巴西 4 座金矿：黄金资源量 501.3 万盎司（平均品位 1.88g/t）、储量 387.3 万盎司（1.45g/t），2026 年产金目标 6–8 吨</li>
+        <li>2029 年南美洲产金能力目标 20 吨；2030 年黄金产能有望进一步提升</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>KFM 二期：预计 2027 年投产，新增约 10 万吨/年铜产能</li>
+        <li>2028 年铜产量目标 80–100 万吨（基准 80 万吨）</li>
+        <li>TFM 三期：可行性研究进行中，有望带来额外增量</li>
+        <li>配套基建：N'zilo 2 水电站 + 上加丹加省光储项目（刚果金电力保障）</li>
+      </ul>
+    </div>
+    <div class="note-box">注：地图底图为腾讯地图（合规要求，境内矿山 GCJ-02 / 境外矿山 WGS84 坐标系），矿山坐标为依据公开资料推算的<b>近似位置</b>，精确矿权边界以公司年报「资源量及储量」章节及东道国矿业登记机构为准。矿权取得方式：TFM 于 2016 年收购自由港股权（后增持至 80%）、KFM 于 2020 年收购自由港权益、巴西铌磷 2016 年收购英美资源资产、巴西金矿 2026 年收购 EQX 旗下资产、奥丁矿业 2025 年收购。境外矿山持股结构经多层境外主体（CMOC Limited 等），上表为披露口径。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>1999-12</b>：洛阳栾川钼业集团股份有限公司注册成立（前身可追溯至栾川钼矿体系）</li>
+        <li><b>2007-04</b>：H 股在香港联交所主板上市（03993.HK）</li>
+        <li><b>2012-10</b>：A 股在上交所上市（603993.SH）</li>
+        <li><b>2016</b>：收购自由港旗下 TFM 铜钴矿（刚果金，对价约 26.5 亿美元，后持股增至 80%）；同年收购巴西英美资源铌磷资产</li>
+        <li><b>2019</b>：完成对全球第三大金属贸易商 IXM 的收购</li>
+        <li><b>2020-12</b>：收购自由港 KFM（Kisanfu）权益（对价 5.5 亿美元）</li>
+        <li><b>2021</b>：宁德时代旗下邦普时代参股 KFM 项目</li>
+        <li><b>2024-12</b>：新设山东钼兴控股</li>
+        <li><b>2025-04/06</b>：完成厄瓜多尔奥丁矿业（凯歌豪斯金矿）收购，开启「铜+金」双极战略</li>
+        <li><b>2025-12</b>：披露以最高 10.15 亿美元收购巴西 4 座在产金矿</li>
+        <li><b>2026-01-20</b>：完成 12 亿美元 1 年期零息可转债发行（初始转股价 28.03 港元）</li>
+        <li><b>2026-01-23</b>：巴西金矿完成交割（签约到交割仅 40 天）</li>
+        <li><b>2026-07-31</b>：与宁德时代及 KFM 集团重签 2026–2028 持续关联交易协议（上限大幅上调）</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>风险扫描总览（35 项因子）</b>：8 项有记录、27 项无记录；<span class="pill ok">失信 0</span> <span class="pill ok">被执行 0</span> <span class="pill ok">行政处罚 0</span> <span class="pill ok">环保处罚 0</span> <span class="pill ok">经营异常 0</span> <span class="pill ok">欠税 0</span></li>
+        <li>有记录维度（分诊计数，需下钻核验）：担保信息 <b>223</b> 条、裁判文书 <b>54</b> 条、立案信息 <b>17</b> 条、开庭公告 <b>15</b> 条、公示催告 <b>7</b> 条、股权质押 <b>7</b> 条、法院公告 <b>5</b> 条、股权出质 <b>1</b> 条</li>
+        <li>担保信息 223 条预计以并表范围内融资担保为主（上市公司口径），建议下钻 get_guarantee_info 核验被担保方与担保余额</li>
+        <li>裁判文书 54 条对矿业企业属常见量级，多为合同/劳动类纠纷，未见失信与被执行记录，当前无重大司法风险信号</li>
+        <li>历史沿革中注销 18 家子公司为正常整合清理；2025-08 核准章程类变更（登记机关动态）</li>
+        <li>ESG 合规：TFM 通过铜标志（Copper Mark）再审计（32 项标准全满足），KFM 启动铜标志审计；可再生能源占比 38%、循环水占比 89%</li>
+      </ul>
+    </div>
+    <div class="note-box">注：风险数据为企查查 35 项风险因子扫描的当前在册计数（T+0/T+1），仅作分诊用途；未下钻明细工具前不应据计数下定性结论。境外主体（香港 CMOC Limited、IXM 瑞士总部、巴西/厄瓜多尔子公司）的诉讼与合规信息不在国内数据源覆盖范围。</div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">① 刚果（金）资源国政策风险（高）</div>
+      <div>公司核心利润来源（TFM+KFM）集中在刚果（金）：钴出口配额制直接约束销量与价格（2026–2028 年出口量与市价预计大幅波动）；2026 年 8 月铜钴精矿出口禁令虽不直接冲击阴极铜/氢氧化钴产品，但反映资源国推动本地化冶炼的政策取向，若延伸至精炼环节或矿业法规再度修订，将实质影响资产回报。历史上 TFM 与 Gécamines（持 20%）存在权益金争议先例。电力供应依赖 N'zilo 2 水电站等自建项目，建设期存在不确定性。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">② 铜钴价格高位波动风险（高）</div>
+      <div>2025 年以来铜价涨幅超 50%，机构一致看多但目标价分歧明显（1.3 万–1.55 万美元/吨区间）；若美国关税落地引发电解铜回流、宏观需求走弱，铜价或由单边上涨转入高位震荡。2025 年公司经营现金流已同比下降 35.64%（仍为历史第二高），利润对铜价弹性极大（铜板块毛利占矿山端 61%），价格回调将直接压缩盈利。钴价受消费电子疲软与配额博弈影响，机构对下半年判断存在分歧。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">③ 黄金资产高位并购整合风险（中）</div>
+      <div>巴西 4 座金矿（10.15 亿美元）与厄瓜多尔绿地项目收购发生在金价历史高位区间（现货一度 4,697 美元/盎司后回落跌破 4,400 美元），行业经验显示高位接盘在周期下行时将转化为账面减值与现金流负担；厄瓜多尔奥丁矿业为绿地项目（预计 2029 年投产），存在建设期资本开支超支与征地、电力配套风险。金价若持续回落，6–8 吨产金目标的利润贡献将低于预期。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 关联交易规模与客户集中风险（中）</div>
+      <div>2026 年 7 月公司与宁德时代集团重签协议，2026–2028 年销售上限大幅上调至 38.5 / 43 / 50 亿美元（原 2026 年上限 22 亿美元，增幅超 75%）；与子公司 KFM 集团的采购上限 2028 年达 140 亿美元。公司否认「单一关联方依赖」，但下游绑定加深后，若新能源产业链需求或合作条款变化，交易实际执行金额存在波动风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">⑤ 诉讼与担保余额待核验风险（中）</div>
+      <div>企查查扫描显示担保信息 223 条、裁判文书 54 条、立案信息 17 条（分诊计数）。对年营收 2,000 亿量级的跨国矿业公司属常见水平，且无失信、被执行、行政处罚记录；但担保明细（被担保方、余额、是否有反担保）与诉讼性质（合同/劳动/涉外）需在正式尽调阶段逐条下钻核验，境外主体合规信息亦需补充邓白氏等国际数据源。</div>
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：A+H 双重上市矿业龙头，注册资本 42.79 亿元全额实缴，德勤审计标准无保留意见，35 项风险因子中失信/被执行/行政处罚/环保处罚等 27 项为零记录，治理结构完整（四委员会 + 内控内审 + 廉政稽核双设），Wind ESG AAA。资质评级：<b>优</b>。<br>
+      <b>经营与财务</b>：连续 5 年归母净利润创新高（2025 年 203.39 亿元，+50.30%），ROE 26.61%，负债率 50.34% 稳健；成本管控成效显著（营业成本 -11.56%）；经营现金流 -35.64% 主要因高基数与营运资金变化，绝对额仍为历史第二高。评级：<b>优（周期性）</b>。<br>
+      <b>资产质量</b>：4 国 11 座矿山，铜钴资源量全球顶级（铜 3,358 万吨 / 钴 523.8 万吨），KFM 二期与 TFM 三期提供明确扩产路径，2028 年铜产量目标 80–100 万吨；但资产地理集中度偏高（核心利润区在刚果金），黄金新资产尚待整合验证。评级：<b>良+</b>。<br>
+      <b>合规与风险</b>：境内合规记录干净，ESG 国际认证齐全；核心风险在资源国政策与商品价格，属行业系统性风险而非公司治理缺陷。评级：<b>良</b>。<br>
+      <b>尽调建议</b>：(1) 正式尽调阶段重点下钻 223 条担保明细与 54 条裁判文书，并补充境外主体（香港/瑞士/巴西/厄瓜多尔）国际数据源核验；(2) 对刚果金政策做情景压力测试（钴配额收紧 / 精炼本地化两种情形下的现金流敏感性）；(3) 跟踪 KFM 二期投产进度与巴西金矿并表后的实际产金成本；(4) 关注 2025 年管理层密集换届后的战略执行一致性。综合结论：<b>资质优良的全球化周期龙头，尽调中性，重点跟踪资源国政策与铜价敏感性</b>。本报告不构成投资建议。
+    </div>
+  </section>
+
+  <!-- ============ 附录 · 数据来源与方法说明 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 股东 / 高管 / 对外投资 / 实控人穿透</td><td>企查查 MCP（qcc-company 连接器，T+0）</td><td class="num">2026-09-05</td><td>与国家企业信用信息公示系统同源；持股比例为「一层直接」口径</td></tr>
+        <tr><td>风险扫描（35 项因子）</td><td>企查查 MCP（qcc-risk，T+0/T+1）</td><td class="num">2026-09-05</td><td>仅分诊计数，未下钻明细；担保 223 条 / 裁判文书 54 条需逐条核验</td></tr>
+        <tr><td>三年财务与归母净利润</td><td>企查查年报数据 × 公司 2025 年年度报告（2026-03-27 披露）交叉核验</td><td class="num">2026-09-05</td><td>人民币、合并报表口径；两源一致</td></tr>
+        <tr><td>产销量 / 板块毛利 / 资源量 / 战略</td><td>公司 2025 年年报摘要（巨潮资讯）、年度业绩公告（港交所）、公司官网新闻稿</td><td class="num">2026-09-05 检索</td><td>官方第一手披露，权威性最高</td></tr>
+        <tr><td>行业景气与机构观点</td><td>国金证券 2026 年度策略（2026-01-03）、天风/东吴/五矿证券研报、瑞银/高盛/花旗观点（环球网财经 2026-08 转引）、卓创资讯（证券时报 2026-08）</td><td class="num">2026-09-05 检索</td><td>行研类 MCP 未连接，按规范降级至免费公开渠道；观点为机构观点非事实，多空双方已覆盖</td></tr>
+        <tr><td>黄金并购与可转债</td><td>证券时报 / 上海证券报 / 第一财经 / 智通财经 / AAStocks 转引（2026-01 至 2026-09）</td><td class="num">2026-09-05 检索</td><td>媒体转引口径，关键数字以公司公告为准</td></tr>
+        <tr><td>招聘动态</td><td>企查查招聘信息（T+0）</td><td class="num">2026-09-05</td><td>共 132 条记录、展示前 30 条；发布日期 2025-12 至 2026-04</td></tr>
+        <tr><td>全球矿权与矿山坐标</td><td>公司年报矿山名录 + 公开资料推算</td><td class="num">2026-09-05</td><td>坐标为近似位置（境内 GCJ-02 / 境外 WGS84）；境外矿权持股结构经多层境外主体，以年报披露为准</td></tr>
+        <tr><td>关联交易（宁德时代 / KFM）</td><td>公司公告（上海证券报刊载，2026-08-01）、北极星储能网、华夏时报</td><td class="num">2026-09-05 检索</td><td>年度上限为公司预计值，实际执行金额随市场变化</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:14px">
+      <b>地图与在线发布说明</b>：本报告地图底图为腾讯地图 GL JS（合规底图，境内矿山 GCJ-02 / 境外 WGS84）。本地预览走内置代理免 key；部署到 GitHub Pages（公网场景）后，需在腾讯位置服务开放平台（lbs.qq.com）申请 key 替换模板中的 key 占位符并配置 Referer 白名单，未配置时地图自动降级为上方矿权明细表展示，不影响数据完整性。<b>本版本暂未发布到 GitHub Pages</b>（GitHub connector 未连接，连接后可一键托管至 due-diligence-reports 仓库）。
+    </div>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：暂未发布（GitHub connector 未连接，待连接后托管至 GitHub Pages） · 本报告由 AI 辅助生成 · 数据截至 2026-09-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+/* ============ 全球矿权地图（腾讯地图 GL JS，合规底图） ============
+ * 合规要求：底图仅可使用腾讯/高德/百度/天地图，禁止 Google/OSM/Mapbox。
+ * 本地预览（WorkBuddy 内）走 _TMapSecurityConfig 本地代理，无需 key；
+ * 部署到 GitHub Pages（公网 + 含海外区域渲染）属非默认场景，
+ * 须在腾讯位置服务开放平台（https://lbs.qq.com）申请 key 并替换 TMAP_KEY，
+ * 同时在控制台配置 Referer 白名单为 Pages 域名（如 https://<user>.github.io/*）。
+ * 坐标口径：境内矿山坐标须为 GCJ-02（火星坐标，WGS84 需转换）；境外矿山直接使用 WGS84 坐标即可。 */
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'TFM 铜钴矿（全球前五大铜矿山）', country:'刚果（金）', mineral:'铜·钴', stake:'80%', status:'在产', lat:-10.53, lng:26.05 },
+  { name:'KFM 铜钴矿（全球第一大钴矿山）', country:'刚果（金）', mineral:'铜·钴', stake:'控股', status:'在产', lat:-10.75, lng:25.92 },
+  { name:'三道庄钼钨矿', country:'中国河南栾川', mineral:'钼·钨', stake:'100%', status:'在产', lat:33.93, lng:111.47 },
+  { name:'上房沟钼矿', country:'中国河南栾川', mineral:'钼', stake:'合营', status:'在产', lat:33.97, lng:111.40 },
+  { name:'Boa Vista 铌矿（全球第二大铌生产商）', country:'巴西 Goiás', mineral:'铌', stake:'100%', status:'在产', lat:-17.96, lng:-47.95 },
+  { name:'Chapadão 磷矿（巴西第二大磷肥）', country:'巴西 Goiás', mineral:'磷', stake:'100%', status:'在产', lat:-17.92, lng:-47.90 },
+  { name:'Aurizona 金矿', country:'巴西 Maranhão', mineral:'金', stake:'100%', status:'2026年并表', lat:-2.88, lng:-44.38 },
+  { name:'RDM 金矿', country:'巴西 Minas Gerais', mineral:'金', stake:'100%', status:'2026年并表', lat:-17.24, lng:-42.74 },
+  { name:'Fazenda 金矿', country:'巴西 Bahia', mineral:'金', stake:'100%', status:'2026年并表', lat:-11.20, lng:-39.35 },
+  { name:'Santa Luz 金矿', country:'巴西 Bahia', mineral:'金', stake:'100%', status:'2026年并表', lat:-11.28, lng:-39.24 },
+  { name:'奥丁矿业金矿（预计2029年投产）', country:'厄瓜多尔', mineral:'金', stake:'100%', status:'建设中', lat:-3.48, lng:-79.95 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000); /* 超时兜底：保留 fallback 提示 */
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 3, center: new TMap.LatLng(15, 40) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(15, 40), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

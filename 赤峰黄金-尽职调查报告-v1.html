@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赤峰黄金 · 尽职调查报告 V1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">600988.SH · 上交所主板 ｜ 06693.HK · 港交所主板</span>
+        <div class="company-name-cn">赤峰吉隆黄金矿业集团股份有限公司</div>
+        <div class="company-name-en">Chifeng Jilong Gold Mining Group Limited（企业简称：赤峰黄金）</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无投资评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05（企查查 T+0；行情/中报动态至 2026-09-04 公开报道）</span>
+      <span>报告编号：CFHJ-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    赤峰黄金是 A+H 双上市的纯黄金矿企：老挝塞班金铜矿 + 加纳瓦萨金矿贡献约 80% 资源量（海外主导），境内吉隆、五龙、瀚丰等矿山为补充，轻资产采矿外包模式下自有员工仅 6,738 人。2023-2025 年业绩弹性为十强中最大——毛利率 32.58%→52.46%、净利 8.71 亿→34.47 亿（近 4 倍）、负债率降至 33.91%；2026H1 营收 70.18 亿（+33.11%）、归母净利 17.32 亿（+56.50%），金价上涨（售价 +44.08%）对冲了产量下滑（塞班技改 + 硫酸受限，自产金 -8.96%）。最大变量：2026-03-22 紫金黄金签署协议受让控股股东李金阳及其一致行动人全部 25.85% 股份（约 182.58 亿元）并拟认购 3.11 亿股 H 股，交易完成后紫金黄金将成为控股股东——"紫金入主"带来运营赋能预期，但交割整合与治理重构存在不确定性。需重点关注：①26H1 单位全维持成本 +35.46%（加纳资源税 5%→5-12% 阶梯化）；②产量完成度仅 42%（H2 恢复压力）；③股权质押 61 条 + 担保 108 条。机构端国信证券"优于大市"（2026-09-02）、多家券商"买入"。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 营业收入（合并口径）</div><div class="kpi-value num">126.39 亿</div><div class="kpi-delta up">▲ +40.03%（2024：90.26 亿）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 净利润（合并口径）</div><div class="kpi-value num">34.47 亿</div><div class="kpi-delta up">▲ +73.57%（2024：19.86 亿，按年报测算）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 归母净利润</div><div class="kpi-value num">17.32 亿</div><div class="kpi-delta up">▲ +56.50%（EPS 0.92 元，ROE 12.31%）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 自产金销售均价</div><div class="kpi-value num">1,008.52 元/克</div><div class="kpi-delta up">▲ +44.08%（产量 6.15 吨 -8.96%：量跌价升）</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>赤峰吉隆黄金矿业集团股份有限公司（企业简称：赤峰黄金，2026-05-13 由"赤峰吉隆黄金矿业股份有限公司"更名）</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">91150000708204391F</td></tr>
+      <tr><td>成立日期</td><td class="num">1998-06-22（营业期限至 2099-12-31；前身为广州市宝龙特种汽车股份有限公司，2012 年借壳重组后转型黄金矿业——历史公开信息）</td></tr>
+      <tr><td>注册资本</td><td class="num">190,041.1178 万元（实缴 190,041.1178 万元；A股 1,663,911,378 股 + H股 236,499,800 股，2026-08 证券变动月报表）</td></tr>
+      <tr><td>法定代表人</td><td>王建华（2020-03-23 起；此前为吕晓兆，更早为赵美光、郑勇康、万沛中、王治邦、杨龙江）</td></tr>
+      <tr><td>注册地址</td><td>内蒙古自治区赤峰市敖汉旗四道湾子镇富民村；通信地址：北京市丰台区万丰路小井甲 7 号</td></tr>
+      <tr><td>企业类型</td><td>其他股份有限公司（上市）</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">存续（在营、开业、在册）</span>（核准日期 2026-05-13，登记机关：赤峰市市场监督管理局）</td></tr>
+      <tr><td>国标行业</td><td>金矿采选（2019-07 行业门类由制造业变更为采矿业——借壳后"脱帽"制造业历史属性的合规确权节点）</td></tr>
+      <tr><td>参保人数</td><td class="num">15 人（母公司口径）+ 分支机构 53 人（企查查 2026-09-05；集团员工总数约 6,738 人，TOP10 汇总报告口径）</td></tr>
+      <tr><td>上市信息</td><td>A 股 600988.SH（2004-04-14，发行价 9.08 元）+ H 股 06693.HK（2025 年 A+H 上市）</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年报</th><th>2024 年报</th><th>2025 年报</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业总收入</td><td class="num">72.21 亿</td><td class="num">90.26 亿</td><td class="num">126.39 亿</td><td>企查查年报，合并报表</td></tr>
+        <tr><td>营收同比</td><td class="num up">+15.23%</td><td class="num up">+24.99%</td><td class="num up">+40.03%</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>净利润（含少数股东）</td><td class="num">8.71 亿</td><td class="num">19.86 亿</td><td class="num">34.47 亿</td><td>企查查年报，合并口径</td></tr>
+        <tr><td>加权 ROE</td><td class="num">14.61%</td><td class="num">25.13%</td><td class="num">27.14%</td><td>企查查年报</td></tr>
+        <tr><td>毛利率</td><td class="num">32.58%</td><td class="num">43.84%</td><td class="num">52.46%</td><td>企查查年报，三年连升</td></tr>
+        <tr><td>资产负债率</td><td class="num">54.36%</td><td class="num">47.25%</td><td class="num">33.91%</td><td>企查查年报，两年降逾 20pct</td></tr>
+        <tr><td>经营现金流净额</td><td class="num">22.03 亿</td><td class="num">32.68 亿</td><td class="num">55.56 亿</td><td>企查查年报</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      最新动态（2026 年半年报，公司披露/媒体/研报口径）：2026H1 营业收入 70.18 亿元（<span class="up">+33.11%</span>）、归母净利润 17.32 亿元（<span class="up">+56.50%</span>）、扣非归母净利 17.38 亿元（<span class="up">+56.34%</span>）、利润总额 31.91 亿元（<span class="up">+71.38%</span>）、经营活动净现金流 18.80 亿元（<span class="up">+16.60%</span>）；加权 ROE 12.31%、EPS 0.92 元（+46.03%）。单 Q2 营收 34.63 亿元（同比 +20.90%、环比 -2.56%）、归母净利 7.44 亿元（同比 +19.34%、环比 -24.71%）。期末总资产 252.53 亿元（较年初 +1.09%）、归母净资产 143.26 亿元（+6.79%）。自产金收入 61.78 亿元（+30.16%）占比约 88%、毛利率 61.63%（+7.11pct）。
+      货币单位：人民币。
+    </div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究（黄金 · 铜副产）</div>
+    <h3 class="sub">行业景气与价格指标</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>公司自产金销售均价（2026H1）</td><td class="num">1,008.52 元/克</td><td class="num up">+44.08%（Q2 均价 959 元/克，环比 -103 元）</td><td>公司中报（研报转引）</td></tr>
+        <tr><td>沪金均值（2026H1）</td><td class="num">1,039.5 元/克</td><td class="num">公司售价折扣率仅 2.98%（折价系数 97%）</td><td>国信证券研报（2026-09-02）</td></tr>
+        <tr><td>单位营业成本 / AISC（2026H1）</td><td class="num">383.44 / 481.45 元/克</td><td class="num down">+20.18% / +35.46%（税费提高 + 技改检修）</td><td>公司中报</td></tr>
+        <tr><td>加纳资源税</td><td class="num">5%-12% 阶梯税率</td><td class="num down">2026 年 4 月由 5% 调整，推高瓦萨单位成本</td><td>研报（2026-08/09）</td></tr>
+        <tr><td>电解铜产量（2026H1）</td><td class="num">5,399 吨</td><td class="num up">+93%（塞班铜副产放量）</td><td>公司中报（研报转引）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置（纯金矿商 · 轻资产外包模式）</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>老挝塞班（Sepon）金铜矿</b>：万象矿业运营，老挝最大金矿之一；SND 金铜矿项目资源量由首次评估 107 吨（金当量）增至 260 吨，增储空间明确；卡农原生铜项目按计划推进。</li>
+        <li><b>加纳瓦萨（Wassa）金矿</b>：金星瓦萨运营，井下采矿量稳步提升，井下 + 露天合计可达 13,000 吨/天；新建 ADK 斜坡道已达首采水平，H2 预计贡献 18 万吨矿石。</li>
+        <li><b>境内矿山群</b>：吉隆矿业（兴隆矿新建竖井 3 月开工，6 万吨/年扩建可研完成）、五龙矿业（尾矿库隧洞掘进过半，选矿回收率保持 90% 以上）、华泰矿业（3 万吨/年扩建推进）、锦泰矿业（二期扩建全面推进）、瀚丰矿业（吉林延边，天宝山多金属矿）。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>轻资产模式</b>：采矿外包（如与中铁十九局签 2.2 亿美元采矿服务合同），自有员工以核心管理与技术外派为主，成本结构灵活但对外包方管控要求高。</li>
+        <li><b>业绩弹性</b>：纯金矿商 + 低杠杆（负债率 33.91%）+ 毛利率三年连升，在金价上行周期中为 A 股贵金属板块弹性最纯粹的标的之一；反之金价回调时亦首当其冲。</li>
+        <li><b>紫金赋能预期</b>：机构认为紫金入主后，塞班找矿经验有望转化为可复制技术范式，运营效率与成本管控存在改善空间（观点，非事实）。</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构</th><th>日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>"优于大市"（维持）：技改扩能短期影响产量、重点开发建设项目稳步推进；预计 2026-2028 营收 155.66 / 204.67 / 254.28 亿元；提示项目建设进度不及预期、金价大幅回调、成本大幅上涨三风险</td><td>国信证券</td><td class="num">2026-09-02</td><td>新浪财经研报中心</td></tr>
+        <tr><td>"买入"（维持）：预计 2026-2028 归母净利 43.39 / 54.02 / 66.55 亿元（+40.75% / +24.52% / +23.20%），对应 PE 20.15 / 16.18 / 13.14 倍；"紫金有望入主，运营有望进一步改善"</td><td>券商研报（内部转载）</td><td class="num">2026-09</td><td>慧博/发现报告</td></tr>
+        <tr><td>"买入"（维持）：上半年技改检修影响产量释放、紫金赋能未来可期；预计 2026-2028 营收 152 / 186 / 233 亿元、归母净利 45.9 / 53.5 / 70.9 亿元，对应 PE 20.3 / 17.4 / 13.2 倍</td><td>券商研报（腾讯财经转载）</td><td class="num">2026-08</td><td>gu.qq.com 研报频道</td></tr>
+        <tr><td>行情快照：截至 2026-09-04 收盘 45.69 元（周跌 -6.93%），总市值 868.3 亿元，贵金属板块市值排名 3/11；2026-09-03 召开半年度业绩说明会</td><td>证券之星（东方财富转载）</td><td class="num">2026-09-06</td><td>东方财富财富号</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：行业数据口径与时效——金价/成本为公司中报与研报时点值；机构观点均为公开研报/媒体报道转引，观点与事实分列呈现，多空兼顾，不作为事实陈述；2026H1 产量完成度 42%（全年目标口径，研报测算）。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">主要股东（TOP10 汇总报告企查查口径 + 2026H1 紫金交易）</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>HKSCC Nominees（港股名义持有人）</td><td class="num">12.44%</td><td>H 股中央结算名义持有</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>2</td><td>李金阳（原控股股东、实际控制人）</td><td class="num">10.02%</td><td>自然人</td><td>TOP10 汇总报告；紫金交易转让方</td></tr>
+        <tr><td>3</td><td>王建华（董事长、法定代表人）</td><td class="num">3.90%</td><td>自然人（高管持股 74,200,071 股）</td><td>企查查 get_key_personnel</td></tr>
+        <tr><td>—</td><td>紫金黄金（集团）有限公司（交易推进中）</td><td class="num">25.85%（受让）+ 拟认购 H 股 3.11 亿股</td><td>受让方 / 战略投资者</td><td>2026-03-22 公告 + 研报转引</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">紫金入主交易与控制权变化（本报告最重要变量）</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>2026-03-22</b>：控股股东、实际控制人李金阳及其一致行动人浙江瀚丰创业投资合伙企业与紫金黄金（集团）签署《股份转让协议》，拟转让合计 241,925,746 股无限售流通股（约 25.85%，公开报道口径对价约 182.58 亿元）。</li>
+        <li><b>同日</b>：经第九届董事会第六次会议批准，公司与紫金黄金签署《战略投资协议》，拟向其发行 310,902,731 股 H 股普通股。</li>
+        <li><b>交易后果</b>：上述交易完成后，紫金黄金将成为公司控股股东（公司公告口径）；截至本报告日 H 股发行与控股权交割进度以最新公告为准。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>治理传导</b>：2026 年以来新设国内事业部、计划考核部，子公司经营层调整（陈帅任金星瓦萨 CEO、赵光辉升任万象矿业总经理等）——组织调整为"战略攻坚"定位。</li>
+        <li><b>A+H 结构</b>：H 股 2025 年上市（注册资本 2025-06 由 16.64 亿增至 19.00 亿元），总股本 19.00 亿股中 H 股 2.36 亿股；港股通与 HKSCC 持仓带来两地定价差异。</li>
+        <li><b>股权质押 61 条 + 股权出质 6 条</b>（35 项因子，2026-09-05）——主要集中在原实控人及一致行动人层面，交割完成后结构待重构，建议下钻核查。</li>
+      </ul>
+    </div>
+    <div class="note-box">数据纪律：上述持股比例为企查查/TOP10 汇总报告一层直接持股口径，逐字引用；本次未单独调用实控人穿透工具取数，穿透结果以企查查 get_actual_controller 语义为准，禁止据一层持股推断。紫金交易金额（182.58 亿元）为公开报道口径，最终以交易所/公司公告为准。</div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>本届任期</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>王建华</td><td>董事长、执行董事、法定代表人</td><td class="num">2019-12-21 至今</td><td>持股 7,420.0071 万股（3.9%）——十强民企中董事长持股比例最高之一；2020-03 起任法定代表人</td></tr>
+        <tr><td>高波</td><td>副董事长、执行董事、总裁</td><td class="num">2025-10-31 至今</td><td>持股 15.35 万股（0.0081%）；兼具境内外矿山管理经验，2025-10 董事会换届后任总裁</td></tr>
+        <tr><td>杨宜方 / 吕晓兆</td><td>副董事长、执行董事（各）</td><td class="num">2025-10-31 / 2019-12-21 至今</td><td>吕晓兆为前任法定代表人（2016-2020）</td></tr>
+        <tr><td>赵强</td><td>执行董事、副总裁</td><td class="num">2025-10-31 至今</td><td>持股 20.4 万股（0.0107%）</td></tr>
+        <tr><td>黄学斌</td><td>副总裁、财务总监</td><td class="num">2023-07-14 至今</td><td>财务条线负责人</td></tr>
+        <tr><td>张天航</td><td>副总裁</td><td class="num">2026-02-02 至今</td><td>东北大学采矿工程学士 + 加拿大 UBC 硕士；曾任塞尔温矿业、埃尔拉多黄金、山金国际核心管理职务——精益运营</td></tr>
+        <tr><td>冯涛</td><td>副总裁、总工程师</td><td class="num">2026-02-28 至今</td><td>20 余年地质勘查经验，曾任巴里克、埃尔拉多黄金、艾芬豪矿业要职；国际经济地质学家学会资深会员——资源勘查</td></tr>
+        <tr><td>周新兵 / 陈志勇</td><td>副总裁（各）</td><td class="num">2023-01-18 / 2021-01-18 至今</td><td>周新兵持股 11.28 万股（0.0059%）</td></tr>
+        <tr><td>董淑宝</td><td>董事会秘书</td><td class="num">2022-01-04 至今</td><td>持股 3.85 万股（0.002%）</td></tr>
+        <tr><td>张旭东</td><td>非执行董事</td><td class="num">2025-10-31 至今</td><td>—</td></tr>
+        <tr><td>独立董事</td><td>黄一平、蒋琪、胡乃连、李厚民</td><td class="num">2024-08 / 2025-10 / 2022-01 / 2025-10 起</td><td>2025-10 完成独董换届补强（4 人）</td></tr>
+        <tr><td>杜慧</td><td>内部审计机构负责人</td><td class="num">2025-10-31 至今</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：主要人员信息来自企查查（共 17 条董监高记录，T+0，2026-09-05 核验）。治理观察：2025-10 董事会换届（王建华连任董事长、高波任总裁）+ 2026-02 两位国际矿业专家（冯涛/张天航，巴里克、埃尔拉多、艾芬豪背景）加盟，管理层"系统迭代"特征明显；紫金入主后董事会与管理层或进一步重构，治理结构处于过渡期。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://www.cfgold.com/col97/index" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网「加入我们」· cfgold.com/col97</a>
+      <a href="https://www.cfgold.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · cfgold.com</a>
+    </div>
+    <div class="note-box" style="margin-top:0">招聘邮箱：CJHR@cfgold.com（TOP10 报告阶段核验）。集团员工总数约 6,738 人（海外属地员工占大头），母公司参保仅 15 人 + 分支机构 53 人——轻资产总部 + 海外属地化用工结构。</div>
+    <h3 class="sub">在招岗位明细（企查查招聘信息 T+0，共 211 条记录，此处摘录代表性岗位）</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026-08-26</td><td>税务主管（北京总部）</td><td class="num">25-40k</td><td>本科 / 5 年以上</td><td>北京</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-08-21</td><td>Technical Advisor – Processing Training &amp; Safety</td><td class="num">40-60k</td><td>本科 / 5-10 年</td><td>—（海外矿区）</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-08-19</td><td>Senior Contract Officer</td><td class="num">30-35k</td><td>本科 / 5-10 年</td><td>—（海外矿区）</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-08-18</td><td>全球招聘专家 / Recruiter Specialist</td><td class="num">30-45k</td><td>本科 / 5 年以上</td><td>北京</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-08-03</td><td>冶金/选矿/地质工程师（海外岗位）</td><td class="num">10-30k</td><td>本科 / 经验不限</td><td>—（海外矿区）</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-07-30</td><td>机电部副部长（机电矿长储备）</td><td class="num">140-170k·14薪</td><td>大专 / 8-10 年</td><td>延边朝鲜族自治州（瀚丰矿业）</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-07-22</td><td>项目总监（加纳）</td><td class="num">30-60k</td><td>统招本科 / 10 年以上</td><td>—（加纳瓦萨）</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-07-21</td><td>矿长 / 生产副矿长 / 安全副矿长 / 总工程师</td><td class="num">15-35k</td><td>大专 / 10 年以上</td><td>赤峰 / 延边（境内矿山群）</td><td>企查查（T+0）</td></tr>
+        <tr><td class="num">2026-07-11</td><td>露天采矿经理</td><td class="num">60-80k·15薪</td><td>统招本科 / 10 年以上</td><td>—（海外矿区）</td><td>企查查（T+0）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <ul class="bullet-list pos">
+        <li><b>国际化用工</b>：Technical Advisor（40-60k）、Senior Contract Officer、项目总监（加纳）等英文岗位密集，且官网为全英文/双语界面——"全球欢迎的主要黄金生产商"定位在人才端落地。</li>
+        <li><b>总部职能升级</b>：全球招聘专家、税务主管（25-40k）集中在北京总部，对应 2026 年新设国内事业部、计划考核部的组织升级。</li>
+        <li><b>境内扩产</b>：矿长/总工程师/机电矿长等岗位密集投向赤峰与延边（瀚丰天宝山），与吉隆竖井、华泰/锦泰扩建节奏交叉印证。</li>
+      </ul>
+      <ul class="bullet-list warn">
+        <li><b>海外属地化缺口</b>：海外工程师岗位"经验不限、10-30k"偏低，与境内矿长 15-35k 倒挂——海外岗位吸引力依赖津贴与轮休制度，属地化留任能力待观察。</li>
+        <li><b>口径局限</b>：招聘数据为发布时点快照（企查查 T+0，211 条），不代表实际编制规模；集团 6,738 人以年报口径为准。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查共 13 条对外投资记录，一层直接持股）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>认缴出资额</th><th>主营/角色</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>吉林瀚丰矿业科技有限公司</td><td class="num">100%</td><td class="num">42,920 万元</td><td>境内矿山群之一（延边天宝山多金属矿方向）</td><td>存续</td></tr>
+        <tr><td>赤峰吉隆矿业有限责任公司</td><td class="num">100%</td><td class="num">17,500 万元</td><td>境内核心金矿（吉隆矿业，兴隆矿竖井扩建中）</td><td>存续</td></tr>
+        <tr><td>上海赤金丰余新能源科技有限公司</td><td class="num">51%</td><td class="num">25,500 万元</td><td>新能源科技</td><td>存续</td></tr>
+        <tr><td>厦门赤金厦钨金属资源有限公司</td><td class="num">51%</td><td class="num">25,500 万元</td><td>金属资源（与厦钨体系合资方向）</td><td>存续</td></tr>
+        <tr><td>上海赤金丰余实业有限公司</td><td class="num">100%</td><td class="num">10,000 万元</td><td>实业平台</td><td>存续</td></tr>
+        <tr><td>安徽广源科技发展有限公司</td><td class="num">55.0032%</td><td class="num">2,462.8217 万元</td><td>资源综合回收利用</td><td>存续</td></tr>
+        <tr><td>昆明新恒河矿业有限公司</td><td class="num">51%</td><td class="num">2,040 万元</td><td>矿业</td><td>存续</td></tr>
+        <tr><td>北京国弘黄金有限公司</td><td class="num">22%</td><td class="num">1,100 万元</td><td>黄金产业（参股）</td><td>存续</td></tr>
+        <tr><td>上海蓝星启藏智能科技有限责任公司</td><td class="num">16.6751%</td><td class="num">69.2388 万元</td><td>智能科技（2025-08 新设参股）</td><td>存续</td></tr>
+        <tr><td>赤金國際（香港）有限公司</td><td class="num">100%</td><td class="num">1 股</td><td>境外投融资平台（海外矿权的境内股权镜像）</td><td>仍注册</td></tr>
+        <tr><td>分宜长信汇智资产管理合伙企业（有限合伙）</td><td class="num">9.8425%</td><td class="num">5,000 万元</td><td>资产管理（历史参股）</td><td>注销</td></tr>
+        <tr><td>赤金（天津）地质勘查技术有限公司</td><td class="num">60%</td><td class="num">60 万元</td><td>地质勘查</td><td>注销</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">数据纪律与说明：以上为企查查一层直接持股口径，逐字引用，禁止据此推断穿透关系。老挝万象矿业（MMG Laos 体系）、加纳金星瓦萨等境外经营主体未出现在境内工商对外投资列表中，系通过赤金國際（香港）等境外中间平台持有，其股权与经营信息以公司公告/年报披露为准。历史遗留：广州市宝龙汽车配件研发制造有限公司（吊销）为借壳前汽车业务残壳。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布 ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布（老挝塞班 + 加纳瓦萨双海外引擎 + 境内矿山群）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:#f6f7f9">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到公网后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/项目名称</th><th>所在国/地区</th><th>矿种/产品</th><th>权益结构</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>塞班（Sepon）金铜矿</td><td>老挝 · 沙湾拿吉省</td><td>金 · 铜（电解铜 26H1 5,399 吨 +93%）</td><td class="num">经万象矿业（MMG Laos）体系控股（以公告为准）</td><td>在产（技改 + 高温氧化釜计划内检修 + 硫酸供应受限）</td><td>TOP10 汇总报告 + 2026 中报</td></tr>
+        <tr><td>SND 金铜矿项目</td><td>老挝</td><td>金当量资源量 107→260 吨</td><td class="num">塞班矿区范围（以公告为准）</td><td>勘探/开发（重大资源突破）</td><td>国信证券研报（2026-09-02）</td></tr>
+        <tr><td>瓦萨（Wassa）金矿</td><td>加纳</td><td>金</td><td class="num">经金星瓦萨控股（以公告为准）</td><td>在产（井下+露天 13,000 吨/天；ADK 斜坡道 H2 贡献 18 万吨）</td><td>TOP10 汇总报告 + 2026 中报</td></tr>
+        <tr><td>吉隆矿业（兴隆矿）</td><td>中国 · 内蒙古赤峰</td><td>金</td><td class="num">100%（赤峰吉隆矿业）</td><td>在产（新建竖井 3 月开工；6 万吨/年扩建可研完成）</td><td>企查查 + 研报</td></tr>
+        <tr><td>瀚丰矿业（天宝山）</td><td>中国 · 吉林延边</td><td>多金属（铜铅锌）</td><td class="num">100%</td><td>在产（机电矿长等岗位在招地）</td><td>企查查</td></tr>
+        <tr><td>五龙矿业</td><td>中国 · 辽宁丹东</td><td>金</td><td class="num">控股（以公告为准）</td><td>在产（选矿回收率 90%+，尾矿库隧洞掘进过半）</td><td>官网动态 + 研报</td></tr>
+        <tr><td>华泰矿业</td><td>中国 · 境内</td><td>金</td><td class="num">控股（以公告为准）</td><td>3 万吨/年地下开采扩建推进（发改委立项评审完成）</td><td>国信证券研报</td></tr>
+        <tr><td>锦泰矿业</td><td>中国 · 境内</td><td>金</td><td class="num">控股（以公告为准）</td><td>二期扩建全面推进</td><td>国信证券研报</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图（合规底图）；境内项目坐标为 GCJ-02，境外项目直接使用 WGS84 坐标，精确到项目级（小数点后 2 位）；海外资源量占比约 80%（TOP10 汇总报告口径）。华泰/锦泰矿业办公地未在招聘数据中明确标注、地图未单独标注，明细以公告为准。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>1998-06-22</b>：广州市宝龙特种汽车股份有限公司注册成立（防弹运钞车等特种车辆制造）。</li>
+        <li><b>2004-04</b>：A 股上市（600988，发行价 9.08 元）。</li>
+        <li><b>2010-08</b>：更名广东东方兄弟投资股份有限公司（转型投资控股）。</li>
+        <li><b>2012-12</b>：借壳重组——更名赤峰吉隆黄金矿业股份有限公司、迁址内蒙古赤峰、经营范围变更为黄金矿产品销售（赵美光入主，其后李金阳承继实控）。</li>
+        <li><b>2018-10</b>：经营范围变更为有色金属采选购销 + 进出口；完成收购 MMG Laos 取得塞班铜金矿（公告口径）。</li>
+        <li><b>2019-07</b>：行业门类由"制造业（汽车车身、挂车制造）"变更为"采矿业（其他常用有色金属矿采选）"。</li>
+        <li><b>2020-03</b>：法定代表人由吕晓兆变更为王建华；注册资本增至 16.64 亿元；注册地址迁回敖汉旗四道湾子镇。</li>
+        <li><b>2025-06</b>：注册资本由 16.64 亿元增至 19.00 亿元（H 股发行，A+H 上市）；2025-10 董事会换届。</li>
+        <li><b>2026-03</b>：紫金黄金受让 25.85% 股份协议 + H 股战略投资协议（见第四章）。</li>
+        <li><b>2026-05-13</b>：更名"赤峰吉隆黄金矿业集团股份有限公司"。</li>
+        <li><b>累计变更记录</b>：企查查 61 条（董监高备案 14、注册资本 9、股东 8），无经营异常名录记录。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>风险扫描总览</b>（企查查 35 项因子，2026-09-05）：7 项有记录、28 项无记录；<span class="pill ok">无失信记录</span> <span class="pill ok">无被执行</span> <span class="pill ok">无严重违法</span> <span class="pill ok">无行政处罚</span> <span class="pill ok">无环保处罚</span> <span class="pill ok">无股权冻结</span>。</li>
+        <li><b>对外担保</b>：108 条记录——以并表子公司融资担保为主，与境外矿山开发资本开支匹配。</li>
+        <li><b>股权质押/出质</b>：61 条 + 6 条——集中在原实控人及一致行动人层面；紫金交易交割后股权质押结构预计重构。</li>
+        <li><b>涉诉</b>：终本案件 2、裁判文书 1、立案信息 3、开庭公告 6——十强中涉诉体量最低之一，治理干净度较高。</li>
+        <li><b>劳动仲裁 / 欠税 / 税收违法 / 破产重整</b>：均为 0 条（风险扫描口径）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">① 控制权交割与整合风险（紫金入主）</div>
+      <div>2026-03-22 签署的股份转让（25.85%，约 182.58 亿元）与 H 股战略发行（3.11 亿股）完成后紫金黄金将成为控股股东；截至报告日交割与发行进度、后续董事会重构、紫金体系与原管理团队的整合深度均存在不确定性——协同兑现节奏是估值与基本面的最大变量（机构"紫金赋能"为观点而非事实）。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">② 产量下滑与项目投产风险</div>
+      <div>2026H1 自产金产量 6.15 吨（-8.96%），全年完成度仅 42%：塞班技改 + 高温氧化釜计划内检修 + 硫酸供应受限 + 境内安全监管升级多因素叠加；H2 产量恢复依赖 ADK 斜坡道（18 万吨矿石）、吉隆竖井、五龙/华泰/锦泰扩建按期投产——国信证券亦提示"项目建设进度不及预期"风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">③ 金价回调风险</div>
+      <div>公司为纯黄金矿商（自产金占营收约 88%），26H1 业绩增长主要由售价 +44.08% 驱动而非量增；若金价高位回调（9 月首周股价已 -6.93%），量价双弱情形下业绩与估值将双重承压；机构 2026 年归母预测区间 43.39-45.9 亿元隐含对金价持续性的乐观假设。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 成本上行与资源国税负风险</div>
+      <div>26H1 单位营业成本 383.44 元/克（+20.18%）、AISC 481.45 元/克（+35.46%）：金价上涨推高资源税/权益金，加纳 2026 年 4 月将资源税由 5% 调整为 5%-12% 阶梯税率；老挝、加纳两国政策与汇率环境对单位成本的持续性影响需逐期跟踪。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">⑤ 质押与担保杠杆</div>
+      <div>股权质押 61 条 + 股权出质 6 条 + 担保信息 108 条（35 项因子扫描，2026-09-05）；叠加老挝 SND 开发、加纳 ADK、境内竖井与扩建的多线资本开支，交割过渡期资金安排需关注（好在负债率 33.91% 为十强最低档，缓冲充足）。</div>
+    </div>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：A+H 双上市的纯黄金矿企，工商登记规范（61 条变更记录无重大异常、涉诉体量为十强最低档），无失信/被执行/严重违法/行政处罚/环保处罚/股权冻结记录——合规画像干净。<br>
+      <b>财务质量</b>：2023-2025 年营收 72.21→126.39 亿（CAGR 约 32%）、净利 8.71→34.47 亿（近 4 倍）、毛利率 32.58%→52.46%、负债率 54.36%→33.91%、经营现金流 55.56 亿——量价齐升 + 降杠杆的典型成长轨迹；2026H1 归母 17.32 亿（+56.50%）延续高增但驱动结构转为纯价格弹性（量 -8.96%）。<br>
+      <b>股权与治理</b>：原实控人李金阳 10.02% + 紫金黄金受让 25.85% + H 股发行 3.11 亿股——控制权向紫金体系转移的过渡期结构；董事长王建华 3.9% 持股为十强最高之一（利益绑定深），2025-10 换届 + 2026 年两位国际矿业专家加盟，管理专业化度提升。<br>
+      <b>业务与资产</b>：老挝塞班（SND 资源量 107→260 吨金当量）+ 加纳瓦萨（ADK 斜坡道）双海外引擎 + 境内五矿群扩建，资源接续与扩产路径清晰；轻资产外包模式成本灵活。<br>
+      <b>人力资源</b>：211 条在招记录，北京总部职能升级（全球招聘专家/税务）+ 海外英文岗位 + 境内矿山群技术岗三线并进，与组织升级叙事一致。<br>
+      <b>综合判断</b>：十强中"合规最干净 + 财务弹性最大 + 控制权变量最大"的三重特征标的。核心跟踪点：①紫金交易交割进度与 H 股发行落地；②H2 产量恢复（全年完成度 42%→追赶）；③AISC 走势与加纳税负影响；④金价敏感性（高 beta 双刃剑）。
+    </div>
+  </section>
+
+  <!-- ============ 附录 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 主体身份</td><td>企查查 MCP get_company_registration_info（现名经 WebSearch 核验：2026-05 由"赤峰吉隆黄金矿业股份有限公司"更名）</td><td class="num">2026-09-05</td><td>T+0；参保 15 人 + 分支 53 人为母公司口径，集团 6,738 人以年报为准</td></tr>
+        <tr><td>三年财务</td><td>企查查 MCP get_financial_data（2023/2024/2025 年报，TOP10 报告阶段采集）</td><td class="num">2026-09-04/05</td><td>合并报表口径；2025 净利同比 +73.57% 按年报测算</td></tr>
+        <tr><td>2026 中报动态</td><td>公司 2026 半年度报告（证券之星/东方财富、国信证券、新浪财经研报中心转引）</td><td class="num">2026-09-05</td><td>营收 70.18 亿/归母 17.32 亿/产销量与成本数据为中报口径</td></tr>
+        <tr><td>紫金入主交易</td><td>公司公告（2026-03-22 董事会决议 + 协议）+ 券商研报转引</td><td class="num">2026-09-05</td><td>25.85%/182.58 亿元为公开报道口径；交割进度以最新公告为准</td></tr>
+        <tr><td>行业研究 / 机构观点</td><td>国信证券（2026-09-02 优于大市）、慧博/发现报告与腾讯财经转载研报（2026-08/09，买入）</td><td class="num">2026-09-05</td><td>机构观点非事实陈述，多空兼顾；金价/成本为研报时点值</td></tr>
+        <tr><td>股东与实控</td><td>TOP10 汇总报告（企查查口径）+ 企查查高管持股</td><td class="num">2026-09-04/05</td><td>一层直接持股逐字引用；实控人穿透本次未单独调用工具取数</td></tr>
+        <tr><td>治理团队</td><td>企查查 MCP get_key_personnel（17 条）</td><td class="num">2026-09-05</td><td>T+0；背景要点含官网动态与变更记录交叉印证</td></tr>
+        <tr><td>招聘动态</td><td>企查查 MCP get_recruitment_info（211 条，展示前 30）+ 官网链接前期核验</td><td class="num">2026-09-05</td><td>T+0 快照，不代表编制规模</td></tr>
+        <tr><td>对外投资</td><td>企查查 MCP get_external_investments（13 条）</td><td class="num">2026-09-05</td><td>一层直接持股逐字引用；万象矿业/金星瓦萨等境外主体不在国内工商数据源覆盖范围</td></tr>
+        <tr><td>全球矿权</td><td>TOP10 汇总报告（2026-09-04）+ 2026 中报 + 研报 + 公司官网动态</td><td class="num">2026-09-05</td><td>矿权持股比例除公告披露外未逐一获取，以公司公告为准</td></tr>
+        <tr><td>沿革与变更</td><td>企查查 MCP get_change_records（61 条）</td><td class="num">2026-09-05</td><td>工商登记口径；借壳/上市等早期节点为历史公开信息</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP get_company_risk_scan（35 项因子）</td><td class="num">2026-09-05</td><td>7 项有记录（担保 108、股权质押 61、出质 6、终本 2、裁判文书 1、立案 3、开庭 6），无失信/被执行/严重违法</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:14px">地图部署说明：本报告为本地交付版本（未发布到公网）。若部署公网，需在腾讯位置服务开放平台（lbs.qq.com）申请 key 并替换模板占位符、配置 Referer 白名单；未配置时地图自动降级为矿权明细表展示，不影响数据完整性。颜色规范：红涨绿跌（A 股惯例）。</div>
+  </section>
+
+<footer>在线版本：本地交付（未发布到 GitHub Pages） · 本报告由 AI 辅助生成 · 数据截至 2026-09-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'塞班(Sepon)金铜矿+SND项目', country:'老挝·沙湾拿吉省', mineral:'金·铜(资源量107→260吨金当量)', stake:'经万象矿业控股', status:'在产(技改检修)', lat:16.70, lng:105.56 },
+  { name:'瓦萨(Wassa)金矿+ADK斜坡道', country:'加纳', mineral:'金', stake:'经金星瓦萨控股', status:'在产(井下+露天13000吨/天)', lat:5.44, lng:-1.98 },
+  { name:'吉隆矿业(兴隆矿)', country:'中国·内蒙古赤峰', mineral:'金', stake:'100%', status:'在产(新建竖井)', lat:42.20, lng:119.75 },
+  { name:'五龙矿业', country:'中国·辽宁丹东', mineral:'金', stake:'控股', status:'在产(回收率90%+)', lat:40.13, lng:124.37 },
+  { name:'瀚丰矿业(天宝山)', country:'中国·吉林延边', mineral:'多金属(铜铅锌)', stake:'100%', status:'在产', lat:42.77, lng:129.42 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(10, 60) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(10, 60), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华友钴业 · 尽职调查报告 V1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">603799.SH · 上交所主板</span>
+        <div class="company-name-cn">浙江华友钴业股份有限公司</div>
+        <div class="company-name-en">Zhejiang Huayou Cobalt Co., Ltd.</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无投资评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05（企查查 T+0；行情/中报动态至 2026-09-04 公开报道）</span>
+      <span>报告编号：HYGY-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    华友钴业已从传统钴冶炼企业转型为"资源—冶炼—材料"一体化的全球新能源锂电材料龙头：上游锁定制刚果（金）铜钴、印尼红土镍、津巴布韦/加纳锂资源，中游在衢州/桐乡/广西玉林布局钴镍锂盐与前驱体，下游正极材料经巴莫科技/匈牙利基地切入 LGES、EVE、宝马/大众供应链。2025 年营收 810.19 亿元（+32.93%）、合并净利 75.20 亿元（+45.80%，归母口径 61.10 亿），2026H1 营收 555.68 亿（+49.39%）、归母净利 35.07 亿（+29.38%）创历史同期最好水平，主体信用获评 AAA（联合资信，2026-08）。需重点关注：①2026 年 6 月创始人陈雪华卸任董事长兼总裁，陈红良全面接棒，处于治理过渡验证期；②资产负债率 61.85% 为十强偏高，Pomalaa/Sorowako/匈牙利/加纳多项目并行带来高资本开支；③刚果（金）钴出口配额 2026 年仅获 1,080 吨（对比洛钼 3.12 万吨），上游资源政策存在不确定性；④股价年内 -43.63%，市场对钴锂价格与扩产节奏分歧明显。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 营业收入（合并口径）</div><div class="kpi-value num">810.19 亿</div><div class="kpi-delta up">▲ +32.93%（2024：609.46 亿，按年报测算）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 净利润（合并 / 归母）</div><div class="kpi-value num">75.20 亿</div><div class="kpi-delta up">▲ 合并 +45.80%；归母 61.10 亿（EPS 3.22 元）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 加权 ROE</div><div class="kpi-value num">13.70%</div><div class="kpi-delta up">▲ 三年连升：11.14% → 11.69% → 13.70%</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">2025 资产负债率</div><div class="kpi-value num">61.85%</div><div class="kpi-delta down">▼ 三年降约 2.5pct（64.36% → 64.38% → 61.85%）</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>浙江华友钴业股份有限公司（企业简称：华友钴业）</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">913300007368873961</td></tr>
+      <tr><td>成立日期</td><td class="num">2002-05-22（前身为浙江华友钴镍材料有限公司，2008-04 更名）</td></tr>
+      <tr><td>注册资本</td><td class="num">189,352.4517 万元（实缴 189,352.4517 万元）</td></tr>
+      <tr><td>法定代表人</td><td>陈红良（2026-06-16 核准变更；此前为创始人陈雪华）</td></tr>
+      <tr><td>注册地址</td><td>浙江省桐乡经济开发区二期梧振东路 18 号（嘉兴市桐乡市）</td></tr>
+      <tr><td>企业类型</td><td>股份有限公司（外商投资、上市）</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">存续</span>（核准日期 2026-06-16，登记机关：浙江省市场监督管理局）</td></tr>
+      <tr><td>国标行业</td><td>其他常用有色金属冶炼（经营范围覆盖钴镍铜氧化物/盐类/金属制品、钴酸锂、金属矿产品进口等）</td></tr>
+      <tr><td>参保人数</td><td class="num">2,010 人（总部口径，企查查 2026-09-05；人员规模 2,000-2,999 人）</td></tr>
+      <tr><td>上市信息</td><td>A 股 603799.SH（2015 年上市，历史公开信息）</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年报</th><th>2024 年报</th><th>2025 年报</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业总收入</td><td class="num">663.04 亿</td><td class="num">609.46 亿</td><td class="num">810.19 亿</td><td>企查查年报，合并报表</td></tr>
+        <tr><td>营收同比</td><td class="num">—</td><td class="num down">约 -8.1%（测算）</td><td class="num up">+32.93%（测算）</td><td>按企查查年报数据测算</td></tr>
+        <tr><td>净利润（含少数股东）</td><td class="num">45.05 亿</td><td class="num">51.58 亿</td><td class="num">75.20 亿</td><td>企查查年报，合并口径</td></tr>
+        <tr><td>归母净利润</td><td>未取数</td><td>未取数</td><td class="num">61.10 亿（EPS 3.22 元）</td><td>腾讯行情引 2025 年报口径</td></tr>
+        <tr><td>加权 ROE</td><td class="num">11.14%</td><td class="num">11.69%</td><td class="num">13.70%</td><td>企查查年报</td></tr>
+        <tr><td>资产负债率</td><td class="num">64.36%</td><td class="num">64.38%</td><td class="num">61.85%</td><td>企查查年报</td></tr>
+        <tr><td>经营现金流净额</td><td class="num">34.86 亿</td><td class="num">124.31 亿</td><td class="num">40.12 亿</td><td>企查查年报；2024 高基数后回落</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      最新动态（2026 年半年报，公司公告/媒体/研报口径）：2026H1 营业收入 555.68 亿元（<span class="up">+49.39%</span>）、归母净利润 35.07 亿元（<span class="up">+29.38%</span>）、扣非归母净利 33.11 亿元（<span class="up">+27.97%</span>），营收利润均创历史同期最好水平；经营活动现金流净额 21.48 亿元（<span class="up">+32.76%</span>）。上半年正极材料营收 122.45 亿元、占营收 22.04%，已成为第一大业务板块。
+      货币单位：人民币。合并净利与归母净利差异主要来自华越/华飞等合资冶炼平台的少数股东损益。
+    </div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究（钴 · 镍 · 锂 · 三元材料）</div>
+    <h3 class="sub">行业景气与价格指标</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>钴价</td><td class="num">约 20.5 美元/磅</td><td class="num up">自 10 美元/磅低位大幅上行</td><td>东方财富证券研报（2026，转引）</td></tr>
+        <tr><td>2026 钴价预测</td><td class="num">27.5 美元/磅</td><td class="num up">美银上调 40%</td><td>美银研报（2026，转引）</td></tr>
+        <tr><td>2026 镍价预测</td><td class="num">18,800 美元/吨</td><td class="num up">美银上调 21%</td><td>美银研报（2026，转引）</td></tr>
+        <tr><td>刚果（金）2026 钴出口配额（华友）</td><td class="num">1,080 吨</td><td class="num down">对比：洛钼 31,200 吨、盛屯 1,680 吨、紫金 1,080 吨</td><td>公开报道口径（2026）</td></tr>
+        <tr><td>印尼伴生钴供应</td><td class="num">约 2 万吨/年</td><td class="num up">红土镍矿 HPAL 路线副产 MHP 已成钴重要来源</td><td>东方财富证券研报</td></tr>
+        <tr><td>华友自有钴产能（2026）</td><td class="num">超 3 万吨</td><td class="num up">自给率行业领先</td><td>东方财富证券研报</td></tr>
+        <tr><td>公司股价</td><td class="num">38.07 元（2026-09-04 收盘）</td><td class="num down">年内 -43.63%</td><td>腾讯行情</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置（"资源—冶炼—材料"一体化）</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>上游资源</b>：刚果（金）鲁苏西/鲁库尼铜钴矿 + 4.5 亿美元冶炼基地；印尼华越/华飞 HPAL + Pomalaa（12 万吨镍金属量/年，预计 2026 年底投产）+ Sorowako（6 万吨/年，前期准备中）；津巴布韦 Arcadia 锂矿 + 非洲首座硫酸锂厂；加纳 Ewoyaa 锂矿收购（资源量约 112.7 万吨 LCE，协议已签署）。</li>
+        <li><b>中游冶炼与材料</b>：衢州（钴新材料 83.25%、华友新能源）、桐乡（总部）、广西玉林（华友锂业/新材料，62.58%/99%）三大基地；天津巴莫（36.86%）+ 广西巴莫（100%）承载正极材料。</li>
+        <li><b>下游客户</b>：超高镍 Ni94/Ni95 通过头部客户 46 系大圆柱电池认证并量产；匈牙利正极项目已与 LGES、EVE 签订长单，瞄准宝马/大众等欧洲车企。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>2026H1 出货结构</b>：三元正极 7.63 万吨（<span class="up">+93%</span>，超高镍 9 系占比七成以上）、前驱体 8.08 万吨（<span class="up">+94%</span>）、碳酸锂 3.05 万吨（+17%）、镍产品 13.28 万吨（持平）、钴产品 1.58 万吨（<span class="down">-24%</span>，消费电子需求下滑）、MHP 9.68 万吨（<span class="down">-19%</span>，华飞部分产线检修+硫磺涨价）。</li>
+        <li><b>循环回收</b>：浙江华友循环科技（100%，13.5 亿注册资本）布局电池回收闭环。</li>
+        <li><b>行业地位</b>：全球钴冶炼龙头之一，向"全球领先的新能源锂电材料企业"转型；与格林美、中伟等同业在印尼镍冶炼正面竞争，资源自给率为核心护城河。</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构</th><th>日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>首选股（Top Pick）：上调 2026 镍价预测 21% 至 18,800 美元/吨、钴价 40% 至 27.5 美元/磅；看好匈牙利正极项目 2026Q1 投产、Pomalaa 2026 年底投产（+12 万吨），目标价 95 元</td><td>美银（BofA）</td><td class="num">2026</td><td>研报（媒体转引）</td></tr>
+        <tr><td>2026 半年报点评：材料销量高增、资源布局稳步推进；中性情景下调 2026/2027/2028 归母净利预测至 66.16 / 83.54 / 96.39 亿元（EPS 3.49 / 4.41 / 5.09 元）——考虑印尼产能未全面释放、研发投入与汇率影响</td><td>券商研报（腾讯证券转载）</td><td class="num">2026-08</td><td>腾讯证券研报频道</td></tr>
+        <tr><td>综合机构目标价约 75 元（相对 2026-09-04 收盘价 38.07 元隐含较大上行空间，亦反映市场分歧）</td><td>多家机构综合</td><td class="num">2026-08</td><td>行情数据汇总</td></tr>
+        <tr><td>2026 年 8 月机构评级：6 家机构 100% 买入/增持</td><td>机构汇总</td><td class="num">2026-08</td><td>腾讯行情（603799）</td></tr>
+        <tr><td>钴价弹性分析：钴价 10→20.5 美元/磅、钴产品毛利率 36.8%；印尼伴生钴贡献二次成长曲线</td><td>东方财富证券</td><td class="num">2026</td><td>研报（转引）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <ul class="bullet-list warn">
+      <li>2026-08-25：<b>获评 AAA 主体信用等级</b>（联合资信，最高等级），融资成本与债务容量优势巩固。</li>
+      <li>2026-07-20 董事会通过 <b>6–10 亿元回购方案</b>，截至 2026-08 月底已累计回购 197.053 万股——管理层在股价低位释放信心信号。</li>
+      <li>2026H1：加纳 Ewoyaa 锂矿控制权收购协议签署（资源量约 112.7 万吨 LCE）；津巴布韦硫酸锂首批产品运抵国内加工为电池级碳酸锂，非洲"矿冶一体化"贯通。</li>
+      <li>2026-05-01 起：华飞部分产线停产检修（叠加硫磺涨价），印尼 MHP 产能未全面释放，石膏制酸/硫铁矿制酸项目投产后将提升硫资源自给。</li>
+      <li>刚果（金）2026 年钴出口配额落地：华友获配 1,080 吨——资源国政策对上游环节的约束长期存在。</li>
+    </ul>
+    <div class="note-box">注：行业数据口径与时效——钴镍价格为研报时点值；出货数据为公司 2026 半年报口径；机构观点均为公开研报/媒体报道转引，观点与事实分列呈现，多空兼顾，不作为事实陈述。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">主要股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>华友控股集团有限公司</td><td class="num">16.30%</td><td>民营控股平台（创始人陈雪华家族控制）</td><td>企查查 MCP（2026-09-05）</td></tr>
+        <tr><td>2</td><td>陈雪华</td><td class="num">4.36%</td><td>自然人（创始人、执行董事）</td><td>企查查 MCP（2026-09-05）</td></tr>
+        <tr><td>—</td><td>其余 A 股流通股东（公募/北向/产业资本等）</td><td>未取数</td><td>机构与公众流通盘</td><td>未获取，以定期报告为准</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>穿透链条：陈雪华家族 → 华友控股集团有限公司（16.30%）+ 陈雪华个人直接持股（4.36%）→ 浙江华友钴业股份有限公司；一层直接持股合计约 20.66%。</li>
+        <li>属性：民营控股上市公司，创始人仍任执行董事并直接持股，控制权结构稳定。</li>
+        <li>历史外资印记：历史上 GREAT MOUNTAIN（大山控股）、中非发展基金等外资/产业股东曾入股，现为"外商投资股份有限公司"类型的由来。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>股权质押：风险扫描显示"股权质押"相关记录 125 条（企查查 35 项因子，2026-09-05）——数量较多，主要为股东及关联方质押记录，需关注质押比例与平仓风险敞口（本次未逐条下钻）。</li>
+        <li>冻结/受限：未见公开冻结信号（风险扫描口径）。</li>
+        <li>注：一层直接持股比例为企查查口径，穿透关系以 get_actual_controller 语义为准，禁止多层相乘推断。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期/要点</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>陈红良</td><td>董事长、总裁、法定代表人</td><td class="num">2026-06-16 起（核准日期）</td><td>由原高管团队接棒，全面执掌经营</td></tr>
+        <tr><td>陈雪华</td><td>执行董事（创始人）</td><td class="num">2002 年创立公司至今</td><td>直接持股 4.36%；2026-06 卸任董事长兼总裁，留任执行董事</td></tr>
+        <tr><td>谢国平</td><td>副董事长</td><td class="num">—</td><td>治理层核心成员</td></tr>
+        <tr><td>王军</td><td>财务总监</td><td class="num">—</td><td>财务条线负责人</td></tr>
+        <tr><td>李瑞</td><td>董事会秘书</td><td class="num">—</td><td>信息披露与投资者关系</td></tr>
+        <tr><td>独立董事</td><td>董秀良、李海龙、冯晓</td><td class="num">—</td><td>覆盖财务/法律/产业领域</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：主要人员信息来自企查查（共 16 条董监高记录，T+0，2026-09-05 核验）。2026-06-16 完成的"创始人交棒"（陈雪华→陈红良，法定代表人同步变更）为公司上市以来最重要的治理事件；创始人以执行董事身份+4.36% 直接持股保留影响力，控制权连续性较好。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://campus.huayou.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 校园招聘入口 · campus.huayou.com</a>
+      <a href="https://www.huayou.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-blue);border-radius:8px;color:var(--accent-blue);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · huayou.com</a>
+    </div>
+    <h3 class="sub">在招岗位方向（企查查招聘信息 T+0，共 6,983 条记录，为十家海外矿业中企中体量最大之一）</h3>
+    <table>
+      <thead><tr><th>岗位/方向</th><th>地域指向</th><th>对应业务印证</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>接待科长、安保副部长、企管专员、生产调度员</td><td>印度尼西亚</td><td>印尼园区（华越/华飞/Pomalaa/IPIP）大规模运营中的人才缺口，与 Pomalaa 年底投产节奏交叉印证</td><td>企查查（T+0）</td></tr>
+        <tr><td>法语方向岗位</td><td>刚果（金）</td><td>非洲铜钴矿与冶炼基地的属地化运营需求</td><td>企查查（T+0）</td></tr>
+        <tr><td>ESG 相关岗位</td><td>—</td><td>海外人文治理、CNAS 认证、环境许可（印尼 SK SLO）等合规体系扩张</td><td>企查查（T+0）</td></tr>
+        <tr><td>冶炼/化工/材料类技术岗</td><td>衢州 / 桐乡 / 玉林</td><td>三大国内基地的钴镍锂盐与前驱体产能</td><td>企查查（T+0）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <ul class="bullet-list pos">
+        <li><b>规模</b>：6,983 条在招记录（2026-09-05 查询）为十强之最，反映公司处于产能与组织快速扩张期（印尼 Pomalaa 投产 + 匈牙利调试 + 加纳收购并行）。</li>
+        <li><b>国际化纵深</b>：印尼岗位密集到"接待科长/安保副部长"等园区运营颗粒度，说明海外项目已从建设期转入常态化运营期。</li>
+        <li><b>人才本土化</b>：公司官网专设 ESG 与海外人文治理栏目（"深耕海外人文治理 赋能属地人才发展"），与招聘结构互相印证。</li>
+      </ul>
+      <ul class="bullet-list warn">
+        <li><b>口径局限</b>：招聘数据为发布时点快照（企查查 T+0），不代表实际编制规模；总部参保 2,010 人为境内母公司口径，集团合并员工数（含海外）远高于此，以年报为准。</li>
+        <li><b>风险信号</b>：海外岗位占比高意味着跨境用工、属地合规与安全管理半径扩大，需匹配的管控投入亦同步上升。</li>
+      </ul>
+    </div>
+    <div class="note-box">注：招聘数据来源企查查 MCP 招聘信息（T+0，2026-09-05 查询，共 6,983 条记录）；官网与校园招聘链接经 WebSearch 核验（2026-09-05），campus.huayou.com 与 www.huayou.com 均真实可访问。</div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查共 63 条对外投资记录，此处列示代表性主体）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本/认缴</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>广西巴莫科技有限公司</td><td class="num">100%</td><td class="num">35.0 亿</td><td>正极材料（玉林基地）</td><td>2021-04 设立，最大单笔认缴</td></tr>
+        <tr><td>华友新能源科技（衢州）有限公司</td><td class="num">100%</td><td class="num">22.66 亿</td><td>前驱体/新能源材料</td><td>衢州基地核心主体</td></tr>
+        <tr><td>衢州华友钴新材料有限公司</td><td class="num">83.2493%</td><td class="num">19.99 亿</td><td>钴新材料冶炼</td><td>2011 年设立的老牌主体</td></tr>
+        <tr><td>浙江华友新能源科技有限公司</td><td class="num">100%</td><td class="num">17.40 亿</td><td>新能源材料</td><td>2018-04 设立</td></tr>
+        <tr><td>广西华友新材料有限公司</td><td class="num">62.5832%</td><td class="num">16.20 亿</td><td>锂电新材料（玉林）</td><td>与产业资本合资</td></tr>
+        <tr><td>广西华友锂业有限公司</td><td class="num">99%</td><td class="num">14.85 亿</td><td>锂盐冶炼</td><td>2022-04 设立</td></tr>
+        <tr><td>浙江华友循环科技有限公司</td><td class="num">100%</td><td class="num">13.50 亿</td><td>电池回收循环</td><td>资源闭环布局</td></tr>
+        <tr><td>广西时代锂电新材料产业发展基金（有限合伙）</td><td class="num">31.3181%</td><td class="num">12.44 亿</td><td>产业基金</td><td>撬动社会资本共建玉林基地</td></tr>
+        <tr><td>天津巴莫科技有限责任公司</td><td class="num">36.8619%</td><td class="num">7,642.18 万</td><td>正极材料</td><td>参股但为重要正极平台</td></tr>
+        <tr><td>浙江力科钴镍有限公司</td><td class="num">73.22%</td><td class="num">1,172.98 万美元</td><td>钴镍贸易/冶炼</td><td>2004 年设立</td></tr>
+        <tr><td>湖南雅城新能源股份有限公司</td><td class="num">9.2072%</td><td class="num">5,191.59 万</td><td>磷酸铁锂前驱体</td><td>参股</td></tr>
+        <tr><td>玉林时代聚能热力 / 时代绿水环保</td><td class="num">100% / 100%</td><td class="num">2.2 亿 / 0.7 亿</td><td>园区热力与环保配套</td><td>玉林基地公用工程</td></tr>
+        <tr><td>華友（香港）有限公司 / 華友國際礦業（香港）有限公司</td><td class="num">100% / 100%</td><td class="num">—（仍注册）</td><td>境外投融资与矿业平台</td><td>2007 / 2013 年设立，海外资产的境内股权镜像</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：境外经营主体（印尼华越/华飞/Pomalaa 项目公司、刚果（金）CDM 系冶炼主体、津巴布韦 Arcadia 项目公司、匈牙利正极项目公司等）注册信息不在国内工商数据源覆盖范围，其股权与经营信息以公司公告/年报披露为准（如华越/华飞与淡水河谷、福特等合资结构）。国内布局呈"浙江总部（桐乡+衢州）+ 广西玉林"双三角，玉林基地配套热力/环保/码头（浙江海港平友港务 15%）等公用工程自成体系。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布 ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布（非洲资源 + 印尼冶炼 + 欧洲制造）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:#f6f7f9">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到公网后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/项目资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/项目名称</th><th>所在国/地区</th><th>矿种/产品</th><th>权益结构</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>鲁苏西 / 鲁库尼铜钴矿</td><td>刚果（金）</td><td>铜 · 钴</td><td class="num">控股（以公告为准）</td><td>在产</td><td>TOP10 汇总报告（2026-09-04）</td></tr>
+        <tr><td>刚果（金）冶炼基地（CDM 系）</td><td>刚果（金）</td><td>铜钴冶炼</td><td class="num">投资约 4.5 亿美元</td><td>在产</td><td>TOP10 汇总报告</td></tr>
+        <tr><td>华越 HPAL 项目</td><td>印度尼西亚（Weda Bay 园区）</td><td>镍 · 钴（MHP）</td><td class="num">合资（与淡水河谷等，以公告为准）</td><td>在产（2026H1 与华飞合计贡献营收超 130 亿）</td><td>TOP10 汇总报告 + 2026 中报</td></tr>
+        <tr><td>华飞 HPAL 项目</td><td>印度尼西亚（Weda Bay 园区）</td><td>镍 · 钴（MHP）</td><td class="num">合资（含福特等，以公告为准）</td><td>在产（部分产线 2026-05 起检修）</td><td>TOP10 汇总报告 + 2026 中报</td></tr>
+        <tr><td>Pomalaa 湿法项目</td><td>印度尼西亚（苏拉威西东南）</td><td>镍（12 万吨/年）</td><td class="num">控股（以公告为准）</td><td>建设中，预计 2026 年底投产</td><td>2026 半年报</td></tr>
+        <tr><td>Sorowako 湿法项目</td><td>印度尼西亚（苏拉威西南部）</td><td>镍（6 万吨/年）</td><td class="num">控股（以公告为准）</td><td>前期准备中</td><td>2026 半年报</td></tr>
+        <tr><td>Arcadia 锂矿 + 硫酸锂项目</td><td>津巴布韦</td><td>锂辉石 · 硫酸锂</td><td class="num">控股（以公告为准）</td><td>在产；硫酸锂为非洲首座，2026-04 首批发运</td><td>TOP10 汇总报告 + 2026 中报</td></tr>
+        <tr><td>Ewoyaa 锂矿</td><td>加纳</td><td>锂辉石（资源量约 112.7 万吨 LCE）</td><td class="num">收购控制权，协议已签署</td><td>交割推进中</td><td>2026 半年报</td></tr>
+        <tr><td>匈牙利正极材料工厂（阿奇市）</td><td>匈牙利</td><td>三元正极</td><td class="num">全资（以公告为准）</td><td>产线调试阶段；已签 LGES/EVE 长单</td><td>2026 半年报 + 桐乡新闻网（2026-08-27）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图（合规底图）；境内项目坐标为 GCJ-02，境外项目直接使用 WGS84 坐标，精确到项目级（小数点后 2 位）；矿权持股比例除公告披露外未逐一获取，以公司公告为准。华友与紫金的差异在于：华友海外资产以"冶炼基地 + 湿法项目"为主、矿山权益为辅，印尼权重显著高于非洲。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>2002-05-22</b>：公司注册成立，主营钴镍材料。</li>
+        <li><b>2008-04</b>：由"浙江华友钴镍材料有限公司"更名为现名，确立钴业专业化战略。</li>
+        <li><b>2015</b>：A 股上市（603799.SH，历史公开信息）。</li>
+        <li><b>历史外资股东</b>：GREAT MOUNTAIN、中非发展基金等曾持股，构成"外商投资"企业类型的沿革基础（企查查变更记录口径）。</li>
+        <li><b>2026-05-15</b>：注册资本增至 189,352.4517 万元（+1.98 亿元，股权激励/增发口径）。</li>
+        <li><b>2026-06-16</b>：法定代表人由陈雪华变更为陈红良，同步完成董事长/总裁换届。</li>
+        <li><b>累计变更记录</b>：企查查 111 条（董监高备案、章程备案、注册资本等多轮），无经营异常名录记录。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>风险扫描总览</b>（企查查 35 项因子，2026-09-05）：10 项因子有记录；<span class="pill ok">无失信记录</span> <span class="pill ok">无被执行</span> <span class="pill ok">无严重违法</span>。</li>
+        <li><b>对外担保</b>：394 条记录——数量较大，以并表范围内子公司（含印尼/刚果金合资平台）融资担保为主，是高杠杆扩张模式的镜像，需逐期跟踪担保余额与被担保主体资信。</li>
+        <li><b>股权质押</b>：125 条记录——股东及关联方质押较活跃，建议下钻核查质押比例。</li>
+        <li><b>劳动仲裁</b>：2 条记录——数量有限。</li>
+        <li><b>信用资质</b>：主体信用等级 AAA（联合资信，2026-08-25），债务融资渠道通畅。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">① 钴/镍/锂价格波动与配额政策风险</div>
+      <div>公司盈利对钴镍价格高度敏感（钴产品毛利率 36.8% 对应钴价 20.5 美元/磅的景气位）；刚果（金）2026 年钴出口配额仅分配 1,080 吨（对比洛钼 31,200 吨），资源国出口管制长期存在收紧可能；碳酸锂价格低迷亦压制锂板块盈利。若价格回落，2025 年 75.20 亿的合并净利存在明显下修弹性。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">② 高杠杆 + 高资本开支风险</div>
+      <div>资产负债率 61.85%（十强偏高），对外担保 394 条、股权质押 125 条；Pomalaa（年底投产）、Sorowako、匈牙利工厂、加纳 Ewoyaa 收购多线并行，资本开支处于历史峰值区间。2025 年经营现金流 40.12 亿元（同比大幅回落，2024 为 124.31 亿）对投资支出的覆盖能力下降，依赖外部融资滚动（AAA 信用等级部分对冲）。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">③ 治理过渡期风险</div>
+      <div>2026-06 创始人陈雪华卸任董事长兼总裁，陈红良全面接棒。创始人仍任执行董事且持股 4.36%，控制权连续性较好，但新管理层在多国多项目并行扩张中的执行能力处于验证期。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 海外运营与合规风险</div>
+      <div>核心产能分布于印尼（HPAL 园区）、刚果（金）（矿山+冶炼）、津巴布韦/加纳（锂矿）、匈牙利（正极工厂），面临资源民族主义、税负政策（印尼镍产品出口政策、刚果金配额）、汇率波动（研报已提示汇率对净利的影响）及 ESG 合规（好在印尼 SK SLO 环境许可已获取）等多维风险；华飞部分产线 2026-05 起停产检修亦提示运营稳定性波动。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">⑤ 消费电子需求与客户集中风险</div>
+      <div>2026H1 钴产品出货量同比 -24%（消费电子需求下滑）；匈牙利项目提前锁定 LGES、EVE 长单，但也意味着大客户依赖度上升，欧美电动车需求若不及预期将直接传导。</div>
+    </div>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：存续状态的 A 股上市新能源材料龙头，工商登记规范（AAA 主体信用），16 条董监高记录与 111 条变更记录无重大异常信号，无失信/被执行/严重违法记录。<br>
+      <b>财务质量</b>：营收与盈利重回高增长——2025 年营收 810.19 亿（+32.93%）、合并净利 75.20 亿（+45.80%）/归母 61.10 亿；2026H1 营收 555.68 亿（+49.39%）、归母 35.07 亿（+29.38%）创同期最好水平。隐忧在于负债率 61.85% 偏高、经营现金流对资本开支覆盖趋紧。<br>
+      <b>股权与治理</b>：陈雪华家族经华友控股（16.30%）+ 个人持股（4.36%）控制，结构稳定；2026-06 完成创始人交棒，过渡平稳但处验证期。<br>
+      <b>业务与资产</b>：全球独有的"非洲资源 + 印尼冶炼 + 欧洲制造"三级布局——刚果金铜钴、印尼镍钴（华越/华飞在产 + Pomalaa 年底投产 + Sorowako 储备）、津巴布韦/加纳锂、匈牙利正极切入欧洲车企供应链；正极材料已成第一大业务板块，转型成效获验证。<br>
+      <b>人力资源</b>：6,983 条在招记录为十强之最，印尼运营类岗位下沉到园区职能颗粒度，扩张意图明确。<br>
+      <b>综合判断</b>：一体化商业模式构成成本护城河，主体资质在十强中处于第一梯队（与紫金、洛钼同档）；核心变量是钴镍价格周期、刚果金配额政策与高资本开支的资金链韧性。建议持续跟踪：①Pomalaa 投产进度与华飞复产情况；②担保余额（394 条）与质押比例变化；③加纳 Ewoyaa 交割进展；④匈牙利工厂客户放量节奏。
+    </div>
+  </section>
+
+  <!-- ============ 附录 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 主体身份</td><td>企查查 MCP get_company_registration_info</td><td class="num">2026-09-05</td><td>T+0（国家企业信用信息公示系统）；参保 2,010 人为境内母公司口径，非集团员工总数</td></tr>
+        <tr><td>三年财务</td><td>企查查 MCP get_financial_data（2023/2024/2025 年报）</td><td class="num">2026-09-05</td><td>合并报表口径；归母净利 61.10 亿（EPS 3.22 元）为腾讯行情引年报口径；同比为按年报数据测算</td></tr>
+        <tr><td>2026 中报动态</td><td>公司 2026 半年度报告（中国金融信息网披露）+ 证券日报 + 桐乡新闻网</td><td class="num">2026-09-05</td><td>营收 555.68 亿/归母 35.07 亿/出货结构等均为中报口径</td></tr>
+        <tr><td>行业研究 / 机构观点</td><td>美银、东方财富证券、腾讯证券转载研报（2026-08 半年报点评）等</td><td class="num">2026-09-05</td><td>机构观点非事实陈述，多空兼顾；钴镍价格为研报时点值</td></tr>
+        <tr><td>股东与实控</td><td>企查查 MCP get_shareholder_info</td><td class="num">2026-09-05</td><td>一层直接持股；H 股不适用（纯 A 股），其余流通股东未取数</td></tr>
+        <tr><td>治理团队</td><td>企查查 MCP get_key_personnel（16 条）</td><td class="num">2026-09-05</td><td>T+0；背景要点含历史公开信息标注</td></tr>
+        <tr><td>招聘动态</td><td>企查查 MCP get_recruitment_info（6,983 条）+ WebSearch 核验官网链接</td><td class="num">2026-09-05</td><td>T+0 快照，不代表编制规模；岗位以方向归纳呈现</td></tr>
+        <tr><td>对外投资</td><td>企查查 MCP get_external_investments（63 条）</td><td class="num">2026-09-05</td><td>一层直接持股逐字引用；境外项目公司不在国内工商数据源覆盖范围</td></tr>
+        <tr><td>全球矿权</td><td>《海外矿业中企 TOP10 深度研究》（2026-09-04）+ 2026 半年报</td><td class="num">2026-09-05</td><td>矿权持股比例除公告披露外未逐一获取，以公司公告为准</td></tr>
+        <tr><td>沿革与变更</td><td>企查查 MCP get_change_records（111 条）</td><td class="num">2026-09-05</td><td>工商登记口径；上市等早期节点为历史公开信息</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP get_company_risk_scan（35 项因子）</td><td class="num">2026-09-05</td><td>10 项有记录（担保 394、质押 125、劳动仲裁 2 等），无失信/被执行/严重违法</td></tr>
+        <tr><td>市值 / 行情</td><td>腾讯行情（2026-09-04 收盘）</td><td class="num">2026-09-04</td><td>股价 38.07 元、年内 -43.63%</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:14px">地图部署说明：本报告为本地交付版本（未发布到 GitHub Pages）。若部署公网，需在腾讯位置服务开放平台（lbs.qq.com）申请 key 并替换模板占位符、配置 Referer 白名单；未配置时地图自动降级为矿权明细表展示，不影响数据完整性。颜色规范：红涨绿跌（A 股惯例）。</div>
+  </section>
+
+<footer>在线版本：本地交付（未发布到 GitHub Pages） · 本报告由 AI 辅助生成 · 数据截至 2026-09-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'鲁苏西/鲁库尼铜钴矿', country:'刚果（金）', mineral:'铜·钴', stake:'控股', status:'在产', lat:-11.66, lng:27.48 },
+  { name:'刚果（金）冶炼基地', country:'刚果（金）', mineral:'铜钴冶炼', stake:'4.5亿美元投资', status:'在产', lat:-11.67, lng:27.47 },
+  { name:'华越 HPAL 项目', country:'印度尼西亚', mineral:'镍·钴(MHP)', stake:'合资', status:'在产', lat:-0.37, lng:128.05 },
+  { name:'华飞 HPAL 项目', country:'印度尼西亚', mineral:'镍·钴(MHP)', stake:'合资', status:'在产(部分检修)', lat:-0.35, lng:128.10 },
+  { name:'Pomalaa 湿法项目', country:'印度尼西亚', mineral:'镍 12万吨/年', stake:'控股', status:'2026年底投产', lat:-4.10, lng:122.60 },
+  { name:'Sorowako 湿法项目', country:'印度尼西亚', mineral:'镍 6万吨/年', stake:'控股', status:'前期准备', lat:-2.52, lng:121.40 },
+  { name:'Arcadia 锂矿+硫酸锂项目', country:'津巴布韦', mineral:'锂辉石·硫酸锂', stake:'控股', status:'在产', lat:-17.72, lng:31.32 },
+  { name:'Ewoyaa 锂矿', country:'加纳', mineral:'锂辉石(112.7万吨LCE)', stake:'收购交割中', status:'协议已签署', lat:5.20, lng:-1.05 },
+  { name:'匈牙利正极工厂(阿奇市)', country:'匈牙利', mineral:'三元正极', stake:'全资', status:'产线调试', lat:47.70, lng:18.00 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(10, 30) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(10, 30), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

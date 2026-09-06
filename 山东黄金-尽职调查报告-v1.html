@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山东黄金 · 尽职调查报告 V1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">600547.SH · 上交所主板 ｜ 01787.HK · 港交所主板</span>
+        <div class="company-name-cn">山东黄金矿业股份有限公司</div>
+        <div class="company-name-en">Shandong Gold Mining Co., Ltd.（SD-GOLD · 企业简称：山东黄金）</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无投资评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05（企查查 T+0；中报为 2026-08-28 披露版本）</span>
+      <span>报告编号：SDHJ-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    山东黄金是山东省国资委背景的省属黄金龙头（A+H 上市）：坐拥胶东半岛世界第三大黄金富集区，境内矿山矿产金产量连续多年全国第一、年产 1 吨以上矿山 13 座，截至 2025 年底权益保有黄金资源量 2,054.33 吨；海外以阿根廷贝拉德罗（Veladero）权益 + 加纳纳穆蒂尼（经山金国际，公司持股 28.94%）+ 纳米比亚双子山（2027H1 投产目标）构成三线布局。2026H1 营收 535.88 亿（-5.60%，冶炼贸易口径收缩）但归母净利 35.43 亿（+26.17%）、剔除东海证券公允价值损失后 40.72 亿（+45.01%）——"减收增利"源于产品结构优化；国内自产金 12.41 吨（-34.8%，安全监管停产自查）由海外 6.69 吨（+18.03%，纳穆蒂尼产量 +50% 以上）部分对冲。需重点关注：①资产负债率 62.21% + 流动比率 0.47（黄金租借与贸易融资结构）为十强中杠杆最高档；②董事长 2026-07 再度更迭（韩耀东→王成龙，四年内第四任）；③国内产量受安全监管压制的持续性；④东海证券持股公允价值波动。券商维持"推荐/买入"，预计 2026 归母 85.53 亿元（民生证券口径）。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 营业收入（合并口径）</div><div class="kpi-value num">1,042.87 亿</div><div class="kpi-delta up">▲ +26.38%（2024：825.18 亿）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 净利润（合并）</div><div class="kpi-value num">66.27 亿</div><div class="kpi-delta up">▲ +49.28%（归母 47.39 亿，+60.57%）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 归母净利润</div><div class="kpi-value num">35.43 亿</div><div class="kpi-delta up">▲ +26.17%（剔除公允价值损失 40.72 亿，+45.01%）</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">2026H1 自产金产量</div><div class="kpi-value num">19.1 吨</div><div class="kpi-delta down">▼ -22.7%（国内 -34.8% / 海外 +18.0%）</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>山东黄金矿业股份有限公司（企业简称：山东黄金，缩写 SD-GOLD）</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">91370000723865016M</td></tr>
+      <tr><td>成立日期</td><td class="num">2000-01-31（营业期限：无固定期限；2003-09 IPO 前山东黄金集团持股 97%）</td></tr>
+      <tr><td>注册资本</td><td class="num">460,992.9525 万元（实缴 460,992.9525 万元；2025-09 由 447,342.9525 万元增至现额，H 股发行口径）</td></tr>
+      <tr><td>法定代表人</td><td>王成龙（2026-07-24 起；此前为韩耀东 2025-08、李航 2022-07、李国红 2016-06）</td></tr>
+      <tr><td>注册地址</td><td>济南市历城区经十路 2503 号（2021-01 由舜泰广场迁入）</td></tr>
+      <tr><td>企业类型</td><td>股份有限公司</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">在营（开业）企业</span>（核准日期 2026-07-24，登记机关：山东省市场监督管理局）</td></tr>
+      <tr><td>国标行业</td><td>金冶炼（经营范围：批准许可范围内的黄金开采、选冶 + 黄金矿山专用设备、建筑装饰材料产销）</td></tr>
+      <tr><td>参保人数</td><td class="num">4,439 人（母公司口径）+ 分支机构 4,122 人（企查查 2026-09-05；集团合并员工数以年报为准）</td></tr>
+      <tr><td>上市信息</td><td>A 股 600547.SH + H 股 01787.HK（A+H 两地上市）</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年报</th><th>2024 年报</th><th>2025 年报</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业总收入</td><td class="num">592.75 亿</td><td class="num">825.18 亿</td><td class="num">1,042.87 亿</td><td>企查查年报，合并报表</td></tr>
+        <tr><td>营收同比</td><td class="num up">+17.83%</td><td class="num up">+39.21%</td><td class="num up">+26.38%</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>净利润（含少数股东）</td><td class="num">28.91 亿</td><td class="num">44.39 亿</td><td class="num">66.27 亿</td><td>企查查年报，合并口径</td></tr>
+        <tr><td>归母净利润</td><td class="num">—</td><td class="num">29.52 亿</td><td class="num">47.39 亿（+60.57%）</td><td>2024/2025 为财报披露口径</td></tr>
+        <tr><td>加权 ROE</td><td class="num">7.84%</td><td class="num">10.85%</td><td class="num">15.59%</td><td>企查查年报，三年连升</td></tr>
+        <tr><td>毛利率</td><td class="num">16.60%</td><td class="num">16.50%</td><td class="num">20.46%</td><td>企查查年报（含冶炼贸易低毛利业务摊薄）</td></tr>
+        <tr><td>资产负债率</td><td class="num">60.43%</td><td class="num">63.54%</td><td class="num">62.21%</td><td>企查查年报（有息负债 655.94 亿，2025 年末）</td></tr>
+        <tr><td>经营现金流净额</td><td class="num">68.49 亿</td><td class="num">133.40 亿</td><td class="num">214.93 亿</td><td>企查查年报，十家第二</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      最新动态（2026 年半年报，公司 2026-08-28 披露）：2026H1 营业收入 535.88 亿元（<span class="down">-5.60%</span>）、利润总额 81.56 亿元（<span class="up">+48.74%</span>）、归母净利润 35.43 亿元（<span class="up">+26.17%</span>）、扣非归母净利 35.44 亿元（<span class="up">+26.14%</span>）；经营现金流净额 77.71 亿元（<span class="down">-26.01%</span>）。单 Q2 营收 210.72 亿元（同比 -31.65%、环比 -35.20%）、归母净利 20.97 亿元（同比 +17.71%、环比 +45.09%）。全资子公司山金金控所持东海证券 18.71% 股份确认公允价值变动损失 7.05 亿元，剔除后归母净利 40.72 亿元（+45.01%）。期末总资产 1,775.54 亿元（较年初 +4.21%）、归母净资产 471.37 亿元（+4.98%）。2026 中期分红每 10 股派 1 元、共 4.61 亿元（占扣永续债利息后归母净利 34.84%）；控股股东黄金集团 5.10 亿元增持落地。
+      货币单位：人民币。
+    </div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究（黄金 · 冶炼贸易）</div>
+    <h3 class="sub">行业景气与价格指标</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>COMEX 黄金均价（2026H1）</td><td class="num">4,688.66 美元/盎司</td><td class="num up">+52.40%（Q2 均价 4,513.6 美元，环比 -7.25%）</td><td>券商研报（2026-08-30）</td></tr>
+        <tr><td>国际现货金价波幅（2026H1）</td><td class="num">最大波幅 1,655 美元/盎司</td><td class="num">宽幅震荡、冲高回落，期末较上年末回调</td><td>公司中报（证券时报转引）</td></tr>
+        <tr><td>公司毛利率 / 净利率（2026H1）</td><td class="num">24.43% / 10.70%</td><td class="num up">+6.97 / +3.88pct（Q2 单季毛利率 33.9%）</td><td>券商研报拆解</td></tr>
+        <tr><td>国内矿山安全监管</td><td class="num">大排查大整治 + 专项治理</td><td class="num down">重点产金省区部分矿山停产自查——国内产量 -34.8% 主因</td><td>公司中报</td></tr>
+        <tr><td>权益保有黄金资源量</td><td class="num">2,054.33 吨（2025 年底）</td><td class="num up">2026H1 投入探矿资金 3 亿元、新增金金属量 20 吨</td><td>公司披露</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置（境内龙头 · 冶炼贸易摊薄毛利）</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>境内基本盘（胶东世界第三大金富集区）</b>：三山岛、焦家、新城、玲珑等 13 座年产 1 吨以上矿山，境内产量全国第一；三山岛 15,000 吨/日扩建预计 2026 年 9 月底取得核准批复。</li>
+        <li><b>三大远期项目</b>：焦家项目（满产金约 19 吨，平巷施工阶段）、新城项目（满产金约 8 吨，主井/副井/回风井掘砌到底）、纳米比亚双子山（满产金约 5 吨，2027H1 投产目标）——合计满产贡献约 32 吨/年的远期增量空间（研报口径）。</li>
+        <li><b>海外产能释放</b>：2026H1 海外产金 6.69 吨（+18.03%）；加纳纳穆蒂尼优化采剥与选冶，产量同比 +50% 以上；海外产能目标年产超 20 吨（媒体口径）。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>报表结构特征</b>：营收含大额冶炼与贸易业务（毛利率被摊薄至 20% 左右），"减收增利"（H1 营收 -5.60% 而归母 +26.17%）实质是产品结构向高毛利自产金倾斜的优化信号。</li>
+        <li><b>金融板块扰动</b>：山金金控持有东海证券 18.71% 股份，公允价值变动（H1 -7.05 亿）对报表利润形成扰动，属非主业波动源。</li>
+        <li><b>数智化转型</b>：H1 研发经费 4.2 亿元（+8.49%），聚焦智能找矿、高效采矿、尾矿绿色开发；启动《"人工智能+"三年行动方案》。</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构</th><th>日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>"推荐"（维持）：利润如期释放、资源优势明显；预计 2026-2028 营收 1,213.76 / 1,289.72 / 1,343.24 亿元、归母净利 85.53 / 94.63 / 99.85 亿元，对应 8 月 28 日收盘价 PE 19 / 17 / 16 倍；风险提示金属价格大幅波动、项目进展不及预期、海外地缘风险</td><td>券商研报（民生系口径）</td><td class="num">2026-08-30</td><td>新浪财经研报中心</td></tr>
+        <tr><td>行业观察：山东黄金上半年净利润 35.43 亿元、海外产能加速释放；黄金价格宽幅震荡对行业阶段性盈利形成压制</td><td>证券时报网</td><td class="num">2026-08-28</td><td>stcn.com</td></tr>
+        <tr><td>行情快照：总市值约 1,747 亿元（2026-09-04，TOP10 报告口径），A+H 两地上市</td><td>TOP10 汇总报告</td><td class="num">2026-09-04</td><td>本项目底稿</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：行业数据口径与时效——金价/资源量为研报与公司披露时点值；机构观点均为公开研报/媒体报道转引，观点与事实分列呈现，多空兼顾，不作为事实陈述。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">主要股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>山东黄金集团有限公司</td><td class="num">34.17%</td><td>控股股东 · 山东省国资委背景省属国企</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>—</td><td>HKSCC 及其余 A/H 流通股东</td><td>未取数</td><td>H 股 2025 年上市后两地流通（总股本 46.10 亿股）</td><td>公司 2026 中报</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制与资本运作</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>穿透链条</b>：山东省国资委 → 山东黄金集团有限公司（34.17%）→ 山东黄金矿业股份有限公司——典型省属国资控股结构，实控人认定以企查查 get_actual_controller 语义为准。</li>
+        <li><b>国资增持</b>：控股股东 2026 年落地 5.10 亿元股份增持（中报口径），叠加中期分红 4.61 亿元——"增持 + 分红"双信号。</li>
+        <li><b>关联金融体系</b>：持股山东黄金集团财务有限公司 30%（集团财务公司）、山金金控资本 100%（东海证券 18.71% 持仓主体）。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>股权质押 3 条 + 股权出质 4 条</b>（35 项因子，2026-09-05）——十强中最少档，国资结构下质押融资需求低。</li>
+        <li><b>参股山金国际 28.94%</b>（802,251,840 股）：加纳纳穆蒂尼金矿等海外资产经山金国际持有——权益法重要联营，2026H1 海外增长的核心载体。</li>
+        <li><b>无单一自然人持股</b>：董监高记录中无持股信息（企查查口径），与民企同行形成鲜明对照。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>本届任期</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>王成龙</td><td>董事长、非独立董事、法定代表人</td><td class="num">2026-07-10 至今</td><td>2026-07 接替韩耀东出任董事长——四年内第四任董事长（李国红→李航→韩耀东→王成龙）</td></tr>
+        <tr><td>汤琦</td><td>执行董事、总经理</td><td class="num">2025-08-14 至今</td><td>2025-08 董事会换届时由董事升任总经理</td></tr>
+        <tr><td>刘钦</td><td>副董事长</td><td class="num">2025-08 至今（变更记录）</td><td>曾任董事兼总经理（2022-2025）</td></tr>
+        <tr><td>徐建新 / 修国林</td><td>执行董事（各）</td><td class="num">2025-08-14 至今</td><td>2025-08 换届进入董事会</td></tr>
+        <tr><td>刘延芬</td><td>职工董事</td><td class="num">2025-08-14 至今</td><td>职工代表董事</td></tr>
+        <tr><td>高永涛</td><td>独立董事</td><td class="num">2013-10-15 至今</td><td>任职超 13 年，治理连续性最强的成员</td></tr>
+        <tr><td>赵峰 / 刘怀镜</td><td>独立非执行董事（各）</td><td class="num">2020-12-30 至今</td><td>刘怀镜为香港（永久性）居民——H 股治理配套</td></tr>
+        <tr><td>伍秀薇</td><td>联席公司秘书</td><td class="num">2020-12-30 至今</td><td>H 股上市公司秘书职能</td></tr>
+        <tr><td>王毅</td><td>董事会秘书</td><td class="num">2025-08-14 至今</td><td>信息披露与投资者关系（证券事务代表张如英）</td></tr>
+        <tr><td>滕洪孟</td><td>财务总监</td><td class="num">2025-08-14 至今</td><td>主管会计工作负责人（会计机构负责人李锐）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：主要人员信息来自企查查（共 11 条董监高记录，T+0，2026-09-05 核验）。治理观察：省属国企治理框架规范（独董 3 人 + 职工董事 + 港股联席公司秘书），但董事长更迭频率高（2016 年以来李国红→李航→韩耀东→王成龙四任）——省属国企干部交流惯例与市场化经营之间的平衡需持续跟踪；2025-08 换届后经营层（汤琦总经理）保持稳定。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://www.sd-gold.com/column/125/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 集团「加入我们」· sd-gold.com/column/125</a>
+      <a href="https://sdhjjt.zhaopin.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">📝 网申系统 · sdhjjt.zhaopin.com</a>
+    </div>
+    <div class="note-box" style="margin-top:0">企查查招聘信息数据库中未检索到该主体的招聘记录（T+0，2026-09-05 全量扫描）——省属国企招聘主要经集团官网与智联招聘网申系统进行，不依赖第三方招聘平台聚合，属正常口径现象，不代表无用人需求。</div>
+    <h3 class="sub">人力资源结构解读</h3>
+    <div class="two-col">
+      <ul class="bullet-list pos">
+        <li><b>境内用工规模</b>：母公司参保 4,439 人 + 分支机构 4,122 人（企查查口径）——重资产自营采矿模式（区别于赤峰黄金的外包模式），产业工人队伍稳定。</li>
+        <li><b>技术投入</b>：2026H1 研发经费 4.2 亿元（+8.49%）、探矿工程量 29 万米——地质、采矿、选冶技术岗为长期需求主线。</li>
+      </ul>
+      <ul class="bullet-list warn">
+        <li><b>口径局限</b>：集团合并员工数本次未取数（TOP10 底稿标注"—"），以年报 ESG 披露为准；招聘入口链接经 TOP10 报告阶段核验（2026-09-05）。</li>
+        <li><b>海外属地化</b>：加纳、纳米比亚、阿根廷三线海外资产的管理外派与属地用工结构以公司公告/ESG 披露为准，本次未取数。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查共 28 条对外投资记录，一层直接持股）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>认缴出资额</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>山金国际黄金股份有限公司</td><td class="num">28.94%</td><td class="num">802,251,840 股</td><td>海外黄金平台（加纳纳穆蒂尼金矿等）</td><td>重要联营，2026H1 海外增长核心载体</td></tr>
+        <tr><td>济南金悦投资合伙企业（有限合伙）</td><td class="num">99.992%</td><td class="num">25.0 亿</td><td>投资平台</td><td>2022-11 设立</td></tr>
+        <tr><td>山金金控资本管理有限公司</td><td class="num">100%</td><td class="num">15.0 亿</td><td>金融投资（持东海证券 18.71%）</td><td>公允价值波动源</td></tr>
+        <tr><td>山东黄金集团财务有限公司</td><td class="num">30%</td><td class="num">9.0 亿</td><td>集团财务公司</td><td>关联金融体系</td></tr>
+        <tr><td>山东黄金归来庄矿业有限公司</td><td class="num">70.6442%</td><td class="num">4.39 亿</td><td>金矿（归来庄公司）</td><td>在产</td></tr>
+        <tr><td>山东黄金矿业（莱州）有限公司</td><td class="num">100%</td><td class="num">4.30 亿</td><td>三山岛金矿 + 焦家金矿运营主体</td><td>境内核心资产平台</td></tr>
+        <tr><td>山东黄金矿业（玲珑）有限公司</td><td class="num">100%</td><td class="num">4.02 亿</td><td>玲珑金矿</td><td>在产</td></tr>
+        <tr><td>山东黄金矿业（鑫汇）有限公司</td><td class="num">100%</td><td class="num">3.85 亿</td><td>金矿（鑫汇公司）</td><td>在产</td></tr>
+        <tr><td>山东黄金冶炼有限公司</td><td class="num">100%</td><td class="num">3.5 亿</td><td>黄金冶炼</td><td>营收体量的主要构成之一</td></tr>
+        <tr><td>山金重工有限公司</td><td class="num">100%</td><td class="num">3.0 亿</td><td>矿山装备制造</td><td>2018-10 设立</td></tr>
+        <tr><td>山东地矿来金控股有限公司</td><td class="num">100%</td><td class="num">3.0 亿</td><td>地矿控股</td><td>2011-09 设立</td></tr>
+        <tr><td>山东黄金西和矿业有限公司</td><td class="num">60%</td><td class="num">2.7 亿</td><td>甘肃西和矿业平台</td><td>2023-04 设立</td></tr>
+        <tr><td>西和县中宝矿业有限公司</td><td class="num">70%</td><td class="num">1.4 亿</td><td>金矿（西和中宝）</td><td>甘肃在产</td></tr>
+        <tr><td>赤峰柴胡栏子黄金矿业有限公司</td><td class="num">73.5229%</td><td class="num">736.53 万</td><td>金矿（赤峰柴矿）</td><td>重点项目超序时进度</td></tr>
+        <tr><td>山東黃金礦業（香港）有限公司</td><td class="num">100%</td><td class="num">4,531,145,600 股</td><td>境外投融资平台</td><td>贝拉德罗等海外资产镜像</td></tr>
+        <tr><td>山金矿业（福建）有限公司</td><td class="num">65%</td><td class="num">650 万</td><td>矿业（福建）</td><td>2025-10 新设——最新布局</td></tr>
+        <tr><td>其他</td><td class="num">—</td><td class="num">—</td><td>莱西/沂南/金洲/蓬莱/福建源鑫（90.31%）/昶泰（70%）/山东金石/山金矿山工程（80%）等</td><td>境内矿山群</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">数据纪律与说明：以上为企查查一层直接持股口径，逐字引用，禁止据此推断穿透关系。阿根廷贝拉德罗金矿（50% 权益，历史公告口径）经香港公司及境外平台持有，不在国内工商对外投资列表中；加纳纳穆蒂尼经山金国际（28.94%）间接持有。济南金盈投资（注销）、山东山金建设（注销）为历史清理主体。2025-10 新设山金矿业（福建）为最新对外布局信号。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布 ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布（胶东基本盘 + 阿根廷/加纳/纳米比亚三线海外）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:#f6f7f9">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到公网后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/项目名称</th><th>所在国/地区</th><th>矿种/产品</th><th>权益结构</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>贝拉德罗（Veladero）金矿</td><td>阿根廷 · 圣胡安省</td><td>金（南美第二大在产金矿之一）</td><td class="num">50% 权益（历史公告口径，以最新披露为准）</td><td>在产</td><td>TOP10 汇总报告</td></tr>
+        <tr><td>纳穆蒂尼（Namdini）金矿</td><td>加纳</td><td>金</td><td class="num">经山金国际（公司持股 28.94%）</td><td>在产（26H1 产量同比 +50% 以上，选矿回收率提升）</td><td>公司 2026 中报</td></tr>
+        <tr><td>双子山（Twin Hills）金矿</td><td>纳米比亚</td><td>金（满产金约 5 吨）</td><td class="num">经 Osino 公司（山金国际体系，以公告为准）</td><td>建设期（2027H1 投产目标）</td><td>公司中报 + 研报</td></tr>
+        <tr><td>三山岛金矿</td><td>中国 · 山东莱州</td><td>金</td><td class="num">100%（经莱州公司）</td><td>在产（15,000 吨/日扩建预计 2026-09 底核准）</td><td>公司中报</td></tr>
+        <tr><td>焦家金矿</td><td>中国 · 山东莱州</td><td>金（满产金约 19 吨）</td><td class="num">100%（经莱州公司）</td><td>在产（焦家项目平巷施工）</td><td>公司中报 + 研报</td></tr>
+        <tr><td>新城金矿</td><td>中国 · 山东莱州</td><td>金（满产金约 8 吨）</td><td class="num">直属分公司</td><td>在产（主井/副井/回风井掘砌到底）</td><td>公司中报</td></tr>
+        <tr><td>玲珑金矿</td><td>中国 · 山东招远</td><td>金</td><td class="num">100%</td><td>在产（东风探矿权/采矿权整合方向）</td><td>公司中报释义</td></tr>
+        <tr><td>西岭金矿（探矿权）</td><td>中国 · 山东莱州</td><td>金（勘探）</td><td class="num">以公告为准</td><td>勘探（世界级资源潜力方向，媒体口径）</td><td>公司中报释义</td></tr>
+        <tr><td>西和中宝金矿</td><td>中国 · 甘肃陇南</td><td>金</td><td class="num">70%</td><td>在产</td><td>企查查</td></tr>
+        <tr><td>赤峰柴胡栏子金矿</td><td>中国 · 内蒙古赤峰</td><td>金</td><td class="num">73.5229%</td><td>在产（重点项目超序时进度）</td><td>企查查 + 公司中报</td></tr>
+        <tr><td>境内其他矿山群</td><td>中国 · 山东/福建/内蒙古/新疆等</td><td>金</td><td class="num">100% / 70-90%（见第七章）</td><td>13 座年产 1 吨以上矿山（2025 年底口径）</td><td>研报 + 企查查</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图（合规底图）；境内项目坐标为 GCJ-02，境外项目直接使用 WGS84 坐标，精确到项目级（小数点后 2 位）；贝拉德罗权益比例与西岭金矿权属以公司最新公告为准。公司定位：境内矿山产量全国第一的"资源型龙头"，海外三线（阿根廷 + 加纳 + 纳米比亚）提供中期增量。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>2000-01-31</b>：注册成立（山东黄金集团持股 97% 起步，莱州黄金、招金集团等发起）。</li>
+        <li><b>2003-09</b>：IPO 上市（注册资本 1.0 亿→1.6 亿元，社会公众股 37%）。</li>
+        <li><b>2008-2021</b>：注册资本经 2008/2009/2010/2017/2018/2019/2020/2021 多轮增发，从 1.78 亿元增至 43.39 亿元——对应卡蒂诺、贝拉德罗等并购与 A 股扩张周期；2021-01 小幅回调（回购注销口径）。</li>
+        <li><b>2016-06 起</b>：法定代表人历经李国红（2016）→ 李航（2022-07）→ 韩耀东（2025-08）→ 王成龙（2026-07）四任。</li>
+        <li><b>2025-08</b>：董事会换届（韩耀东任董事长，汤琦任总经理，独董结构调整为 3 人）。</li>
+        <li><b>2025-09</b>：注册资本增至 46.10 亿元（H 股发行口径，A+H 上市）。</li>
+        <li><b>2026-07-24</b>：法定代表人/董事长变更为王成龙。</li>
+        <li><b>累计变更记录</b>：企查查 99 条（董监高备案 29、注册资本 13、章程备案 8），无经营异常名录记录。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>风险扫描总览</b>（企查查 35 项因子，2026-09-05）：7 项有记录、28 项无记录；<span class="pill ok">无失信记录</span> <span class="pill ok">无被执行</span> <span class="pill ok">无终本案件</span> <span class="pill ok">无行政处罚</span> <span class="pill ok">无环保处罚</span> <span class="pill ok">无股权冻结</span>——十强中风险因子最干净的梯队之一。</li>
+        <li><b>对外担保</b>：49 条记录——以并表子公司担保为主，体量适中。</li>
+        <li><b>股权质押/出质</b>：3 条 + 4 条——十强最少档，国资控股结构特征。</li>
+        <li><b>涉诉</b>：裁判文书 5、立案信息 3、开庭公告 4、法院公告 1——常规经营性诉讼低体量。</li>
+        <li><b>劳动仲裁 / 欠税 / 税收违法 / 破产重整 / 动产抵押 / 土地抵押</b>：均为 0 条（风险扫描口径）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">① 国内安全监管与产量压制风险</div>
+      <div>2026H1 国内自产金产量 12.41 吨（-34.8%）——重点产金省区安全大排查大整治与专项治理致部分矿山停产自查；公司虽以"规范整改换取长期安全运营"，但三山岛/焦家/新城扩建叠加复产节奏，全年产量修复与项目投产进度存在不及预期风险（券商研报同类提示）。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">② 杠杆与流动性结构风险</div>
+      <div>资产负债率 62.21%（2025 年末）、流动比率仅 0.47、速动比率 0.37、有息负债 655.94 亿元——十强中杠杆最高档；主要源于黄金租借与贸易融资结构，若金价大幅回调叠加融资条件收紧，将放大财务压力（2024 年以来负息差环境已致财务费用高企，2026H1 财务费用节约 -0.68 亿为边际改善信号）。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">③ 金价回调风险</div>
+      <div>公司业绩与金价高度相关（26H1 COMEX 均价 +52.40% 为业绩主驱动）；国际金价 26H1 最大波幅 1,655 美元/盎司、期末较上年末回调——高 beta 属性下，金价若趋势性回落将直接压缩利润空间；机构 2026 年归母 85.53 亿预测隐含金价高位持续假设。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 治理层更迭与海外地缘风险</div>
+      <div>2016 年以来董事长四度更迭（李国红→李航→韩耀东→王成龙），省属干部交流机制下战略连续性依赖制度化传承；海外阿根廷（贝拉德罗）、加纳、纳米比亚三线布局面临资源国税制、汇率与地缘政治扰动（研报明示"海外地缘风险"）。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">⑤ 非主业金融资产波动</div>
+      <div>山金金控持有东海证券 18.71% 股份，2026H1 确认公允价值变动损失 7.05 亿元（占归母净利近 20%）——证券市场波动对报表利润的扰动具有持续性；冶炼贸易业务的大宗商品价格风险亦需关注。</div>
+    </div>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：山东省国资委控股（黄金集团 34.17%）的 A+H 上市黄金龙头，工商登记规范（99 条变更记录无重大异常），无失信/被执行/终本/行政处罚/环保处罚/股权冻结记录——十强中合规画像最干净的梯队之一，且股权质押仅 3 条为十强最少。<br>
+      <b>财务质量</b>：2023-2025 年营收 592.75→1,042.87 亿、净利 28.91→66.27 亿（归母 47.39 亿）、ROE 7.84%→15.59%、经营现金流 214.93 亿（十家第二）——金价周期充分受益者；2026H1"减收增利"（营收 -5.60%、归母 +26.17%）反映结构优化；短板是负债率 62.21% + 流动比率 0.47 的杠杆结构。<br>
+      <b>股权与治理</b>：省属国资控股 + 增持（5.10 亿）+ 分红（中期 4.61 亿）的稳定结构；治理层董事长更迭频繁（四年四任）但经营层（汤琦总经理）稳定，港股治理配套（联席公司秘书、香港籍独董）完备。<br>
+      <b>业务与资产</b>：胶东基本盘（13 座吨级矿山、资源量 2,054.33 吨）+ 三大远期项目（焦家 19 吨/新城 8 吨/双子山 5 吨满产口径）+ 海外三线（贝拉德罗/纳穆蒂尼/双子山）——资源厚度为十强黄金股之最，但 2026 年产量受国内安全监管压制，海外释放是边际关键。<br>
+      <b>人力资源</b>：境内母公司 + 分支参保约 8,561 人（重资产自营模式）；企查查无第三方招聘记录（省国企招聘走集团官网/智联网申，口径正常）。<br>
+      <b>综合判断</b>：资源禀赋顶级的"国资稳健型"黄金龙头，与赤峰黄金（民营弹性型）形成镜像对照。核心跟踪点：①国内矿山复产与三山岛扩建核准进度；②纳穆蒂尼/双子山海外产能爬坡；③有息负债与财务费用走势；④东海证券公允价值扰动；⑤金价敏感性。
+    </div>
+  </section>
+
+  <!-- ============ 附录 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 主体身份</td><td>企查查 MCP get_company_registration_info</td><td class="num">2026-09-05</td><td>T+0；参保 4,439 人 + 分支 4,122 人为境内母公司口径，集团员工数以年报为准</td></tr>
+        <tr><td>三年财务</td><td>企查查 MCP get_financial_data（2023/2024/2025 年报，TOP10 报告阶段采集）+ 财报披露口径补充（归母净利）</td><td class="num">2026-09-04/05</td><td>合并报表口径；2024/2025 归母净利为财报披露值</td></tr>
+        <tr><td>2026 中报动态</td><td>公司《2026 年半年度报告》（上交所披露，2026-08-29）+ 证券时报网 + 券商研报</td><td class="num">2026-09-05</td><td>营收 535.88 亿/归母 35.43 亿/产销量与项目进度为中报口径</td></tr>
+        <tr><td>行业研究 / 机构观点</td><td>券商研报（2026-08-30"推荐"、预计 2026-2028 归母 85.53/94.63/99.85 亿元）+ 证券时报网（2026-08-28）</td><td class="num">2026-09-05</td><td>机构观点非事实陈述，多空兼顾；金价为研报时点值</td></tr>
+        <tr><td>股东与实控</td><td>TOP10 汇总报告（企查查口径，黄金集团 34.17%）</td><td class="num">2026-09-04</td><td>一层直接持股；实控人穿透本次未单独调用工具取数，以国资监管认定为准</td></tr>
+        <tr><td>治理团队</td><td>企查查 MCP get_key_personnel（11 条）+ 变更记录交叉印证</td><td class="num">2026-09-05</td><td>T+0；董事长更迭序列来自 99 条变更记录</td></tr>
+        <tr><td>招聘动态</td><td>企查查 MCP get_recruitment_info（全量扫描无记录）+ 集团官网/智联网申链接（TOP10 阶段核验）</td><td class="num">2026-09-05</td><td>省国企招聘不依赖第三方平台聚合，属口径现象</td></tr>
+        <tr><td>对外投资</td><td>企查查 MCP get_external_investments（28 条）</td><td class="num">2026-09-05</td><td>一层直接持股逐字引用；贝拉德罗等境外资产不在国内工商数据源覆盖范围</td></tr>
+        <tr><td>全球矿权</td><td>TOP10 汇总报告（2026-09-04）+ 2026 中报（释义表）+ 研报</td><td class="num">2026-09-05</td><td>权益保有资源量 2,054.33 吨为 2025 年底口径；贝拉德罗权益比例以公告为准</td></tr>
+        <tr><td>沿革与变更</td><td>企查查 MCP get_change_records（99 条）</td><td class="num">2026-09-05</td><td>工商登记口径；早期节点为历史公开信息</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP get_company_risk_scan（35 项因子）</td><td class="num">2026-09-05</td><td>7 项有记录（担保 49、裁判文书 5、开庭 4、立案 3、质押 3、出质 4、法院公告 1），无失信/被执行/终本/行政处罚</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:14px">地图部署说明：本报告为本地交付版本（未发布到公网）。若部署公网，需在腾讯位置服务开放平台（lbs.qq.com）申请 key 并替换模板占位符、配置 Referer 白名单；未配置时地图自动降级为矿权明细表展示，不影响数据完整性。颜色规范：红涨绿跌（A 股惯例）。</div>
+  </section>
+
+<footer>在线版本：本地交付（未发布到 GitHub Pages） · 本报告由 AI 辅助生成 · 数据截至 2026-09-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'贝拉德罗(Veladero)金矿', country:'阿根廷·圣胡安省', mineral:'金(50%权益)', stake:'50%(历史公告口径)', status:'在产', lat:-29.39, lng:-69.94 },
+  { name:'纳穆蒂尼(Namdini)金矿', country:'加纳', mineral:'金', stake:'经山金国际(公司持股28.94%)', status:'在产(产量+50%+)', lat:10.79, lng:-0.87 },
+  { name:'双子山(Twin Hills)金矿', country:'纳米比亚', mineral:'金(满产约5吨)', stake:'经Osino体系', status:'2027H1投产目标', lat:-21.93, lng:15.83 },
+  { name:'三山岛金矿(15000吨/日扩建)', country:'中国·山东莱州', mineral:'金', stake:'100%(经莱州公司)', status:'在产(扩建待核准)', lat:37.40, lng:119.94 },
+  { name:'焦家金矿(满产金约19吨)', country:'中国·山东莱州', mineral:'金', stake:'100%(经莱州公司)', status:'在产(平巷施工)', lat:37.33, lng:119.97 },
+  { name:'新城金矿(满产金约8吨)', country:'中国·山东莱州', mineral:'金', stake:'直属分公司', status:'在产(主副井到底)', lat:37.42, lng:120.02 },
+  { name:'玲珑金矿', country:'中国·山东招远', mineral:'金', stake:'100%', status:'在产', lat:37.35, lng:120.42 },
+  { name:'西和中宝金矿', country:'中国·甘肃陇南', mineral:'金', stake:'70%', status:'在产', lat:33.93, lng:105.30 },
+  { name:'赤峰柴胡栏子金矿', country:'中国·内蒙古赤峰', mineral:'金', stake:'73.52%', status:'在产(重点项目)', lat:42.15, lng:118.65 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(20, 20) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(20, 20), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

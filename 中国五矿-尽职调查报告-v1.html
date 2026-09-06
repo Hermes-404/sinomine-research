@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国五矿集团有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+/* ---------- charts ---------- */
+.chart-wrap{border:1px solid var(--border);border-radius:2px;padding:18px 20px 10px;margin-top:14px;background:var(--bg-card)}
+.chart-title{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px}
+[data-theme="dark"] .chart-title{color:#c9d6e8}
+.chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+.axis{stroke:var(--border);stroke-width:1}
+.gridline{stroke:var(--border-soft);stroke-width:1;stroke-dasharray:3,4}
+.axis-label{fill:var(--text-muted);font-size:10.5px;font-family:'Noto Sans SC',sans-serif}
+.bar-rev{fill:var(--primary)}
+[data-theme="dark"] .bar-rev{fill:#6ea3d8}
+.bar-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.line-np{stroke:var(--accent-red);stroke-width:2.5;fill:none}
+.np-dot{fill:var(--accent-red)}
+.np-label{fill:var(--accent-red);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.legend{display:flex;gap:22px;font-size:11.5px;color:var(--text-muted);margin-top:6px;padding:6px 0}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border-radius:1px}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- ================= 页头：公司身份条 ================= -->
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">国务院国资委直管央企 · 金属矿产 · 未集团整体上市</span>
+        <div class="company-name-cn">中国五矿集团有限公司</div>
+        <div class="company-name-en">China Minmetals Corporation</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调评级：中性</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05</span>
+      <span>报告编号：DDR-MINMETALS-20260905-V1</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 粘性导航 ================= -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 投资布局</a>
+    <a href="#s7">⑦ 沿革与担保</a>
+    <a href="#s8">⑧ 风险提示</a>
+    <a href="#s9">⑨ 尽调结论</a>
+    <a href="#s10">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <!-- ============ 核心结论框 ============ -->
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    中国五矿是国务院国资委 100% 持股的金属矿产类中央企业，国有资本投资公司试点，2022–2024 任期央企负责人经营业绩考核 A 级，位列 2026 年《财富》世界 500 强第 99 位（连续 20 年入围），主体资质与信用背书处于最高梯队。财务面上，营收连续两年下滑（2025 年 7,485 亿元，同比 -10.17%），但净利润率、经营性现金流（379.5 亿元，同比 +23.7%）与杠杆水平（资产负债率 72.22%，连续三年下降）同步改善，呈「缩表提质」特征。核心看点在海外矿业：旗下港股平台五矿资源（MMG，1208.HK）2025 年铜产量 50.7 万吨（+27%），Las Bambas 跃居全球前十大铜矿，Khoemacau 二期扩建已获批。主要风险集中于刚果（金）矿业政策突变（铜钴精矿出口禁令）、大宗价格周期与 72% 的资产负债率。整体判断：主体合作风险低，投资敞口需重点关注海外资产所在地政策。
+  </div>
+
+  <!-- ============ KPI 概览卡片 ============ -->
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">总资产（2025 年末）</div><div class="kpi-value num">14,902 亿元</div><div class="kpi-delta">较上年末 <span class="up">+11.04%</span></div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">经营活动现金流净额</div><div class="kpi-value num">379.5 亿元</div><div class="kpi-delta up">▲ 同比 +23.66%</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">营业收入（2025 年）</div><div class="kpi-value num">7,485 亿元</div><div class="kpi-delta down">▼ 同比 -10.17%</div></div>
+    <div class="kpi-card"><div class="kpi-label">资产负债率（2025 年末）</div><div class="kpi-value num">72.22%</div><div class="kpi-delta">较上年末 <span class="down">-1.66pct</span>，连续三年下降</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>中国五矿集团有限公司</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">9111000010000093XR</td></tr>
+      <tr><td>成立日期</td><td class="num">1982-12-09（现主体工商登记日；集团历史可追溯至 1950 年成立的中国五金矿产进出口总公司，据集团官网）</td></tr>
+      <tr><td>注册资本</td><td class="num">1,020,000 万元人民币（实缴 6,336,328.80 万元）</td></tr>
+      <tr><td>法定代表人</td><td>陈得信</td></tr>
+      <tr><td>注册地址</td><td>北京市海淀区三里河路五号</td></tr>
+      <tr><td>企业类型</td><td>有限责任公司（国有独资）</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">存续（在营、开业、在册）</span></td></tr>
+      <tr><td>经营范围（摘要）</td><td>黑色金属、有色金属、矿产品及非金属矿产品的投资与销售；新能源开发投资管理；金融、证券、信托、租赁、保险、基金、期货领域投资管理；工程勘察设计与咨询；冶金设备开发销售；房地产开发与经营；进出口业务；招标代理等</td></tr>
+    </table>
+    <div class="note-box">数据来源：企查查 MCP（国家企业信用信息公示系统口径，T+0），核验时间 2026-09-05。集团现有职工约 18 万人，业务覆盖全球 60 多个国家和地区，拥有 8 家上市公司（含 A+H 两地上市的中国中冶）；据中国五矿官网。</div>
+  </section>
+
+  <!-- ============ 二、财务概览（合并报表口径） ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">9,346.0 亿元</td><td class="num">8,332.4 亿元</td><td class="num">7,485.2 亿元 <span class="down">(-10.17%)</span></td><td>企查查年报</td></tr>
+        <tr><td>净利润</td><td class="num">188.5 亿元</td><td class="num">174.4 亿元</td><td class="num">163.9 亿元 <span class="down">(-6.03%)</span></td><td>企查查年报</td></tr>
+        <tr><td>利润总额</td><td class="num">280.1 亿元</td><td class="num">225.2 亿元</td><td class="num">248.4 亿元 <span class="up">(+10.30%)</span></td><td>企查查年报</td></tr>
+        <tr><td>总资产</td><td class="num">11,328.7 亿元</td><td class="num">13,420.5 亿元</td><td class="num">14,902.3 亿元 <span class="up">(+11.04%)</span></td><td>企查查年报</td></tr>
+        <tr><td>所有者权益</td><td class="num">2,836.3 亿元</td><td class="num">3,505.1 亿元</td><td class="num">4,139.7 亿元 <span class="up">(+18.12%)</span></td><td>企查查年报</td></tr>
+        <tr><td>资产负债率</td><td class="num">74.96%</td><td class="num">73.88%</td><td class="num">72.22% <span class="down">(-1.66pct)</span></td><td>企查查精算字段</td></tr>
+        <tr><td>经营活动现金流净额</td><td class="num">239.3 亿元</td><td class="num">306.9 亿元</td><td class="num">379.5 亿元 <span class="up">(+23.66%)</span></td><td>企查查年报</td></tr>
+        <tr><td>净利率</td><td class="num">2.04%</td><td class="num">2.11%</td><td class="num">2.19%</td><td>企查查精算字段</td></tr>
+        <tr><td>毛利率</td><td class="num">9.67%</td><td class="num">9.93%</td><td class="num">未获取（年报口径未披露）</td><td>企查查年报</td></tr>
+        <tr><td>流动比率</td><td class="num">1.10</td><td class="num">1.13</td><td class="num">1.14</td><td>企查查精算字段</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-wrap">
+      <div class="chart-title">营收与净利润趋势（2023–2025）</div>
+      <div class="chart-sub">左轴：营业收入（亿元，柱）；右轴：净利润（亿元，0–250 亿，线）· 数据来源：企查查年报</div>
+      <svg viewBox="0 0 680 250" width="100%" role="img" aria-label="营收与净利润趋势图">
+        <line class="gridline" x1="70" y1="30"  x2="640" y2="30"/>
+        <line class="gridline" x1="70" y1="72.5" x2="640" y2="72.5"/>
+        <line class="gridline" x1="70" y1="115" x2="640" y2="115"/>
+        <line class="gridline" x1="70" y1="157.5" x2="640" y2="157.5"/>
+        <line class="axis" x1="70" y1="200" x2="640" y2="200"/>
+        <text class="axis-label" x="58" y="34" text-anchor="end">10,000</text>
+        <text class="axis-label" x="58" y="77" text-anchor="end">7,500</text>
+        <text class="axis-label" x="58" y="119" text-anchor="end">5,000</text>
+        <text class="axis-label" x="58" y="162" text-anchor="end">2,500</text>
+        <text class="axis-label" x="58" y="204" text-anchor="end">0</text>
+        <rect class="bar-rev" x="115" y="41.1"  width="90" height="158.9"/>
+        <rect class="bar-rev" x="310" y="58.4"  width="90" height="141.6"/>
+        <rect class="bar-rev" x="505" y="72.8"  width="90" height="127.2"/>
+        <text class="bar-value" x="160" y="35" text-anchor="middle">9,346</text>
+        <text class="bar-value" x="355" y="52" text-anchor="middle">8,332</text>
+        <text class="bar-value" x="550" y="67" text-anchor="middle">7,485</text>
+        <polyline class="line-np" points="160,71.8 355,81.4 550,88.7"/>
+        <circle class="np-dot" cx="160" cy="71.8" r="4"/>
+        <circle class="np-dot" cx="355" cy="81.4" r="4"/>
+        <circle class="np-dot" cx="550" cy="88.7" r="4"/>
+        <text class="np-label" x="186" y="68">188.5</text>
+        <text class="np-label" x="381" y="78">174.4</text>
+        <text class="np-label" x="576" y="85">163.9</text>
+        <text class="axis-label" x="160" y="218" text-anchor="middle">2023</text>
+        <text class="axis-label" x="355" y="218" text-anchor="middle">2024</text>
+        <text class="axis-label" x="550" y="218" text-anchor="middle">2025</text>
+      </svg>
+      <div class="legend"><span><i style="background:#1a2c4e"></i>营业收入（左轴，亿元）</span><span><i style="background:#a83232"></i>净利润（右轴，亿元）</span></div>
+    </div>
+
+    <div class="note-box">注：本表为集团合并报表口径，货币单位为人民币；数据来源为企查查年报数据（同源于企业年度报告公示），净利率、资产负债率、流动比率等为企查查服务端精算字段，逐字引用未另行重算。集团口径归母净利润未单列，故以「净利润」列示；2025 年毛利率在企查查年报口径中未披露，如实标注「未获取」。营收下滑主因大宗贸易板块收缩，资产扩张主因 2024 年盐湖整合并表与持续投资（详见第六、七章）。</div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>五矿资源铜产量</td><td class="num">50.69 万吨（2025）</td><td class="num"><span class="up">+27%</span>，2018 年以来新高</td><td>MMG 2025 年 Q4 生产报告（2026-01）</td></tr>
+        <tr><td>五矿资源锌产量</td><td class="num">23.21 万吨（2025）</td><td class="num"><span class="up">+6%</span>，Dugald River 创纪录</td><td>MMG 2025 年 Q4 生产报告（2026-01）</td></tr>
+        <tr><td>Las Bambas 铜产量</td><td class="num">41.08 万吨（2025）</td><td class="num"><span class="up">+27%</span>，全球前十大铜矿</td><td>MMG 年报（2026-03）</td></tr>
+        <tr><td>LME 铜价 2026 年机构预测中枢</td><td class="num">10,000–13,000 美元/吨</td><td class="num">供需缺口预期支撑高位</td><td>中信证券/中金/中信期货 2026 年度策略（发现报告等公开渠道）</td></tr>
+        <tr><td>全球铜供需平衡（2026E）</td><td class="num">缺口约 5–15 万吨</td><td class="num">供需双强、供应增速落后</td><td>太平洋证券（发现报告）；口径存在机构分歧</td></tr>
+        <tr><td>全球铜矿供应增速（2026E）</td><td class="num">约 1%–2.5%</td><td class="num">品位下滑、资本开支防御性</td><td>东吴证券 2026-08-28 研报</td></tr>
+        <tr><td>新兴领域用铜增速</td><td class="num">AI 数据中心 CAGR 约 14%（2025–2030E）</td><td class="num">新能源车约 6%、风光约 4%</td><td>东吴证券 2026-08-28 研报</td></tr>
+        <tr><td>Las Bambas 铜现金成本（C1）</td><td class="num">1.12 美元/磅（2025）</td><td class="num">优于年度指引区间</td><td>MMG 年报（非 IFRS 指标）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>Las Bambas 2025 年产铜 41.08 万吨，居全球前十大铜矿之列（MMG 年报，2026-03）</li>
+        <li>全球金属产品企业《财富》世界 500 强排名：中国五矿第 99 位，高于宝武（第 100 位）、江铜（第 164 位）、中铝（第 207 位），居全球金属产品企业首位（财富中文网，2026-07-28）</li>
+        <li>中资铜矿第一梯队：紫金矿业、洛阳钼业、五矿资源（MMG）等（东吴证券研报覆盖组合口径，2026-08-28）</li>
+        <li>国内钨产业链龙头之一（中钨高新，000657.SZ）；盐湖钾锂资源整合方（中国盐湖工业集团持股 53%）</li>
+      </div>
+      <div class="bullet-list">
+        <li>上游资源端：秘鲁 Las Bambas 铜矿、刚果（金）Kinsevere 铜钴矿、博茨瓦纳 Khoemacau 铜矿、澳大利亚 Dugald River / Rosebery 锌矿；国内钨矿与盐湖钾锂</li>
+        <li>中游冶炼加工：株冶集团（铅锌冶炼）、五矿发展（钢铁冶金原料贸易）</li>
+        <li>下游流通：国内经营规模大、网络覆盖广的大宗金属矿产品流通服务商（集团官网口径）</li>
+        <li>协同板块：金融（五矿资本，全牌照体系）、地产（五矿地产）、冶金工程（中国中冶，全球最大冶金工程承包商之一）</li>
+      </div>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>2026–2027 年全球铜呈供需缺口，看好未来两年铜价表现，资源标的优先受益，建议关注五矿资源等</td><td>东吴证券</td><td class="num">2026-08-28</td><td>发现报告（研报摘编）</td></tr>
+        <tr><td>全球主要铜矿企业 2026 年产量预期下滑，国内超预期去库将促使 2026 年铜价站稳 13,000 美元/吨，看好铜板块配置机遇</td><td>中信证券</td><td class="num">2026-05</td><td>中国经济网援引</td></tr>
+        <tr><td>2026–2029 年铜矿端缺口合计 313 万吨，10,500–11,000 美元/吨为「激励价格」新平台，季度中枢 11,000–11,500 美元</td><td>中金公司</td><td class="num">2026 年度展望</td><td>公开渠道摘编</td></tr>
+        <tr><td>供需双强格局，2026–2028 年缺口逐年扩大（-5/-35/-43 万吨），铜价有望延续强势</td><td>太平洋证券</td><td class="num">2026 年</td><td>发现报告（研报摘编）</td></tr>
+        <tr><td><b>（空方）</b>中国口径 2026 年供大于求、过剩约 59 万吨，高铜价压制需求，金融属性将主导铜价走势</td><td>恒力期货研究院</td><td class="num">2026-06-30</td><td>发现报告（研报摘编）</td></tr>
+        <tr><td><b>（空方）</b>铜价在宏观打压下与供强需弱形成共振、库存积压，2026 年呈前高后低、承压运行</td><td>某期货半年度策略</td><td class="num">2026 年中</td><td>发现报告（研报摘编）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <div class="bullet-list">
+      <li>刚果（金）：2026-06-29 三部委部际政令禁止铜精矿和钴精矿出口（战略利益情形可获最长一年豁免），并建立锗、铼、硒等伴生元素计价征税机制（55% 估值系数）——直接冲击 Kinsevere 所在地经营环境（驻刚果金使馆经商处转引路透社，2026-08-06）</li>
+      <li>刚果（金）：2026 年钴出口配额 9.66 万吨、违规企业永久取消出口资格；2026 年《矿业法》修订拟强化处罚（最高罚款 100 万美元、监禁 20 年）；2026 年 7 月约 2 万吨钴出口因行政协调受阻（上海师范大学非洲研究中心报告，2026-08）</li>
+      <li>秘鲁：新政府（藤森庆子）拟修订海关及贸易便利化法规，涉及强迫劳动条款——Las Bambas 所在国监管变量（驻秘鲁使馆经商处，2026-08-05）</li>
+      <li>国内：公司入选 2022–2024 任期中央企业负责人经营业绩考核 A 级企业（国务院国资委，2025-07-18）；国有资本投资公司试点持续深化</li>
+      <li>集团动态：与中核集团推进战略合作；联合中国有色金属工业协会、中铝集团发布《有色钢铁融合发展蓝皮书（2026）》；2026 年《财富》世界 500 强第 99 位、连续 20 年入围（企查查榜单数据 / 官网）</li>
+    </div>
+    <div class="note-box">注：行研类 MCP（东方财富妙想、Gangtise 等）本轮未连接，本章已按数据源降级链降至免费公开渠道（MMG 官网公告、发现报告、中国经济网、使馆经商处通报等），检索与核验时间均为 2026-09-05。机构观点仅代表发布机构立场，不构成事实陈述，观点与公司披露事实已分列呈现；LME 铜现货最新价未获取，预测区间引用以发布时点为准。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">股东构成</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody><tr><td>1</td><td>国务院国有资产监督管理委员会</td><td class="num">100%</td><td>国家机关（出资人）</td><td>企查查（T+0）</td></tr></tbody>
+    </table>
+    <div class="note-box">本主体为国有独资公司，仅有一名股东，无其他社会股东；认缴出资 1,020,000 万元已于 2017-12-26 实缴到位（企查查）。</div>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>实际控制人：国务院国有资产监督管理委员会</li>
+        <li>直接持股比例：100%；穿透总持股比例：100%（企查查股权穿透引擎聚合结果，T+0）</li>
+        <li>链条层级：国务院国资委 → 中国五矿集团有限公司 → 8 家上市平台及 30 余家一级子企业</li>
+        <li>国有资本投资公司试点企业（据集团官网）</li>
+      </div>
+      <div class="bullet-list">
+        <li>股权质押：1 条记录（企查查风险扫描计数，明细未下钻，需进一步核验标的企业与质押比例）</li>
+        <li>股权冻结：0 条；股权出质：0 条；司法拍卖：0 条</li>
+        <li>国有独资股权结构下，控制权稳定性极高，无恶意收购或控制权争夺风险</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>陈得信</td><td>董事长、法定代表人</td><td>据公开报道曾任金川集团党委书记、董事长，有色行业资深管理者（历史公开信息，可能有滞后）</td></tr>
+        <tr><td>国文清</td><td>董事、总经理</td><td>据公开报道长期担任中国中冶董事长、中国五矿总经理，主导中冶重组整合（历史公开信息，可能有滞后）</td></tr>
+        <tr><td>郎加、刘雷云、蔡洪平、石大华、潘正义</td><td>董事</td><td>工商登记仅披露职务；含外部董事安排（具体分工未获取）</td></tr>
+        <tr><td>李萍</td><td>监事会主席</td><td>工商登记披露（背景未获取）</td></tr>
+        <tr><td>于凤瑞、毕丽艳、李惠敏、成佳富、梁建波</td><td>监事</td><td>工商登记披露（背景未获取）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">数据来源：企查查主要人员信息（T+0），核验时间 2026-09-05；任期起止与详细简历需以集团官方公告为准，本次未获取，不作推断。</div>
+  </section>
+
+  <!-- ============ 人力资源与招聘动态（补充板块） ============ -->
+  <section class="section" id="s5b">
+    <div class="section-title">人力资源与招聘动态（补充）</div>
+    <p style="font-size:13px;line-height:1.8;margin-bottom:12px;">本报告初版（10 章节结构）未含招聘明细章节，现补充官方招聘入口供查阅。中国五矿为集团化招聘体系：集团官网「人才招聘」栏目为总入口，校园招聘、社会招聘/实习生分设专属平台；集团官方网站招聘系统为唯一收集简历平台。</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://zhaopin.minmetals.com.cn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber,#b8860b);border-radius:8px;color:var(--accent-amber,#b8860b);font-weight:600;text-decoration:none;font-size:13px;">🔗 招聘官网 · 中国五矿校园招聘平台</a>
+      <a href="https://minmetals.hotjob.cn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber,#b8860b);border-radius:8px;color:var(--accent-amber,#b8860b);font-weight:600;text-decoration:none;font-size:13px;">💼 社会招聘 / 实习生岗位平台</a>
+      <a href="http://www.minmetals.com.cn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border-soft,#d8d4cc);border-radius:8px;color:inherit;font-weight:600;text-decoration:none;font-size:13px;">🌐 集团官网 · minmetals.com.cn</a>
+    </div>
+    <div class="note-box">注：招聘入口链接核验时间 2026-09-05（来源：集团官网、五矿有色金属股份公司招聘页披露"中国五矿集团有限公司官方网站招聘系统为唯一收集简历平台，简历投递网址 http://hr.minmetals.com.cn"）。岗位明细数据本次未采集，如需岗位级尽调（在招职位/薪酬/地点分布）可另行下钻。</div>
+  </section>
+
+  <!-- ============ 六、对外投资与经营布局 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查 34 条记录中择要）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>中国冶金科工股份有限公司（中国中冶）</td><td class="num">44.33%</td><td class="num">91.72 亿股</td><td>冶金工程龙头（A+H：601618.SH / 1618.HK）</td><td>2015–2016 年与中冶集团战略重组后并表</td></tr>
+        <tr><td>中国五矿股份有限公司</td><td class="num">87.538%</td><td class="num">2,544,664 万元</td><td>集团核心产业平台，控股五矿资源（1208.HK）等</td><td>境外上市平台持股约 67.5%（据港交所权益披露口径，需以最新披露为准）</td></tr>
+        <tr><td>中国盐湖工业集团有限公司</td><td class="num">53%</td><td class="num">530,000 万元</td><td>盐湖资源整合平台（钾、锂），控股盐湖股份（000792.SZ）</td><td>2024-10 新设；集团另直接持有盐湖股份 8.1%</td></tr>
+        <tr><td>五矿地产集团有限公司</td><td class="num">100%</td><td class="num">1,000,000 万元</td><td>房地产开发（国资委首批以地产为主业央企之一）</td><td>境外另有五矿地产（0230.HK）平台</td></tr>
+        <tr><td>中国有色工程有限公司</td><td class="num">100%</td><td class="num">234,673 万元</td><td>有色金属工程设计与总承包</td><td>—</td></tr>
+        <tr><td>广岩国际投资有限责任公司</td><td class="num">71%</td><td class="num">4,260,000 万元</td><td>国际投资平台</td><td>2024-12 新设，注册资本规模较大，投向待核</td></tr>
+        <tr><td>五矿中亚南亚资源（雄安）有限公司</td><td class="num">100%</td><td class="num">50,000 万元</td><td>中亚、南亚矿产资源开发布局</td><td>2026-05 新设于雄安</td></tr>
+        <tr><td>参股类：工银安盛人寿（2.5%）、中国资源循环集团（10%）、国新创投基金（15%）、本溪北营钢铁（6.96%）</td><td class="num">—</td><td class="num">—</td><td>金融保险、资源循环、创投基金等财务性/战略性参股</td><td>均为一层直接持股比例（企查查）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">海外矿业资产（经五矿资源 MMG，逐项标注国别/矿种/取得方式）</h3>
+    <table>
+      <thead><tr><th>矿山</th><th>所在国</th><th>矿种</th><th>持股/取得方式</th><th>2025 年产量</th></tr></thead>
+      <tbody>
+        <tr><td>Las Bambas 拉斯邦巴斯</td><td><b>秘鲁</b></td><td>铜（伴生钼、银、金）</td><td>MMG 100%；2014 年以约 58.5 亿美元对价自嘉能可收购（公司公告口径）</td><td class="num">41.08 万吨铜精矿含铜（<span class="up">+27%</span>，矿山历史第二高）</td></tr>
+        <tr><td>Kinsevere 金塞维尔</td><td><b>刚果（金）</b></td><td>铜（伴生钴）</td><td>MMG 100%；2012 年收购 Anvil Mining 取得</td><td class="num">5.28 万吨电解铜（<span class="up">+18%</span>，扩建爬坡，受电力不稳制约）</td></tr>
+        <tr><td>Khoemacau 科马考</td><td><b>博茨瓦纳</b></td><td>铜（伴生银）</td><td>MMG 控股；2021 年收购取得（据公司公告）</td><td class="num">4.21 万吨铜精矿含铜（<span class="up">+36%</span>；二期扩建已获批，建成后年产能 13 万吨，预计 2028H1 投产）</td></tr>
+        <tr><td>Dugald River 杜加尔河</td><td><b>澳大利亚</b></td><td>锌（伴生铅、银）</td><td>MMG 100%；2009 年收购 OZ Minerals 资产包后自行建设，2017 年投产</td><td class="num">18.35 万吨锌精矿含锌（创历史新高，选矿量首破 200 万吨）</td></tr>
+        <tr><td>Rosebery 罗斯伯里</td><td><b>澳大利亚</b></td><td>锌（多金属）</td><td>MMG 100%；2009 年收购 OZ Minerals 资产包取得</td><td class="num">4.86 万吨锌精矿含锌（锌当量 14.0 万吨）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">MMG（五矿资源，1208.HK）2025 年财务表现：收入 483.9 亿港元（<span class="up">+39%</span>）、归母净利润 39.6 亿港元（同比大幅改善）、净负债下降近 11 亿美元、杠杆率降至 33% 历史低位（MMG 2025 年度业绩发布会材料，2026-03）。注：境外子公司注册信息不在国内工商数据源覆盖范围，上表以 MMG 官方披露为准；交易对价均为历史公告口径，汇率时点未逐一披露。</div>
+  </section>
+
+  <!-- ============ 七、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>1950 年：前身中国五金矿产进出口总公司成立，新中国首批国有进出口企业之一（集团官网口径）</li>
+        <li>1982-12：现登记主体中国五矿集团有限公司成立（工商登记）</li>
+        <li>2015–2016 年：与中冶集团实施战略重组，中国中冶成为旗下 A+H 上市平台（公开信息，可能有滞后）</li>
+        <li>2016 年：成为国有资本投资公司试点企业（公开信息，可能有滞后）</li>
+        <li>2024 年 10 月：新设中国盐湖工业集团（持股 53%），主导盐湖股份整合，切入钾锂资源赛道</li>
+        <li>2024–2026 年：新设广岩国际投资（71%）、五矿中亚南亚资源（雄安）；与中核集团、湖南科技大学等开展战略合作</li>
+      </div>
+      <div class="bullet-list">
+        <li>担保信息：18 条记录（企查查风险扫描计数，明细未下钻；央企集团体系内担保常态存在，需关注或有负债）</li>
+        <li>司法涉诉：裁判文书 84 条、立案信息 19 条、开庭公告 40 条、法院公告 13 条、终本案件 1 条——与集团体量及贸易业务特性匹配的存量水平</li>
+        <li>股权质押：1 条（计数，明细未下钻）</li>
+        <li>负面清零项：失信被执行人 0、被执行人 0、限制高消费 0、行政处罚 0、经营异常 0、严重违法 0、环保处罚 0、税务违法 0（企查查 35 项风险因子扫描，2026-09-05）</li>
+      </div>
+    </div>
+    <div class="note-box">注：以上风险数据为企查查 35 项风险因子扫描的分诊计数（T+0/T+1），仅陈述「命中维度 + 条目数」客观事实；担保、诉讼、质押的具体对手方与金额需下钻对应明细工具或查阅审计报告获取，本轮未展开。</div>
+  </section>
+
+  <!-- ============ 八、风险提示 ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">R1 · 刚果（金）矿业政策突变风险（高）</div>
+      <div>2026-06-29 刚果（金）三部委政令禁止铜钴精矿出口（战略情形最长一年豁免），叠加钴出口配额制（2026 年 9.66 万吨、违规永久取消资格）与《矿业法》修订趋严。旗下 Kinsevere 矿山已面临电力供应不稳定、钴销售受限、财税政策不确定性三重挑战，2025 年 C1 成本 3.12 美元/磅显著高于集团其他矿山（MMG 年报 / 使馆经商处，2026-08）。若豁免审批不畅，存在产量与现金流双重承压可能。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">R2 · 大宗价格与贸易周期波动风险（中）</div>
+      <div>集团营收连续两年下滑（-10.85% / -10.17%），净利率仅 2.19%，贸易流通业务体量大、利润薄，对金属价格与大宗周期高度敏感；机构对 2026 年铜价存在明显多空分歧（中信证券看至 13,000 美元/吨 vs 恒力期货认为供大于求、价格承压），若价格回落将侵蚀资源端利润并放大贸易端减值风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">R3 · 高杠杆与偿债压力（中）</div>
+      <div>资产负债率 72.22%（虽连续三年下降），流动比率 1.14、速动比率 1.03 处于紧平衡区间；总资产三年扩张 31.6%（盐湖并表 + 持续投资）依赖债务扩张支撑，所有者权益增长部分来自少数股东权益与注资。担保信息 18 条的或有负债规模需在后续尽调中下钻核实。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">R4 · 海外运营与 ESG 风险（持续关注）</div>
+      <div>秘鲁 Las Bambas 历史上曾多次因社区抗议中断运输，近三年靠「邦巴斯之心」等社区计划实现稳定运营，但新政府贸易法规修订仍在推进；博茨瓦纳 Khoemacau 2025 年因采矿承包商交接产量低于指引下限；MMG 2025 年 TRIF 安全指标环比上升。海外多国布局（秘鲁、刚果金、博茨瓦纳、澳大利亚）分散单一国别风险的同时，也放大了地缘与合规管理半径。</div>
+    </div>
+  </section>
+
+  <!-- ============ 九、尽调结论 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：国务院国资委 100% 直管央企、国有资本投资公司试点、央企考核 A 级、世界 500 强第 99 位（连续 20 年入围），无失信、被执行、行政处罚等负面记录——主体信用与合作风险处于央企最高梯队。<br>
+      <b>财务健康</b>：营收随大宗贸易缩量连续两年下滑，但利润总额回升（+10.3%）、经营现金流大增（+23.7%）、资产负债率三连降（74.96%→72.22%），呈「收缩低效贸易、增厚资源主业」的结构性改善；绝对杠杆水平仍高，偿债紧平衡需持续跟踪。<br>
+      <b>行业景气</b>：铜处于机构共识的供需缺口周期（多空分歧集中在幅度而非方向），公司铜产量 2025 年 +27%、Las Bambas 进入全球前十大铜矿，Khoemacau 二期 2028 年投产后仍有增量；盐湖钾锂与钨提供第二增长曲线。<br>
+      <b>核心风险</b>：刚果（金）出口禁令与配额制的执行细节是未来 6–12 个月最大变量，直接影响 Kinsevere 现金流与 MMG 估值；其次为大宗价格周期与高杠杆。<br>
+      <b>尽调建议</b>：与集团本部开展授信/合作的风险很低；涉及上市平台投资时，优先核查 MMG 刚果（金）敞口的具体豁免安排、集团 18 条担保明细与 84 条裁判文书的重大个案；后续尽调建议下钻企查查担保与司法明细工具并调取 2025 年审计报告。
+    </div>
+  </section>
+
+  <!-- ============ 附录 · 数据来源与方法说明 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 股东 / 高管 / 对外投资</td><td>企查查 MCP connector（国家企业信用信息公示系统口径，T+0）</td><td class="num">2026-09-05</td><td>持股均为一层直接比例；人员规模为登记口径（集团实际用工约 18 万人，含并表企业）</td></tr>
+        <tr><td>财务数据（2023–2025）</td><td>企查查年报数据（企业年度报告公示）</td><td class="num">2026-09-05</td><td>集团合并报表口径，人民币；净利率/资产负债率等为服务端精算字段逐字引用；归母净利润未单列；2025 毛利率未披露</td></tr>
+        <tr><td>实际控制人穿透</td><td>企查查股权穿透引擎（get_actual_controller）</td><td class="num">2026-09-05</td><td>聚合结果逐字引用，未自行重构穿透路径</td></tr>
+        <tr><td>风险信息</td><td>企查查 35 项风险因子扫描（qcc-risk）</td><td class="num">2026-09-05</td><td>仅分诊计数，未下钻担保/诉讼/质押明细；定性结论需明细核验</td></tr>
+        <tr><td>海外矿山运营与 MMG 财务</td><td>五矿资源（MMG）官网公告：2025 年 Q4 生产报告、年报发布会材料</td><td class="num">2026-09-05 检索</td><td>港股上市口径，C1 成本为非 IFRS 指标；境外子公司不在国内工商数据源覆盖范围</td></tr>
+        <tr><td>行业景气与机构观点</td><td>发现报告（fxbaogao.com）、中国经济网、智通财经等公开渠道援引券商研报（东吴/中信/中金/太平洋/恒力等）</td><td class="num">2026-09-05</td><td>行研类 MCP 未连接，按降级链处理；观点仅代表发布机构立场，非事实陈述；LME 现价未获取</td></tr>
+        <tr><td>海外监管动态</td><td>驻刚果（金）使馆经商处（转引路透社）、驻秘鲁使馆经商处、上海师范大学非洲研究中心报告</td><td class="num">2026-09-05</td><td>刚果（金）禁令法文命令全文尚未官方公开，执行细节存在不确定性</td></tr>
+        <tr><td>榜单与集团概况</td><td>中国五矿官网、财富中文网、企查查榜单数据</td><td class="num">2026-09-05</td><td>官网口径 2025 年营收 7,485 亿元与年报数据一致；历史沿革部分节点为公开信息，可能有滞后</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+</div>
+</div>
+
+<footer>
+  中国五矿集团有限公司 · 尽职调查报告 V1 · 报告编号 DDR-MINMETALS-20260905-V1 · 数据截至 2026-09-05<br>
+  依据 enterprise-due-diligence-report Skill 规范生成 · 数据源：企查查 MCP（已连接）+ 免费公开渠道（降级） · 红涨绿跌遵循 A 股惯例
+</footer>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+</body>
+</html>

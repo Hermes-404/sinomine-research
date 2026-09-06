@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>江西铜业 · 尽职调查报告 V1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">600362.SH · 上交所主板 ｜ 00358.HK · 港交所主板</span>
+        <div class="company-name-cn">江西铜业股份有限公司</div>
+        <div class="company-name-en">Jiangxi Copper Company Limited（企业简称：江西铜业）</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无投资评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05（企查查 T+0；中报为 2026-08-25 披露版本）</span>
+      <span>报告编号：JXTY-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    江西铜业是江西省国资委背景的省属铜业龙头（A+H 上市）：十强中营收体量之王（2025 年 5,446.23 亿元），阴极铜年产能超 200 万吨、贵溪冶炼厂为全球单体规模最大铜冶炼基地——但冶炼加工占比高导致净利率仅 1.37%，属"大而薄"的典型冶炼巨头格局。2026H1 迎来量价齐升：营收 3,071.55 亿（+19.53%）、归母净利 86.32 亿（+106.77%，超业绩预告区间上限）；矿产铜 13.64 万吨（+37.36%，口径新增第一量子 18.47% 权益产量 3.64 万吨）、阴极铜 126.04 万吨（+5.44%），铜、硫酸均价分别同比 +31%/+163%，联营投资收益 4.23 亿（+467%）。海外突破：完成索尔黄金（SolGold）100% 股权收购——厄瓜多尔 Cascabel 铜金矿（铜 1,220 万吨 / 金 3,050 万盎司资源量，预计 2028 年投产），叠加第一量子权益，资源自给率进入提升通道。需重点关注：①2025 年经营现金流 -69.14 亿为十强中唯一大幅负值（2026H1 回正至 58.14 亿，持续性待观察）；②2026H1 资产减值 28.81 亿（+268.12%，存货跌价）；③TC/RC 一度跌至 -124.45 美元/吨对冶炼主业的挤压；④董事长与董秘均由周少兵"代理"的治理状态。券商维持"买入"，目标价 64.87 元（研报口径）。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 营业收入（合并口径）</div><div class="kpi-value num">5,446.23 亿</div><div class="kpi-delta up">▲ +4.55%（企查查口径；2024：5,209.28 亿）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 净利润（合并）</div><div class="kpi-value num">74.68 亿</div><div class="kpi-delta up">▲ +0.60%（归母 71.30 亿，+2.41%）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 归母净利润</div><div class="kpi-value num">86.32 亿</div><div class="kpi-delta up">▲ +106.77%（超预告区间 75.5-85 亿上限）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 矿产铜产量</div><div class="kpi-value num">13.64 万吨</div><div class="kpi-delta up">▲ +37.36%（自营 10 万吨 + 第一量子权益 3.64 万吨）</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>江西铜业股份有限公司（企业简称：江西铜业）</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">91360000625912173B</td></tr>
+      <tr><td>成立日期</td><td class="num">1997-01-24（1997-06 发行 H 股、2002-06 A 股上市；注册资本自 2011-02-22 增至现额后未再变更）</td></tr>
+      <tr><td>注册资本</td><td class="num">346,272.9405 万元（2011-02-22 由 302,283.3727 万元增至现额，A 股增发口径）</td></tr>
+      <tr><td>法定代表人</td><td>郑高清（2020-09-29 起；此前为龙子平 2017、李保民 2013、李贻煌 2007、何昌明）</td></tr>
+      <tr><td>注册地址</td><td>江西省贵溪市冶金大道 15 号（通信地址：南昌市昌东大道 7666 号）</td></tr>
+      <tr><td>企业类型</td><td>股份有限公司（台港澳与境内合资、上市）</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">存续（在营）</span>（核准日期 2025-12-03，登记机关：江西省市场监督管理局）</td></tr>
+      <tr><td>国标行业</td><td>铜冶炼（经营范围：有色金属/稀贵金属采选冶炼加工、硫化工、境外期货套期保值、黄金及其制品进出口等，2025-12 按新许可项目框架更新）</td></tr>
+      <tr><td>参保人数</td><td class="num">26,740 人（母公司口径）+ 分支机构 11,036 人（企查查 2026-09-05；合计约 3.78 万，为十强中用工规模最大之一）</td></tr>
+      <tr><td>上市信息</td><td>A 股 600362.SH（2002 年）+ H 股 00358.HK（1997 年）——A+H 两地上市</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年报</th><th>2024 年报</th><th>2025 年报</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业总收入</td><td class="num">5,218.93 亿</td><td class="num">5,209.28 亿</td><td class="num">5,446.23 亿</td><td>企查查年报，合并报表——十强营收体量第一</td></tr>
+        <tr><td>营收同比</td><td class="num up">+8.74%</td><td class="num down">-0.18%</td><td class="num up">+4.55%</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>净利润（含少数股东）</td><td class="num">69.75 亿</td><td class="num">74.24 亿</td><td class="num">74.68 亿</td><td>企查查年报，合并口径</td></tr>
+        <tr><td>归母净利润</td><td class="num">—</td><td class="num">69.62 亿</td><td class="num">71.30 亿（+2.41%）</td><td>2024/2025 为财报披露口径</td></tr>
+        <tr><td>加权 ROE</td><td class="num">9.23%</td><td class="num">9.58%</td><td class="num">8.96%</td><td>企查查年报，三年区间窄幅波动</td></tr>
+        <tr><td>毛利率 / 净利率</td><td class="num">2.68%</td><td class="num">3.55%</td><td class="num">4.40% / 1.37%</td><td>企查查年报——冶炼贸易摊薄，"大而薄"</td></tr>
+        <tr><td>资产负债率</td><td class="num">54.36%</td><td class="num">54.54%</td><td class="num">56.95%</td><td>企查查年报（有息负债 753.63 亿，2025 年末）</td></tr>
+        <tr><td>经营现金流净额</td><td class="num">109.31 亿</td><td class="num">25.08 亿</td><td class="num down">-69.14 亿</td><td>企查查年报——十强中唯一大幅负值</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      最新动态（2026 年半年报，公司 2026-08-25 披露）：2026H1 营业收入 3,071.55 亿元（<span class="up">+19.53%</span>）、归母净利润 86.32 亿元（<span class="up">+106.77%</span>，超此前预告区间 75.50-85.00 亿元上限）、扣非归母净利 75.56 亿元（<span class="up">+73.73%</span>）；基本每股收益 2.50 元（+106.61%）、加权平均 ROE 10.22%（较上年同期 +4.93pct）；经营现金流净额 58.14 亿元（<span class="up">+102.49%</span>）。单 Q2 营收 1,680.31 亿元（同比 +15.09%、环比 +20.78%）、归母净利 58.14 亿元（同比 +161.65%、环比 +106.36%）。营业成本 2,892.68 亿（+17.17%，原料量价）；财务费用同比 +75.10%（汇兑损失增加）；资产减值损失 28.81 亿元（同比 +268.12%，主因存货跌价）。普通股股东总数 26.06 万户；研发费用同比 -21.39%（委外加工费减少）。货币单位：人民币。
+    </div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究（铜 · 采选冶炼一体化）</div>
+    <h3 class="sub">行业景气与价格指标</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>LME 铜（三个月）均价（2026H1）</td><td class="num">13,137 美元/吨</td><td class="num up">较 2025 年均价 +39%</td><td>公司中报（中国证券网转引）</td></tr>
+        <tr><td>沪铜主力合约均价（2026H1）</td><td class="num">101,817 元/吨</td><td class="num up">较 2025 年均价 +31%（国内均价 10.2 万元/吨口径）</td><td>公司中报 + 券商研报</td></tr>
+        <tr><td>铜精矿加工费 TC/RC</td><td class="num down">一度跌至 -124.45 美元/吨</td><td class="num down">2026H1 全球铜精矿产量增速 -2.4%，冶炼产能过剩挤压加工费</td><td>公司中报</td></tr>
+        <tr><td>国内硫酸均价（2026H1）</td><td class="num">1,548 元/吨</td><td class="num up">+163%（环比 +97%）——火法冶炼副产硫酸成利润第二引擎</td><td>券商研报</td></tr>
+        <tr><td>国内金/银均价（2026H1）</td><td class="num">1,038 元/克 / 19,559 元/千克</td><td class="num up">+44% / +140%</td><td>券商研报</td></tr>
+        <tr><td>公司毛利率 / 净利率（2025 年）</td><td class="num">4.40% / 1.37%</td><td class="num">冶炼贸易摊薄结构，盈利弹性主要来自价格与自给矿</td><td>企查查年报</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置（冶炼龙头 · 资源自给提升期）</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>全产业链布局</b>：勘探—采矿—选矿—冶炼—精深加工一体化；阴极铜年产能超 200 万吨，贵溪冶炼厂为全球单体规模最大铜冶炼生产基地；2026H1 阴极铜产量 126.04 万吨（+5.44%）、铜加工产品 103.68 万吨（+8.40%）。</li>
+        <li><b>资源端双轮突破</b>：①第一量子（First Quantum）18.47% 股权——2026H1 起按权益比例合并矿产铜权益产量 3.64 万吨，对联营/合营投资收益 4.23 亿元（+467%）；②完成索尔黄金（SolGold）100% 股权收购——厄瓜多尔 Cascabel 铜金矿（铜 1,220 万吨 / 金 3,050 万盎司资源量）预计 2028 年投产。</li>
+        <li><b>自营矿山基本盘</b>：德兴、城门山、武山、永平、银山等矿群，2026H1 自营矿产铜 10 万吨（环比基本持平）；山西刁泉银铜（15%）、香格里拉必司大吉（51%）为补充性权益。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>冶炼行业格局</b>：全球铜精矿供应趋紧（矿山产量指引普遍下调），TC/RC 深度负值下国内冶炼企业 5-6 月集中检修、电解铜产量回落——公司"矿山+冶炼"一体化结构对冲加工费下行，自给率提升是盈利质量核心变量。</li>
+        <li><b>副产协同</b>：火法冶炼副产硫酸（2026H1 产量 347.21 万吨，+0.30%）在硫酸价格暴涨周期形成显著边际贡献；黄金 43.73 吨（-12.49%）、白银 749.78 吨（+6.55%）为副产贵金属。</li>
+        <li><b>科技创新</b>：截至 2026-06 末在研科技项目 180 项（国家级 14 项、省部级 19 项），1 项成果获批 2026 年度国家重大科技专项。</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构</th><th>日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>"买入"（维持）：老牌国有铜企稳健经营，火法冶炼龙头副产大量硫酸受益涨价、矿产资源储备丰富逐步贡献利润；2026-2028 年盈利预测全面上调，目标价调高至 64.87 元；"资源储备 + 价格红利 + 并购增厚"三重支撑，估值从周期股向资源型成长股切换（A 股 PE 由 13.2X 提至 13.4X）</td><td>券商研报</td><td class="num">2026-08</td><td>中财网转引</td></tr>
+        <tr><td>H1 业绩点评：矿产铜 13.64 万吨（+37.36%）主因统计口径新增第一量子权益产量；铜/硫酸价格上涨为业绩主驱动；维持"买入"</td><td>券商研报（A 股证券知识库转引）</td><td class="num">2026-08-29</td><td>ima.qq.com</td></tr>
+        <tr><td>行情快照：股价 44.15 元、总市值约 1,529 亿元（2026-08-25）；2026 年以来累计下跌约 18.72%；总市值约 1,588 亿（TOP10 报告 2026-09-04 口径）</td><td>每日经济新闻 / TOP10 汇总报告</td><td class="num">2026-08/09</td><td>公开报道 + 本项目底稿</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：行业数据口径与时效——铜价/TC/硫酸价格为研报与中报时点值；机构观点均为公开研报/媒体报道转引，观点与事实分列呈现，多空兼顾，不作为事实陈述。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">主要股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>江西铜业集团有限公司</td><td class="num">45.72%</td><td>控股股东 · 江西省国资委背景省属国企</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>—</td><td>HKSCC 代理人（H 股）及 A 股流通股东</td><td>未取数（历史工商口径：H 股 40.07% + 社会公众 22.91%，2011 年登记）</td><td>A+H 两地流通（总股本 34.63 亿股）</td><td>企查查变更记录 + 公司披露</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制与资本运作</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>穿透链条</b>：江西省国资委 → 江西铜业集团有限公司（45.72%）→ 江西铜业股份有限公司——典型省属国资控股结构，实控人认定以企查查 get_actual_controller 语义为准。</li>
+        <li><b>港股股东动向（2026H1）</b>：香港中央结算代理人减持约 6,905.51 万股、香港中央结算（陆股通）减持约 3,236.88 万股、全国社保基金四零三组合亦有减持；多只有色金属主题基金增持——筹码结构再平衡。</li>
+        <li><b>股权质押 0 条 / 股权出质 4 条</b>（35 项因子，2026-09-05）——国资控股结构下质押融资需求低。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>对外权益型投资多元</b>：中银国际证券 4.18%（1.16 亿股）、恒邦财产保险 4.14%、山东恒邦冶炼 36.5%——金融与冶炼同业权益布局。</li>
+        <li><b>历史股权演变</b>：1997 年 H 股发行（境外公众股 36.93%）→ 2002 年 A 股上市 → 2011 年 A 股增发（社会公众股 +4.4 亿股）→ 2018 年江西铜业集团公司更名江西铜业集团有限公司——控股股东持股由 2011 年登记的 37.02% 增至当前 45.72%（含一致行动与增持口径，以最新披露为准）。</li>
+        <li><b>无单一自然人持股</b>：与民企同行形成对照，董监高记录中无持股信息（企查查口径）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任职起始</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>郑高清</td><td>董事长、法定代表人</td><td class="num">2020-09-29（法代变更）</td><td>2019-04 进入董事会任经理/董事；法定代表人序列：何昌明→李贻煌（2007）→李保民（2013）→龙子平（2017）→郑高清</td></tr>
+        <tr><td>周少兵</td><td><b>代理董事长</b>、副董事长、总经理、<b>代理董事会秘书</b></td><td class="num">2022-08-15（任经理）</td><td>身兼四职且董事长/董秘均为"代理"状态——治理观察点；2022-09 变更记录显示由外部新进任经理</td></tr>
+        <tr><td>高建民 / 梁青</td><td>董事（各）</td><td class="num">2003-06 至今</td><td>任职 22 年以上的"活化石"级董事（高建民持其他有效身份证件、梁青持其他证件——外籍/境外背景特征）</td></tr>
+        <tr><td>喻旻昕</td><td>董事、财务总监</td><td class="num">—（本届）</td><td>主管会计工作负责人</td></tr>
+        <tr><td>缪圣纲</td><td>职工董事</td><td class="num">2026-03 起</td><td>职工代表董事</td></tr>
+        <tr><td>赖丹 / 王丰 / 刘淑英 / 刘志宏</td><td>独立董事（各）</td><td class="num">2025-12-03 改组进入</td><td>其中王丰/刘志宏/赖丹/刘淑英同时任审计委员会成员——2025-12 新设治理架构</td></tr>
+        <tr><td>夏瀚军 / 周炳 / 吴军</td><td>副总经理（各）</td><td class="num">2025 年内密集新任</td><td>经营层年度内集中补充</td></tr>
+        <tr><td>彭曦宏</td><td>法务总监</td><td class="num">—（本届）</td><td>合规与法务条线负责人</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：主要人员信息来自企查查（共 13 条董监高记录，T+0，2026-09-05 核验）。治理观察：①2025-12-03 完成董事会大改组——由 16 人精简至 9 人，取消监事会（原监事会主席查克兵等 5 名监事退出），改设审计委员会（4 名独董/董事任成员），系新《公司法》治理框架调整；②董事长与董秘均处"代理"状态（周少兵四职合一），正规化任命进度需跟踪；③刘二飞（香港永久性居民）等历史董事为 H 股治理配套痕迹。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="http://www.jxcc.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网「人才招聘 / 全球招募」板块 · jxcc.com</a>
+    </div>
+    <div class="note-box" style="margin-top:0">另有"江铜集团"招聘微信公众号，可同步关注校招与社招公告（TOP10 报告阶段核验，2026-09-05）。企查查招聘数据库收录该主体记录共 211 条（T+0，2026-09-05），以下为前 30 条样本的结构化解读。</div>
+    <h3 class="sub">招聘结构解读（企查查 211 条记录，展示前 30 条样本）</h3>
+    <div class="two-col">
+      <ul class="bullet-list pos">
+        <li><b>国际化与贸易条线密集（深圳/南昌）</b>：商运专员（国际物流，深圳，1-1.5 万·硕士）、风险管理岗（深圳，1.5-3 万·硕士）、业务经理（阿拉伯语，深圳，1.5-2 万）、涉外法务（合同/法律事务双岗，南昌，1.5-3 万）、法务合规岗（深圳/南昌）——贸易金融总部职能向深圳集聚信号明显。</li>
+        <li><b>AI 与数字化研发投入</b>：研发工程师（人工智能 / 具身智能 / AI 开发 / 大数据开发方向，南昌，10-18 万/年）+ 项目经理 / 产品经理 / 供应商专员——技术研究院体系扩张，对应 180 项在研科技项目。</li>
+        <li><b>制造端常态招聘</b>：多头拉操作工（广州，8 千-1 万）、槽面操作工（清远，4.5-6 千）、技术管培生（清远）——铜加工（华南基地）产线用工稳定。</li>
+      </ul>
+      <ul class="bullet-list warn">
+        <li><b>薪酬带宽</b>：一线操作工 4.5-6 千/月至研发工程师 10-18 万/年——冶炼制造企业典型薪酬结构，总部职能岗（法务/风控/财务）1.5-3 万/月高于当地中位数。</li>
+        <li><b>地域分布</b>：南昌（总部+研发）、深圳（国际贸易与投资总部职能）、清远/广州（江铜宏源等华南加工基地）——"内地制造 + 沿海贸易"双格局。</li>
+        <li><b>口径局限</b>：企查查招聘平台以第三方聚合为主，集团统一校招（江铜集团官网/公众号）入口未完全覆盖；境内矿山与贵溪基地一线用工以属地化招聘为主。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查共 67 条对外投资记录，一层直接持股）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>认缴出资额</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>山东恒邦冶炼股份有限公司</td><td class="num">36.5%</td><td class="num">5.22 亿股</td><td>黄金冶炼上市同业</td><td>重要参股</td></tr>
+        <tr><td>中银国际证券股份有限公司</td><td class="num">4.18%</td><td class="num">1.16 亿股</td><td>券商（金融权益）</td><td>参股金融机构</td></tr>
+        <tr><td>五矿江铜矿业投资有限公司</td><td class="num">40%</td><td class="num">26.26 亿</td><td>与五矿合资矿业平台</td><td>资源并购载体</td></tr>
+        <tr><td>江西铜业集团财务有限公司</td><td class="num">98.33%</td><td class="num">25.57 亿</td><td>集团财务公司</td><td>关联金融体系</td></tr>
+        <tr><td>深圳江铜营销有限公司</td><td class="num">100%</td><td class="num">22.60 亿</td><td>贸易营销总部（深圳）</td><td>对应深圳条线招聘</td></tr>
+        <tr><td>江西铜业（深圳）国际投资控股有限公司</td><td class="num">100%</td><td class="num">16.62 亿</td><td>国际投资控股</td><td>2019-11 设立</td></tr>
+        <tr><td>江西江铜龙昌精密铜管有限公司</td><td class="num">100%</td><td class="num">16.01 亿</td><td>精密铜管制造</td><td>铜加工主力</td></tr>
+        <tr><td>江西江铜华东铜箔有限公司</td><td class="num">49%</td><td class="num">9.80 亿</td><td>电子铜箔（锂电/PCB 上游）</td><td>2021-09 设立</td></tr>
+        <tr><td>江西铜业集团银山矿业有限责任公司</td><td class="num">100%</td><td class="num">7.34 亿</td><td>银山铜矿运营主体</td><td>自营矿山</td></tr>
+        <tr><td>江铜国兴（烟台）铜业有限公司</td><td class="num">65%</td><td class="num">6.50 亿</td><td>铜冶炼（山东基地）</td><td>在业</td></tr>
+        <tr><td>江铜国际贸易有限公司</td><td class="num">59.05%</td><td class="num">6.00 亿</td><td>大宗贸易</td><td>营收体量贡献者</td></tr>
+        <tr><td>浙江江铜富冶和鼎铜业有限公司</td><td class="num">40%</td><td class="num">5.12 亿</td><td>铜冶炼（浙江合资）</td><td>参股冶炼产能</td></tr>
+        <tr><td>江西铜业技术研究院有限公司</td><td class="num">100%</td><td class="num">5.00 亿</td><td>研发平台（180 项在研项目载体）</td><td>AI 研发招聘主体</td></tr>
+        <tr><td>江西省江铜铜箔科技股份有限公司</td><td class="num">70.19%</td><td class="num">3.51 亿股</td><td>铜箔科技（分拆培育方向）</td><td>电子新材料</td></tr>
+        <tr><td>江铜宏源铜业有限公司</td><td class="num">68%</td><td class="num">3.40 亿</td><td>铜加工（清远基地）</td><td>对应清远招聘</td></tr>
+        <tr><td>江铜华北（天津）铜业有限公司</td><td class="num">51%</td><td class="num">3.27 亿</td><td>铜加工（华北基地）</td><td>—</td></tr>
+        <tr><td>江西电缆有限责任公司</td><td class="num">51%</td><td class="num">3.18 亿</td><td>电缆（铜延伸）</td><td>1984 年老牌企业控股</td></tr>
+        <tr><td>江西江铜华东电工新材料科技有限公司</td><td class="num">70%</td><td class="num">2.80 亿</td><td>电工新材料</td><td>2023-01 设立</td></tr>
+        <tr><td>江西黄金股份有限公司</td><td class="num">60%</td><td class="num">2.40 亿</td><td>省内黄金资源整合平台</td><td>2015-04 设立</td></tr>
+        <tr><td>江西铜业川禾新材料有限公司</td><td class="num">77.16%</td><td class="num">1.69 亿</td><td>新材料</td><td>2024-01 新设</td></tr>
+        <tr><td>江西銅業香港有限公司 / 江西銅業（香港）投資有限公司</td><td class="num">100% / 100%</td><td class="num">10.96 亿股 / 25.88 亿股</td><td>境外投融资平台（仍注册）</td><td>第一量子/SolGold 等海外权益载体</td></tr>
+        <tr><td>江西江铜嘉磁动力科技有限公司</td><td class="num">60%</td><td class="num">900 万</td><td>磁动力科技</td><td>2025-04 新设——最新布局信号</td></tr>
+        <tr><td>其他权益</td><td class="num">—</td><td class="num">—</td><td>恒邦财险 4.14%、山西刁泉银铜 15%、香格里拉必司大吉矿业 51%、云南昭觉逢烨湿法冶炼 25% 等</td><td>参股矿山与金融</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">数据纪律与说明：以上为企查查一层直接持股口径，逐字引用，禁止据此推断穿透关系。第一量子（First Quantum）18.47% 股权与索尔黄金（SolGold）100% 收购经香港平台/境外主体持有，不在国内工商对外投资列表中，以公司公告为准。注销主体 5 家（江西铜业铜合金材料、东同矿业、上海江铜国际货运、德兴尾矿回收、厦门营销、杭州萧山铜达化工等）为历史清理。投资版图特征："冶炼+加工+贸易+金融"四线并进，电子铜箔/电工新材料为下游延伸方向。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布 ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布（赣北矿山群 + 厄瓜多尔/加拿大权益海外线）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:#f6f7f9">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到公网后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/项目名称</th><th>所在国/地区</th><th>矿种/产品</th><th>权益结构</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>德兴铜矿</td><td>中国 · 江西德兴</td><td>铜（亚洲最大露采铜矿之一）</td><td class="num">直属分公司</td><td>在产</td><td>企查查分支机构备案</td></tr>
+        <tr><td>城门山铜矿</td><td>中国 · 江西九江</td><td>铜</td><td class="num">直属分公司</td><td>在产</td><td>企查查分支机构备案</td></tr>
+        <tr><td>武山铜矿</td><td>中国 · 江西瑞昌</td><td>铜</td><td class="num">直属分公司</td><td>在产</td><td>企查查分支机构备案</td></tr>
+        <tr><td>永平铜矿</td><td>中国 · 江西铅山</td><td>铜</td><td class="num">直属分公司</td><td>在产</td><td>企查查分支机构备案</td></tr>
+        <tr><td>银山矿业</td><td>中国 · 江西德兴</td><td>铜/银</td><td class="num">100%（银山矿业公司）</td><td>在产</td><td>企查查对外投资</td></tr>
+        <tr><td>Cascabel 铜金矿（Alpala 等矿段）</td><td>厄瓜多尔 · 因巴布拉省</td><td>铜 1,220 万吨 / 金 3,050 万盎司资源量</td><td class="num">经索尔黄金 SolGold（100% 收购完成）</td><td>开发期（预计 2028 年投产）</td><td>TOP10 报告 + 中财网</td></tr>
+        <tr><td>第一量子 First Quantum（权益法）</td><td>加拿大上市（矿山分布赞比亚/巴拿马等）</td><td>铜（2026H1 权益产量 3.64 万吨）</td><td class="num">18.47% 股权（联营）</td><td>权益产量并表口径</td><td>公司中报 + 券商研报</td></tr>
+        <tr><td>必司大吉矿业</td><td>中国 · 云南香格里拉</td><td>铜/多金属</td><td class="num">51%</td><td>在业</td><td>企查查对外投资</td></tr>
+        <tr><td>刁泉银铜矿</td><td>中国 · 山西灵丘</td><td>银/铜</td><td class="num">14.9992%</td><td>存续</td><td>企查查对外投资</td></tr>
+        <tr><td>冶炼加工基地群</td><td>贵溪 / 烟台 / 天津 / 清远 / 富阳 / 华北</td><td>阴极铜 + 铜加工（年产能超 200 万吨）</td><td class="num">100% / 40-68%（见第七章）</td><td>贵溪为全球最大单体铜冶炼基地</td><td>公司披露 + 企查查</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图（合规底图）；境内项目坐标为 GCJ-02，境外项目直接使用 WGS84 坐标，精确到项目级（小数点后 2 位）。公司定位：境内"矿山+冶炼+加工"一体化龙头，海外以 Cascabel（2028 投产）+ 第一量子权益构成中期资源增量；第一量子为财务/联营权益（矿山分布于赞比亚、巴拿马等地，含停产争议资产），本地图不逐矿标注，以公司公告为准。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>1997-01-24</b>：注册成立；同年 6 月发行 H 股（境外公众股 65,648.2 万股、占 36.93%），8 月注册资本增至 24.34 亿元——中国铜业第一股的境外融资起步。</li>
+        <li><b>2002-06</b>：A 股上市（600362），2003/2005 年注册资本增至 26.64 亿/28.95 亿元。</li>
+        <li><b>2007-2011</b>：江西铜业集团（2003 年设立江西铜业集团公司→2018 年更名集团有限公司）持续增持；2011-02-22 A 股增发后注册资本定格 34.63 亿元（社会公众股 +4.4 亿股），此后 14 年未变。</li>
+        <li><b>2020-09-29</b>：法定代表人由龙子平变更为郑高清（历任：何昌明→李贻煌→李保民→龙子平→郑高清）。</li>
+        <li><b>2025-12-03</b>：董事会改组（16 人→9 人、取消监事会、新设审计委员会）+ 经营范围按新许可项目框架全面更新（新增危险化学品生产、期货业务、矿产资源勘查、非煤矿山开采、黄金及其制品进出口等许可类）。</li>
+        <li><b>累计变更记录</b>：企查查 50 条（董监高备案 8、经营范围 8、股东/发起人 6），无经营异常名录记录。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>风险扫描总览</b>（企查查 35 项因子，2026-09-05）：8 项有记录、27 项无记录；<span class="pill ok">无失信记录</span> <span class="pill ok">无被执行</span> <span class="pill ok">无行政处罚</span> <span class="pill ok">无环保处罚</span> <span class="pill ok">无股权冻结</span> <span class="pill ok">无欠税公告</span>。</li>
+        <li><b>涉诉体量与业务体量匹配</b>：裁判文书 77、开庭公告 71、立案信息 47、送达公告 16、法院公告 10、公示催告 1——以贸易与购销类常规诉讼为主（TOP10 报告判断口径），与 5,400 亿级贸易营收体量相匹配。</li>
+        <li><b>对外担保</b>：4 条记录——十强中担保最少的梯队之一（对照：赣锋锂业 507 笔）。</li>
+        <li><b>股权出质</b>：4 条；<b>股权质押 0 条</b>——国资控股下资本运作克制。</li>
+        <li><b>动产抵押 / 土地抵押 / 税收违法 / 破产重整 / 劳动仲裁</b>：均为 0 条（风险扫描口径）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">① 铜价回调与加工费（TC/RC）双重挤压风险</div>
+      <div>公司 2025 年净利率仅 1.37%、毛利率 4.40%——冶炼贸易摊薄结构下，盈利对铜价与加工费高度敏感。2026H1 全球铜精矿产量增速 -2.4%、TC/RC 一度跌至 -124.45 美元/吨；若铜价自高位回落叠加加工费持续低迷，"价差双杀"将直接压缩本已微薄的冶炼利润（机构 86 亿级归母预测隐含价格高位持续假设）。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">② 经营现金流波动与存货减值风险</div>
+      <div>2025 年经营现金流净额 -69.14 亿元，为十强中唯一大幅负值（或与铜精矿备货及套保节奏相关，TOP10 报告提示需重点跟踪）；2026H1 虽回正至 58.14 亿（+102.49%），但同期资产减值损失 28.81 亿（+268.12%，主因存货跌价）——高铜价下的高库存敞口在价格反转时存在进一步减值风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">③ 治理层"代理"状态与改组消化期</div>
+      <div>周少兵身兼代理董事长/副董事长/总经理/代理董秘四职，董事长与董秘均未"扶正"；2025-12-03 董事会由 16 人精简至 9 人并取消监事会——治理架构大幅调整后的磨合期，正规化任命与决策连续性需持续跟踪。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 海外项目与汇率风险</div>
+      <div>Cascabel（厄瓜多尔）预计 2028 年投产，建设进度、资源国政策与社区关系存在不确定性；第一量子体系矿山分布赞比亚/巴拿马等地（含停产争议资产），权益价值受资源国政局影响；2026H1 财务费用同比 +75.10% 主因汇兑损失——海外扩张伴随的汇率敞口已经显性化。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">⑤ 产品价格波动与安全环保风险</div>
+      <div>公司在半年报中明示面临安全生产、汇率波动、产品价格波动、市场环境变化、环保及地缘政治等风险；硫酸价格暴涨（+163%）的利润贡献具备强周期属性，回落将形成利润缺口；涉诉记录 77 条裁判文书的绝对体量在十强中居前（与贸易体量匹配，但法务成本与个案风险需个案核验）。</div>
+    </div>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：江西省国资委控股（江铜集团 45.72%）的 A+H 上市铜业龙头，1997 年设立的老牌国企，工商登记规范（50 条变更记录无重大异常），无失信/被执行/终本/行政处罚/环保处罚记录，担保仅 4 条、股权质押 0 条——国资结构下资本运作克制，合规画像干净。<br>
+      <b>财务质量</b>：营收体量之王（2023-2025 年 5,218.93→5,446.23 亿）但净利率 1.37%——"大而薄"的冶炼巨头典型格局；2026H1 迎来量价齐升（营收 +19.53%、归母 +106.77%、超预告上限），ROE 修复至 10.22%；核心瑕疵是经营现金流大幅波动（2025 年 -69.14 亿）与 28.81 亿存货减值敞口。<br>
+      <b>股权与治理</b>：省属国资控股结构稳定，H1 港股通与社保减持由有色主题基金承接；治理观察点在"代理"状态（周少兵四职合一）与 2025-12 董事会大改组（16→9 人、取消监事会、新设审计委员会）的消化期。<br>
+      <b>业务与资产</b>：贵溪冶炼厂全球单体最大（阴极铜年产能超 200 万吨）+ 赣北五大自营矿群 + SolGold 100%（Cascabel 铜 1,220 万吨/金 3,050 万盎司，2028 投产）+ 第一量子 18.47% 权益（H1 投资收益 +467%）——资源自给率提升是估值从"周期冶炼"向"资源成长"切换的核心叙事（券商口径，目标价 64.87 元 vs 现价 44.15 元）。<br>
+      <b>人力资源</b>：参保 26,740 + 分支 11,036 人（约 3.78 万，十强最大之一）；企查查 211 条招聘记录显示"深圳贸易金融 + 南昌 AI 研发 + 华南加工制造"三线并进，国际化与数字化条线扩张信号明确。<br>
+      <b>综合判断</b>：国资大盘龙头的"量价齐升 + 资源重估"阶段，与山东黄金（黄金稳健型）同为国资系但弹性来自铜价与并购。核心跟踪点：①铜价与 TC/RC 走势；②经营现金流全年回正的持续性；③Cascabel 2028 投产进度与第一量子权益价值（巴拿马资产争议）；④董事长/董秘"代理"状态的正规化；⑤存货跌价在铜价反转情形下的减值风险。
+    </div>
+  </section>
+
+  <!-- ============ 附录 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 主体身份</td><td>企查查 MCP get_company_registration_info</td><td class="num">2026-09-05</td><td>T+0；参保 26,740 人 + 分支 11,036 人为境内母公司口径，集团员工数以年报为准</td></tr>
+        <tr><td>三年财务</td><td>企查查 MCP get_financial_data（2023/2024/2025 年报，TOP10 报告阶段采集）+ 财报披露口径补充（归母净利）</td><td class="num">2026-09-04/05</td><td>合并报表口径；2024/2025 归母净利为财报披露值（69.62/71.30 亿）</td></tr>
+        <tr><td>2026 中报动态</td><td>公司《2026 年半年度报告》（上交所披露，2026-08-25）+ 中国证券网 + 每日经济新闻</td><td class="num">2026-09-05</td><td>营收 3,071.55 亿/归母 86.32 亿/产销量与 SolGold 收购为中报及媒体口径</td></tr>
+        <tr><td>行业研究 / 机构观点</td><td>券商研报（"买入"维持、目标价 64.87 元、2026-2028 盈利预测上调）+ 中财网 + A 股证券知识库</td><td class="num">2026-09-05</td><td>机构观点非事实陈述，多空兼顾；铜价/TC/硫酸价为研报时点值</td></tr>
+        <tr><td>股东与实控</td><td>TOP10 汇总报告（企查查口径，江铜集团 45.72%）+ 企查查变更记录（2011 年登记：H 股 40.07%/集团 37.02%/社会公众 22.91%）</td><td class="num">2026-09-05</td><td>一层直接持股；实控人穿透本次未单独调用工具取数，以国资监管认定为准</td></tr>
+        <tr><td>治理团队</td><td>企查查 MCP get_key_personnel（13 条）+ 变更记录交叉印证</td><td class="num">2026-09-05</td><td>T+0；法定代表人序列与 2025-12 改组来自 50 条变更记录</td></tr>
+        <tr><td>招聘动态</td><td>企查查 MCP get_recruitment_info（211 条，展示前 30 条样本）</td><td class="num">2026-09-05</td><td>第三方聚合口径，集团校招官网/公众号未完全覆盖</td></tr>
+        <tr><td>对外投资</td><td>企查查 MCP get_external_investments（67 条）</td><td class="num">2026-09-05</td><td>一层直接持股逐字引用；第一量子/SolGold 等境外权益不在国内工商数据源覆盖范围</td></tr>
+        <tr><td>全球矿权</td><td>TOP10 汇总报告（2026-09-04）+ 2026 中报 + 企查查分支机构/对外投资</td><td class="num">2026-09-05</td><td>Cascabel 资源量（铜 1,220 万吨/金 3,050 万盎司）为 SolGold 披露口径；第一量子为权益法联营</td></tr>
+        <tr><td>沿革与变更</td><td>企查查 MCP get_change_records（50 条）</td><td class="num">2026-09-05</td><td>工商登记口径；1997-2011 年股权结构为历史登记快照</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP get_company_risk_scan（35 项因子）</td><td class="num">2026-09-05</td><td>8 项有记录（裁判文书 77、开庭 71、立案 47、送达 16、法院公告 10、担保 4、出质 4、公示催告 1），无失信/被执行/行政处罚</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:14px">地图部署说明：本报告为本地交付版本（未发布到公网）。若部署公网，需在腾讯位置服务开放平台（lbs.qq.com）申请 key 并替换模板占位符、配置 Referer 白名单；未配置时地图自动降级为矿权明细表展示，不影响数据完整性。颜色规范：红涨绿跌（A 股惯例）。</div>
+  </section>
+
+<footer>在线版本：本地交付（未发布到 GitHub Pages） · 本报告由 AI 辅助生成 · 数据截至 2026-09-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'德兴铜矿(亚洲最大露采铜矿之一)', country:'中国·江西德兴', mineral:'铜', stake:'直属分公司', status:'在产', lat:29.01, lng:117.42 },
+  { name:'城门山铜矿', country:'中国·江西九江', mineral:'铜', stake:'直属分公司', status:'在产', lat:29.68, lng:116.05 },
+  { name:'武山铜矿', country:'中国·江西瑞昌', mineral:'铜', stake:'直属分公司', status:'在产', lat:29.73, lng:115.80 },
+  { name:'永平铜矿', country:'中国·江西铅山', mineral:'铜', stake:'直属分公司', status:'在产', lat:28.16, lng:117.75 },
+  { name:'银山矿业', country:'中国·江西德兴', mineral:'铜/银', stake:'100%', status:'在产', lat:28.95, lng:117.68 },
+  { name:'必司大吉矿业', country:'中国·云南香格里拉', mineral:'铜/多金属', stake:'51%', status:'在业', lat:27.83, lng:99.70 },
+  { name:'刁泉银铜矿', country:'中国·山西灵丘', mineral:'银/铜', stake:'15%', status:'存续', lat:39.36, lng:113.87 },
+  { name:'Cascabel铜金矿(SolGold 100%)', country:'厄瓜多尔·因巴布拉省', mineral:'铜1,220万吨/金3,050万盎司资源量', stake:'经SolGold(100%收购完成)', status:'2028年投产目标', lat:0.68, lng:-78.78 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(20, 20) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(20, 20), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

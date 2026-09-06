@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拥有海外金属矿山资产的中企上市公司汇总（就业视角）</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif; background: #f7f5f0; color: #1f2937; line-height: 1.65; }
+  .page { max-width: 1120px; margin: 0 auto; padding: 32px 24px 60px; }
+  .header { border-bottom: 3px solid #92400e; padding-bottom: 16px; margin-bottom: 22px; }
+  .header h1 { font-size: 26px; color: #1c1917; letter-spacing: 0.5px; }
+  .header .sub { font-size: 13px; color: #6b7280; margin-top: 6px; }
+  .header .sub b { color: #92400e; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 26px; }
+  .card { background: #fff; border: 1px solid #e7e0d3; border-top: 3px solid #b45309; border-radius: 6px; padding: 14px 16px; }
+  .card .k { font-size: 12px; color: #78716c; }
+  .card .v { font-size: 22px; font-weight: 700; color: #92400e; margin-top: 2px; }
+  .card .v small { font-size: 12px; font-weight: 400; color: #78716c; }
+  .card .note { font-size: 11px; color: #a8a29e; margin-top: 4px; }
+  .chart-box { background: #fff; border: 1px solid #e7e0d3; border-radius: 6px; padding: 18px 20px 10px; margin-bottom: 28px; }
+  .chart-box h2 { font-size: 16px; color: #1c1917; margin-bottom: 8px; }
+  .cap { font-size: 12px; color: #78716c; }
+  section.tbl { background: #fff; border: 1px solid #e7e0d3; border-radius: 6px; padding: 18px 20px; margin-bottom: 22px; }
+  section.tbl h2 { font-size: 17px; color: #1c1917; border-left: 4px solid #b45309; padding-left: 10px; margin-bottom: 12px; }
+  section.tbl .cap { margin-bottom: 10px; }
+  table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.data th { background: #f5efe3; color: #57534e; text-align: left; padding: 8px 10px; border-bottom: 2px solid #d6cdbb; white-space: nowrap; }
+  table.data td { padding: 7px 10px; border-bottom: 1px solid #eee7d9; vertical-align: top; }
+  table.data tr:hover td { background: #faf7ef; }
+  .code { font-family: Consolas, monospace; color: #57534e; font-size: 12px; white-space: nowrap; }
+  .mv { font-weight: 700; color: #92400e; white-space: nowrap; }
+  .mv.dim { font-weight: 400; color: #a8a29e; }
+  .emp { font-weight: 700; color: #1f2937; white-space: nowrap; }
+  .emp.dim { font-weight: 400; color: #a8a29e; }
+  .tag { display: inline-block; font-size: 11px; background: #fdf3e3; color: #92400e; border: 1px solid #ecd9b0; border-radius: 3px; padding: 0 6px; margin-right: 4px; white-space: nowrap; }
+  .tag.blue { background: #eef4fb; color: #1d4ed8; border-color: #c5d9f2; }
+  .tag.green { background: #eef7f0; color: #047857; border-color: #c3e5d0; }
+  .foot { background: #fffbeb; border: 1px solid #f5e0a3; border-radius: 6px; padding: 16px 20px; font-size: 12px; color: #713f12; }
+  .foot h3 { font-size: 13px; margin-bottom: 6px; }
+  .foot ul { padding-left: 18px; }
+  .foot li { margin-bottom: 4px; }
+  .disc { margin-top: 18px; font-size: 11px; color: #a8a29e; text-align: center; }
+  ul.plain { padding-left: 18px; font-size: 13px; }
+  ul.plain li { margin-bottom: 6px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .box { border: 1px solid #e7e0d3; border-radius: 6px; padding: 12px 16px; background: #fdfbf7; }
+  .box h3 { font-size: 14px; color: #92400e; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>拥有海外金属矿山资产的中企上市公司汇总（就业视角）</h1>
+    <div class="sub">范围：在境外拥有<b>金属矿（铜/钴/金/锂/镍/钨钼/铌/锌等）</b>矿山或冶炼资产的中国上市公司（A 股 + H 股，共 <b>22 家</b>）&nbsp;|&nbsp; 聚焦海外项目布局与用人规模 | 员工数为集团合并口径（2025 年报 / 公司档案 / ESG 披露）</div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="k">覆盖公司数</div><div class="v">22<small> 家</small></div><div class="note">A 股 15 家 + H 股 7 家（含 6 家 A+H 双上市）</div></div>
+    <div class="card"><div class="k">海外布局最广</div><div class="v">紫金矿业</div><div class="note">约 18 国、30 余座矿山，海外员工约占一半</div></div>
+    <div class="card"><div class="k">最大单体雇主</div><div class="v">6.67<small> 万人</small></div><div class="note">紫金矿业 2025 年末员工总数（+19.8%）</div></div>
+    <div class="card"><div class="k">中企海外主战场</div><div class="v">刚果（金）</div><div class="note">紫金/洛钼/华友/盛屯/五矿/寒锐/腾远等 10+ 家集中布局</div></div>
+  </div>
+
+  <section class="tbl">
+    <h2>一、主表：22 家拥有海外金属矿山资产的中企上市公司</h2>
+    <div class="cap">市值来源：腾讯自选股结构化行情（2026-09-04 收盘）；中矿资源市值为开源证券研报口径（2026-07-24）。员工数来源：2025 年报 / 公司档案 / ESG 报告及公开报道，为集团合并口径（含境内）。"—"表示本次未取数，未编造。</div>
+    <table class="data">
+      <tr><th>#</th><th>公司</th><th>代码 / 市场</th><th>市值(亿)</th><th>海外金属矿山资产（国别 · 项目 · 矿种）</th><th>集团员工数</th><th>海外用人与外派特征</th></tr>
+
+      <tr><td>1</td><td><b>紫金矿业</b></td><td class="code">601899.SH / 02899.HK</td><td class="mv">8,868</td><td>刚果（金）卡莫阿-卡库拉铜矿+科卢韦齐铜钴矿、塞尔维亚丘卡卢-佩吉/博尔铜金矿、哥伦比亚武里蒂卡金矿、苏里南罗斯贝尔金矿、加纳 Akyem 金矿、哈萨克斯坦 Raygorodok 金矿、厄瓜多尔 Warintza 铜矿、秘鲁 La Arena 金矿；拟 280 亿元收购加拿大联合黄金（马里/科特迪瓦/埃塞俄比亚 3 金矿，推进中）</td><td class="emp">66,708</td><td>海外员工约占一半，来自 70 余国；本地化雇佣率 95.88%（2025 年报）</td></tr>
+
+      <tr><td>2</td><td><b>洛阳钼业</b></td><td class="code">603993.SH / 03993.HK</td><td class="mv">3,954</td><td>刚果（金）TFM 铜钴矿（80% 权益，全球前五大铜矿）+ KFM 铜钴矿（71.25%，全球第一大钴矿）；巴西铌磷矿（NPM）+ Aurizona 等 4 座在产金矿（2026-01 交割）；厄瓜多尔 Cangrejos 金矿（638 吨金，2028 年投产）</td><td class="emp">~16,122</td><td>海外营收占比约 85%；TFM 矿区当地雇工超 1.5 万人（中方约 500 人），KFM/TFM 含承包商约 1.78 万人、88% 本地（ESG 口径，与总数口径有差异需核实）</td></tr>
+
+      <tr><td>3</td><td><b>华友钴业</b></td><td class="code">603799.SH</td><td class="mv dim">—</td><td>刚果（金）鲁苏西/鲁库尼铜钴矿 + 本地铜钴冶炼基地（投资 4.5 亿美元）；印尼华越/华飞 HPAL 红土镍矿湿法项目 + Pomalaa（与淡水河谷、福特合建）；津巴布韦 Arcadia 锂矿</td><td class="emp">26,466</td><td>津巴布韦基地约 3,000 人（中方约 1,000）；印尼中方员工约 4,000、本地占比约八成；刚果（金）本土化约 81%（公开报道，需核实）</td></tr>
+
+      <tr><td>4</td><td><b>盛屯矿业</b></td><td class="code">600711.SH</td><td class="mv">356</td><td>刚果（金）卡隆威铜钴矿 + BMS 铜钴湿法冶炼体系；印尼镍铁/HPAL 镍冶炼项目；刚果（金）Adumbi 金矿（金资源量超 100 吨，2026-02 完成交割，预计 2027 年底投产）</td><td class="emp">9,372</td><td>2023 年新增员工 1,705 人中海外净增 680 人，海外持续扩编</td></tr>
+
+      <tr><td>5</td><td><b>赤峰黄金</b></td><td class="code">600988.SH / 06693.HK</td><td class="mv">868</td><td>老挝塞班金铜矿（万象矿业运营，老挝最大金矿之一，SND 项目探获金 170 吨+铜 81 万吨）；加纳瓦萨（Wassa）金矿</td><td class="emp">6,738</td><td>海外资源占比约 80%；轻资产模式——采矿外包（如与中铁十九局签 2.2 亿美元采矿服务合同），自有员工以核心管理+技术外派为主</td></tr>
+
+      <tr><td>6</td><td><b>中矿资源</b></td><td class="code">002738.SZ</td><td class="mv">349</td><td>津巴布韦 Bikita 锂矿（99%，权益锂资源 327.1 万吨 LCE）；加拿大 Tanco 锂铯钽矿（全球最大铯榴石矿山）；赞比亚 Kitumba 铜矿（65%，铜 76 万吨，2026Q3 投产）；纳米比亚 Tsumeb 多金属冶炼厂（回收锗镓锌）</td><td class="emp">3,084</td><td>“小而精”；Bikita 及承包商当地雇工约 2,550 人，本地化程度高</td></tr>
+
+      <tr><td>7</td><td><b>山东黄金</b></td><td class="code">600547.SH / 01787.HK</td><td class="mv">1,747</td><td>阿根廷贝拉德罗（Veladero）金矿权益（南美第二大在产金矿）；加纳、纳米比亚金矿布局</td><td class="emp dim">—</td><td>海外产能矩阵目标年产超 20 吨金（媒体口径，需核实）</td></tr>
+
+      <tr><td>8</td><td><b>江西铜业</b></td><td class="code">600362.SH / 00358.HK</td><td class="mv">1,588</td><td>厄瓜多尔 Cascabel 铜金矿（约 82 亿元要约收购索尔黄金，推进中；铜 1220 万吨/金 3050 万盎司资源量，预计 2028 年投产）</td><td class="emp dim">—</td><td>绿地开发阶段，投产前以项目管理/开发团队为主</td></tr>
+
+      <tr><td>9</td><td><b>赣锋锂业</b></td><td class="code">002460.SZ / 01772.HK</td><td class="mv">1,029</td><td>马里 Goulamina 锂矿（一期已投产，锂资源约 714 万吨 LCE，年产能 50.6 万吨锂精矿）；阿根廷锂盐湖项目；澳洲 Mt Marion 权益</td><td class="emp dim">—</td><td>非洲锂资源高附加值加工布局（媒体口径）</td></tr>
+
+      <tr><td>10</td><td><b>天齐锂业</b></td><td class="code">002466.SZ / 09696.HK</td><td class="mv">777</td><td>澳大利亚 Greenbushes 锂辉石矿（经 Talison 参股，权益约 26.99%，非运营方）；澳洲奎纳纳氢氧化锂冶炼厂（自建运营）</td><td class="emp dim">—</td><td>参股属性，海外就业以澳洲冶炼厂为主</td></tr>
+
+      <tr><td>11</td><td><b>五矿资源（MMG）</b></td><td class="code">01208.HK</td><td class="mv dim">—</td><td>秘鲁 Las Bambas 铜矿；刚果（金）Kinsevere 铜矿；博茨瓦纳 Khoemacau 铜银矿（19 亿美元收购，拟扩至年产 13 万吨铜）；巴西镍业（3.5 亿美元收购英美资源资产，镍 520 万吨资源量）</td><td class="emp dim">—</td><td>央企五矿旗下国际矿业平台，用工按属地化国际矿业公司模式</td></tr>
+
+      <tr><td>12</td><td><b>中国有色矿业</b></td><td class="code">01258.HK</td><td class="mv dim">—</td><td>赞比亚谦比希铜矿群（东南矿体总投资 8.3 亿美元、年采选 330 万吨）等赞比亚/刚果（金）铜钴资产</td><td class="emp dim">—</td><td>央企中国有色集团旗下，非洲深耕 20+ 年（综合检索，需核实）</td></tr>
+
+      <tr><td>13</td><td><b>招金矿业</b></td><td class="code">01818.HK</td><td class="mv dim">—</td><td>塞拉利昂科马洪金矿（收购西金矿业 60% 股权，金资源量 22.46 吨，规划扩建）</td><td class="emp dim">—</td><td>海外为新增方向，处于开发扩建阶段</td></tr>
+
+      <tr><td>14</td><td><b>灵宝黄金</b></td><td class="code">03330.HK</td><td class="mv dim">—</td><td>巴布亚新几内亚 Simberi 在产金矿（3.7 亿澳元收购 St Barbara 资产 50%+1 股，推进中；金资源量 153 吨）</td><td class="emp dim">—</td><td>收购在产矿，交割后即有运营团队需求</td></tr>
+
+      <tr><td>15</td><td><b>紫金黄金国际</b></td><td class="code">2259.HK</td><td class="mv dim">—</td><td>紫金矿业海外黄金板块上市平台：苏里南、哥伦比亚、刚果（金）等金矿运营主体；拟收购联合黄金（非洲 3 金矿，交易主体）</td><td class="emp dim">—</td><td>紫金海外黄金资产的专业化运营与并购主体</td></tr>
+
+      <tr><td>16</td><td><b>山金国际</b></td><td class="code">000975.SZ</td><td class="mv dim">—</td><td>纳米比亚 Twin Hills 金矿（收购，中国银河证券研报提及的单吨资源对价案例）</td><td class="emp dim">—</td><td>海外新建项目（需核实最新进展）</td></tr>
+
+      <tr><td>17</td><td><b>中国中冶</b></td><td class="code">601618.SH / 01618.HK</td><td class="mv dim">—</td><td>巴布亚新几内亚瑞木（Ramu）镍钴矿（红土镍矿高压酸浸，中冶主导投资建设运营）</td><td class="emp dim">—</td><td>工程+资源运营复合体，海外用工以项目制为主（综合检索，需核实）</td></tr>
+
+      <tr><td>18</td><td><b>中色股份</b></td><td class="code">000758.SZ</td><td class="mv dim">—</td><td>拟收购秘鲁拉乌拉（Raura）锌多金属矿（伴生铅银，配套水电站）；哈萨克斯坦 30 万吨铜冶炼厂合作项目</td><td class="emp dim">—</td><td>“工程+资源”模式，南美资源布局新增点（中国黄金报口径）</td></tr>
+
+      <tr><td>19</td><td><b>金诚信</b></td><td class="code">603979.SH</td><td class="mv dim">—</td><td>矿山服务+自有资源双主业：刚果（金）、赞比亚矿山工程与采矿服务（与洛钼并列为刚果（金）集中布局的中资矿服企业）；刚果（金）Lonshi 铜矿等自有矿山</td><td class="emp dim">—</td><td><b>矿服模式 = 海外中方岗位密度最高</b>：大量采矿/矿建工程师外派岗（综合检索，需核实项目清单）</td></tr>
+
+      <tr><td>20</td><td><b>鹏欣资源</b></td><td class="code">600490.SH</td><td class="mv dim">—</td><td>刚果（金）铜钴矿资产（综合检索口径，具体矿山需核实）</td><td class="emp dim">—</td><td>非洲铜钴布局的中小市值参与者</td></tr>
+
+      <tr><td>21</td><td><b>寒锐钴业</b></td><td class="code">300618.SZ</td><td class="mv dim">—</td><td>刚果（金）钴冶炼产能（产品为钴中间品，不在精矿出口禁令范围内；2025 年出口配额制下申报豁免）</td><td class="emp dim">—</td><td>冶炼型布局，本地用工为主</td></tr>
+
+      <tr><td>22</td><td><b>腾远钴业</b></td><td class="code">301219.SZ</td><td class="mv dim">—</td><td>刚果（金）钴铜冶炼产能（媒体梳理口径，需核实）</td><td class="emp dim">—</td><td>同上，冶炼型布局</td></tr>
+    </table>
+    <div class="cap" style="margin-top:8px;">注：煤炭（中国神华、陕西煤业等）、铁矿及以境内矿山为主的公司未纳入本次范围；天齐锂业为参股非运营口径，列作参考。</div>
+  </section>
+
+  <div class="chart-box">
+    <h2>已披露员工规模对比（集团合并口径，人）</h2>
+    <div class="cap">来源：2025 年报 / 公司档案（neodata）/ ESG 公开报道。海外精确人数多数公司未单独披露，以 ESG 报告与属地报道为准。</div>
+    <div id="chart1" style="width:100%;height:340px;"></div>
+  </div>
+
+  <section class="tbl">
+    <h2>二、就业视角：三种用工模式与求职方向</h2>
+    <div class="cap">以下为基于公开信息的定性梳理，具体岗位与招聘以各公司官方渠道为准。</div>
+    <div class="grid2">
+      <div class="box">
+        <h3>模式一：矿主直雇（自有矿山运营）</h3>
+        <ul class="plain">
+          <li>代表：紫金矿业、洛阳钼业、五矿资源、中国有色矿业、盛屯矿业</li>
+          <li>特征：“本地化为主 + 中方核心管理技术外派”——如紫金本地化率 95.88%、刚果（金）法律要求外籍员工占比不超 10%</li>
+          <li>中方岗位集中在：矿山/选厂高级管理与技术骨干、地质勘探、HSE、国际财务税务、供应链</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>模式二：矿服承包（外包用工大户）</h3>
+        <ul class="plain">
+          <li>代表：金诚信（刚果（金）/赞比亚矿服）、中铁十九局（赤峰黄金老挝 2.2 亿美元采矿合同）、中国中冶（巴新瑞木）</li>
+          <li>特征：中方岗位密度最高——采矿工程师、矿建/井巷工程、设备维修、机电运维大量长期外派</li>
+          <li>门槛相对矿主直雇更“工程化”，是应届工程师出海的主要入口之一</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>模式三：海外冶炼基地（就地加工）</h3>
+        <ul class="plain">
+          <li>代表：华友钴业（印尼 HPAL、刚果（金）冶炼）、盛屯矿业（刚果（金）BMS）、寒锐/腾远钴业</li>
+          <li>驱动：刚果（金）2025 年起禁止铜钴精矿出口、倒逼本土冶炼，“只挖矿不行，必须配套冶炼加工”</li>
+          <li>岗位：湿法冶金/化学工艺工程师、设备工程师、化验质检，本地员工占比七至八成</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>语言与地域提示（定性）</h3>
+        <ul class="plain">
+          <li>法语区：刚果（金）、马里、科特迪瓦、塞内加尔方向——矿业法语是显著求职加分项</li>
+          <li>英语区：赞比亚、加纳、津巴布韦、巴新、塞尔维亚（英语工作语言）</li>
+          <li>西语/葡语区：阿根廷、厄瓜多尔、秘鲁、巴西——洛钼巴西金矿、江铜厄瓜多尔项目等新增需求</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="tbl">
+    <h2>三、按海外资产规模的求职目标分层</h2>
+    <div class="cap">分层依据：已披露的海外项目数量、资源量与员工规模（量化依据见主表），属定性分层。</div>
+    <table class="data">
+      <tr><th>层级</th><th>公司</th><th>求职含义（定性）</th></tr>
+      <tr><td><span class="tag">第一梯队：全球多国布局</span></td><td>紫金矿业（约 18 国）、洛阳钼业（刚果金+巴西+厄瓜多尔）、五矿资源（秘鲁+非洲+巴西）、华友钴业（刚果金+印尼+津巴布韦）</td><td>海外岗位基数大、国别选择多，晋升通道国际化（紫金海外员工来自 70 余国）</td></tr>
+      <tr><td><span class="tag blue">第二梯队：区域深耕</span></td><td>中矿资源（非洲南部+加拿大）、赤峰黄金（老挝+加纳）、盛屯矿业（刚果金+印尼）、中国有色矿业（赞比亚/刚果金）、山东黄金（阿根廷）、赣锋锂业（马里+阿根廷）</td><td>聚焦 1–2 个大区，长期驻地稳定性较高</td></tr>
+      <tr><td><span class="tag green">第三梯队：新进入/开发期</span></td><td>江西铜业（厄瓜多尔 Cascabel）、洛阳钼业厄瓜多尔项目、招金（塞拉利昂）、灵宝黄金（巴新）、山金国际（纳米比亚）、中色股份（秘鲁 Raura）、盛屯 Adumbi 金矿</td><td>绿地项目 = 建设期岗位密集（项目开发、基建、EPC 协调），投产前入职成长空间大</td></tr>
+      <tr><td><span class="tag">特色通道：矿服外派</span></td><td>金诚信、中国中冶、中铁十九局（赤峰黄金老挝项目承包方）</td><td>中方外派岗位密度最高的入口，工程背景友好</td></tr>
+    </table>
+  </section>
+
+  <div class="foot">
+    <h3>数据口径与来源说明</h3>
+    <ul>
+      <li>市值：腾讯自选股结构化行情（westock），2026-09-04 收盘，A 股总市值口径；中矿资源为开源证券研报（2026-07-24，总市值 348.91 亿元）；H 股公司市值本次未取数。</li>
+      <li>员工数：紫金 66,708、洛钼约 16,122、中矿 3,084、赤峰 6,738、盛屯 9,372、华友 26,466——来源为 2025 年报/公司档案（neodata）/ESG 公开报道；洛钼存在 16,122 vs “全球 1.2 万+、海外占 60%”两种口径，已并列说明。</li>
+      <li>海外项目与并购动态：界面新闻（2026-01-28）、新浪财经（2026-07-02）、中国日报网（2025-09-11）、中国黄金报（2026-05-12）、证券时报等媒体报道及券商研报——均为非一手来源，涉及具体交易进展（紫金收购联合黄金、江铜收购索尔黄金等）需以公司公告为准。</li>
+      <li>标注“需核实”的条目（鹏欣资源具体矿山、金诚信项目清单、中国有色矿业资产细节等）建议通过公司年报/公告或企查查、天眼查工商数据进一步核实。</li>
+      <li>刚果（金）出口政策：2025 年钴出口禁令转配额制、2026 年 8 月起禁止铜钴精矿出口（新华财经援引外媒，二手来源）。</li>
+    </ul>
+  </div>
+
+  <div class="disc">本页内容基于公开数据整理，仅供参考，不构成投资建议或求职决策依据。市场有风险，投资需谨慎。</div>
+
+</div>
+
+<script>
+var names = ['紫金矿业', '华友钴业', '洛阳钼业', '盛屯矿业', '赤峰黄金', '中矿资源'];
+var vals = [66708, 26466, 16122, 9372, 6738, 3084];
+var colors = ['#b45309', '#b45309', '#b45309', '#d97706', '#d97706', '#d97706'];
+echarts.init(document.getElementById('chart1')).setOption({
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  grid: { left: 80, right: 70, top: 10, bottom: 30 },
+  xAxis: { type: 'value', name: '员工数(人)' },
+  yAxis: { type: 'category', inverse: true, data: names },
+  series: [
+    { type: 'bar', barWidth: '55%', data: vals.map(function (v, i) { return { value: v, itemStyle: { color: colors[i] } }; }), label: { show: true, position: 'right', color: '#57534e' } }
+  ]
+});
+</script>
+</body>
+</html>

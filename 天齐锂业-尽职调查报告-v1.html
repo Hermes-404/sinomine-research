@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天齐锂业 · 尽职调查报告 V1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">002466.SZ · 深交所主板 ｜ 09696.HK · 港交所主板</span>
+        <div class="company-name-cn">天齐锂业股份有限公司</div>
+        <div class="company-name-en">Tianqi Lithium Corporation（企业简称：天齐锂业）</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无投资评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-05</span>
+      <span>数据截至：2026-09-05（企查查 T+0；中报为 2026-08-28 披露版本）</span>
+      <span>报告编号：TQLY-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    天齐锂业是蒋卫平家族（第一大股东成都天齐实业集团 24.30%）控制的 A+H 纯资源型锂企（2024-05 蒋安琪接任法定代表人，创二代接班）：核心资产为全球成本最低的澳洲格林布什锂辉石矿（经文菲尔德/泰利森持有，权益约 26.99%，非运营方）+ 参股智利 SQM（阿塔卡马盐湖，全球禀赋最优盐湖之一）。财务呈"高杠杆周期标本"特征——归母净利 72.97 亿（2023）→ -79.05 亿（2024）→ 4.63 亿（2025 扭亏），2026H1 强反转：营收 122.42 亿（+153.32%）、归母净利 42.42 亿（+4925.46%，低基数效应）、锂矿/锂化合物毛利率 74.19%/57.35%（同比 +20/+31.77pct）、SQM 贡献投资收益 14.07 亿。格林布什三期（CGP3）2026 年 1 月投产，建成产能 162→214 万吨/年爬坡中（6 月火情停产约 7 周、8 月已复产）；国内雅江措拉锂矿（63.24 万吨 LCE）基建推进，2026H2 启动选厂设计；重庆金属锂、奎纳纳氢氧化锂、盐亭钽回收多点开花。负债率 28.04% 为十家最低，但有息负债 153.29 亿（占有息口径 75.82%）+ 对外担保 284 笔 + 股权质押 130 条（十强第二梯队）需穿透。机构一致预期 2026 年归母约 81.82 亿（21 家）、综合目标价 72.76 元（较现价 +60.44%，腾讯行情口径）。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 归母净利润</div><div class="kpi-value num">42.42 亿</div><div class="kpi-delta up">▲ +4,925.46%（上年同期仅 0.84 亿，低基数）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 营业收入</div><div class="kpi-value num">122.42 亿</div><div class="kpi-delta up">▲ +153.32%（锂矿 51.22 亿 + 锂化合物 71.01 亿）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2026H1 综合毛利率</div><div class="kpi-value num">64%</div><div class="kpi-delta up">▲ 同比 +25pct（锂矿业务 74.19%）</div></div>
+    <div class="kpi-card"><div class="kpi-label">2025 年末资产负债率</div><div class="kpi-value num">28.04%</div><div class="kpi-delta">十家最低；但有息负债 153.29 亿（有息口径 75.82%）</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>天齐锂业股份有限公司（企业简称：天齐锂业；2016-05-11 由"四川天齐锂业股份有限公司"更名）</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">91510900206360802D</td></tr>
+      <tr><td>成立日期</td><td class="num">1995-10-16（前身为射洪锂业；2007-12-25 改制股份公司；2010-08 A 股上市、2022 年 H 股上市）</td></tr>
+      <tr><td>注册资本</td><td class="num">170,624.4983 万元（2026-07-28 由 164,119.4983 万元增至现额，+6,505 万元；实缴 171,321.8321 万元）</td></tr>
+      <tr><td>法定代表人</td><td>蒋安琪（2024-05-22 由蒋卫平变更——创始人蒋卫平之女接任，"创二代"接班）</td></tr>
+      <tr><td>注册地址</td><td>四川省遂宁市射洪市太和镇城北</td></tr>
+      <tr><td>企业类型</td><td>其他股份有限公司（上市）</td></tr>
+      <tr><td>登记状态</td><td><span class="pill ok">存续（在营、开业、在册）</span>（营业期限：2004-10-25 至无固定期限；核准日期 2026-07-28）</td></tr>
+      <tr><td>国标行业</td><td>其他常用有色金属冶炼（电池级/工业级碳酸锂及锂系列产品的制造与销售、矿石加工、进出口业务）</td></tr>
+      <tr><td>参保人数</td><td class="num">1 人（母公司口径）+ 分支机构 290 人（企查查 2026-09-05）——控股平台型结构，主要用工在天齐锂业（射洪）、成都天齐锂业等子公司层面，集团合并员工数以年报为准（本次未取数）</td></tr>
+      <tr><td>上市信息</td><td>A 股 002466.SZ（2010 年）+ H 股 09696.HK（2022 年）——A+H 两地上市</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年报</th><th>2024 年报</th><th>2025 年报</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业总收入</td><td class="num">405.03 亿</td><td class="num">130.63 亿</td><td class="num">103.46 亿</td><td>企查查年报，合并报表——锂价暴跌致连续两年收缩</td></tr>
+        <tr><td>营收同比</td><td class="num up">+0.13%</td><td class="num down">-67.75%</td><td class="num down">-20.80%</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>净利润（含少数股东）</td><td class="num">256.63 亿</td><td class="num down">-0.29 亿</td><td class="num">30.03 亿</td><td>企查查年报，合并口径</td></tr>
+        <tr><td>归母净利润</td><td class="num">72.97 亿</td><td class="num down">-79.05 亿</td><td class="num">4.63 亿（+105.85%，扭亏）</td><td>年报披露口径——合并与归母差异极大：文菲尔德层面 IGO 持股 49% 吸收 Talison 利润</td></tr>
+        <tr><td>扣非归母净利润</td><td class="num">—</td><td class="num down">-79.23 亿</td><td class="num">3.59 亿（+104.53%）</td><td>财报披露口径——2025 年扣非同步转正</td></tr>
+        <tr><td>加权 ROE</td><td class="num">14.61%</td><td class="num down">-16.92%</td><td class="num">1.10%</td><td>企查查年报</td></tr>
+        <tr><td>毛利率</td><td class="num">84.99%</td><td class="num">46.07%</td><td class="num">39.47%</td><td>企查查年报——2023 年为锂价超级周期顶部水平</td></tr>
+        <tr><td>资产负债率</td><td class="num">25.94%</td><td class="num">28.39%</td><td class="num">28.04%</td><td>企查查年报——十家最低；但 2025 年末有息负债 153.29 亿、有息负债率 75.82%，速动比率 2.22</td></tr>
+        <tr><td>经营现金流净额</td><td class="num">226.88 亿</td><td class="num">55.54 亿</td><td class="num">29.61 亿</td><td>企查查年报——净利亏损年份现金流仍为正（精矿现销）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      最新动态（2026 年半年报，公司 2026-08-28 披露）：2026H1 营业收入 122.42 亿元（<span class="up">+153.32%</span>）、归母净利润 42.42 亿元（<span class="up">+4,925.46%</span>，上年同期仅 0.84 亿元——低基数放大增幅；2024 年中期曾亏损超 52 亿元）、扣非归母净利 42.00 亿元（上年同期仅 132 万元）；综合毛利率 64%（同比 +25pct）。分业务：锂矿收入 51.22 亿元（<span class="up">+115.18%</span>）、毛利率 74.19%（+20pct）；锂化合物及衍生品收入 71.01 亿元（<span class="up">+190.76%</span>）、毛利率 57.35%（+31.77pct）。分季度：Q1 营收 51.28 亿/归母 18.76 亿（+1,699.12%）、Q2 营收 71.14 亿（+216.40%）/归母 23.66 亿（+12,010.94%，环比 +26%）。投资收益约 15.00 亿元（占利润总额 16.23%），其中对 SQM 确认投资收益 14.07 亿元。文菲尔德 2026H1 收入 98 亿元、净利润 50.8 亿元（+192%），贡献归母净利 9.6 亿元。H 股口径（09696.HK）：营收 140.74 亿港元、归母净利 48.77 亿港元。货币资金超百亿元（配股发债密集实施后）。
+    </div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究（锂 · 资源为王的一体化布局）</div>
+    <h3 class="sub">行业景气与价格指标</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>电池级碳酸锂现货均价（2026H1）</td><td class="num">16.34 万元/吨</td><td class="num up">2025H1 均价 7.04 万元/吨，同比 +132%</td><td>券商研报（新浪财经研报库）</td></tr>
+        <tr><td>2026 年内价格轨迹</td><td class="num">1 月约 11.7→18 万 → 2 月回落 13.2 万 → 3 月 17.2 万 → 5 月一度突破 20 万/吨</td><td class="num">春节备库/津巴布韦出口禁令/江西采矿权换发等多因素驱动，高位波动</td><td>媒体报道（公司业绩相关报道转引）</td></tr>
+        <tr><td>格林布什锂精矿（2026H1）</td><td class="num">不含税均价约 1.3 万元/吨（约 1,970 美元）</td><td class="num">单吨盈利约 0.7 万元（约 1,020 美元）——全球成本最低硬岩锂矿</td><td>东吴电新研报（2026-08-29）</td></tr>
+        <tr><td>SQM 阿塔卡马盐湖资源</td><td class="num">锂资源量约 1,805 万吨 LME（不含储量）+ 锂储量约 22 万吨</td><td class="num">全球禀赋最优越盐湖之一；SQM 2026H1 碳酸锂销量 13.82 万吨（+3.42 万吨）</td><td>公司披露 + 券商研报</td></tr>
+        <tr><td>锂盐产能格局（公司口径）</td><td class="num">12.26 万吨/年（张家港 3 万吨氢氧化锂 2025-07 投产、重庆 1,000 吨金属锂 2026-05 试产、奎纳纳爬坡）</td><td class="num">江苏基地柔性切换氢氧化锂/碳酸锂；2026H1 锂盐出货约 5.5-6 万吨（+30%）</td><td>中邮证券 + 东吴电新研报</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置（纯资源型 · 全球最优质硬岩+盐湖双卡位）</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>全球锂资源禀赋第一梯队</b>：澳洲格林布什（全球在产产量最大、成本极低的锂辉石项目，权益约 26.99%、经文菲尔德/泰利森持有，IGO 持股 49% 为少数股东方）+ 智利 SQM（阿塔卡马盐湖）——"最优质硬岩 + 最优质盐湖"双卡位在十强中独一份。</li>
+        <li><b>格林布什三期放量</b>：CGP3（52 万吨/年化学级锂精矿工厂）2026-01-30 产出首批精矿，建成产能 162→214 万吨/年、爬坡中；2026H1 产量 73.8 万吨（同比 +5.72 万吨）；6 月火情致停产约 7 周、8 月初已复产；IGO 指引 FY27 产量 155-175 万吨（中值 +17%）。</li>
+        <li><b>定价机制修复</b>：文菲尔德锂矿定价周期缩短，化学级锂精矿定价与锂化工销售定价的时间周期错配影响大幅减弱，库存精矿成本贴近最新采购价——2024 年巨额亏损的核心侵蚀因素已消除（中邮证券口径）。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>国内资源第二梯队</b>：雅江措拉锂辉石矿（盛合锂业 39.2% 控股，63.24 万吨 LCE、品位 1.30%）基建期，2026H2 启动选厂设计；西藏扎布耶盐湖 20% 参股；大股东天齐集团持有上都布、烧炭沟矿权未来有望注入（中邮证券口径）。</li>
+        <li><b>锂渣高值化回收新业务</b>：盐亭基地 3 万吨/年硅铝微粉 + 10 吨/年钽回收产线（2026-06 建成、8 月完成首吨钽精矿交付）——锂辉石冶炼渣资源化的差异化布局。</li>
+        <li><b>技术储备</b>：2025 年创新实验研究院投运，聚焦固态电池关键材料与新型提锂技术；累计 313 项授权专利、全球首创硫化锂制备技术（媒体报道口径）；"期货价格+升贴水"基差贸易模式引领行业定价革新。</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构</th><th>日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>"跑赢行业"：2026 年 A 股目标价 90 元——基于 2026 年预期 EPS 的合理市盈率；看好资源壁垒、一体化产能潜力与业绩兑现能力</td><td>中金公司</td><td class="num">2026 年内</td><td>今日头条财经转引</td></tr>
+        <tr><td>"买入"：2026 年 A 股目标价 89 元；中信证券预测 2026-2029 年归母净利 36/59/83/106 亿元——与海外机构预期基本一致</td><td>中信证券</td><td class="num">2026 年内</td><td>今日头条财经转引</td></tr>
+        <tr><td>"买入"（维持）：预计 2026-2028 年归母净利 75.83/85.77/91.40 亿元（+1539.07%/+13.11%/+6.57%）；近 90 天 7 家机构评级（3 买入 + 4 增持）、目标均价 93.96 元</td><td>中邮证券</td><td class="num">2026-05-01</td><td>证券之星</td></tr>
+        <tr><td>"增持"（维持）：上调 2026-27 年 EPS 至 4.8/3.48 元，目标价 72 元（原 45.32 元）——格林布什三期爬坡 + SQM 销量上升 + 措拉稳步推进</td><td>券商研报（新浪研报库）</td><td class="num">2026-08</td><td>新浪财经</td></tr>
+        <tr><td>一致预期：2026 年归母净利约 81.82 亿元（21 家机构预测，同比 +1,668.58%）、综合目标价 72.76 元（较 2026-09-04 收盘价 45.35 元有 +60.44% 空间）；行情：2026 年以来 -19.56%（区间最高 82.49 元/最低 40.44 元）、总市值约 777 亿（2026-09-04）</td><td>腾讯财经数据整合</td><td class="num">2026-09-04</td><td>lily.tencent.com + TOP10 底稿</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：机构目标价区间 72-93.96 元（不同机构、不同时点），与现价 45.35 元的隐含空间存在显著分歧，需注意研报时点与锂价假设差异；机构观点非事实陈述，多空兼顾引用，不构成投资建议。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">主要股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>成都天齐实业（集团）有限公司</td><td class="num">24.30%</td><td>控股股东 · 创始人蒋卫平家族控制</td><td>TOP10 汇总报告（企查查口径）</td></tr>
+        <tr><td>—</td><td>HKSCC 代理人（H 股）及 A 股流通股东</td><td>未取数（历史登记快照：2011 年天齐集团 63.75%、深圳乾元 25%、张静 1.26%——上市摊薄后结构）</td><td>A+H 两地流通（总股本 17.06 亿股，2026-07 增资后）</td><td>企查查变更记录 + 公司披露</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制与资本运作</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>家族控制结构</b>：蒋卫平家族经成都天齐实业（集团）24.30% 控股——1995 年收购射洪锂业起家，2007 年借壳改制上市平台的民企创始人控制格局；2024-05 蒋安琪（蒋卫平之女）接任法定代表人并任董事长，完成"创二代"交接（股权层面仍由家族持股平台控制）。</li>
+        <li><b>A+H 双平台融资</b>：2022-12 增资 +16,412.22 万元（H 股发行口径）；2026-07-28 再增资 +6,505 万元——配股发债密集实施后货币资金超百亿元（媒体报道口径）。</li>
+        <li><b>股权质押 130 条</b>（35 项因子，2026-09-05）——A 股股份质押口径，民企股东融资特征（对照赣锋 115 条），建议尽调阶段穿透质押比例与平仓线。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>少数股东结构特殊</b>：核心利润源文菲尔德层面 IGO 持股 49%——格林布什利润近半被少数股东吸收，这是"合并净利与归母净利差异极大"的结构性根源（2025 年合并净利 30.03 亿 vs 归母仅 4.63 亿）。</li>
+        <li><b>大股东资产注入预期</b>：控股股东天齐集团直接/间接持有雅江上都布锂辉石、硅石矿探矿权与烧炭沟脉石英、锂辉石矿采矿权，未来有望注入上市公司（中邮证券口径——需以公司公告为准）。</li>
+        <li><b>董事/高管持股极低</b>：总经理夏浚诚 0.0048%、副总经理郭维 0.0297%、董秘张文宇 0.0021%——职业经理人持股微量，利益绑定以股权激励另行安排（本次未取数）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任职起始</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>蒋安琪</td><td>董事长、非独立董事、法定代表人</td><td class="num">2017-02-10（董事）；2024-05-22 接任法代</td><td>创始人蒋卫平之女——"创二代"接班样本，任职法定代表人后主导 2026 年治理改组</td></tr>
+        <tr><td>蒋卫平</td><td>非独立董事</td><td class="num">2017-02-10</td><td>创始人（1995 年入主射洪锂业）；2011-09-14 接任法定代表人，掌舵 13 年后交棒</td></tr>
+        <tr><td>夏浚诚</td><td>非独立董事、总经理</td><td class="num">2021-01-15</td><td>职业经理人总经理（持 82,664 股，0.0048%）</td></tr>
+        <tr><td>邹兆麟 / 李越冬 / 张延庆</td><td>独立董事（各）</td><td class="num">2026-04-28</td><td>三名独董同日全新换血（原王东杰、黄夏舒、陈泽敏 2026-06-15 退出备案）</td></tr>
+        <tr><td>郭维</td><td>副总经理</td><td class="num">2007-12-20</td><td>任职近 19 年的"活化石"级高管（持 509,486 股）</td></tr>
+        <tr><td>熊万渝</td><td>副总经理</td><td class="num">2026-04-28</td><td>经营层新鲜血液</td></tr>
+        <tr><td>朱辉</td><td>副总经理、财务负责人</td><td class="num">2025-12-30</td><td>接替邹军（邹军卸任副总经理、仅留财务负责人后退出经营层备案）——财务条线交接</td></tr>
+        <tr><td>张文宇</td><td>副总经理、董事会秘书</td><td class="num">2021-12-13</td><td>董秘兼副总经理（持 36,344 股）</td></tr>
+        <tr><td>胡轶</td><td>审计部负责人</td><td class="num">2021-05-21</td><td>内控审计条线</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：主要人员信息来自企查查（共 11 条董监高记录，T+0，2026-09-05 核验）。治理观察：①<b>创二代接班 + 三轮治理重构密集落地</b>——2026-06-15 取消监事会（新《公司法》框架）、2026-07-28 董事会改组（吴昌华、黄玮、向川、唐国琼四名董事退出，独董全换血）+ 增资同日核准；②"父女同堂"董事会（蒋卫平+蒋安琪均为非独董）+ 家族控股平台，民企交接班样本；③财务负责人条线 2025-12 完成交接（邹军→朱辉），与业绩反转期同步；④变更记录 92 条为十强之最（对照赣锋 75 条），治理与资本运作频率高需持续跟踪。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://tianqilithium-hr.zhiye.com/social/jobs" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 社会招聘系统 · zhiye.com</a>
+      <a href="https://www.tianqilithium.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">🌐 官网（招聘邮箱：chengdu.hr@tianqilithium.com）</a>
+    </div>
+    <div class="note-box" style="margin-top:0">企查查招聘数据库收录该主体记录共 381 条（T+0，2026-09-05）。注意：前 30 条样本中混入较多牙科/义齿方向岗位（区域销售经理、三维设计师等）——天齐集团起家业务含牙科数字化板块，聚合数据或包含集团关联业务口径，解读时以锂业主线岗位为准。</div>
+    <h3 class="sub">招聘结构解读（企查查 381 条记录，展示前 30 条样本）</h3>
+    <div class="two-col">
+      <ul class="bullet-list pos">
+        <li><b>甘孜矿山条线高薪扩编（对应雅江措拉锂矿推进）</b>：环境工程师（20-25k）、地质（水工环）工程师（18-30k）、土建经理（矿山，18-30k）、财务 BP/主管（12-18k）——与中报"措拉选厂初步可研完成、2026H2 启动设计"互证，矿山基建人才前置储备明确。</li>
+        <li><b>眉山研发基地成形</b>：分析检测工程师、研发工程师（10-17k）、行政主管——对应 2023-03 设立的天齐锂业新能源技术研究（眉山）有限公司（固态电池关键材料、新型提锂技术研发载体）。</li>
+        <li><b>重庆制造基地常态化招聘</b>：工艺工程师、质量工程师、安全工程师、机修技术员（5-10k·13 薪）——对应重庆 1,000 吨金属锂项目（2026-05 试产）。</li>
+      </ul>
+      <ul class="bullet-list warn">
+        <li><b>成都总部职能建设</b>：风控主管（10-12k·13 薪）、流程主管（15-20k）、运营主管、履约采购经理（15-18k）——"基差贸易"定价模式下的风控与流程体系扩张信号。</li>
+        <li><b>薪酬带宽</b>：一线制造 4-7k/月至甘孜矿山高级工程师 18-30k/月——高原矿区岗位溢价明显（对应措拉项目地理条件）。</li>
+        <li><b>口径局限</b>：母公司为控股平台结构（参保仅 1 人 + 分支 290 人），主要用工在子公司层面（射洪/成都/张家港/奎纳纳等），企查查母公司口径招聘数据覆盖不全；海外（澳洲奎纳纳）用工不在境内数据源范围。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查共 12 条对外投资记录，一层直接持股）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>认缴出资额</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>天齐鑫隆科技（成都）有限公司</td><td class="num">100%</td><td class="num">172.35 亿</td><td>境内控股/科技平台</td><td>认缴额最大主体</td></tr>
+        <tr><td>成都天齐锂业有限公司</td><td class="num">100%</td><td class="num">87.00 亿</td><td>锂业运营（成都总部职能）</td><td>2014-08 设立</td></tr>
+        <tr><td>天齐锂业（射洪）有限公司</td><td class="num">100%</td><td class="num">59.26 亿</td><td>射洪锂盐生产基地</td><td>2016-03 设立</td></tr>
+        <tr><td>天齐锂业新能源技术研究（眉山）有限公司</td><td class="num">100%</td><td class="num">6,000 万</td><td>新能源技术研究（固态电池材料、新型提锂）</td><td>2023-03 设立——研发载体</td></tr>
+        <tr><td>四川天齐盛合锂业有限公司</td><td class="num">39.2%</td><td class="num">1.27 亿</td><td>雅江措拉锂辉石矿采矿权持有主体</td><td>控股（其余股东未穿透）</td></tr>
+        <tr><td>西藏日喀则扎布耶锂业高科技有限公司</td><td class="num">20%</td><td class="num">1.86 亿</td><td>西藏扎布耶盐湖（参股）</td><td>1999 年设立</td></tr>
+        <tr><td>上海航天电源技术有限责任公司</td><td class="num">9.91%</td><td class="num">3,282.58 万</td><td>航天电源技术（参股）</td><td>2009-02 设立</td></tr>
+        <tr><td>厦门厦钨新能源材料股份有限公司</td><td class="num">1.09%</td><td class="num">547.77 万股</td><td>正极材料上市同业（参股）</td><td>—</td></tr>
+        <tr><td>Tianqi Grand Vision Energy Limited</td><td class="num">100%</td><td class="num">100 万股</td><td>境外平台（仍注册）</td><td>2021-09 设立</td></tr>
+        <tr><td>天齐创锂科技（深圳）有限公司</td><td class="num">100%</td><td class="num">1,816 万</td><td>科技投资</td><td>2021-09 设立</td></tr>
+        <tr><td>注销主体</td><td class="num">—</td><td class="num">—</td><td>射洪华汇锂业科技材料（100%）、成都天齐盛合投资（100%）</td><td>历史清理 2 家</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">数据纪律与说明：以上为企查查一层直接持股口径，逐字引用，禁止据此推断穿透关系。核心资产均在境外/合资架构：①<b>格林布什</b>——公司→文菲尔德（Windfield，与 IGO 各持 50%）→泰利森（Talison，文菲尔德持 100%）→ 格林布什锂辉石矿，公司穿透权益约 26.99%（TOP10 报告口径）；②<b>SQM</b>——智利矿业化工（A+B 类股合计约 22%，2026 年曾处置部分 B 类股，以公司公告为准）；③<b>奎纳纳氢氧化锂厂</b>（澳洲自建自运营）。上述主体不在国内工商对外投资列表中。境内投资版图特征："三大全资运营平台（鑫隆/成都/射洪）+ 研发（眉山）+ 资源参股（措拉 39.2%/扎布耶 20%）"，结构精简克制。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布 ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布（澳洲+智利双核心 + 四川/西藏境内线）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:#f6f7f9">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到公网后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/项目名称</th><th>所在国/地区</th><th>矿种/规模</th><th>权益结构</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>格林布什（Greenbushes）锂辉石矿</td><td>澳大利亚 · 西澳</td><td>全球在产产量最大、成本极低；CGP3 投产后建成产能 214 万吨/年锂精矿；2026H1 产量 73.8 万吨</td><td class="num">权益约 26.99%（经文菲尔德/泰利森，IGO 持文菲尔德 49%）</td><td>在产；三期爬坡（6 月火情停产 7 周后 8 月复产）</td><td>TOP10 报告 + 中报 + 券商研报</td></tr>
+        <tr><td>奎纳纳（Kwinana）氢氧化锂厂</td><td>澳大利亚 · 西澳珀斯以南</td><td>一期氢氧化锂（FY27 指引 0.9-1.1 万吨）</td><td class="num">100%（自建自运营）</td><td>爬坡（Q2 产量 897 吨，检修影响；季度 EBITDA 亏损 8,840 万澳元）</td><td>东吴电新研报</td></tr>
+        <tr><td>SQM（权益法联营）</td><td>智利 · 阿塔卡马盐湖</td><td>锂资源量约 1,805 万吨 LME + 储量约 22 万吨；2026H1 碳酸锂销量 13.82 万吨、锂精矿 10.04 万吨</td><td class="num">A+B 类股（约 22% 股权，2026 年曾处置部分 B 类股）</td><td>在产；2026H1 贡献投资收益 14.07 亿元</td><td>公司中报 + 媒体报道</td></tr>
+        <tr><td>雅江措拉锂辉石矿</td><td>中国 · 四川甘孜州雅江县</td><td>锂资源 63.24 万吨 LCE、品位 1.30%</td><td class="num">盛合锂业 39.2%（控股，采矿权持有方）</td><td>基建期；选厂初步可研完成，2026H2 启动设计</td><td>券商研报 + 中报</td></tr>
+        <tr><td>扎布耶盐湖（参股）</td><td>中国 · 西藏日喀则</td><td>盐湖提锂</td><td class="num">扎布耶锂业 20%</td><td>参股在营</td><td>企查查对外投资</td></tr>
+        <tr><td>射洪/遂宁锂盐基地</td><td>中国 · 四川遂宁射洪</td><td>锂化合物生产基地（起家基地）</td><td class="num">天齐锂业（射洪）100%</td><td>在产</td><td>企查查对外投资</td></tr>
+        <tr><td>张家港氢氧化锂基地</td><td>中国 · 江苏张家港</td><td>3 万吨/年氢氧化锂（2025-07 建成投产，柔性切换碳酸锂）</td><td class="num">全资</td><td>爬坡</td><td>中邮证券研报</td></tr>
+        <tr><td>重庆金属锂项目</td><td>中国 · 重庆</td><td>1,000 吨/年金属锂</td><td class="num">全资</td><td>2026-05 试生产</td><td>东吴电新研报</td></tr>
+        <tr><td>盐亭资源回收基地</td><td>中国 · 四川绵阳盐亭</td><td>3 万吨/年硅铝微粉 + 10 吨/年钽回收（锂渣高值化）</td><td class="num">—</td><td>2026-06 建成、8 月首吨钽精矿交付</td><td>券商研报</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图（合规底图）；境内项目坐标为 GCJ-02，境外项目直接使用 WGS84 坐标，精确到项目级（小数点后 2 位）。公司定位：全球"最优质硬岩（格林布什）+ 最优质盐湖（SQM 阿塔卡马）"双卡位的纯资源型锂企，境内以射洪/遂宁锂盐加工 + 措拉/扎布耶资源储备 + 张家港/重庆/盐亭产能梯次布局；SQM 持股比例与 B 类股处置进展以公司公告为准。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li><b>1995-10-16</b>：成立（前身为射洪锂业；蒋卫平家族 2004-2007 年间通过成都天齐实业（集团）取得控制权并持续增资）。</li>
+        <li><b>2007-12-25</b>：改制为"四川天齐锂业股份有限公司"（有限责任公司→股份有限公司）。</li>
+        <li><b>2010-08</b>：深交所 A 股上市（002466）；2011-09-14 蒋卫平接任法定代表人。</li>
+        <li><b>2013-07-09</b>：营业期限变更为"至长期"；2016-05-11 更名"天齐锂业股份有限公司"（去地域前缀）。</li>
+        <li><b>2022-12-26</b>：H 股上市配套增资 +16,412.22 万元（2022 年港交所上市）；<b>2024-05-22</b>：法定代表人蒋卫平→蒋安琪（创二代交接）。</li>
+        <li><b>2026 年三轮密集变更</b>：06-15 取消监事、财务条线交接（邹军→朱辉）；07-28 董事会改组（四名董事退出、独董全换血）+ 增资至 170,624.4983 万元。</li>
+        <li><b>累计变更记录</b>：企查查 92 条（十强之最：章程备案 18、注册资本变更 16、法定代表人变更 15）——与 31 年频繁增资/更名/治理调整匹配，无经营异常名录记录。</li>
+      </ul>
+      <ul class="bullet-list">
+        <li><b>风险扫描总览</b>（企查查 35 项因子，2026-09-05）：6 项有记录、29 项无记录（有记录因子数为十家最少）；<span class="pill ok">无失信记录</span> <span class="pill ok">无被执行</span> <span class="pill ok">无行政处罚</span> <span class="pill ok">无环保处罚</span> <span class="pill ok">无欠税公告</span> <span class="pill ok">无股权冻结</span> <span class="pill ok">无破产重整</span>。</li>
+        <li><b>对外担保 284 笔</b>——十强第二高（对照：赣锋 507、江铜 4）：或与控股平台结构下子公司融资安排（奎纳纳项目贷款、境内外银团）相关，需穿透担保对象与余额。</li>
+        <li><b>股权质押 130 条</b>（A 股股份质押口径，十强第二高）+ 动产抵押 1 条——民企股东融资特征，与家族控股结构匹配。</li>
+        <li><b>涉诉体量极小</b>：裁判文书 7、立案信息 10、开庭公告 10——十强中最干净的涉诉画像之一（纯资源型业务模式 + 控股平台结构的映射）。</li>
+        <li><b>历史债务周期</b>：2018 年举债收购 SQM 股权致杠杆高企（曾经的市场关注焦点），2022 年引入 IGO 与 H 股上市后大幅去杠杆——当前负债率 28.04% 为十家最低，但有息负债 153.29 亿仍需关注（历史收购的遗留融资结构）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">① 锂价强周期与盈利高波动风险</div>
+      <div>公司为锂价周期的极端样本：归母净利 72.97 亿（2023）→ -79.05 亿（2024，扣非 -79.23 亿）→ 4.63 亿（2025）——2026H1 的 42.42 亿归母净利建立在上年同期 0.84 亿的低基数上，且隐含锂价中枢（碳酸锂 H1 均价 16.34 万元/吨、5 月一度突破 20 万）持续假设。机构一致预期 2026 年归母 81.82 亿（同比 +1,668.58%），若锂价回落则盈利预测下修风险显著；公司 2026 年以来股价 -19.56%（区间振幅 74.58%）已部分反映波动。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">② 对外担保 284 笔与股权质押 130 条（十强第二梯队）</div>
+      <div>担保笔数十强第二（仅次于赣锋 507），或与境内外项目融资（奎纳纳银团贷款等）相关，或有负债规模本次未穿透（数据源限制）；股权质押 130 条为 A 股股份质押口径，叠加家族控股（天齐集团 24.30%）的持股集中度，股东层面资金安排需尽调阶段逐笔核验。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">③ 海外资产集中度与少数股东结构风险</div>
+      <div>核心利润高度依赖单一矿山（格林布什，权益约 26.99%）与单一参股（SQM 约 22%）：①格林布什 6 月火情停产约 7 周的事件显示单点运营风险；②文菲尔德层面 IGO 持股 49% 吸收近半利润，归母净利与合并净利差异极大（2025 年 30.03 亿 vs 4.63 亿）；③SQM 所在智利的锂资源国有化政策博弈与 Codelco 合作框架存在不确定性；④奎纳纳氢氧化锂厂持续亏损（Q2 EBITDA 亏损 8,840 万澳元）。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 治理交接班与变更频率风险</div>
+      <div>2024-05 创二代接班（蒋安琪接任法代）后，2026 年出现三轮密集治理变更（06 取消监事、07 董事会改组+独董全换血+增资），92 条工商变更记录为十强之最——"父女同堂"董事会+家族控股下，决策集中度与治理磨合期的执行风险需跟踪；财务负责人条线 2025-12 交接（邹军→朱辉）与业绩反转期叠加。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">⑤ 措拉项目进度与在建产能消化风险</div>
+      <div>雅江措拉锂矿尚处基建期（2026H2 才启动选厂设计），建设进度、高原施工条件与投产时点存在不确定性（券商研报明示"措拉项目建设进度不及预期"为核心风险）；重庆金属锂、张家港氢氧化锂、奎纳纳等新产能的爬坡与消化依赖锂价维持高位；有息负债 153.29 亿（有息负债率 75.82%）在利率与汇率波动下存在财务费用敞口。</div>
+    </div>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质</b>：蒋卫平家族（成都天齐集团 24.30%）控股的 A+H 纯资源型锂企，1995 年成立、31 年沿革（92 条变更记录为十强之最但无经营异常），无失信/被执行/行政处罚/环保处罚记录，涉诉体量（裁判文书 7 条）为十强最干净梯队——但对外担保 284 笔（第二高）+ 股权质押 130 条需穿透核验。<br>
+      <b>财务质量</b>：归母净利 72.97→-79.05→4.63 亿的极端周期样本，2025 年扭亏且扣非转正（3.59 亿）；2026H1 强反转（营收 +153.32%、归母 42.42 亿、毛利率 64%）；负债率 28.04% 十家最低、速动比率 2.22、经营现金流连续三年为正——结构瑕疵：有息负债 153.29 亿（2018 年 SQM 收购的遗留融资）、归母/合并净利差异极大（IGO 吸收近半格林布什利润）。<br>
+      <b>股权与治理</b>：家族控股 + 2024-05 创二代接班（蒋安琪）+ 2026 年三轮密集治理重构（取消监事、独董全换血、增资）——交接班样本的公司治理演化值得持续跟踪；大股东上都布/烧炭沟矿权存在注入预期（券商口径）。<br>
+      <b>业务与资产</b>：全球锂资源禀赋第一梯队——格林布什（全球成本最低硬岩、权益约 26.99%、CGP3 投产后 214 万吨/年）+ SQM（阿塔卡马最优盐湖、投资收益 14.07 亿）双卡位；境内措拉（63.24 万吨 LCE）+ 扎布耶 + 射洪/张家港/重庆/盐亭产能梯次；定价周期错配修复 + 基差贸易模式革新。机构一致预期 2026 归母 81.82 亿、目标价 72-93.96 元区间（现价 45.35 元）。<br>
+      <b>人力资源</b>：母公司为控股平台（参保 1 + 分支 290 人），用工在子公司层面；381 条招聘记录中甘孜矿山岗（18-30k 高薪）与措拉项目推进互证，眉山研发基地、重庆金属锂产线招聘成形——扩张信号明确但数据口径含集团牙科业务噪音。<br>
+      <b>综合判断</b>：纯资源型锂企的"周期反转 + 三期放量 + 投资收益增厚"三击阶段——与赣锋（全产业链生态型）同为民企锂双雄但结构迥异：天齐"少而精"（单一最优矿山+参股盐湖、担保/涉诉画像更干净）、赣锋"广而全"（三洲资源+电池闭环、担保 507 笔生态更重）。核心跟踪点：①锂价中枢（15-16 万/吨支撑有效性）；②格林布什 CGP3 爬坡与火情复产进度；③SQM 智利政策（国有化博弈）与投资收益持续性；④措拉选厂设计启动与建设进度；⑤284 笔担保与 130 条质押的或有负债穿透；⑥蒋安琪接班后治理磨合与独董新班子的运作实效。
+    </div>
+  </section>
+
+  <!-- ============ 附录 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 主体身份</td><td>企查查 MCP get_company_registration_info</td><td class="num">2026-09-05</td><td>T+0；参保 1 人 + 分支 290 人为母公司控股平台口径，集团合并员工数以年报为准（本次未取数）</td></tr>
+        <tr><td>三年财务</td><td>企查查 MCP get_financial_data（TOP10 报告阶段采集）+ 财报披露口径（归母/扣非，腾讯财经数据）</td><td class="num">2026-09-04/05</td><td>合并报表口径；归母与合并净利差异（IGO 吸收 Talison 利润）已在正文并列披露</td></tr>
+        <tr><td>2026 中报动态</td><td>公司《2026 年半年度报告》（2026-08-28 披露）+ 重庆日报 + 东吴电新研报（ima 转引）</td><td class="num">2026-09-05</td><td>营收 122.42 亿/归母 42.42 亿/分业务毛利率为中报口径；H 股口径为港元</td></tr>
+        <tr><td>行业研究 / 机构观点</td><td>中金（目标价 90 元）、中信（89 元、买入）、中邮（买入、90 天 7 家评级）、新浪研报库（增持、72 元）+ 腾讯财经一致预期（72.76 元）</td><td class="num">2026-09-05</td><td>机构观点非事实陈述，多空兼顾；目标价区间分歧（72-93.96 元）已明示</td></tr>
+        <tr><td>股东与实控</td><td>TOP10 汇总报告（成都天齐实业集团 24.30%）+ 企查查变更记录（2011 年历史登记快照）</td><td class="num">2026-09-05</td><td>一层直接持股；实控人穿透本次未单独调用工具取数，以蒋卫平家族控制认定为准</td></tr>
+        <tr><td>治理团队</td><td>企查查 MCP get_key_personnel（11 条）+ 变更记录交叉印证</td><td class="num">2026-09-05</td><td>T+0；创二代接班（2024-05 法代变更）与 2026 年三轮改组来自 92 条变更记录</td></tr>
+        <tr><td>招聘动态</td><td>企查查 MCP get_recruitment_info（381 条，展示前 30 条样本）+ 官方招聘系统/邮箱（TOP10 报告核验）</td><td class="num">2026-09-05</td><td>第三方聚合口径，含集团牙科业务噪音；海外（奎纳纳）用工不覆盖</td></tr>
+        <tr><td>对外投资</td><td>企查查 MCP get_external_investments（12 条）</td><td class="num">2026-09-05</td><td>一层直接持股逐字引用；格林布什/SQM/奎纳纳经境外架构持有，不在国内工商数据源覆盖范围</td></tr>
+        <tr><td>全球矿权</td><td>2026 中报 + 券商研报（中邮/东吴/新浪研报库）+ TOP10 汇总报告</td><td class="num">2026-09-05</td><td>格林布什权益约 26.99% 为 TOP10 报告口径；SQM 持股与 B 类股处置以公司公告为准；措拉进度为研报时点口径</td></tr>
+        <tr><td>沿革与变更</td><td>企查查 MCP get_change_records（92 条）</td><td class="num">2026-09-05</td><td>工商登记口径；2004-2007 年股权集中过程为历史登记快照</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP get_company_risk_scan（35 项因子）</td><td class="num">2026-09-05</td><td>6 项有记录（担保 284、股权质押 130、立案 10、开庭 10、裁判文书 7、动产抵押 1），无失信/被执行/行政处罚/环保处罚</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:14px">地图部署说明：本报告为本地交付版本（未发布到公网）。若部署公网，需在腾讯位置服务开放平台（lbs.qq.com）申请 key 并替换模板占位符、配置 Referer 白名单；未配置时地图自动降级为矿权明细表展示，不影响数据完整性。颜色规范：红涨绿跌（A 股惯例）。</div>
+  </section>
+
+<footer>在线版本：本地交付（未发布到 GitHub Pages） · 本报告由 AI 辅助生成 · 数据截至 2026-09-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'格林布什锂辉石矿(全球成本最低)', country:'澳大利亚·西澳', mineral:'锂精矿(建成产能214万吨/年)', stake:'权益约26.99%(经文菲尔德/泰利森)', status:'在产·CGP3爬坡', lat:-33.86, lng:116.06 },
+  { name:'奎纳纳氢氧化锂厂', country:'澳大利亚·西澳', mineral:'氢氧化锂(FY27指引0.9-1.1万吨)', stake:'100%(自建自运营)', status:'爬坡·减亏中', lat:-32.24, lng:115.68 },
+  { name:'SQM阿塔卡马盐湖(权益法联营)', country:'智利·阿塔卡马', mineral:'锂资源约1,805万吨LME', stake:'A+B类股(约22%)', status:'在产·H1投资收益14.07亿元', lat:-23.70, lng:-69.30 },
+  { name:'雅江措拉锂辉石矿', country:'中国·四川甘孜州', mineral:'锂(63.24万吨LCE,品位1.30%)', stake:'盛合锂业39.2%(控股)', status:'基建期·2026H2启动选厂设计', lat:30.03, lng:101.00 },
+  { name:'扎布耶盐湖(参股)', country:'中国·西藏日喀则', mineral:'盐湖锂', stake:'扎布耶锂业20%', status:'参股在营', lat:31.35, lng:84.07 },
+  { name:'射洪锂盐基地', country:'中国·四川遂宁射洪', mineral:'锂化合物', stake:'天齐锂业(射洪)100%', status:'在产', lat:30.88, lng:105.39 },
+  { name:'张家港氢氧化锂基地(3万吨/年)', country:'中国·江苏张家港', mineral:'氢氧化锂(柔性切换碳酸锂)', stake:'全资', status:'2025-07投产·爬坡', lat:31.87, lng:120.55 },
+  { name:'重庆金属锂项目(1,000吨/年)', country:'中国·重庆', mineral:'金属锂', stake:'全资', status:'2026-05试生产', lat:29.56, lng:106.55 },
+  { name:'盐亭资源回收基地', country:'中国·四川绵阳盐亭', mineral:'硅铝微粉3万吨+钽回收10吨', stake:'—', status:'2026-06建成·8月首吨交付', lat:31.21, lng:105.35 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(10, 60) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(10, 60), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>权益：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
