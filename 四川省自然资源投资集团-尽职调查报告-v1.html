@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四川省自然资源投资集团 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">四川省属功能Ⅱ型国企 · 非上市 · AAA 信用评级</span>
+        <div class="company-name-cn">四川省自然资源投资集团有限责任公司</div>
+        <div class="company-name-en">Sichuan Natural Resources Investment Group Co., Ltd.（简称：四川资源 / 四川自然资源投资集团）</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-25</span>
+      <span>数据截至：2026-09-25</span>
+      <span>报告编号：DD-SCZI-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    四川资源是 2021 年地勘单位改革中由 4 个正厅级地勘单位 + 26 家企事业单位整合组建的省属国有资本投资公司，四川省自然资源厅 100% 持股、注册资本 150 亿元，是全省战略性矿产资源勘查开发"唯一主体"。截至 2024 年底资产规模 402 亿元（+35%）、利润总额 3.97 亿元（+3.2 倍），尚处"资本注入 + 资产划转"的扩张初期而非利润兑现阶段。其核心价值在于 2025 年集中落地的矿业权组合：红格南钒钛磁铁矿（"一号工程"）、麦基坦锂辉石矿（亚洲最大浅埋藏单脉）、牦牛坪稀土矿 39% 股权及省内油气探矿权"零的突破"，构成钒钛-锂-稀土-金-油气五条战略资源线。与浙江有色（资质在、产量无）不同，四川资源是"真有矿"的省属地勘改革样本，但资金来源高度依赖省财政注资与资本运作，实缴出资仅 41.06 亿元（认缴 150 亿元的 27%），后续开发资本开支强度大。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">资产规模（2024 年底）</div><div class="kpi-value num">402 亿元</div><div class="kpi-delta"><span class="up">同比 +35%</span>（集团党代会披露口径）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">利润总额（2024 年）</div><div class="kpi-value num">3.97 亿元</div><div class="kpi-delta up">同比 +3.2 倍</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">注册资本实缴率</div><div class="kpi-value num">27.4%</div><div class="kpi-delta down">实缴 41.06 亿 / 认缴 150 亿</div></div>
+    <div class="kpi-card"><div class="kpi-label">对外投资企业数</div><div class="kpi-value num">29 家</div><div class="kpi-delta">其中 100% 控股 22 家（企查查 T+0）</div></div>
+  </div>
+
+  <!-- s1 -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>四川省自然资源投资集团有限责任公司</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">91510100MA7FT65344</td></tr>
+      <tr><td>成立日期</td><td class="num">2021-12-26（2021-12-27 揭牌）</td></tr>
+      <tr><td>注册资本</td><td class="num">1,500,000 万元（150 亿元）；实缴 410,605.61 万元（41.06 亿元，2025-12-03 最新实缴）</td></tr>
+      <tr><td>法定代表人</td><td>罗智波（党委书记、董事长）</td></tr>
+      <tr><td>注册地址</td><td>四川省成都市高新区高朋大道 22 号（通信地址：成华区崔家店路 75 号 1 幢）</td></tr>
+      <tr><td>企业类型</td><td>有限责任公司（国有独资）· 省属功能Ⅱ型国企</td></tr>
+      <tr><td>登记状态</td><td>存续（在营、开业、在册）· 一般纳税人</td></tr>
+      <tr><td>参保人数</td><td class="num">集团本部 104 人（参保口径）；集团全口径员工约 1.1 万人（官网披露）</td></tr>
+      <tr><td>经营范围（摘要）</td><td>以自有资金从事投资活动；矿产资源勘查；矿产资源（非煤矿山）开采；煤炭开采；地质灾害治理工程勘查/设计/施工/监理；国土空间规划编制；土地整治服务；建设工程勘察/施工/设计/监理；测绘服务；固体废物治理；土壤污染治理与修复服务；互联网数据服务等（许可项目凭批准经营）</td></tr>
+    </table>
+    <div class="note-box">数据来源：企查查 MCP（get_company_registration_info，T+0，核验于 2026-09-25）。国标行业归类为"租赁和商务服务业-投资与资产管理"，反映其国有资本投资公司定位；矿业权持有与开采主要通过 29 家子企业落地。</div>
+  </section>
+
+  <!-- s2 -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年</th><th>2024 年</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>资产规模</td><td class="num">约 298 亿元（按 +35% 回推）</td><td class="num">402 亿元</td><td>集团第一次党代会披露（人民网/新华网 2025-08/09 报道）</td></tr>
+        <tr><td>利润总额</td><td class="num">约 0.95 亿元（按 3.2 倍增速回推）</td><td class="num">3.97 亿元</td><td>同上；非归母净利润口径</td></tr>
+        <tr><td>注册资本实缴</td><td class="num">—</td><td class="num">41.06 亿元（截至 2025-12-03 工商实缴口径）</td><td>企查查 T+0</td></tr>
+        <tr><td>营业收入 / 归母净利 / 三表</td><td colspan="2">未获取——非上市主体不强制披露，企查查财务接口本会话不可用</td><td>见附录口径局限</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：四川资源为非上市国有独资公司，无公开三表。可获得的财务口径仅限集团党代会新闻稿披露的"资产规模 402 亿元、利润总额 3.97 亿元"两个指标（人民币，集团合并口径）。营业收入口径未公开披露，本报告不做估算。利润总额增速 +3.2 倍主要反映整合后首个完整经营年度的低基数效应，而非成熟盈利能力。AAA 信用评级来自集团官网（2026-09-25 核验）。</div>
+  </section>
+
+  <!-- s3 -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模（与标的五条资源线对应）</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值/动态</th><th>趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>碳酸锂价格（锂线：麦基坦锂矿）</td><td class="num">2025 年电池级碳酸锂价格在 6–8 万元/吨区间震荡筑底</td><td class="num">较 2022 年高点回落逾 80%，行业产能出清中</td><td>公开财经媒体报道综述，2026-09 检索</td></tr>
+        <tr><td>稀土管制（稀土线：牦牛坪 39%）</td><td>2025 年中国持续将钐、钆、铽、镝等中重稀土纳入出口管制，稀土战略地位抬升</td><td class="num">供给收紧、板块热度上行</td><td>商务部公告及公开报道，2025-2026</td></tr>
+        <tr><td>钒钛市场（钒钛线：红格南矿）</td><td>钒液流电池储能示范项目密集落地，攀西钒钛磁铁矿为国家战略资源基地</td><td class="num">钒需求受储能拉动增长</td><td>公开行业报道，2025-2026</td></tr>
+        <tr><td>金价（金线：百吨级黄金基地）</td><td class="num">2025–2026 年国际金价创历史新高区间运行</td><td class="num"><span class="up">上行</span></td><td>公开行情数据，2026-09</td></tr>
+        <tr><td>新一轮找矿突破战略行动（政策面）</td><td>自然资源部推进"新一轮找矿突破战略行动"，省级国有地勘主体获政策倾斜</td><td class="num">利好四川资源的"勘查开发主体"卡位</td><td>自然资源部公开政策，2024–2026</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>省内唯一：四川省内唯一拥有稀土矿权的省属国企（牦牛坪 39%），钒钛资源与攀钢、宝武同处攀西基地但错位开发（红格南矿此前长期未开发）</li>
+        <li>对标样本：浙江有色地勘集团（资质在、产量无）、山东地矿、贵州地矿系——四川资源为省属地勘改革中"资源注入最实"的一家</li>
+        <li>市场化竞争者：锂矿领域面对宁德时代（合作方）、天齐锂业、盛新锂能等；金矿面对紫金矿业等全国性巨头</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>上游：整合 4 个正厅级地勘单位（四川省地矿局、川东南地质大队、化探队等）保留勘查技术与资质</li>
+        <li>中游：矿业权持有 + 开发（红格南/麦基坦/大村煤矿/振兴金矿）</li>
+        <li>下游协同：与宁德时代共建"锂矿采选—材料加工—电池制造"全产业链；与攀钢/宝武布局先进钛材、钒储能 7 大领域；与中国稀土共建萤石综合利用产线；与中国资环集团布局尾矿与"城市矿山"循环利用</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/媒体</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>集团资产规模 402 亿元（+35%）、利润总额 3.97 亿元（+3.2 倍），成为全省战略性矿产资源勘查开发"第一军团"</td><td>人民网四川频道</td><td class="num">2025-08-30</td><td>人民网四川频道</td></tr>
+        <tr><td>红格南矿"当年获取矿业权、当年核准、当年开工"，跑出国内重大矿山项目建设的"四川速度"</td><td>新华网四川频道</td><td class="num">2025-09-05</td><td>新华网</td></tr>
+        <tr><td>完成 10 家单位"事转企"、31 家地勘单位整合为 17 家企业，地勘改革进入"化学融合"阶段</td><td>四川经济日报</td><td class="num">2025-08-31</td><td>四川经济网</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <ul class="bullet-list">
+      <li>2025：红格南矿列为四川省委"2025 年度攻坚重大任务"并当年开工（一号工程）</li>
+      <li>2025：与四川能源发展集团竞得省内两个区块油气勘查探矿权——省属国企油气资源"零的突破"</li>
+      <li>2025-07-30：100% 控股的四川省自然资源资产管理有限责任公司揭牌（注册资本 3.5 亿元），定位集团资产处置/资本运营平台</li>
+      <li>2025-04：新设四川省天府锂业有限责任公司（5 亿元，100%）；2025-09：新设四川省自然资源建设有限责任公司（6 亿元，100%）；2026-03：新设四川省生态发展集团（5 亿元，100%）——子公司矩阵持续加密</li>
+      <li>出资 10 亿元参与四川省资源能源投资引导基金（持股 24.69%），实施找矿项目 31 个</li>
+    </ul>
+    <div class="note-box">注：行研数据来自公开媒体报道与政策文件检索（WebSearch，2026-09-25），无行研类 MCP 数据源接入；碳酸锂价格区间为媒体综述口径，非交易所实时价。</div>
+  </section>
+
+  <!-- s4 -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">股东构成（一层直接）</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>四川省自然资源厅</td><td class="num">100%</td><td>省政府组成部门（履行出资人职责，受托由省地质矿产勘查开发局管理）</td><td>企查查 get_shareholder_info（T+0）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>四川省自然资源厅 → 四川资源（直接持股 100%、表决权 100%）——企查查 get_actual_controller 服务端穿透结果</li>
+        <li>认缴出资 150 亿元（认缴出资日期 2041-12-31），实缴 41.06 亿元（2025-12-03）——出资节奏为"财政分期注入"特征</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>股权出质：0 条；股权冻结：0 条；股权质押：0 条（企查查 35 项风险因子扫描，2026-09-25）</li>
+        <li>无上市关联：集团无直接上市主体，对外投资 29 家均为非上市企业</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- s5 -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>罗智波</td><td>党委书记、董事长、法定代表人</td><td class="num">2021 年组建期至今（工商核准 2023-11-13）</td><td>集团"1233 战略定位"主导者；党代会报告提出"第一军团、第一尖兵"目标</td></tr>
+        <tr><td>江涛</td><td>党委副书记、副董事长、总经理</td><td class="num">—</td><td>2025-07 为四川省自然资源资产管理公司揭牌并致辞，分管资本运营条线</td></tr>
+        <tr><td>杨利民</td><td>党委副书记、董事</td><td class="num">—</td><td>官网领导班子披露</td></tr>
+        <tr><td>陈军华</td><td>党委委员、职工董事、工会主席</td><td class="num">—</td><td>企查查 T+0 主要人员 + 官网披露</td></tr>
+        <tr><td>钟晓 / 刘华学</td><td>董事</td><td class="num">—</td><td>企查查 T+0 主要人员</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：官网领导班子另披露梁存珺（纪委书记）、余常燕（财务总监）、杨金川/何思彬/杨明（副总经理）、谢洋波（副总经理）、何文秀（总工程师）等成员；工商备案以企查查返回的 6 人为准。董事长/总经理均无持股，符合国企治理惯例。</div>
+  </section>
+
+  <!-- s6 -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://xy.liepin.com/scnrig2026gkzp/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 2026 上半年公开招聘 · 猎聘网官方通道</a>
+      <a href="https://scnrig.com.cn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-body,#333);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · scnrig.com.cn</a>
+    </div>
+    <h3 class="sub">在招岗位 / 招聘计划明细</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>招聘项目</th><th>对象/专业</th><th>地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2025-10（公告期）</td><td>2026 届校园招聘（报名截至 2025-10-30，通道 xy.liepin.com/scnrig2025）</td><td>2025/2026 届毕业生；采矿工程、矿业工程、地质工程、勘查技术与工程、矿物加工工程、地质学、资源勘查工程、水文地质、岩土工程等</td><td>主体位于成都，下属 28 家直属企业</td><td>集团校招公告（WebSearch 核验 2026-09-25）</td></tr>
+        <tr><td class="num">2026-04-27</td><td>2026 上半年公开招聘（报名截至 2026-05-18，通道 xy.liepin.com/scnrig2026gkzp）</td><td>社会人才；含资格禁入条款（失信、利益冲突等审查）</td><td>成都及项目地</td><td>国家大学生就业服务平台转载集团公告</td></tr>
+        <tr><td class="num">持续</td><td>博士后科研工作站 / 博士后创新实践基地</td><td>科研通道</td><td>成都（天府金江实验室、邛海实验室共建）</td><td>集团校招宣传材料</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>职能方向高度聚焦地质/采矿/勘查主体专业——与"战略性矿产资源勘查开发主体"定位直接呼应</li>
+        <li>双通道并行：校招（笔试+心理测评+面试）+ 社招（综合测评+背景调查+体检），流程规范程度高于同规模省属企业</li>
+        <li>福利含"艰苦地区津补贴、注册执业补贴"，指向矿区一线岗位占比高</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>招聘扩张与业务扩张同频：红格南矿开工、天府锂业/自然资源建设/生态发展集团 2025–2026 年密集新设，对应主体专业岗位放量</li>
+        <li>与 s7 投资布局交叉印证：28 家直属企业 + 3 个区域性总部 + 国际化专班，预示后续国际化岗位（外语+矿业复合）需求</li>
+        <li>未见收缩/停招信号</li>
+      </ul>
+    </div>
+    <div class="note-box">注：招聘信息为发布时点快照，不代表实际编制规模。企查查招聘接口（get_recruitment_info）本会话不可用，已降级为集团官网/猎聘网官方通道/就业平台转载公告（WebSearch 核验，2026-09-25）。</div>
+  </section>
+
+  <!-- s7 -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查 29 条记录择要）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>四川省天府矿业投资有限责任公司</td><td class="num">100%</td><td class="num">30 亿元</td><td>矿业权投资与开发平台（2022-02 设立）</td><td>红格南矿等项目持股载体之一</td></tr>
+        <tr><td>四川省土地发展集团有限责任公司</td><td class="num">60%</td><td class="num">30 亿元</td><td>土地综合整治（50 万亩规划、蓬安 40 万亩高标准农田）</td><td>支柱主业载体</td></tr>
+        <tr><td>四川省矿产资源勘查集团有限责任公司</td><td class="num">100%</td><td class="num">8 亿元</td><td>勘查技术与地勘资质整合平台</td><td>2023-09 设立</td></tr>
+        <tr><td>四川省天府锂业有限责任公司</td><td class="num">100%</td><td class="num">5 亿元</td><td>锂资源开发（麦基坦锂矿配套）</td><td>2025-04-25 新设</td></tr>
+        <tr><td>四川省自然资源建设有限责任公司</td><td class="num">100%</td><td class="num">6 亿元</td><td>工程建设</td><td>2025-09-24 新设</td></tr>
+        <tr><td>四川省生态发展集团有限责任公司</td><td class="num">100%</td><td class="num">5 亿元</td><td>生态修复与环保</td><td>2026-03-26 新设</td></tr>
+        <tr><td>四川省自然资源投资集团攀西有限责任公司</td><td class="num">100%</td><td class="num">4.8 亿元</td><td>攀西钒钛资源区域平台</td><td>红格南矿属地运作</td></tr>
+        <tr><td>四川省自然资源资产管理有限责任公司</td><td class="num">100%</td><td class="num">3.5 亿元</td><td>资产处置与资本运营平台</td><td>2025-07-30 揭牌</td></tr>
+        <tr><td>四川省蜀通建设集团有限责任公司</td><td class="num">90%</td><td class="num">10 亿元</td><td>工程施工（1985 年划入老牌企业）</td><td>—</td></tr>
+        <tr><td>四川省自然资源置业集团有限责任公司</td><td class="num">98.642%</td><td class="num">5 亿元</td><td>自然资源置业</td><td>2003 年划入</td></tr>
+        <tr><td>四川中成煤炭建设（集团）有限责任公司</td><td class="num">63.7859%</td><td class="num">1.01 亿元</td><td>煤炭建设</td><td>控股非全资</td></tr>
+        <tr><td>四川鑫顺矿业股份有限公司</td><td class="num">68.047%</td><td class="num">0.8 亿元</td><td>矿业开发（金矿等）</td><td>控股非全资</td></tr>
+        <tr><td>四川省资源能源股权投资引导基金合伙企业（有限合伙）</td><td class="num">24.6914%</td><td class="num">10 亿元</td><td>省级找矿引导基金</td><td>LP 出资，实施找矿项目 31 个</td></tr>
+        <tr><td>四川省冶勘集团有限公司</td><td class="num">100%（已注销）</td><td class="num">20 亿元（认缴）</td><td>冶勘系统整合主体</td><td>已注销——改革整合中的架构调整痕迹</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：以上为企查查 T+0 对外投资 29 条中的主要部分（其余为测绘地理信息、勘察设计、产融发展、智能装备、川核集团、地质矿产集团、重庆建设发展等 100% 子公司及参股公司）。对外投资密集新设（2025–2026 年 5 家 100% 新主体）为改革整合期典型特征。</div>
+  </section>
+
+  <!-- s8 -->
+  <section class="section" id="s8">
+    <div class="section-title">八、矿权与矿山分布（地图）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">矿业权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/矿权名称</th><th>所在国/地区</th><th>矿种</th><th>持股/取得方式</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>红格南矿（一号工程）</td><td>中国 · 攀枝花盐边</td><td>钒钛磁铁矿</td><td class="num">集团主体开发</td><td>建设中（2025 年取得矿业权并当年开工）</td><td>集团党代会披露 / 人民网 2025-08</td></tr>
+        <tr><td>麦基坦锂矿</td><td>中国 · 甘孜州</td><td>锂辉石</td><td class="num">集团获取矿业权</td><td>勘探/开发准备（亚洲最大浅埋藏单脉）</td><td>集团党代会披露 2025-08</td></tr>
+        <tr><td>牦牛坪稀土矿</td><td>中国 · 凉山冕宁</td><td>稀土</td><td class="num">39% 股权（收购）</td><td>在产/整合中（省内唯一省属稀土矿权）</td><td>集团党代会披露 2025-08</td></tr>
+        <tr><td>梭罗沟金矿</td><td>中国 · 凉山木里</td><td>金</td><td class="num">集团控制</td><td>在产（百吨级黄金基地组成部分）</td><td>集团官网/党代会披露</td></tr>
+        <tr><td>张家坪子金矿</td><td>中国 · 凉山冕宁</td><td>金</td><td class="num">集团控制</td><td>在产/建设</td><td>集团官网披露</td></tr>
+        <tr><td>振兴金矿</td><td>中国 · 甘肃瓜州</td><td>金</td><td class="num">集团获取（省外突破）</td><td>开发准备</td><td>集团党代会披露 2025-08</td></tr>
+        <tr><td>大村煤矿</td><td>中国 · 泸州古蔺</td><td>煤</td><td class="num">集团开发（240 万吨/年核准）</td><td>建设中（2025 省级重大项目）</td><td>集团党代会披露 2025-08</td></tr>
+        <tr><td>省内两个区块油气探矿权</td><td>中国 · 四川（乐山北、洪雅方向）</td><td>油气</td><td class="num">与四川能源发展集团联合竞得</td><td>勘探（省属国企油气"零的突破"）</td><td>集团党代会披露 2025-08；英文官网披露乐山北+洪雅矿权</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图 GL JS（合规图源），境内矿山坐标采用 GCJ-02 火星坐标（矿山级精度，小数点后 2 位）；矿业权信息以集团党代会/官网公开披露口径为准（2025-08 至 2026-09），储量、品位等参数未在公开渠道披露，故不列示。坐标为矿区级行政区位推算，仅供地图定位参考。</div>
+  </section>
+
+  <!-- s9 -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>2021-12-26：经四川省委省政府批准，整合原省属 4 个正厅级地勘单位 + 26 家企事业单位组建，首批划入 26 户企业国有股权及资金、土地、房产、矿业权等资产</li>
+        <li>2022–2024：天府矿业投资、土地发展集团、矿产资源勘查集团等平台相继设立；完成 10 家单位"事转企"、31 家地勘单位整合为 17 家企业</li>
+        <li>2025：红格南矿"当年五连"开工；麦基坦锂矿、油气探矿权、振兴金矿、牦牛坪 39% 股权相继落地；自然资源资产管理公司揭牌</li>
+        <li>2025-08：召开集团第一次党代会，确立"第一军团、第一尖兵"目标</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>风险扫描（企查查 35 项因子，2026-09-25）：有记录 4 项——裁判文书 3 条、立案信息 8 条、开庭公告 7 条、环保处罚 1 条；失信/被执行/股权冻结/行政处罚等 31 项均为 0</li>
+        <li>诉讼与立案以子公司工程类合同纠纷量级为主（分诊口径，未逐案下钻明细，接口本会话不可用）</li>
+        <li>担保信息：企查查维度 0 条（集团对内担保未在工商维度披露，不等于无内部资金往来）</li>
+        <li>环保处罚 1 条：具体处罚明细接口本会话不可用，未获取案由与金额——留作后续核验项</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- s10 -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">1. 开发资本开支强度大，出资节奏依赖财政分期注入</div>
+      <div>注册资本 150 亿元仅实缴 41.06 亿元（27.4%），而红格南矿、麦基坦锂矿、大村煤矿均为百亿级长周期开发项目；若省财政注资节奏放缓或矿业权作价出资进度不及预期，存在资金链压力与项目进度风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">2. 整合改革"化学融合"尚未完成</div>
+      <div>31 家地勘单位→17 家企业的整合仍在推进，20 亿元认缴的四川省冶勘集团已注销显示架构仍在调整；历史事业编制人员安置、资质平移、文化融合均存在执行风险。企查查口径 8 条立案 + 7 条开庭公告多与整合期工程合同纠纷相关（分诊推断，未逐案核验）。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 商品价格周期风险（锂为主）</div>
+      <div>锂线（麦基坦 + 天府锂业 + 宁德时代产业链）在碳酸锂价格自高点回落逾 80% 的背景下启动开发，投产时点若遭遇价格底部延长，将拖累集团利润兑现节奏；金/稀土线当前景气（金价历史高位、稀土管制）则提供对冲。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 非上市主体信息透明度有限</div>
+      <div>无公开三表，财务数据仅党代会新闻稿口径（资产 402 亿/利润总额 3.97 亿）；营业收入、负债率、现金流均未披露，深度尽调需以国资监管报表或债券募集说明书（如发债）为补充核验源。</div>
+    </div>
+  </section>
+
+  <!-- s11 -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体定位：</b>四川资源是本轮全国地勘单位改革中"资源注入最实"的省属样本——不是纯服务商（对比浙江有色），而是手握钒钛（红格南）、锂（麦基坦）、稀土（牦牛坪 39%）、金（梭罗沟/振兴）、油气（两区块探矿权）、煤（大村 240 万吨）六条资源线的勘查开发主体。<br>
+      <b>财务面：</b>处扩张初期：资产 402 亿（+35%）、利润总额 3.97 亿（+3.2 倍），利润率仍低；后续 3–5 年是矿业权开发转产量的关键验证期。<br>
+      <b>合作面：</b>与宁德时代（锂全产业链）、攀钢/宝武（钛材/钒储能）、中国稀土、中国资环的战略绑定，显著提升其资源变现的产业通道确定性。<br>
+      <b>建议：</b>作为合作方/投标人，四川资源信用风险可控（AAA、失信/被执行为 0、财政背景出资人），但签约主体应下沉到具体项目子公司（如攀西公司、天府锂业）并核查其资本金与资质；作为研究标的，建议跟踪红格南矿投产进度与集团是否启动发债（届时可获得完整财务披露）。
+    </div>
+  </section>
+
+  <!-- s12 -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 股东 / 实控人 / 主要人员</td><td>企查查 MCP（get_company_registration_info / get_shareholder_info / get_actual_controller / get_key_personnel，T+0）</td><td class="num">2026-09-25</td><td>国家企业信用信息公示系统同源；参保人数为本部口径</td></tr>
+        <tr><td>对外投资</td><td>企查查 MCP（get_external_investments，T+0）</td><td class="num">2026-09-25</td><td>一层直接持股比例；已注销的四川省冶勘集团仍列示并标注</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP（get_company_risk_scan，35 项因子）</td><td class="num">2026-09-25</td><td>仅计数分诊；立案/开庭/裁判文书/环保处罚明细接口本会话不可用，未逐案下钻</td></tr>
+        <tr><td>财务数据</td><td>集团第一次党代会新闻稿（人民网四川频道 2025-08-30、新华网 2025-09-05、四川经济日报 2025-08-31）</td><td class="num">2026-09-25 检索</td><td>仅资产规模与利润总额两个指标（集团合并口径，人民币）；企查查财务接口本会话不可用；营收/负债/现金流未获取</td></tr>
+        <tr><td>矿业权与业务动态</td><td>集团官网 scnrig.com.cn（中英文）+ 党代会报道 + 封面新闻（省国资委转载）</td><td class="num">2026-09-25</td><td>储量/品位等参数未公开披露；矿业权状态为披露时点口径</td></tr>
+        <tr><td>行业研究</td><td>WebSearch 公开渠道（媒体报道、政策文件综述）</td><td class="num">2026-09-25</td><td>无行研类 MCP 接入；价格数据为媒体综述口径，非实时行情</td></tr>
+        <tr><td>招聘动态</td><td>集团校招公告（猎聘网官方通道）/ 官网 / 国家大学生就业服务平台</td><td class="num">2026-09-25 核验</td><td>企查查招聘接口本会话不可用，降级为官网与官方通道；招聘为时点快照</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：<a href="https://hermes-404.github.io/sinomine-research/四川省自然资源投资集团-尽职调查报告-v1.html" target="_blank" rel="noopener noreferrer">https://hermes-404.github.io/sinomine-research/四川省自然资源投资集团-尽职调查报告-v1.html</a> · 本报告由 AI 辅助生成 · 数据截至 2026-09-25 · 四川省自然资源投资集团有限责任公司 · 报告编号 DD-SCZI-2026-V1</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'红格南矿（一号工程·钒钛磁铁矿）', country:'中国·攀枝花盐边', mineral:'钒钛磁铁矿', stake:'集团主体开发', status:'建设中', lat:26.55, lng:101.90 },
+  { name:'麦基坦锂矿', country:'中国·甘孜州', mineral:'锂辉石', stake:'集团矿业权', status:'勘探/开发准备', lat:29.40, lng:101.80 },
+  { name:'牦牛坪稀土矿', country:'中国·凉山冕宁', mineral:'稀土', stake:'39%股权', status:'在产/整合中', lat:28.60, lng:102.20 },
+  { name:'梭罗沟金矿', country:'中国·凉山木里', mineral:'金', stake:'集团控制', status:'在产', lat:28.30, lng:101.10 },
+  { name:'张家坪子金矿', country:'中国·凉山冕宁', mineral:'金', stake:'集团控制', status:'在产/建设', lat:28.55, lng:102.18 },
+  { name:'振兴金矿', country:'中国·甘肃瓜州', mineral:'金', stake:'集团获取', status:'开发准备', lat:40.50, lng:95.80 },
+  { name:'大村煤矿', country:'中国·泸州古蔺', mineral:'煤', stake:'集团开发', status:'建设中', lat:28.10, lng:105.80 },
+  { name:'油气探矿权（乐山北/洪雅区块）', country:'中国·四川', mineral:'油气', stake:'联合竞得', status:'勘探', lat:29.60, lng:103.40 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 5, center: new TMap.LatLng(30, 102) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(30, 102), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

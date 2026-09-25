@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国石油国际勘探开发有限公司（中油国际 CNODC）· 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">中国石油集团全资子公司 · 非上市 · 海外油气专业公司</span>
+        <div class="company-name-cn">中国石油国际勘探开发有限公司</div>
+        <div class="company-name-en">China National Oil and Gas Exploration and Development Company（中油国际 / CNODC）</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-25</span>
+      <span>数据截至：2026-09-25</span>
+      <span>报告编号：DD-CNODC-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 海外油气资产地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    中油国际（CNODC）是中国石油集团授权专门管理海外油气投资与经营作业的专业公司，1984 年成立，注册资本 1,764.19 亿元且全额实缴，中石油集团 100% 持股、实控人为国务院国资委，是三桶油海外上游平台中体量最大的一家。核心资产为全球 31 国 80 个在运营项目与中亚-俄罗斯、中东、非洲、美洲、亚太五大合作区，2025 年海外油气权益产量当量创历史新高、连续 7 年保持亿吨以上效益稳产，并实现"经营性亏损全面清零"。国内注册主体层面风险极低（35 项风险因子仅 3 项有记录、无失信/被执行），但治理层面 2025-10 至 2026-07 三次高管备案密集变更（董事长陈明卓→刘国勇），叠加地缘政治（南苏丹复产复输、俄罗斯/中亚资产）与油价下行周期，其风险敞口主要在境外项目层面，国内工商数据无法覆盖。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">注册资本（全额实缴）</div><div class="kpi-value num">1,764.19 亿元</div><div class="kpi-delta">1984-09-14 成立 · 2018-12-14 实缴到位</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 海外权益产量当量</div><div class="kpi-value num">>1 亿吨</div><div class="kpi-delta up">创历史新高 · 连续 7 年亿吨稳产</div></div>
+    <div class="kpi-card"><div class="kpi-label">海外项目布局</div><div class="kpi-value num">31 国 80 项目</div><div class="kpi-delta">五大海外油气合作区（官网口径）</div></div>
+    <div class="kpi-card"><div class="kpi-label">本部参保人数</div><div class="kpi-value num">1,032 人</div><div class="kpi-delta">全口径中外雇员约 7.1 万人（爱企查口径，含海外项目公司）</div></div>
+  </div>
+
+  <!-- s1 -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>中国石油国际勘探开发有限公司（曾用名：中国石油天然气勘探开发公司）</td></tr>
+      <tr><td>统一社会信用代码</td><td class="num">911100001000232852</td></tr>
+      <tr><td>成立日期</td><td class="num">1984-09-14（营业期限 2017-12-20 起无固定期限）</td></tr>
+      <tr><td>注册资本</td><td class="num">17,641,897.9413 万元（1,764.19 亿元），实缴同额（2018-12-14）</td></tr>
+      <tr><td>法定代表人</td><td>刘国勇（董事长，2026-07-01 核准变更）</td></tr>
+      <tr><td>注册地址</td><td>北京市延庆区中关村延庆园东环路 2 号楼 369 室（通信地址：西城区阜成门北大街国际投资大厦 D 座）</td></tr>
+      <tr><td>企业类型</td><td>有限责任公司（法人独资）· 中央企业二级单位</td></tr>
+      <tr><td>登记状态</td><td>存续（在营、开业、在册）· 一般纳税人 · 大型企业</td></tr>
+      <tr><td>国标行业</td><td>科学研究和技术服务业 · 地质勘查 · 能源矿产地质勘查（7471）</td></tr>
+      <tr><td>经营范围（摘要）</td><td>对外派遣境外工程所需劳务人员；石油、天然气的勘探、开发和生产的投资与管理；承包境外石油天然气工程和境内国际招标工程；进出口业务；石油制品、钻遇/共生/伴生矿产资源的综合利用和投资管理；对外经济贸易咨询服务及技术交流</td></tr>
+    </table>
+    <div class="note-box">数据来源：企查查 MCP（get_company_registration_info，T+0，核验于 2026-09-25）。注意区分三家中石油体系"国际"公司：中油国际/CNODC（本报告标的，管海外上游）、中石油国际事业公司（管贸易，联合石化为其子公司）、中油油服（工程技术服务）。</div>
+  </section>
+
+  <!-- s2 -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览</div>
+    <table>
+      <thead><tr><th>指标</th><th>口径</th><th>数值/动态</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>注册资本/实缴</td><td>工商登记</td><td class="num">1,764.19 亿元 / 全额实缴</td><td>企查查 T+0</td></tr>
+        <tr><td>海外权益产量当量（2025）</td><td>集团海外口径</td><td class="num"><span class="up">创历史新高，连续 7 年 &gt;1 亿吨</span></td><td>中石油新闻中心 2026-01-22</td></tr>
+        <tr><td>经营性亏损（2025）</td><td>集团口径</td><td class="num"><span class="up">实现全面清零</span></td><td>中石油新闻中心 2026-01-22</td></tr>
+        <tr><td>合并三表（营收/归母净利/负债率）</td><td>—</td><td colspan="2">未获取——公司非上市、不独立披露；需通过中国石油股份（601857/0857）年报分部信息近似推断</td></tr>
+        <tr><td>历史里程碑（2011）</td><td>集团口径</td><td class="num">海外作业产量破 1 亿吨、权益产量 5,175 万吨（"海外大庆"建成）</td><td>百度百科/爱企查条目引公开报道</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：中油国际为非上市国企二级单位，无公开三表；"经营性亏损全面清零"为集团新闻稿定性表述，未披露具体利润金额。企查查财务接口本会话不可用。分析其财务实质应结合母公司中国石油（601857.SH）年报"海外油气业务"分部与资本开支披露交叉验证。</div>
+  </section>
+
+  <!-- s3 -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场环境</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>布伦特原油均价（2025）</td><td class="num">68.22 美元/桶</td><td class="num"><span class="down">−14.6%</span></td><td>国联民生证券研报引交易所数据，2026-03</td></tr>
+        <tr><td>中国原油对外依存度</td><td class="num">&gt;70% 长期高位</td><td class="num">海外权益产量是国家能源安全的核心抓手</td><td>公开行业研究综述，2026-09 检索</td></tr>
+        <tr><td>全球深海勘探开发景气</td><td class="num">巴西/圭亚那/东非为热点，FPSO 订单饱满</td><td class="num"><span class="up">上行</span></td><td>公开行业媒体报道，2025–2026</td></tr>
+        <tr><td>国际石油公司资产再平衡</td><td class="num">欧美石油巨头持续剥离成熟资产、聚焦深水与 LNG</td><td class="num">为中方接手权益资产提供窗口</td><td>公开报道综述</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>三桶油海外上游对标：中油国际（31 国 80 项目，规模第一）vs 海油国际（22 国，重深水资产质量）vs 中石化国际 SIPC（23 国 44 项目，扭亏修复期）</li>
+        <li>2011 年建成"海外大庆"（作业产量破亿吨），是全球少数权益产量亿吨级的国家石油公司海外平台</li>
+        <li>中油油服在其市场份额超 65%（百度百科引公开报道），体现"投资商+工程捆绑"模式</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>上游：海外勘探开发投资与作业（核心），含风险勘探与滚动勘探</li>
+        <li>中游：管道运营（东南亚管道公司——中缅原油管道等）</li>
+        <li>下游：炼油化工与油品销售（尼日尔津德尔炼厂 100 万吨/年等）——上中下游一体化完整产业链</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点与官方口径汇总</h3>
+    <table>
+      <thead><tr><th>观点/事实摘要</th><th>机构/媒体</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>2025 年海外油气权益产量当量创历史新高，连续 7 年亿吨稳产；12 项重点工程投产（南苏丹 3/7 区复产复输、布兹奥斯 6/7 单元、里贝拉梅罗 4、西古尔纳 20 万桶/日处理列等）；中标巴西深海 9 个勘探区块；阿曼 5 区二次延期；经营性亏损全面清零</td><td>中国石油新闻中心（官方通稿）</td><td class="num">2026-01-22</td><td>news.cnpc.com.cn / 中化新网转载</td></tr>
+        <tr><td>"十四五"海外征程：权益产量连年亿吨稳产、年均国际贸易量 5 亿吨以上、全球 120 余国开展业务；接替埃克森美孚成为伊拉克西古尔纳-1 牵头合同者、中标阿曼 15 区、苏里南浅海 14/15 区块、与雪佛龙联合中标巴西福斯杜亚马孙区块</td><td>中国石油集团官网</td><td class="num">2026-01</td><td>cnpc.com.cn</td></tr>
+        <tr><td>公司围绕"12345"战略架构推动海外业务高质量发展（压舱石/优结构/增动力/健肌体/强基础五大工程）</td><td>百度百科条目引公司公开材料</td><td class="num">2026 年更新</td><td>百度百科（历史公开信息，可能有滞后）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <ul class="bullet-list">
+      <li>2026-05：巴西布兹奥斯项目第八生产单元成功投产；土库曼斯坦复兴气田四期项目开工（中土能源合作）</li>
+      <li>2026-04：曼格什套公司（哈萨克斯坦）累计作业产量突破亿吨级里程碑</li>
+      <li>2026-03：南苏丹石油部召开发布会肯定中国石油项目复产贡献</li>
+      <li>2025-06：CNPC Oman 亮相阿曼石油与能源展；安哥拉 1506 区块（此为中石化国勘项目，注意主体区分）</li>
+      <li>国内侧：公司转让北京昌平小汤山富来宫温泉公寓 E 座 20 套住宅（央企直售商品房，权属清晰）——存量非经营资产处置信号</li>
+    </ul>
+    <div class="note-box">注：行业与动态数据来自 WebSearch 公开渠道（2026-09-25 检索），无行研类 MCP 接入；油价为研报引用口径而非实时行情。</div>
+  </section>
+
+  <!-- s4 -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">股东构成（一层直接）</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>中国石油天然气集团有限公司</td><td class="num">100%</td><td>中央企业（国务院国资委履行出资人职责）</td><td>企查查 get_shareholder_info（T+0）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>国务院国有资产监督管理委员会 → 中国石油集团 → 中油国际（企查查 get_actual_controller 服务端穿透：总持股 100%、表决权 100%）</li>
+        <li>认缴与实缴均为 1,764.19 亿元（2018-12-14 实缴到位）——央企注资实体化运作的典型样本</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>股权出质：0 条；股权冻结：0 条；股权质押：0 条（企查查 35 项风险因子扫描，2026-09-25）</li>
+        <li>无境外上市关联；海外项目通过 CNPC International (HK) Limited 等境外架构持有（见 s7）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- s5 -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期节点</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>刘国勇</td><td>董事长、法定代表人</td><td class="num">2026-07-01 核准（接替陈明卓）</td><td>2026-07 高管备案变更后任董事长</td></tr>
+        <tr><td>陈怀龙</td><td>经理、董事</td><td class="num">2026-02 备案起</td><td>经理层负责人</td></tr>
+        <tr><td>魏兆胜</td><td>董事</td><td class="num">2026-07 新增</td><td>2026-07 备案变更新增成员</td></tr>
+        <tr><td>杨雨</td><td>董事</td><td class="num">2026-02 新增</td><td>接替退出的曹伟、吴云、杨涛</td></tr>
+        <tr><td>刘文涛 / 刘明锐 / 靳凤兰 / 陆德喜 / 王龙</td><td>董事</td><td class="num">2025-10 备案起连续任职</td><td>跨三次备案保持稳定的老任董事</td></tr>
+        <tr><td>高伟</td><td>财务负责人</td><td class="num">连续任职</td><td>三次备案均保持</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：工商高管备案在 2025-10-15、2026-02-13、2026-07-01 三次密集变更（撤销监事会、总经理何文渊退出、董事长更替），属央企治理结构调整（监事会职责划入审计委员会）与正常干部轮替叠加；董事长三年内至少两次更替（陈明卓→刘国勇），稳定性弱于海油国际现任班子，建议关注后续任免。来源：企查查历史工商动态（T+0）。</div>
+  </section>
+
+  <!-- s6 -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://zhaopin.cnpc.com.cn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 中国石油高校毕业生招聘平台（校招唯一渠道）</a>
+      <a href="http://cnodc.cnpc.com.cn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-body,#333);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · cnodc.cnpc.com.cn</a>
+    </div>
+    <h3 class="sub">招聘体系与人才结构</h3>
+    <table>
+      <thead><tr><th>项目</th><th>对象/专业</th><th>流程特点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>中国石油 2026 秋季校招（集团统一，含海外业务板块）</td><td>2026/2027 届毕业生；石油石化主体专业 + "双碳三新"、人工智能与大数据、数理化基础学科；高层次毕业生引进（世界知名大学及国内一流综合性大学）</td><td>通用能力考试 → AI 面试 → 专业测评 → 背景调查；向西藏/青海/新疆及涉藏州县倾斜</td><td>中国石油高校毕业生招聘平台（WebSearch 核验 2026-09-25）</td></tr>
+        <tr><td>国际业务人才（公司口径）</td><td>中外雇员约 7.1 万人，外籍占比超 90%（含海外项目公司）</td><td>属地化用工为主，中方外派为骨干</td><td>爱企查企业知识条目引公开资料</td></tr>
+        <tr><td>校企合作</td><td>中国石油大学（北京）战略合作（2025-10 签署）；留学生培养基地；中亚办学支持</td><td>定向科研与人才输送通道</td><td>百度百科条目引公开报道</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>校招走集团统一平台（zhaopin.cnpc.com.cn 为唯一渠道），中油国际不单独设社会招聘门户——央企人事集中管理特征</li>
+        <li>专业结构强调 AI/大数据与"双碳三新"，指向海外项目的数智化转型（"科技减碳、数智采油"）</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>与 s7/s8 交叉印证：巴西深海、土库曼复兴气田四期等新项目上马对应国际化岗位持续需求；总部本部仅 1,032 人参保，印证"精干总部 + 属地化海外"模式</li>
+        <li>外籍占比超 90% 意味着属地用工合规（Local Content）是运营核心风险点之一（见 s10）</li>
+      </ul>
+    </div>
+    <div class="note-box">注：招聘信息为发布时点快照。企查查招聘接口本会话不可用，降级为集团统一招聘平台与公开报道（WebSearch 核验，2026-09-25）。中外雇员 7.1 万人口径来自第三方企业知识条目，含大量非本公司编制的属地项目公司人员，不代表国内主体用工规模。</div>
+  </section>
+
+  <!-- s7 -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（企查查 10 条记录全列）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>中油勘探开发有限公司</td><td class="num">50%</td><td class="num">161 亿元（认缴 80.5 亿）</td><td>中外合资勘探开发平台（2005 年设立，与集团另一主体合资）</td><td>存续</td></tr>
+        <tr><td>中国石油集团东南亚管道有限公司</td><td class="num">100%</td><td class="num">50.7 亿元</td><td>中缅原油管道等跨境管道运营</td><td>存续 · 海外能源通道资产</td></tr>
+        <tr><td>中油锐思技术开发有限责任公司</td><td class="num">100%</td><td class="num">1.8 亿元</td><td>技术开发（2013 年设立）</td><td>存续</td></tr>
+        <tr><td>中油中亚石油有限责任公司</td><td class="num">100%</td><td class="num">524 万元</td><td>中亚区域业务</td><td>存续（1996 年设立，历史最久）</td></tr>
+        <tr><td>北京中加石油技术交流合作中心有限公司</td><td class="num">100%</td><td class="num">480 万元</td><td>国际技术交流</td><td>存续（2023-12 新设）</td></tr>
+        <tr><td>CNODC Sunflower Limited</td><td class="num">100%</td><td class="num">1 股</td><td>境外持股/融资平台</td><td><b>境外主体（仍注册）</b>——国内工商数据不覆盖其下层资产</td></tr>
+        <tr><td>CNPC International (Hong Kong) Limited</td><td class="num">50.5%</td><td class="num">7,113 股</td><td>香港境外平台</td><td><b>境外主体（仍注册）</b>——海外项目权益的重要持有通道</td></tr>
+        <tr><td>北京中油锐思技术开发有限责任公司（旧）</td><td class="num">95%</td><td class="num">475 万元</td><td>—</td><td>已注销</td></tr>
+        <tr><td>北京猎鹰能源技术有限责任公司</td><td class="num">51%</td><td class="num">51 万元</td><td>—</td><td>已注销</td></tr>
+        <tr><td>广东南陆石油服务有限公司</td><td class="num">5%</td><td class="num">5 万元</td><td>—</td><td>吊销</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：来源企查查 get_external_investments（T+0，2026-09-25）。国内注册的直接投资仅 10 条，印证其核心资产在境外项目公司层面（80 个海外项目通过境外多层架构持有），国内工商数据源覆盖边界有限。三层吊销/注销记录均为小额历史主体。</div>
+  </section>
+
+  <!-- s8 -->
+  <section class="section" id="s8">
+    <div class="section-title">八、海外油气资产分布（地图）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>项目位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">海外项目资产明细（五大合作区代表性项目）</h3>
+    <table>
+      <thead><tr><th>项目/资产名称</th><th>所在国</th><th>类型</th><th>权益/角色</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>西古尔纳-1 油田</td><td>伊拉克</td><td>上游原油</td><td>牵头合同者（接替埃克森美孚）</td><td>在产（新建 20 万桶/日原油处理列 2025 投产）</td><td>中石油集团官网"十四五"报道 2026-01</td></tr>
+        <tr><td>哈法亚油田 / 艾哈代布</td><td>伊拉克</td><td>上游原油</td><td>作业者/权益方</td><td>在产</td><td>公司官网业务概述</td></tr>
+        <tr><td>阿曼 5 区 / 15 区</td><td>阿曼</td><td>上游+勘探</td><td>权益方/作业者</td><td>5 区完成第 2 次合同延期；15 区中标勘探项目</td><td>中石油新闻中心 2026-01</td></tr>
+        <tr><td>布兹奥斯项目（BuZios）</td><td>巴西</td><td>深水原油</td><td>权益参与方</td><td>第 8 生产单元 2026-05 投产</td><td>公司官网新闻 2026-05</td></tr>
+        <tr><td>里贝拉项目（Libra/Mero）</td><td>巴西</td><td>深水原油</td><td>权益参与方</td><td>梅罗 4 单元投产</td><td>中石油新闻中心 2026-01</td></tr>
+        <tr><td>巴西深海 9 个勘探区块</td><td>巴西</td><td>勘探</td><td>中标方</td><td>2025 中标</td><td>中石油新闻中心 2026-01</td></tr>
+        <tr><td>苏里南浅海 14/15 区块</td><td>苏里南</td><td>海上勘探</td><td>产品分成合同签署方</td><td>勘探期</td><td>中石油集团官网"十四五"报道</td></tr>
+        <tr><td>复兴气田（四期）</td><td>土库曼斯坦</td><td>天然气</td><td>合作开发</td><td>四期 2026-04 开工</td><td>公司官网新闻 2026-04</td></tr>
+        <tr><td>阿克纠宾 / PK 项目</td><td>哈萨克斯坦</td><td>上游原油</td><td>权益方</td><td>"十四五"顺利续期</td><td>中石油集团官网"十四五"报道</td></tr>
+        <tr><td>曼格什套项目</td><td>哈萨克斯坦</td><td>上游原油</td><td>作业者</td><td>累计作业产量破亿吨级（2026-04）</td><td>公司官网新闻 2026-04</td></tr>
+        <tr><td>博格达勘探项目</td><td>塔吉克斯坦</td><td>勘探</td><td>重启作业方</td><td>勘探期</td><td>中石油集团官网"十四五"报道</td></tr>
+        <tr><td>南苏丹 3/7 区</td><td>南苏丹</td><td>上游原油</td><td>作业者</td><td>2025 复产复输（受地缘冲突影响后恢复）</td><td>中石油新闻中心 2026-01</td></tr>
+        <tr><td>津德尔炼油厂</td><td>尼日尔</td><td>炼化（100 万吨/年）</td><td>合作建设方</td><td>在运（尼日尔首座炼厂）</td><td>百度百科条目引公开报道</td></tr>
+        <tr><td>乍得邦戈尔盆地 / 罗尼尔油田</td><td>乍得</td><td>上游+炼化</td><td>作业者</td><td>在产</td><td>公司官网业务概述（非洲合作区）</td></tr>
+        <tr><td>中缅原油管道</td><td>缅甸 → 中国</td><td>跨境管道</td><td>经由东南亚管道公司 100% 持有</td><td>在运</td><td>企查查对外投资 + 公开报道</td></tr>
+        <tr><td>印尼/新加坡/缅甸/泰国项目群</td><td>亚太</td><td>上中下游</td><td>权益方</td><td>在产</td><td>百度百科条目引公开报道</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图 GL JS（合规图源），海外项目坐标采用 WGS84（项目/油田级，小数点后 1–2 位，海上项目为近似海域位置）；项目清单以中国石油集团官网、公司官网与新闻中心公开披露为准（2026-01 至 2026-05），未公开披露权益比例的项目标注"权益方/作业者"而不臆测持股数。五大合作区完整项目清单（80 个）不在公开披露范围，本表为代表性样本。</div>
+  </section>
+
+  <!-- s9 -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>1984-09-14：公司成立（原名中国石油天然气勘探开发公司），为最早"走出去"的央企平台之一</li>
+        <li>1993：启动国际化经营；2005：中油勘探开发有限公司设立；2011：建成"海外大庆"（作业产量破亿吨、权益 5,175 万吨）</li>
+        <li>2012-08：CNPC International (Hong Kong) Limited 设立；2019-05：CNODC Sunflower Limited 设立——境外融资/持股架构成型</li>
+        <li>2018-12-14：注册资本 1,764.19 亿元全额实缴到位</li>
+        <li>"十四五"（2021–2025）：权益产量连年亿吨稳产；接替埃克森美孚成为西古尔纳-1 牵头合同者；2025 经营性亏损全面清零</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>风险扫描（企查查 35 项因子，2026-09-25）：有记录 3 项——裁判文书 5 条、开庭公告 1 条、行政处罚 1 条；失信/被执行/立案/股权冻结/环保处罚等 32 项均为 0</li>
+        <li>裁判文书与开庭以公司作为主体的国内诉讼量级为主（分诊口径，明细接口本会话不可用，未逐案下钻）</li>
+        <li>行政处罚 1 条：明细接口本会话不可用，案由与金额未获取——留作后续核验项</li>
+        <li>担保信息：工商维度 0 条；海外项目层面融资担保由集团/股份公司口径披露，不在国内工商数据覆盖内</li>
+        <li>科创属性：有效发明专利 39 项、实用新型 17 项、软件著作权 41 项；中关村高新技术企业；曾获国家级专利银奖（2023）、省部级科学技术进步奖（2025）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- s10 -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">1. 地缘政治与资产所在地国别风险（核心风险）</div>
+      <div>80 个项目分布在南苏丹（2025 年才复产复输）、尼日尔/乍得（2023–2024 年曾经历政权更迭与撤离事件）、俄罗斯与中亚（受国际制裁环境影响）、委内瑞拉等高风险国别；单项目停产、合同重签、资产国有化风险无法通过国内工商数据预警，需依托东道国条款与政治风险保险缓释。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">2. 油价下行周期的盈利压力</div>
+      <div>2025 年布伦特均价 68.22 美元/桶（−14.6%），公司虽实现"经营性亏损全面清零"，但效益稳产高度依赖"一项目一策"降本；若油价长期低于 60 美元/桶，高成本老油田（曼格什套等）与新建深水项目的资本回收期将显著拉长。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 治理层人事更替频繁</div>
+      <div>2025-10 至 2026-07 期间三次高管备案变更、董事长更替（陈明卓→刘国勇）、总经理何文渊退出；海外重大投资决策的连续性可能受管理层调整影响。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 财务透明度局限</div>
+      <div>非上市二级单位，无独立三表；1,764.19 亿元注册资本的资产回报率、分项目盈利均不公开。深度尽调需以母公司年报分部数据、债券市场披露（如发行）与东道国审计报告为补充源。</div>
+    </div>
+  </section>
+
+  <!-- s11 -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体定位：</b>中油国际是中国海外油气权益产量的"压舱石"——1,764.19 亿元实缴资本、31 国 80 项目、连续 7 年亿吨稳产，规模与国家能源安全绑定度均为三桶油海外平台之首。<br>
+      <b>经营面：</b>2025 年产量创新高、12 项重点工程投产、中标巴西深海 9 区块、经营性亏损清零，处于"规模稳 + 质量修复"阶段；对照中石化国际的扭亏叙事，中油国际的报表包袱更轻。<br>
+      <b>风险面：</b>核心风险全部在境外（地缘政治、油价、国别合规），国内主体层面风险画像干净（无失信/被执行/股权受限）。<br>
+      <b>建议：</b>作为合作方，与中油国际签约需区分主体层级（本部 vs 中油勘探开发合资平台 vs 境外项目公司）；作为研究标的，建议跟踪中石油股份（601857）年报海外分部资本开支方向（巴西深水/天然气占比提升）与南苏丹、俄向资产的再估值事件。
+    </div>
+  </section>
+
+  <!-- s12 -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 股东 / 实控人 / 主要人员 / 对外投资</td><td>企查查 MCP（T+0）</td><td class="num">2026-09-25</td><td>国家企业信用信息公示系统同源；参保 1,032 人为本部口径</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP（get_company_risk_scan，35 项因子）</td><td class="num">2026-09-25</td><td>仅计数分诊；裁判文书/行政处罚明细接口本会话不可用，未逐案下钻</td></tr>
+        <tr><td>海外业务与产量</td><td>中国石油新闻中心通稿（2026-01-22）、中石油集团官网"十四五"专题（2026-01）、公司官网 cnodc.cnpc.com.cn</td><td class="num">2026-09-25 检索</td><td>集团口径，未披露单项目财务；80 项目完整清单未公开</td></tr>
+        <tr><td>行业景气</td><td>国联民生证券研报（2026-03，转引）+ 公开报道综述</td><td class="num">2026-09-25 检索</td><td>无行研类 MCP 接入；油价为研报引用口径</td></tr>
+        <tr><td>人员与历史</td><td>百度百科/爱企查企业知识条目</td><td class="num">2026-09-25 检索</td><td>历史公开信息，可能有滞后；7.1 万雇员口径含海外属地用工，仅供参考</td></tr>
+        <tr><td>招聘动态</td><td>中国石油高校毕业生招聘平台 zhaopin.cnpc.com.cn（WebSearch 核验为集团校招唯一渠道）</td><td class="num">2026-09-25</td><td>企查查招聘接口本会话不可用；公司无独立社招门户，属央企集中招聘特征</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：<a href="https://hermes-404.github.io/sinomine-research/中油国际-尽职调查报告-v1.html" target="_blank" rel="noopener noreferrer">https://hermes-404.github.io/sinomine-research/中油国际-尽职调查报告-v1.html</a> · 本报告由 AI 辅助生成 · 数据截至 2026-09-25 · 中国石油国际勘探开发有限公司 · 报告编号 DD-CNODC-2026-V1</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'西古尔纳-1 油田', country:'伊拉克', mineral:'上游原油', stake:'牵头合同者', status:'在产', lat:31.0, lng:47.4 },
+  { name:'阿曼 5/15 区', country:'阿曼', mineral:'上游+勘探', stake:'权益方/作业者', status:'在产/勘探', lat:20.0, lng:57.0 },
+  { name:'复兴气田', country:'土库曼斯坦', mineral:'天然气', stake:'合作开发', status:'四期建设中', lat:38.0, lng:66.0 },
+  { name:'阿克纠宾/PK 项目', country:'哈萨克斯坦', mineral:'上游原油', stake:'权益方', status:'在产', lat:48.9, lng:65.4 },
+  { name:'曼格什套项目', country:'哈萨克斯坦', mineral:'上游原油', stake:'作业者', status:'在产', lat:43.8, lng:52.5 },
+  { name:'布兹奥斯/里贝拉（深水）', country:'巴西', mineral:'深水原油', stake:'权益参与方', status:'在产', lat:-24.2, lng:-42.0 },
+  { name:'苏里南 14/15 区块', country:'苏里南', mineral:'海上勘探', stake:'PSC 签署方', status:'勘探期', lat:5.8, lng:-55.2 },
+  { name:'南苏丹 3/7 区', country:'南苏丹', mineral:'上游原油', stake:'作业者', status:'复产复输', lat:9.9, lng:31.4 },
+  { name:'津德尔炼油厂', country:'尼日尔', mineral:'炼化', stake:'合作建设方', status:'在运', lat:14.0, lng:9.9 },
+  { name:'乍得项目群', country:'乍得', mineral:'上游+炼化', stake:'作业者', status:'在产', lat:10.4, lng:19.5 },
+  { name:'中缅原油管道', country:'缅甸', mineral:'跨境管道', stake:'东南亚管道公司100%', status:'在运', lat:19.5, lng:93.7 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>项目位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(20, 30) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(20, 30), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>角色：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

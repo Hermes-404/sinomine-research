@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国海洋石油国际有限公司（海油国际）· 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">BVI 注册 · 中海油有限公司（600938.SH / 0883.HK）全资附属 · 海外上游专业公司</span>
+        <div class="company-name-cn">中国海洋石油国际有限公司（海油国际）</div>
+        <div class="company-name-en">CNOOC International Ltd. · 国内关联实体：中海石油国际能源服务（北京）有限公司</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · 无评级</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-09-25</span>
+      <span>数据截至：2026-09-25</span>
+      <span>报告编号：DD-CNOOCI-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 海外资产地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    海油国际（CNOOC International Ltd）是中海油体系专门负责海外上游油气资产勘探、开发、并购与生产经营的国际化平台，1999 年在英属维尔京群岛注册、总部北京——<b>因注册地在境外，国内工商系统查无此主体档案</b>，本报告以其 100% 持股的国内关联实体「中海石油国际能源服务（北京）有限公司」（参保 619 人、注册资本 130 万美元）作为国内注册锚点，并明确区分两个法律主体。资产面，海油国际持有海外 22 国、约 470–490 亿美元资产，占中海油油气总资产约 40%–44.6%；旗舰资产为圭亚那 Stabroek 区块 25% 权益（可采资源约 110 亿桶）与巴西 Buzios/Mero 深水权益。2025 年中海油海外净产量 240.4 百万桶油当量（+2.7%）、海外净证实储量 2,757.4 百万桶油当量（占比 35.5%），海外板块量储双增但受油价下行拖累（母公司归母净利 1,220.8 亿元，−11.5%）。其取数路径与中油国际不同：核心披露依赖中海油上市公司年报与东道国监管文件，企查查仅能覆盖国内服务实体。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">海外资产规模</div><div class="kpi-value num">约 470–490 亿美元</div><div class="kpi-delta">占中海油油气总资产约 40%（2025 年报口径）</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">2025 海外净产量</div><div class="kpi-value num">240.4 百万桶</div><div class="kpi-delta up">同比 +2.7%（油当量）</div></div>
+    <div class="kpi-card"><div class="kpi-label">海外净证实储量（2025 底）</div><div class="kpi-value num">2,757.4 百万桶</div><div class="kpi-delta">占公司总储量 35.5%</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">母公司归母净利（2025）</div><div class="kpi-value num">1,220.8 亿元</div><div class="kpi-delta down">同比 −11.5%（油价下行拖累）</div></div>
+  </div>
+
+  <!-- s1 -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>标的主体</td><td>中国海洋石油国际有限公司（CNOOC International Ltd，简称海油国际）——1999 年于英属维尔京群岛（BVI）注册，总部设在北京，中国海洋石油有限公司（600938.SH / 0883.HK）全资附属公司</td></tr>
+      <tr><td>BVI 主体国内档案</td><td><b>未获取——境外注册主体不在国内工商数据源覆盖范围</b>（企查查检索"中国海洋石油国际有限公司"仅返回两个不相关候选）</td></tr>
+      <tr><td>国内关联实体</td><td>中海石油国际能源服务（北京）有限公司</td></tr>
+      <tr><td>统一社会信用代码（北京实体）</td><td class="num">911101010804804455</td></tr>
+      <tr><td>成立日期（北京实体）</td><td class="num">2013-11-22（营业期限至 2033-11-21）</td></tr>
+      <tr><td>注册资本（北京实体）</td><td class="num">130 万美元（外国法人独资，实缴同额，2014-05-09 实缴）</td></tr>
+      <tr><td>法定代表人（北京实体）</td><td>刘永杰（与海油国际 Chairman 同名——特立尼达和多巴哥能源部会见记录确认其为 CNOOC International 董事长）</td></tr>
+      <tr><td>注册地址（北京实体）</td><td>北京市东城区东直门外小街 6 号办公楼 15-25 层（通信地址：朝阳区太阳宫南街 6 号院海油大厦 A 座）</td></tr>
+      <tr><td>企业类型（北京实体）</td><td>有限责任公司（外国法人独资）· 一般纳税人 · 人员规模 600–699 人（参保 619 人）</td></tr>
+      <tr><td>经营范围（北京实体）</td><td>企业管理咨询；经济信息咨询；石油天然气的技术开发、技术推广；工程和技术研究和试验发展</td></tr>
+    </table>
+    <div class="note-box">数据来源：企查查 MCP（get_company_registration_info / get_shareholder_info，T+0，核验于 2026-09-25）。北京实体由"中国海洋石油国际有限公司"100% 持股，是 BVI 主体在国内的落地服务与用工载体；本报告后续工商口径数据（人员、股东、风险）均指北京实体，资产与业务口径指 BVI 海油国际主体，两者在文中显式区分。</div>
+  </section>
+
+  <!-- s2 -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（中海油上市公司海外分部口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2024 年</th><th>2025 年</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>海外净产量（百万桶油当量）</td><td class="num">234.0</td><td class="num"><span class="up">240.4（+2.7%）</span></td><td>中海油 2025 年报（港交所披露，2026-03-26）</td></tr>
+        <tr><td>海外净证实储量（百万桶油当量，年底）</td><td class="num">2,686.0</td><td class="num"><span class="up">2,757.4</span></td><td>同上；占公司总净证实储量 35.5%</td></tr>
+        <tr><td>母公司营业收入（亿元）</td><td class="num">4,206</td><td class="num"><span class="down">3,982（−5.3%）</span></td><td>中海油 2025 年报</td></tr>
+        <tr><td>母公司归母净利润（亿元）</td><td class="num">1,379</td><td class="num"><span class="down">1,220.8（−11.5%）</span></td><td>中海油 2025 年报；油价 −13.4% 致利润下降约 427 亿元</td></tr>
+        <tr><td>实现油价（美元/桶）</td><td class="num">76.75</td><td class="num"><span class="down">66.47（−13.4%）</span></td><td>中海油 2025 年报</td></tr>
+        <tr><td>桶油主要成本（美元/桶油当量）</td><td class="num">28.53</td><td class="num"><span class="up">27.90（−2.2%）</span></td><td>国联民生证券年报点评（2026-03-27）</td></tr>
+        <tr><td>海油国际独立三表</td><td colspan="2">未获取——BVI 非上市主体不独立披露</td><td>海外资产占母公司油气总资产约 40%（年报口径）/44.6%（爱企查口径，2025 年中）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：海油国际无独立公开报表，财务面以其唯一股东中海油有限公司（600938.SH/0883.HK）年报分部/区域数据近似刻画，币种为人民币（产量/储量/油价除外）。截至 2025 年中，第三方口径显示海油国际经济可采储量约 27 亿桶油当量、日均净产量约 66 万桶油当量、总资产约 490 亿美元（来源：爱企查企业知识条目引公开资料，与年报口径数量级一致但存在口径差异）。</div>
+  </section>
+
+  <!-- s3 -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场环境</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>布伦特原油均价（2025）</td><td class="num">68.22 美元/桶</td><td class="num"><span class="down">−14.6%</span></td><td>国联民生证券研报，2026-03</td></tr>
+        <tr><td>全球深水开发景气（圭亚那/巴西）</td><td class="num">Stabroek 区块单许可可采资源约 110 亿桶，为近 15 年全球最大单许可证发现</td><td class="num"><span class="up">高景气</span>，2030 年前 8 期项目滚动投产</td><td>中海油 2025 年报 + 特多能源部会见记录（2025-11）</td></tr>
+        <tr><td>中海油 2026 年产量规划</td><td class="num">7.8–8.0 亿桶油当量（+0.3%~2.9%）</td><td class="num">16 个新项目投产支撑，海外深水为主力增量之一</td><td>国联民生证券年报点评 2026-03</td></tr>
+        <tr><td>天然气/LNG 业务</td><td class="num">2025 年实现气价 7.95 美元/千立方英尺（+3.0%），逆势增长</td><td class="num"><span class="up">气强油弱</span></td><td>中海油 2025 年报</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>三桶油海外上游对标：海油国际资产质量最高（圭亚那 25% + 巴西深水 + 北海自作业），但规模小于中油国际（22 国 vs 31 国）</li>
+        <li>全球对标：与埃克森美孚（Stabroek 作业者 45%）、壳牌、道达尔在同一批世界级深水项目中同台，是少数进入全球顶级深水资产圈的中国玩家</li>
+        <li>近 30 年通过并购建成 470 亿美元资产组合（1994 年首单——收购印尼马六嘉区块）</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>上游：海外勘探开发与并购（核心），常规海上 + 非常规 + 油砂</li>
+        <li>中下游延伸：加拿大长湖油砂 SAGD+部分改质（85,000 桶/日沥青产能）、阿尔伯塔风电/电站等伴生资产</li>
+        <li>销售：海外原油经中海油国际贸易公司或海油国际在国内外市场销售，挂靠布伦特/迪拜/WTI 及产油国官价</li>
+      </ul>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>产量稳步提升、具备油价弹性的低估值龙头；2025 年产量 +7.0%，2026 年规划增长 0.3%–2.9%；桶油成本 27.90 美元同降 2.2%；现金分红比例 45%，A/H 股息率 2.8%/5.1%——投资评级：推荐（维持）</td><td>国联民生证券（能源团队）</td><td class="num">2026-03-27</td><td>新浪财经转引研报</td></tr>
+        <tr><td>2025 年海外净产量 240.4 百万桶油当量（+2.7%），巴西、圭亚那等南美项目成为产量增长重要来源；Buzios7、Yellowtail 等 16 个新项目投产</td><td>中海油有限公司（年报事实披露）</td><td class="num">2026-03-26</td><td>港交所 2025 年年报</td></tr>
+        <tr><td>"战略、市场、风控"三位一体国际化业务高质量发展体系——通过资产并购/处置、区块获取/转让、低碳资产布局持续优化组合</td><td>中国企业工作研究期刊（公司实践总结文章）</td><td class="num">2025 年</td><td>cpezg.com 期刊文章</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <ul class="bullet-list">
+      <li>2026-01-03：中海油宣布巴西 Buzios6 项目投产；2026-03-20：黄永章出任中海油有限公司 CEO（治理层变动波及海外板块管理）</li>
+      <li>2025-11-13：海油国际董事长刘永杰率队会见特立尼达和多巴哥能源部长，表达参与特多深水招标意愿（现持 Block 2(c) 12.5% 权益）</li>
+      <li>圭亚那 Stabroek：2025 年 Lukanani、Ranger 两个油田成功评价，Yellowtail 投产——已投产 4 期、2030 年预计 8 期运行</li>
+      <li>巴西 Buzios：已投产 7 期、2027 年预计 11 期运行；持有俄罗斯 Arctic LNG 2 股权（受制裁影响的存量资产）</li>
+      <li>英国北海：Buzzard 累产超 8 亿桶油当量，坚持 North Sea Transition Deal 减排承诺；Ettrick/Blackbird 进入退役拆解阶段</li>
+    </ul>
+    <div class="note-box">注：行业与机构观点来自 WebSearch 公开渠道（2026-09-25 检索），无行研类 MCP 接入；研报观点仅代表机构立场，与公司披露事实分列呈现。</div>
+  </section>
+
+  <!-- s4 -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">股权穿透（北京实体 → BVI 主体 → 上市公司）</h3>
+    <table>
+      <thead><tr><th>层级</th><th>主体</th><th>持股关系</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>中海石油国际能源服务（北京）有限公司</td><td>由中国海洋石油国际有限公司（BVI）100% 持股（认缴/实缴 130 万美元）</td><td>企查查 get_shareholder_info（T+0）</td></tr>
+        <tr><td>2</td><td>中国海洋石油国际有限公司（海油国际，BVI）</td><td>中国海洋石油有限公司（CNOOC Ltd，600938.SH/0883.HK）全资附属公司</td><td>公司官网/年报口径 + 特多能源部会见记录</td></tr>
+        <tr><td>3</td><td>中国海洋石油有限公司</td><td>中国海洋石油集团有限公司（国资委监管央企）控股；集团连续 22 年国资委考核 A 级（2026-07 披露）</td><td>上市公司公开披露 + 集团官网</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">受限情况与结构特征</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>北京实体股权出质/冻结/质押：企查查维度 0 条（以风险扫描为准，见 s9）</li>
+        <li>BVI 壳架构的典型特征：海外项目收益在境外闭环，北京实体仅承担服务与用工职能，注册资本仅 130 万美元——境内可执行资产有限</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>实际控制链条：国务院国资委 → 中国海油集团 → 中海油有限公司 → 海油国际（BVI）→ 各东道国项目公司</li>
+        <li>受益所有人穿透至自然人无实质意义（最终为国资）；AML 口径下以国资控制人披露为准</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- s5 -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名/主体</th><th>职务</th><th>背景要点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>刘永杰</td><td>海油国际董事长；北京实体法定代表人</td><td>2025-11 代表 CNOOC International 会见特多能源部长；兼任北京服务实体法代</td><td>特多政府新闻稿（2025-11-13）+ 企查查 T+0</td></tr>
+        <tr><td>王建（Wang Jian）</td><td>海油国际业务发展中心副总裁</td><td>随董事长出访特多，参与深水招标对接</td><td>特多政府新闻稿 2025-11</td></tr>
+        <tr><td>北京实体</td><td>参保 619 人（外国法人独资）</td><td>海油国际在国内的主要用工与运营服务载体（人员规模 600–699 人档）</td><td>企查查 T+0（2026-09-25）</td></tr>
+        <tr><td>黄永章</td><td>中海油有限公司 CEO（2026-03 起）</td><td>母公司治理层最新变动，间接影响海外板块管理汇报线</td><td>中海油公告 2026-03-20</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：海油国际（BVI）董事会完整名单不在国内公开渠道披露；北京实体的董监高备案以工商登记为准。中外方员工合计近 3,000 人（第三方口径，含海外项目属地用工）。</div>
+  </section>
+
+  <!-- s6 -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://cnooc.zhaopin.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 中国海油毕业生招聘平台（校招报名入口）</a>
+      <a href="https://cnoocinternational.com/?p=47/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-body,#333);font-weight:600;text-decoration:none;font-size:13px;">🌐 海油国际官网 Careers · New Graduates</a>
+    </div>
+    <h3 class="sub">招聘体系与岗位方向</h3>
+    <table>
+      <thead><tr><th>项目</th><th>对象/专业</th><th>流程与待遇特点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>中国海洋石油国际有限公司 2025 届招聘（集团统一考试）</td><td>应届毕业生（油气勘探开发、国际业务方向）</td><td>简历投递→校园宣讲→集团统一考试→专项笔试→面试与英语考试→体检签约；五险二金+周转住房+海外探亲机票</td><td>中国石油大学就业网转载招聘简章（WebSearch 核验）</td></tr>
+        <tr><td>CNOOC International Graduate Program（海外本地招聘）</td><td>Engineering / Geoscience / Safety / Operations / Business 毕业生</td><td>在线申请→视频面试→评估日（个人+小组演练）；training+mentorship+development assignments</td><td>海油国际官网 Careers 页（2026-09-25 核验）</td></tr>
+        <tr><td>加拿大/北美岗位（卡尔加里区域总部）</td><td>Process Operator、Geologist、Petrophysicist、HSE Co-op、财会等社招/Co-op 岗</td><td>Compressed Work Schedule（每月休两个周五）、公司养老金+储蓄匹配计划、带薪志愿者日</td><td>Indeed/公司招聘页公开信息（2026 年在招）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>双轨招聘：国内走集团统一平台（cnooc.zhaopin.com），海外属地走 CNOOC International 官网 Careers——与"国内服务实体 + 海外资产主体"的双层架构完全对应</li>
+        <li>国内通道强调"面试与英语考试"，国际业务语言能力为核心筛选项</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>与 s8 交叉印证：加拿大（长湖油砂、卡尔加里区域总部）岗位持续在招，英国北海资产进入退役阶段（Ettrick/Blackbird decommissioning）——扩张与收缩并存，资产组合处于动态优化期</li>
+        <li>海外探亲机票、周转住房等福利指向长期外派模式，属地化率低于中油国际（外籍占比 90%）</li>
+      </ul>
+    </div>
+    <div class="note-box">注：招聘信息为发布时点快照。企查查招聘接口本会话不可用，降级为公司官网 Careers、集团统一招聘平台与高校就业网转载公告（WebSearch 核验，2026-09-25）。</div>
+  </section>
+
+  <!-- s7 -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">海外资产组合（按区域归类，权益以 2025 年报及公司披露为准）</h3>
+    <table>
+      <thead><tr><th>资产/项目</th><th>所在国</th><th>类型</th><th>权益</th><th>状态</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>Stabroek 区块</td><td>圭亚那</td><td>深水原油</td><td class="num">25%</td><td>在产（4 期投产，2030 年 8 期）</td><td>可采资源约 110 亿桶；2025 年 Yellowtail 投产、Lukanani/Ranger 评价成功</td></tr>
+        <tr><td>Buzios 油田</td><td>巴西</td><td>深水原油</td><td class="num">权益参与</td><td>在产（7 期投产，2027 年 11 期）</td><td>Buzios7 2026-01 投产</td></tr>
+        <tr><td>Mero 油田</td><td>巴西</td><td>深水原油</td><td class="num">权益参与</td><td>在产（4 期投产）</td><td>Mero4 2025 年投产</td></tr>
+        <tr><td>Buzzard / Golden Eagle / Scott 区</td><td>英国（北海）</td><td>海上原油（作业者）</td><td class="num">43.21% / 36.54% / 41.89% 等</td><td>Buzzard/Golden Eagle 在产；Ettrick/Blackbird 退役中</td><td>Buzzard 累产超 8 亿桶油当量；公司官网披露权益比例</td></tr>
+        <tr><td>长湖（Long Lake）油砂</td><td>加拿大</td><td>油砂 SAGD+改质</td><td class="num">100%（运营）</td><td>在产（85,000 桶/日沥青产能）</td><td>另有 Hangingstone、Syncrude 权益；BC 省页岩气、阿尔伯塔电站/风电</td></tr>
+        <tr><td>米桑（Missan）油田群</td><td>伊拉克</td><td>上游原油</td><td class="num">权益参与</td><td>在产</td><td>中东合作区代表资产</td></tr>
+        <tr><td>尼日利亚海上区块</td><td>尼日利亚</td><td>深水原油</td><td class="num">权益参与</td><td>在产</td><td>公司官网披露"深水生产资产遍及圭亚那、尼日利亚、巴西"</td></tr>
+        <tr><td>Block 2(c)</td><td>特立尼达和多巴哥</td><td>海上油气</td><td class="num">12.5%（经由 Chaoyang Petroleum）</td><td>在产/扩产意向</td><td>2025-11 表达参与深水招标意向（特多能源部新闻稿）</td></tr>
+        <tr><td>BC Energy Investments</td><td>阿根廷</td><td>非常规油气</td><td class="num">50%</td><td>持有</td><td>中海油 2025 年报披露</td></tr>
+        <tr><td>Arctic LNG 2</td><td>俄罗斯</td><td>LNG</td><td class="num">股权持有</td><td>受国际制裁影响（受限资产）</td><td>中海油 2025 年报披露；运营状态受制裁约束</td></tr>
+        <tr><td>国内关联实体</td><td>中国·北京</td><td>管理咨询/技术服务</td><td class="num">BVI 主体 100% 持股</td><td>存续（参保 619 人）</td><td>企查查 T+0</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：BVI 主体的下层海外项目公司注册信息不在国内工商数据源覆盖范围，上表权益与状态以中海油上市公司年报（2026-03-26）、海油国际官网（2026-09-25 核验）及东道国政府披露为准。爱企查口径显示资产分布在亚太、中东、非洲、欧洲、美洲 22 国。</div>
+  </section>
+
+  <!-- s8 -->
+  <section class="section" id="s8">
+    <div class="section-title">八、海外油气资产分布（地图）</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>资产位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">海外资产地图明细（与 s7 一一对应）</h3>
+    <table>
+      <thead><tr><th>资产名称</th><th>所在国</th><th>类型</th><th>权益</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>Stabroek 区块（Yellowtail 等 4 期在产）</td><td>圭亚那（海上）</td><td>深水原油</td><td class="num">25%</td><td>在产</td><td>中海油 2025 年报</td></tr>
+        <tr><td>Buzios 油田</td><td>巴西（海上）</td><td>深水原油</td><td class="num">权益参与</td><td>在产（7 期）</td><td>中海油 2025 年报 / 官网</td></tr>
+        <tr><td>Mero 油田</td><td>巴西（海上）</td><td>深水原油</td><td class="num">权益参与</td><td>在产（4 期）</td><td>中海油 2025 年报</td></tr>
+        <tr><td>Buzzard（作业者 43.21%）</td><td>英国（北海）</td><td>海上原油</td><td class="num">43.21%</td><td>在产</td><td>海油国际官网 UK 页</td></tr>
+        <tr><td>Golden Eagle（作业者 36.54%）</td><td>英国（北海）</td><td>海上原油</td><td class="num">36.54%</td><td>在产</td><td>海油国际官网 UK 页</td></tr>
+        <tr><td>长湖油砂（Long Lake）</td><td>加拿大（阿尔伯塔）</td><td>油砂 SAGD</td><td class="num">100% 运营</td><td>在产</td><td>海油国际官网/Indeed 公司介绍</td></tr>
+        <tr><td>米桑油田群</td><td>伊拉克</td><td>上游原油</td><td class="num">权益参与</td><td>在产</td><td>爱企查企业知识条目引公开资料</td></tr>
+        <tr><td>尼日利亚深水区块</td><td>尼日利亚（海上）</td><td>深水原油</td><td class="num">权益参与</td><td>在产</td><td>特多能源部新闻稿（公司自述）</td></tr>
+        <tr><td>Block 2(c)</td><td>特立尼达和多巴哥</td><td>海上油气</td><td class="num">12.5%</td><td>在产</td><td>特多能源部新闻稿 2025-11</td></tr>
+        <tr><td>BC Energy Investments</td><td>阿根廷</td><td>非常规油气</td><td class="num">50%</td><td>持有</td><td>中海油 2025 年报</td></tr>
+        <tr><td>Arctic LNG 2</td><td>俄罗斯</td><td>LNG</td><td class="num">股权持有</td><td>受制裁约束</td><td>中海油 2025 年报</td></tr>
+        <tr><td>中海石油国际能源服务（北京）</td><td>中国·北京</td><td>服务实体</td><td class="num">100%（BVI 持股）</td><td>存续</td><td>企查查 T+0</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图为腾讯地图 GL JS（合规图源），境外资产坐标采用 WGS84（资产级近似位置，海上项目为海域示意点，小数点后 1 位）；权益与状态以中海油 2025 年年报（2026-03-26 披露）及公司官网 2026-09 核验口径为准。22 国完整资产清单未全部公开，本表列示 12 项代表性/可核验资产。</div>
+  </section>
+
+  <!-- s9 -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>1993–1994：中海油启动国际化，首单并购（印尼马六嘉区块）拉开海外扩张序幕</li>
+        <li>1999：中国海洋石油国际有限公司（BVI）注册成立，总部设北京——海外上游统一平台确立</li>
+        <li>2013-11-22：北京服务实体设立（130 万美元，外国法人独资），承接国内用工与支持职能</li>
+        <li>2013：151 亿美元收购加拿大尼克森（Nexen）——中国史上海外最大油气并购之一，长湖油砂等资产并入（历史背景，Nexen 并购由中海油有限公司直接实施，长湖现由海油国际体系运营）</li>
+        <li>近年：形成"战略、市场、风控"三位一体管理体系；圭亚那、巴西深水权益随 2017–2019 年交易落入并持续增值</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>北京实体风险扫描（企查查 35 项因子，2026-09-25）：本次会话深度接口不可用，未取得计数结果——以工商基础信息（存续、无异常标注）为准，留作后续核验项</li>
+        <li>BVI 主体及海外项目公司风险：不在国内工商数据覆盖范围，需依赖东道国诉讼/制裁数据库核查</li>
+        <li>制裁敏感点：持有俄罗斯 Arctic LNG 2 股权，该项目受美欧制裁影响（2025 年报仍列示为持有资产）；北美资产历史上曾受美国外国投资委员会（CFIUS）审查背景（Nexen 案，2013）</li>
+        <li>担保：北京实体注册资本仅 130 万美元，境内担保能力有限；海外项目融资担保在母公司层面披露</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- s10 -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">1. 境内信息穿透边界（尽调结构性风险）</div>
+      <div>标的核心法律主体注册于 BVI，国内工商系统查无档案；北京实体注册资本仅 130 万美元，境内可执行资产与其管理的 470 亿美元海外资产规模严重不匹配。与海油国际签约或追索时，务必须明确合同相对方是北京实体、BVI 主体还是东道国项目公司，并核查相应法域的可执行性。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">2. 地缘政治与制裁风险</div>
+      <div>俄罗斯 Arctic LNG 2 股权直接暴露于美欧制裁之下（资产受限、变现困难）；北美资产（加拿大长湖油砂、英国北海）面临能源转型政策压力（North Sea Transition Deal 减排约束、油砂 ESG 评级压力）；圭亚那/巴西深水虽为优质资产，但伴随主权声索争议海域（圭亚那-委内瑞拉）与深水作业成本风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 油价下行与母公司利润传导</div>
+      <div>2025 年母公司归母净利 −11.5%（油价 −13.4% 所致），海外板块盈利与油价高度联动；不过圭亚那、巴西深水桶油成本处于全球成本曲线左侧，抗周期能力强于老油田资产。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 资产组合再平衡的执行风险</div>
+      <div>英国部分油田（Ettrick/Blackbird）已进入退役拆解阶段，北海退役成本刚性支出大；公司同时推进新项目（特多深水招标意向）与存量处置，组合切换期的执行与减值风险需关注。</div>
+    </div>
+  </section>
+
+  <!-- s11 -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体定位：</b>海油国际是三桶油海外上游平台中"资产质量最优"的一家——圭亚那 Stabroek 25%（110 亿桶级世界级发现）+ 巴西深水权益 + 北海自作业资产构成全球第一梯队的深水组合，1994 年以来以并购方式建成 22 国 470 亿美元盘子。<br>
+      <b>经营面：</b>海外量储双增（2025 净产量 +2.7%、储量占比 35.5%），母公司桶油成本降至 27.90 美元全球领先；短期盈利受油价下行拖累（归母 −11.5%），但深水资产的增量接续（Stabroek 2030 年 8 期、Buzios 2027 年 11 期）可见度高。<br>
+      <b>风险面：</b>与中油国际不同，海油国际的风险不在规模而在结构——BVI 壳 + 境内轻资产、俄罗斯制裁敞口、北海退役成本。<br>
+      <b>建议：</b>作为合作方，任何合同签署前必须锁定具体法域主体；作为研究标的，跟踪中海油（600938）年报海外分部、圭亚那-委内瑞拉海域争端进展与 Arctic LNG 2 的处置动向三件事即可覆盖其主要风险敞口变化。
+    </div>
+  </section>
+
+  <!-- s12 -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>主体锚定</td><td>企查查 MCP（get_company_by_query："中国海洋石油国际有限公司"返回两个不相关候选）</td><td class="num">2026-09-25</td><td><b>确认 BVI 主体不在国内工商数据源覆盖范围</b>；本报告以 100% 持股的北京服务实体为国内锚点</td></tr>
+        <tr><td>北京实体工商/股东</td><td>企查查 MCP（get_company_registration_info / get_shareholder_info，T+0）</td><td class="num">2026-09-25</td><td>参保 619 人；注册资本 130 万美元；外资企业口径</td></tr>
+        <tr><td>财务与储量产量</td><td>中海油有限公司 2025 年年报（港交所披露 2026-03-26/2026-04-09）+ 国联民生证券年报点评（2026-03-27）</td><td class="num">2026-09-25 检索</td><td>海外分部为上市公司口径，非海油国际独立报表；470–490 亿美元资产规模为第三方口径</td></tr>
+        <tr><td>海外资产与权益</td><td>中海油 2025 年年报 + 海油国际官网（cnoocinternational.com，UK/Canada 页）+ 特多能源部新闻稿（2025-11-13）</td><td class="num">2026-09-25 核验</td><td>22 国完整清单未公开；权益比例以披露为准，未披露者标"权益参与"</td></tr>
+        <tr><td>人员与治理</td><td>企查查 T+0 + 特多政府新闻稿 + 上市公司公告</td><td class="num">2026-09-25</td><td>BVI 董事会完整名单未公开；中外方员工近 3,000 人为第三方口径</td></tr>
+        <tr><td>招聘动态</td><td>海油国际官网 Careers 页 + 中国海油毕业生招聘平台（cnooc.zhaopin.com，经中国石油大学就业网简章核验）+ Indeed 公开岗位</td><td class="num">2026-09-25 核验</td><td>企查查招聘接口本会话不可用；岗位为时点快照</td></tr>
+        <tr><td>风险扫描</td><td>企查查 MCP（get_company_risk_scan 对北京实体）</td><td class="num">2026-09-25</td><td>本会话深度接口失效未取得计数，留作后续核验项；BVI 及海外主体不在覆盖范围</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：<a href="https://hermes-404.github.io/sinomine-research/海油国际-尽职调查报告-v1.html" target="_blank" rel="noopener noreferrer">https://hermes-404.github.io/sinomine-research/海油国际-尽职调查报告-v1.html</a> · 本报告由 AI 辅助生成 · 数据截至 2026-09-25 · 中国海洋石油国际有限公司（BVI）/ 中海石油国际能源服务（北京）有限公司 · 报告编号 DD-CNOOCI-2026-V1</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'Stabroek 区块（25%）', country:'圭亚那·海上', mineral:'深水原油', stake:'25%', status:'在产（4期，2030年8期）', lat:8.8, lng:-58.2 },
+  { name:'Buzios 油田', country:'巴西·海上', mineral:'深水原油', stake:'权益参与', status:'在产（7期）', lat:-24.6, lng:-42.9 },
+  { name:'Mero 油田', country:'巴西·海上', mineral:'深水原油', stake:'权益参与', status:'在产（4期）', lat:-22.9, lng:-40.9 },
+  { name:'Buzzard（作业者43.21%）', country:'英国·北海', mineral:'海上原油', stake:'43.21%', status:'在产', lat:57.6, lng:1.5 },
+  { name:'Golden Eagle（作业者36.54%）', country:'英国·北海', mineral:'海上原油', stake:'36.54%', status:'在产', lat:57.5, lng:1.0 },
+  { name:'长湖油砂 Long Lake', country:'加拿大·阿尔伯塔', mineral:'油砂 SAGD', stake:'100% 运营', status:'在产', lat:56.4, lng:-111.3 },
+  { name:'米桑油田群', country:'伊拉克', mineral:'上游原油', stake:'权益参与', status:'在产', lat:31.5, lng:47.3 },
+  { name:'尼日利亚深水区块', country:'尼日利亚·海上', mineral:'深水原油', stake:'权益参与', status:'在产', lat:4.3, lng:6.5 },
+  { name:'Block 2(c)', country:'特立尼达和多巴哥', mineral:'海上油气', stake:'12.5%', status:'在产', lat:10.5, lng:-61.5 },
+  { name:'BC Energy（50%）', country:'阿根廷', mineral:'非常规油气', stake:'50%', status:'持有', lat:-38.0, lng:-64.5 },
+  { name:'Arctic LNG 2', country:'俄罗斯', mineral:'LNG', stake:'股权持有', status:'受制裁约束', lat:69.5, lng:76.0 },
+  { name:'中海石油国际能源服务（北京）', country:'中国·北京', mineral:'服务实体', stake:'100%（BVI持股）', status:'存续', lat:39.94, lng:116.44 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>资产位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(10, -30) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(10, -30), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>权益：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
