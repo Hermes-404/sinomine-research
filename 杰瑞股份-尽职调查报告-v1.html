@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>烟台杰瑞石油服务集团股份有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+.chart-wrap{border:1px solid var(--border);border-radius:2px;padding:18px 20px 10px;margin-top:14px;background:var(--bg-card)}
+.chart-title{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px}
+[data-theme="dark"] .chart-title{color:#c9d6e8}
+.chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">深交所主板 · 002353.SZ</span>
+        <div class="company-name-cn">烟台杰瑞石油服务集团股份有限公司</div>
+        <div class="company-name-en">Yantai Jereh Oilfield Services Group Co., Ltd.</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调 · 中性</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-10-05</span>
+      <span>数据截至：2026-10-05</span>
+      <span>报告编号：DD-JEREH-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球布局</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    杰瑞股份是国内陆上压裂/高端油田装备与油气工程服务的民营龙头，2025 年营收 162.23 亿元（+21.5%）、合并净利润 27.52 亿元（+2.5%），资产负债率低至 38.9%，财务稳健。公司"装备+工程+海外"模式使其不依赖自有油田、抗油价单边波动能力强，海外收入占比约 50%。2026 年以约 209 亿元 AIDC 燃机订单切入 AI 数据中心供电第二曲线，打开新成长空间；但 2026H1 受中东地缘冲突致项目延期、汇兑损失（2.64 亿元）及俄罗斯光明能源出表影响，归母净利润同比 -3.7%。股权结构清晰（孙伟杰等创始团队联合控制），无失信/被执行等重大风险，整体资质优良。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">总资产（2026H1）</div><div class="kpi-value num">395.68亿</div><div class="kpi-delta">较 2025 年末 +1.1%</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">营业收入（2025）</div><div class="kpi-value num">162.23亿</div><div class="kpi-delta up">同比 +21.5%</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">净利润（合并，2025）</div><div class="kpi-value num">27.52亿</div><div class="kpi-delta up">同比 +2.5%</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">资产负债率（2026H1）</div><div class="kpi-value num">38.90%</div><div class="kpi-delta down">低位稳健</div></div>
+  </div>
+
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>烟台杰瑞石油服务集团股份有限公司</td></tr>
+      <tr><td>统一社会信用代码</td><td>91370000720717309H</td></tr>
+      <tr><td>成立日期</td><td>1999-12-10</td></tr>
+      <tr><td>注册资本</td><td>102,385.5833 万元（约 10.24 亿元，已全额实缴）</td></tr>
+      <tr><td>法定代表人</td><td>李志勇</td></tr>
+      <tr><td>注册地址</td><td>山东省烟台市莱山区杰瑞路 5 号</td></tr>
+      <tr><td>企业类型</td><td>股份有限公司（上市、自然人投资或控股）</td></tr>
+      <tr><td>登记状态</td><td>在营（开业）企业</td></tr>
+      <tr><td>经营范围（摘要）</td><td>油田专用设备、油田特种作业车、油田专用半挂车的生产、组装、销售、维修、租赁；油田设备、矿山设备、工业专用设备的维修、技术服务及配件销售；为石油勘探和钻采提供工程技术服务；油田专用设备和油田服务技术的研究和开发；货物及技术的进出口；仓储业务等。（依法须经批准的项目，经相关部门批准后方可开展经营活动）</td></tr>
+    </table>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入（亿元）</td><td class="num">139.12</td><td class="num">133.55</td><td class="num">162.23</td><td>合并报表；企查查财务数据</td></tr>
+        <tr><td>净利润（合并，含少数股东，亿元）</td><td class="num">24.93</td><td class="num">26.86</td><td class="num">27.52</td><td>合并报表；企查查财务数据</td></tr>
+        <tr><td>毛利率（%）</td><td class="num">32.75</td><td class="num">33.70</td><td class="num">31.69</td><td>合并报表测算</td></tr>
+        <tr><td>资产负债率（%）</td><td class="num">36.60</td><td class="num">38.36</td><td class="num">38.88</td><td>合并报表</td></tr>
+        <tr><td>经营现金流净额（亿元）</td><td class="num">10.49</td><td class="num">25.94</td><td class="num">53.78</td><td>合并报表</td></tr>
+        <tr><td>总资产（亿元）</td><td class="num">317.77</td><td class="num">356.95</td><td class="num">391.30</td><td>合并报表</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：2026 年半年报（截至 2026-06-30）营业收入 76.46 亿、合并净利润 12.15 亿、总资产 395.68 亿、资产负债率 38.90%、毛利率 30.97%，经营现金流 -7.48 亿（受提前锁定燃机核心部件预付款影响）。企查查口径"净利润"为合并净利润（含少数股东），与年报"归母净利润"存在少数股东损益差异；2025 年及 2026H1 归母净利润以公司年报/半年报披露为准（2026H1 归母净利润约 12.0 亿元，同比 -3.7%，受中东项目交付延期、汇兑损失及俄罗斯光明能源出表影响）。货币单位：人民币。</div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>布伦特原油年均价</td><td class="num">68.03 美元/桶</td><td class="num">-14.81%</td><td>2025 年均价；行业研究/公开数据（ima 知识库，2026）</td></tr>
+        <tr><td>中国油服工程板块指数</td><td class="num">2332.35 点</td><td class="num">年初至今 +3.89%</td><td>行情数据（WebSearch，2026-09-30）</td></tr>
+        <tr><td>杰瑞高端装备制造毛利率</td><td class="num">39.8%</td><td class="num">同比 +1.5pct</td><td>2026H1；公司半年报/腾讯证券研报（2026-08-18）</td></tr>
+        <tr><td>AIDC 燃机累计订单</td><td class="num">约 209 亿元</td><td class="num">2025-11 至今跨越式增长</td><td>公司公告/中财网（2026-08-21）</td></tr>
+        <tr><td>杰瑞 2026H1 新签/存量订单</td><td class="num">100.5 / 140.0 亿</td><td class="num">存量 +13.0%</td><td>公司半年报/研报（不含开口合同与框架协议）</td></tr>
+        <tr><td>油气工程及技术服务收入</td><td class="num">24.9 亿元</td><td class="num">同比 +20.2%</td><td>2026H1；受益于海外油气工程订单交付</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>国内陆上压裂/高端油田装备+工程民营样本营收第一：2026H1 营收 76.46 亿、同比 +10.8%，显著领先通源石油、海默科技等</li>
+        <li>行业第一梯队：中海油服（央企，2026H1 营收 237.87 亿）、石化机械、杰瑞股份（民企龙头）、中曼石油等</li>
+        <li>核心优势：压裂成套装备、工程总包、天然气/燃机电力设备；不依赖自有油田，靠"装备+工程+海外"抗单油价波动</li>
+        <li>海外对标：与西门子能源、FTAI Power 达成燃机战略合作，切入 AIDC 供电第二曲线</li>
+      </div>
+      <div class="bullet-list">
+        <li>上游：钢材/零部件/电气（外采）；中游：高端油田装备（压裂、固井、连续油管）、天然气处理、燃机发电机组自主研发制造</li>
+        <li>下游：国内外油公司（中石油/中石化/中海油、中东与中亚国家油公司）、油气工程总包、AIDC 数据中心客户</li>
+        <li>业务结构（2026H1）：高端装备制造 41.9 亿（毛利率 39.8%）、油气工程及技术服务 24.9 亿（+20.2%）、油气田开发（受益油价）、新能源 5.3 亿（+62.3%）</li>
+        <li>海外收入占比约 50%，国际化程度高</li>
+      </div>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>短期扰动不改经营韧性，AIDC 订单加速打开成长空间，维持"强烈推荐"</td><td>招商证券</td><td class="num">2026-08-18</td><td>腾讯证券研报摘要</td></tr>
+        <tr><td>燃机业务打开全新成长空间，预计 2026-2028 收入净利快速增长，当前时点燃机订单落地拉动效应值得重点关注</td><td>中财网/券商研报</td><td class="num">2026-08-21</td><td>中财网</td></tr>
+        <tr><td>杰瑞 Q2 扣非 -27.17%、H1 扣非 -7.37% 受汇兑/光明出表/中东延期扰动，需看剔除汇兑敏感性后的常态盈利</td><td>易有料行业研究</td><td class="num">2026</td><td>WebSearch（行业对比）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <div class="bullet-list">
+      <li>国内：能源安全战略下油气勘探开发资本开支持续，"七年行动计划"延续，非常规油气（页岩气/致密油）装备需求提供支撑</li>
+      <li>海外监管动态：中东地缘冲突（美以伊）导致部分项目交付延期、霍尔木兹海峡风险推升油价波动；杰瑞在美电力设备主要应用于数据中心离网电源，初步判断直接影响有限</li>
+      <li>新业务：AI 数据中心（AIDC）建设带动全球电力需求（预计 2030 年耗电复合增速约 14.7%），燃气轮机成为主流供电方案，杰瑞累计斩获约 209 亿元燃机订单，多数 2027 年及以后交付</li>
+      <li>公司事件：2025 年底出售俄罗斯光明能源（减少本期可比利润）；与西门子能源签署 SGT 燃机战略合作、与 FTAI Power 成立合资公司</li>
+    </div>
+    <div class="note-box">注：行业研究数据来源于公开渠道（行情数据、券商研报摘要、行业对比），部分为 2026 年 9-10 月快照，可能与最新披露存在差异；机构观点以"机构观点"名义呈现，不作为事实陈述，亦不构成投资建议。</div>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">前十大股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>孙伟杰</td><td class="num">19.04%</td><td>自然人（实控人）</td><td>企查查/年报</td></tr>
+        <tr><td>2</td><td>王坤晓</td><td class="num">13.05%</td><td>自然人（联合控制）</td><td>企查查/年报</td></tr>
+        <tr><td>3</td><td>刘贞峰</td><td class="num">10.73%</td><td>自然人（联合控制）</td><td>企查查/年报</td></tr>
+        <tr><td>4</td><td>香港中央结算有限公司</td><td class="num">6.16%</td><td>境外法人（陆股通）</td><td>企查查/年报</td></tr>
+        <tr><td>5</td><td>富国天惠精选成长混合(LOF)</td><td class="num">1.07%</td><td>证券投资基金</td><td>企查查/年报</td></tr>
+        <tr><td>6</td><td>永赢科技智选混合发起式</td><td class="num">0.78%</td><td>证券投资基金</td><td>企查查/年报</td></tr>
+        <tr><td>7</td><td>吴秀武</td><td class="num">0.68%</td><td>自然人</td><td>企查查/年报</td></tr>
+        <tr><td>8</td><td>中国人寿传统-普通保险产品</td><td class="num">0.56%</td><td>保险资金</td><td>企查查/年报</td></tr>
+        <tr><td>9</td><td>基本养老保险基金八零八组合</td><td class="num">0.49%</td><td>社保基金</td><td>企查查/年报</td></tr>
+        <tr><td>10</td><td>全国社保基金一零一组合</td><td class="num">0.46%</td><td>社保基金</td><td>企查查/年报</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>孙伟杰直接持股 19.04%，为第一大股东、实际控制人，兼任非独立董事、总裁</li>
+        <li>王坤晓（13.05%）、刘贞峰（10.73%）为联合创始团队，三人构成共同控制核心</li>
+        <li>受益所有人：孙伟杰（19.04%）、王坤晓（13.05%）经穿透识别为联合实际控制主体</li>
+        <li>陆股通（香港中央结算）持股 6.16%，机构化程度较高，股权分散度良性</li>
+      </div>
+      <div class="bullet-list">
+        <li>企查查风险扫描：股权质押记录 21 条、担保信息 682 条（多为上市公司对外担保及股东质押，非重大异常）</li>
+        <li>失信信息 / 被执行人 / 限制高消费：均为 0 条</li>
+        <li>股权冻结：0 条；经营异常 / 行政处罚 / 环保处罚：均为 0 条</li>
+        <li>整体股权结构清晰，未见实际控制人变更风险信号</li>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>李志勇</td><td>董事长、非独立董事</td><td>2019-05-09 至今</td><td>持股 0.07%；主导公司战略与治理</td></tr>
+        <tr><td>王继丽</td><td>副董事长、非独立董事</td><td>2013-12-28 至今</td><td>持股 0.21%；资深管理层</td></tr>
+        <tr><td>孙伟杰</td><td>非独立董事、总裁</td><td>2013-12-28 至今</td><td>持股 19.04%；创始团队、实际控制人</td></tr>
+        <tr><td>王坤晓</td><td>非独立董事</td><td>2013-12-28 至今</td><td>持股 13.05%；创始团队、联合控制</td></tr>
+        <tr><td>刘贞峰</td><td>非独立董事</td><td>2020-01-22 至今</td><td>持股 10.73%；创始团队、联合控制</td></tr>
+        <tr><td>刘东</td><td>职工代表董事</td><td>2025-12-29 至今</td><td>兼任工业设计中心/研究开发中心负责人</td></tr>
+        <tr><td>曲宁</td><td>董事会秘书</td><td>2023-01-03 至今</td><td>资本运作与信息披露</td></tr>
+        <tr><td>崔玲玲</td><td>财务总监</td><td>2023-01-03 至今</td><td>财务管理</td></tr>
+        <tr><td>路伟 / 李慧涛 / 张洪耐 / 张伟</td><td>副总裁</td><td>2023 / 2026 新一届</td><td>业务板块分管；2026 年新聘高管团队</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://future.jereh.com/campus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网招聘入口 · 杰瑞集团招聘官网（校招/社招）</a>
+      <a href="https://www.jereh.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · 杰瑞股份（www.jereh.com）</a>
+    </div>
+    <h3 class="sub">在招岗位明细（2026 届校招/社招快照）</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026 校招</td><td>海外油田服务工程师</td><td class="num">校招未公开</td><td>本科及以上</td><td>国外</td><td>杰瑞招聘官网</td></tr>
+        <tr><td class="num">2026 校招</td><td>国内油田服务工程师</td><td class="num">校招未公开</td><td>本科</td><td>全国/烟台</td><td>杰瑞招聘官网</td></tr>
+        <tr><td class="num">2026 校招</td><td>维修工程师（燃气轮机方向）</td><td class="num">校招未公开</td><td>本科及以上</td><td>上海</td><td>杰瑞招聘官网</td></tr>
+        <tr><td class="num">2026 校招</td><td>27 届-售后服务工程师（机械/电气）</td><td class="num">校招未公开</td><td>本科及以上</td><td>全国</td><td>杰瑞招聘官网</td></tr>
+        <tr><td class="num">2026 校招</td><td>海外施工工程师（电气/仪器仪表）</td><td class="num">校招未公开</td><td>本科/硕士</td><td>天津</td><td>杰瑞招聘官网</td></tr>
+        <tr><td class="num">2026 校招</td><td>环保服务工程师-再生循环</td><td class="num">校招未公开</td><td>本科及以上</td><td>国外</td><td>杰瑞招聘官网</td></tr>
+        <tr><td class="num">2026 实习</td><td>算法工程师（实习岗）</td><td class="num">实习薪资</td><td>本科及以上</td><td>烟台</td><td>杰瑞招聘官网</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">补充：杰瑞对应届生提供"20 万无息购房贷款、轿车奖、股权激励、三年住宿"等专属政策（来源：杰瑞招聘官网 future.jereh.com/campus、jereh.com/cn/career）；校招具体月薪以 offer 为准，本表不臆测薪酬数字。</div>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>2026 届校招覆盖技术研发类（35 岗）、市场开发类（12）、职能类（11）、采购类（6）、工程服务&产品交付类（8）、青年合伙人（13）等，工程服务/海外岗位占比高</li>
+        <li>职能方向聚焦：海外油田服务、燃气轮机维修（AIDC 燃机新业务）、环保再生循环、电气/仪器仪表，与"油气工程+燃机"第二曲线高度吻合</li>
+        <li>海外岗位（国外/天津/上海）明显放量，呼应中东/中亚/北美海外工程与燃机出海</li>
+      </div>
+      <div class="bullet-list">
+        <li>燃气轮机维修工程师（上海）等岗位直接对应 AIDC 燃机订单（约 209 亿元）交付与运维需求</li>
+        <li>海外油田服务/施工工程师扩招，呼应 2026H1 油气工程及技术服务收入 +20.2%、海外收入占比约 50%</li>
+        <li>未发现收缩/停招信号，整体呈扩张型招聘，与业务增长一致</li>
+      </div>
+    </div>
+    <div class="note-box">注：招聘数据来源于杰瑞集团招聘官网（future.jereh.com/campus、jereh.com/cn/career），抓取于 2026-10-05，为发布时点快照；招聘数据仅为岗位发布快照，不代表实际编制规模，解读时须注意该局限。</div>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（共 28 条记录，列示主要）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注（海外资产重点标注）</th></tr></thead>
+      <tbody>
+        <tr><td>杰瑞石油装备技术有限公司</td><td class="num">100%</td><td class="num">20 亿元</td><td>高端油田装备制造</td><td>核心制造 base</td></tr>
+        <tr><td>杰瑞石油天然气工程有限公司</td><td class="num">100%</td><td class="num">10 亿元</td><td>油气工程总包</td><td>核心工程平台</td></tr>
+        <tr><td>杰瑞能源服务有限公司</td><td class="num">100%</td><td class="num">8 亿元</td><td>油田技术服务</td><td>油服主体</td></tr>
+        <tr><td>德州联合石油科技股份有限公司</td><td class="num">44.25%</td><td class="num">86,296,873 股</td><td>井下工具/装备（参股）</td><td>已上市；产业链协同</td></tr>
+        <tr><td>杰瑞环球发展有限公司</td><td class="num">100%</td><td class="num">5000 万元</td><td>海外投资与业务平台</td><td><span class="pill risk">境外 · 2016 设立</span></td></tr>
+        <tr><td>杰瑞新能源科技有限公司</td><td class="num">100%</td><td class="num">1 亿元</td><td>新能源/再生循环</td><td>新能源布局</td></tr>
+        <tr><td>杰瑞智算科技（深圳）有限公司</td><td class="num">95%</td><td class="num">1900 万元</td><td>AI/算力方向</td><td><span class="pill warn">2026 新设</span></td></tr>
+        <tr><td>山东杰瑞敏电能源有限公司</td><td class="num">100%</td><td class="num">1 亿元</td><td>能源</td><td><span class="pill warn">2025 新设</span></td></tr>
+        <tr><td>四川杰瑞能源开发有限公司</td><td class="num">100%</td><td class="num">3.1 亿元</td><td>能源开发</td><td><span class="pill warn">2025 新设</span></td></tr>
+        <tr><td>烟台富耐克换热器有限公司</td><td class="num">65%</td><td class="num">1950 万元</td><td>换热器</td><td>核心部件协同</td></tr>
+        <tr><td>杰瑞（青岛）石化科技有限公司</td><td class="num">100%</td><td class="num">2500 万元</td><td>石化科技</td><td>研发协同</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-title">八、全球业务布局与海外平台</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-card)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>全球布局位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球业务布局 / 海外平台明细</h3>
+    <table>
+      <thead><tr><th>业务/资产名称</th><th>所在国/地区</th><th>业务性质</th><th>持股/方式</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>杰瑞环球发展有限公司</td><td>中国香港 / 境外</td><td>投资与海外业务平台</td><td class="num">100%</td><td>在运营</td><td>企查查对外投资</td></tr>
+        <tr><td>中东（阿联酋等）业务中心</td><td>阿联酋 / 中东</td><td>油气工程与服务交付</td><td>业务覆盖</td><td>在运营</td><td>公司披露/公开信息</td></tr>
+        <tr><td>中亚（哈萨克斯坦等）</td><td>哈萨克斯坦 / 中亚</td><td>油服装备</td><td>业务覆盖</td><td>在运营</td><td>公司披露/公开信息</td></tr>
+        <tr><td>北美（美国）</td><td>美国 / 北美</td><td>装备出口 / 燃机</td><td>业务覆盖</td><td>在运营</td><td>公司披露/公开信息</td></tr>
+        <tr><td>烟台/天津/上海/深圳/青岛基地</td><td>中国</td><td>制造与研发基地</td><td>自有</td><td>在产</td><td>企查查/年报</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：杰瑞股份为油气装备与工程服务商，无自有油气矿权。本图标注为区域级业务覆盖/海外平台，坐标为公开城市级地理坐标（非井位级），非敏感披露坐标；底图来源腾讯地图，境内坐标采用 GCJ-02，境外采用 WGS84。公网部署需在腾讯位置服务开放平台（lbs.qq.com）申请 key 替换占位符并配置 Referer 白名单；未配置时地图自动降级为上方明细表，不影响数据完整性。</div>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>1999-12-10 公司成立（烟台杰瑞），创始团队孙伟杰、王坤晓、刘贞峰</li>
+        <li>2010-02-05 深交所上市（002353），由中小板转入主板</li>
+        <li>2016 设立杰瑞环球发展有限公司，推进国际化布局</li>
+        <li>2021 起拓展新能源、再生循环、工业互联网、数字孪生等多元业务</li>
+        <li>2025-2026 切入 AIDC 燃机赛道，与西门子能源、FTAI Power 合作；2025 年底出售俄罗斯光明能源</li>
+      </div>
+      <div class="bullet-list">
+        <li>企查查风险扫描（35 项）：裁判文书 47、立案 18、开庭公告 30、公示催告 8、担保信息 682、股权质押 21</li>
+        <li>无失信信息、被执行人、限制高消费、破产重整、股权冻结记录</li>
+        <li>无经营异常、行政处罚、严重违法、环保处罚、税务非正常户记录</li>
+        <li>担保信息 682 条主要为上市公司对外担保及股东质押，未见重大违规线索</li>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item">
+      <div style="font-weight:600">1. 业绩短期扰动与汇兑风险（中）</div>
+      <div>2026H1 归母净利润同比 -3.7%，受中东地缘冲突致项目延期、汇兑损失 2.64 亿元、俄罗斯光明能源出表影响；海外收入占比约 50%，汇率与地缘波动对利润弹性较大。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">2. 燃机新业务交付与回款风险（中）</div>
+      <div>AIDC 燃机订单约 209 亿元，但客户延期付款已导致部分燃机利润延后（预计 Q3 释放）；新业务规模化交付、供应链保障及回款节奏存在不确定性。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 油价与油服资本开支周期风险（中）</div>
+      <div>公司主业与全球油气资本开支高度相关，若油价长期低迷将压制装备与工程订单；但多元化（燃机/新能源）已一定程度分散单一周期风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 估值与股东质押风险（低-中）</div>
+      <div>PE(TTM) 约 42.8 倍、PB 约 4.88 倍处历史中高区间；股权质押记录 21 条，需关注实控人及主要股东质押平仓风险。</div>
+    </div>
+  </section>
+
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体与资质：</b>杰瑞股份为 A 股上市民企（002353），实控人孙伟杰等创始团队联合控制、股权清晰，无失信/被执行/行政处罚等重大风险，治理规范。<br>
+      <b>财务与偿债：</b>2025 年营收 162.23 亿（+21.5%）、合并净利润 27.52 亿（+2.5%），资产负债率仅 38.9%，经营现金流 53.78 亿，财务稳健、偿债能力强。<br>
+      <b>竞争力：</b>国内陆上压裂/高端油田装备与工程服务民营龙头，海外收入占比约 50%，"装备+工程+海外"模式抗油价单边波动；AIDC 燃机订单约 209 亿元打开第二成长曲线。<br>
+      <b>关注点：</b>短期受地缘、汇兑及新业务交付节奏扰动；估值处中高位、股东质押需跟踪。<br>
+      <b>建议：</b>作为油服装备龙头与 AI 电力新曲线标的，可纳入长期跟踪；重点监测燃机订单交付确认节奏、海外项目回款与汇率、以及实控人质押比例变化。本报告不构成投资建议。
+    </div>
+  </section>
+
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记/股权/实控人/财务/风险/对外投资/董监高/联系</td><td>企查查 MCP（qcc-company / qcc-risk）</td><td>2026-10-05</td><td>工商与财务以企查查为准；"净利润"为合并净利润（含少数股东），与年报"归母净利润"存在少数股东损益差异</td></tr>
+        <tr><td>招聘动态与官网入口</td><td>杰瑞集团招聘官网（future.jereh.com/campus、jereh.com/cn/career）</td><td>2026-10-05</td><td>为发布时点快照，不代表实际编制规模；薪酬以 offer 为准</td></tr>
+        <tr><td>行业研究与机构观点</td><td>腾讯证券/招商证券研报摘要（2026-08-18）、中财网（2026-08-21）、易有料行业对比、行情数据（2026-09-30）</td><td>2026-10-05</td><td>公开渠道，部分为 2026 年 9-10 月快照；机构观点以"机构观点"名义呈现，不作为事实陈述</td></tr>
+        <tr><td>海外资产/业务布局</td><td>企查查对外投资 + 公司披露/公开信息</td><td>2026-10-05</td><td>国内工商数据源不覆盖境外子公司注册信息，海外平台以公司披露为准；坐标为区域级公开地理坐标</td></tr>
+        <tr><td>地图渲染</td><td>腾讯地图 GL JS（合规底图）</td><td>—</td><td>公网部署需配置腾讯地图 key 并配置 Referer 白名单；未配置时降级为明细表</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：https://hermes-404.github.io/sinomine-research/杰瑞股份-尽职调查报告-v1.html · 本报告由 AI 辅助生成 · 数据截至 2026-10-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'烟台总部/制造基地', country:'中国山东', mineral:'装备制造总部', stake:'100%自有', status:'在产', lat:37.43, lng:121.41 },
+  { name:'中东业务中心(阿联酋)', country:'阿联酋', mineral:'油气工程与服务', stake:'业务覆盖', status:'在运营', lat:25.20, lng:55.27 },
+  { name:'中亚(哈萨克斯坦)', country:'哈萨克斯坦', mineral:'油服装备', stake:'业务覆盖', status:'在运营', lat:48.00, lng:67.00 },
+  { name:'北美(美国)', country:'美国', mineral:'装备出口/燃机', stake:'业务覆盖', status:'在运营', lat:29.76, lng:-95.37 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>全球布局位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(35, 60) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(35, 60), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股/方式：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>

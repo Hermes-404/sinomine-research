@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中曼石油天然气集团股份有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">上交所主板 · 603619.SH</span>
+        <div class="company-name-cn">中曼石油天然气集团股份有限公司</div>
+        <div class="company-name-en">ZhongMan Petroleum and Natural Gas Group Corp., Ltd.</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调 · 中性</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-10-05</span>
+      <span>数据截至：2026-10-05</span>
+      <span>报告编号：DD-ZPEC-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 油气资产</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    中曼石油是国内少有的"钻井工程总包 + 自有油气田"一体化民营能源企业（603619），业务遍及新疆温宿、哈萨克斯坦、伊拉克、阿尔及利亚。2025 年营收 39.26 亿元（-5.05%）、合并净利润 5.33 亿元，2025 年归母净利润 5.10 亿元（同比 -29.80%，受油价下行拖累）；2025 年合计生产原油 91.64 万吨（+7.23%），温宿油田产油 64.58 万吨、哈萨克斯坦坚戈油田产油 27.06 万吨（+35.30%）。公司"资源+技术"双引擎特征明显，但资产负债率偏高（2026H1 64.28%）、利润对油价敏感，且 2026H1 业绩显著承压（营收 -13.89%、归母 -67.03%）。实控人李春第通过上海中曼投资控股持股 19.71%，股权集中；无失信/被执行等重大风险，但股权质押记录较多（57 条）。
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">总资产（2026H1）</div><div class="kpi-value num">131.43亿</div><div class="kpi-delta">较 2025 年末 +5.1%</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">营业收入（2025）</div><div class="kpi-value num">39.26亿</div><div class="kpi-delta down">同比 -5.1%</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">净利润（合并，2025）</div><div class="kpi-value num">5.33亿</div><div class="kpi-delta down">同比 -28.0%</div></div>
+    <div class="kpi-card"><div class="kpi-label">资产负债率（2026H1）</div><div class="kpi-value num">64.28%</div><div class="kpi-delta">偏高 · 需关注</div></div>
+  </div>
+
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>中曼石油天然气集团股份有限公司</td></tr>
+      <tr><td>统一社会信用代码</td><td>913100007514799050</td></tr>
+      <tr><td>成立日期</td><td>2003-06-13</td></tr>
+      <tr><td>注册资本</td><td>46,233.8461 万元（约 4.62 亿元，已全额实缴）</td></tr>
+      <tr><td>法定代表人</td><td>李春第</td></tr>
+      <tr><td>注册地址</td><td>中国（上海）自由贸易试验区临港新片区南汇新城镇飞渡路 2099 号 1 幢 1 层</td></tr>
+      <tr><td>企业类型</td><td>股份有限公司（上市、自然人投资或控股）</td></tr>
+      <tr><td>登记状态</td><td>存续（在营、开业、在册）</td></tr>
+      <tr><td>经营范围（摘要）</td><td>石油工程、管道工程、海洋石油工程、环保工程、石油和天然气开采；上述专业技术及产品的研究开发、技术转让、技术咨询、技术服务；石油机械设备、仪器仪表的销售；承包境外地质勘查工程和境内国际招标工程；对外派遣实施前述工程所需的劳务人员；自营和代理各类商品和技术的进出口；勘查工程施工（凭资质）。</td></tr>
+    </table>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入（亿元）</td><td class="num">37.32</td><td class="num">41.35</td><td class="num">39.26</td><td>合并报表；企查查财务数据</td></tr>
+        <tr><td>净利润（合并，含少数股东，亿元）</td><td class="num">8.23</td><td class="num">7.41</td><td class="num">5.33</td><td>合并报表；企查查财务数据</td></tr>
+        <tr><td>毛利率（%）</td><td class="num">45.73</td><td class="num">46.00</td><td class="num">44.19</td><td>合并报表测算</td></tr>
+        <tr><td>资产负债率（%）</td><td class="num">68.88</td><td class="num">64.32</td><td class="num">63.08</td><td>合并报表</td></tr>
+        <tr><td>经营现金流净额（亿元）</td><td class="num">15.81</td><td class="num">15.42</td><td class="num">13.03</td><td>合并报表</td></tr>
+        <tr><td>总资产（亿元）</td><td class="num">92.92</td><td class="num">119.55</td><td class="num">125.03</td><td>合并报表</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：2026 年半年报（截至 2026-06-30）营业收入 17.06 亿（-13.89%）、合并净利润 1.16 亿、总资产 131.43 亿、资产负债率 64.28%、毛利率 41.59%。企查查口径"净利润"为合并净利润（含少数股东）；2025 年归母净利润 5.10 亿元（同比 -29.80%）、2026H1 归母净利润约 0.99 亿元（同比 -67.03%），以公司年报/半年报披露为准。货币单位：人民币。资产负债率持续高于 60%，财务杠杆偏高。</div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>布伦特原油年均价</td><td class="num">68.03 美元/桶</td><td class="num">-14.81%</td><td>2025 年均价；行业研究/公开数据（ima 知识库，2026）</td></tr>
+        <tr><td>中曼 2025 原油/油气当量产量</td><td class="num">91.64 / 112.39 万吨</td><td class="num">+7.23%</td><td>公司年报/公告（2026-04）；温宿+坚戈</td></tr>
+        <tr><td>温宿油田 2025 产油</td><td class="num">64.58 万吨</td><td class="num">-1.34%</td><td>公司年报；核心支柱区块</td></tr>
+        <tr><td>坚戈油田 2025 产油</td><td class="num">27.06 万吨</td><td class="num">+35.30%</td><td>公司年报；哈萨克斯坦项目</td></tr>
+        <tr><td>温宿项目新增探明地质储量</td><td class="num">1232.44 万吨</td><td class="num">2025 申报</td><td>自然资源部评审备案（公司公告）</td></tr>
+        <tr><td>2026 原油价格中枢预期</td><td class="num">显著升高</td><td class="num">地缘推升</td><td>行业研究（ima 知识库，2026）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>国内"钻井工程总包 + 自有油气田"一体化模式稀缺，与杰瑞（纯装备工程）、中海油服（纯工程服务）形成差异</li>
+        <li>规模远小于杰瑞：2026H1 营收仅为杰瑞约 22%，属中型民营油服+资源标的</li>
+        <li>核心壁垒：温宿区块（自有勘探开发）、海外钻井总包能力（伊拉克/哈萨克斯坦/阿尔及利亚）</li>
+        <li>短板：装备制造板块 2025 营收 1.40 亿（-57.19%），资源属性强于装备属性</li>
+      </div>
+      <div class="bullet-list">
+        <li>上游：自有油气勘探开发（温宿、坚戈），下游：原油销售 + 钻井工程服务（国内外油公司）</li>
+        <li>业务结构（2025）：勘探开发 22.06 亿（-5.18%）、钻完井工程 15.39 亿（+8.44%）、装备制造 1.40 亿（-57.19%）</li>
+        <li>地域：国内（新疆温宿）/ 国外（哈、伊、阿）约各半（2026H1 国内 49.99%、国外 48.97%）</li>
+        <li>产业链协同："勘探—钻完井工程—装备制造"一体化向海外复制</li>
+      </div>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>2025 营收略降、勘探开发拖累归母（-29.80%）；油价下行致勘探开发板块利润下降；温宿增储明显、伊拉克区块进展顺利</td><td>ima 证券知识库（行业研究）</td><td class="num">2026</td><td>ima 知识库/公开整理</td></tr>
+        <tr><td>中曼"钻井工程+自有原油产量"，OCF 为正、原油业务毛利高；短板是营收规模仅为杰瑞 22%、中报归母因油价与高基数大幅下滑</td><td>易有料行业对比</td><td class="num">2026</td><td>WebSearch（行业对比）</td></tr>
+        <tr><td>风险提示：原油价格大幅波动；原油增产不及预期；地缘政治风险</td><td>行业研究（中性）</td><td class="num">2026</td><td>ima 知识库</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <div class="bullet-list">
+      <li>国内：温宿区块探矿权成功延期（勘查面积 1044.30 km²，有效期 2025.4.27-2027.4.26），柯柯牙/红旗坡/赛克油田储量申报获自然资源部通过</li>
+      <li>海外监管动态：伊拉克 EBN/MF 区块 PDP 初始开发方案 2025-07 巴格达 JMC 会议获批；阿尔及利亚 Zerafa II 气田推进地震处理与地质研究；哈萨克斯坦坚戈/岸边油田勘探突破</li>
+      <li>油价：2025 Brent 均价 68.03 美元/桶（-14.81%），2026 中枢预期因地缘升高，对公司业绩弹性大</li>
+      <li>公司事件：2026 年度"提质增效重回报"行动方案落地，推进"资源+技术"双引擎；拟参与天诚基金份额（LP）</li>
+    </div>
+    <div class="note-box">注：行业研究数据来源于公开渠道（行情数据、行业研究库、公司公告摘要），部分为 2026 年快照；机构观点以"机构观点"名义呈现，不作为事实陈述，亦不构成投资建议。</div>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">前十大股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>上海中曼投资控股有限公司</td><td class="num">19.71%</td><td>法人（实控人平台）</td><td>企查查/年报</td></tr>
+        <tr><td>2</td><td>香港中央结算有限公司</td><td class="num">2.47%</td><td>境外法人（陆股通）</td><td>企查查/年报</td></tr>
+        <tr><td>3</td><td>全国社保基金一一一组合</td><td class="num">1.67%</td><td>社保基金</td><td>企查查/年报</td></tr>
+        <tr><td>4</td><td>金志明</td><td class="num">1.25%</td><td>自然人</td><td>企查查/年报</td></tr>
+        <tr><td>5</td><td>朱逢学</td><td class="num">1.20%</td><td>自然人</td><td>企查查/年报</td></tr>
+        <tr><td>6</td><td>古颂谦</td><td class="num">1.10%</td><td>自然人</td><td>企查查/年报</td></tr>
+        <tr><td>7</td><td>立心方圆1号私募证券投资基金</td><td class="num">0.87%</td><td>基金</td><td>企查查/年报</td></tr>
+        <tr><td>8</td><td>UBS AG</td><td class="num">0.84%</td><td>合格境外机构</td><td>企查查/年报</td></tr>
+        <tr><td>9</td><td>工商银行企业年金计划</td><td class="num">0.37%</td><td>年金</td><td>企查查/年报</td></tr>
+        <tr><td>10</td><td>大成产业趋势混合</td><td class="num">0.36%</td><td>基金</td><td>企查查/年报</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>李春第通过上海中曼投资控股有限公司持股 19.71%，为实际控制人（总持股 19.71%）</li>
+        <li>受益所有人：李春第（最终受益股份 19.71%），兼任法定代表人、董事长、非独立董事</li>
+        <li>股权结构集中，第一大股东为实控人控股平台，无分散化导致的控制权争议</li>
+        <li>陆股通（香港中央结算）持股 2.47%，机构参与度中等</li>
+      </div>
+      <div class="bullet-list">
+        <li>企查查风险扫描：股权质押记录 57 条、股权出质 1 条、担保信息 126 条（多为控股股东/实控人质押及对外担保）</li>
+        <li>失信信息 / 被执行人 / 限制高消费：均为 0 条</li>
+        <li>股权冻结：0 条；经营异常 / 行政处罚 / 环保处罚：均为 0 条</li>
+        <li>股权质押记录较多（57 条），需关注实控人及一致行动人质押平仓风险</li>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>李春第</td><td>董事长、非独立董事</td><td>2013-12-22 至今</td><td>法定代表人、实控人；战略核心</td></tr>
+        <tr><td>李艳秋</td><td>副董事长、非独立董事</td><td>2025-04-01 至今</td><td>资深管理层</td></tr>
+        <tr><td>李世光</td><td>非独立董事、总裁</td><td>2020-08-26 至今</td><td>经营负责人</td></tr>
+        <tr><td>陈庆军</td><td>非独立董事、高级副总裁</td><td>2020-08-26 至今</td><td>业务分管</td></tr>
+        <tr><td>姚桂成</td><td>非独立董事、高级副总裁</td><td>2024-12-09 至今</td><td>业务分管</td></tr>
+        <tr><td>耿宪良 / 王文博 / 李雪松</td><td>高级副总裁</td><td>2024-12-09 至今</td><td>业务板块分管</td></tr>
+        <tr><td>石明鑫</td><td>董事会秘书</td><td>2020-01-07 至今</td><td>信息披露与资本运作</td></tr>
+        <tr><td>邱明亮</td><td>财务总监</td><td>2026-03-09 至今</td><td>财务管理</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://zpec.com/human/jobs" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网招聘入口 · 中曼石油人才招聘（zpec.com/human/jobs）</a>
+      <a href="https://www.zpec.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · 中曼石油（www.zpec.com）</a>
+    </div>
+    <h3 class="sub">在招岗位明细（官网/校招快照）</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026 校招</td><td>油藏/地质/油田开发/采油工程师</td><td class="num">国内 7-10K；国外 15-19K</td><td>本科/硕士/博士</td><td>上海/新疆温宿/海外</td><td>中曼招聘/校招简章</td></tr>
+        <tr><td class="num">2022-01-06</td><td>测井/固井/定向井/射孔工程师</td><td class="num">未披露</td><td>专业技术岗</td><td>伊拉克</td><td>zpec.com/human/jobs</td></tr>
+        <tr><td class="num">2022-01-06</td><td>钢丝/连油/酸化压裂/完井工程师</td><td class="num">未披露</td><td>专业技术岗</td><td>伊拉克</td><td>zpec.com/human/jobs</td></tr>
+        <tr><td class="num">2026 校招</td><td>机械/电气/安全/油田化学工程师</td><td class="num">国内 7-10K；国外 15-19K</td><td>本科及以上</td><td>新疆/陕西/内蒙古/海外</td><td>中曼招聘/校招简章</td></tr>
+        <tr><td class="num">2022-01-06</td><td>钻工/泥浆工/井架工/柴油机司机</td><td class="num">未披露</td><td>技能岗</td><td>新疆/陕西/内蒙古</td><td>zpec.com/human/jobs</td></tr>
+        <tr><td class="num">2026 校招</td><td>财务/审计/行政/法务/市场贸易主管</td><td class="num">面议</td><td>经管/法学类</td><td>上海/海外</td><td>中曼招聘/校招简章</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">补充：2026 届"星火计划"/海内外油田项目专项招聘约 90 人；薪酬结构为"固定+绩效+团队奖+突出贡献奖"，国内现场综合约 11 万元/年、国外现场综合约 22 万元/年（来源：高校就业网/中曼招聘）。月薪区间取自校招公开信息，具体以 offer 为准。</div>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>招聘以石油工程类（地质/油藏/采油）、机械/电气/安全、油田化学为核心，高度贴合"勘探开发+钻井工程"主业</li>
+        <li>海外岗位（伊拉克、俄罗斯、哈萨克斯坦、阿尔及利亚）持续放出，呼应国际化油服与海外油田布局</li>
+        <li>校招集中面向新疆温宿油田与海外油田项目，反映上游增储上产的人才需求</li>
+      </div>
+      <div class="bullet-list">
+        <li>招聘动向与 s7 投资布局、s3 行业研究交叉印证：温宿稳产、坚戈/岸边产能建设、伊拉克 EBN/MF 区块开发准备均需要大量工程与地质人才</li>
+        <li>未发现收缩/停招信号；2026 届专项招聘 90 人显示上游扩张意愿</li>
+        <li>外派补贴与"工作 2-3 月可回国休假 1 月"反映海外项目的高强度作业特征</li>
+      </div>
+    </div>
+    <div class="note-box">注：招聘数据来源于中曼石油官网（zpec.com/human/jobs）、中曼招聘公众号及高校就业网公开简章，抓取于 2026-10-05，为发布时点快照；招聘数据仅为岗位发布快照，不代表实际编制规模。</div>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（共 16 条记录，列示主要）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注（海外资产重点标注）</th></tr></thead>
+      <tbody>
+        <tr><td>中曼石油装备集团有限公司</td><td class="num">100%</td><td class="num">3.9 亿元</td><td>高端油气装备制造</td><td>装备制造主体</td></tr>
+        <tr><td>阿克苏中曼油气勘探开发有限公司</td><td class="num">100%</td><td class="num">3.3 亿元</td><td>温宿区块勘探开发</td><td><span class="pill ok">核心油气资产 · 新疆</span></td></tr>
+        <tr><td>上海中曼海洋石油工程技术服务</td><td class="num">100%</td><td class="num">2 亿元</td><td>海洋石油工程服务</td><td>海洋油服</td></tr>
+        <tr><td>中曼石油钻井技术有限公司</td><td class="num">100%</td><td class="num">2 亿元</td><td>钻井工程技术</td><td>钻井总包主体</td></tr>
+        <tr><td>舟山中曼昆仑能源有限公司</td><td class="num">100%</td><td class="num">1 亿元</td><td>能源贸易</td><td>贸易协同</td></tr>
+        <tr><td>阿克苏托木尔峰能源有限公司</td><td class="num">100%</td><td class="num">1 亿元</td><td>能源</td><td><span class="pill warn">2026 新设</span></td></tr>
+        <tr><td>山东中曼新材料科技有限公司</td><td class="num">51%</td><td class="num">1188.3 万元</td><td>新材料</td><td>产业链延伸</td></tr>
+        <tr><td>中曼石油工程技術服務（香港）有限公司</td><td class="num">100%</td><td class="num">1000 万股</td><td>海外工程平台</td><td><span class="pill risk">境外 · 仍注册</span></td></tr>
+        <tr><td>中曼石油（香港）有限公司</td><td class="num">100%</td><td class="num">—</td><td>海外投资/贸易平台</td><td><span class="pill risk">境外 · 2024 设立</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-title">八、全球油气资产与业务布局</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-card)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>油气资产位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球油气资产 / 区块明细</h3>
+    <table>
+      <thead><tr><th>区块/资产名称</th><th>所在国/地区</th><th>矿种</th><th>持股比例</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>温宿油田（柯柯牙/红旗坡/赛克/温北）</td><td>中国·新疆阿克苏</td><td>原油/天然气</td><td class="num">100%</td><td>在产</td><td>公司公告/企查查</td></tr>
+        <tr><td>坚戈油田 / 岸边油田</td><td>哈萨克斯坦</td><td>原油/天然气</td><td class="num">100%</td><td>在产/评价</td><td>公司年报/公告</td></tr>
+        <tr><td>EBN / MF 区块</td><td>伊拉克</td><td>原油</td><td class="num">作业者</td><td>开发准备</td><td>公司公告（PDP 获批）</td></tr>
+        <tr><td>Zerafa II 气田</td><td>阿尔及利亚</td><td>天然气</td><td class="num">权益方</td><td>勘探评价</td><td>公司公告</td></tr>
+        <tr><td>中曼石油（香港）有限公司</td><td>中国香港</td><td>投资/贸易平台</td><td class="num">100%</td><td>在运营</td><td>企查查对外投资</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：温宿区块探矿权面积 1044.30 km²（有效期至 2027-04-26），2025 年新增原油探明地质储量 1232.44 万吨；海外区块（哈萨克斯坦/伊拉克/阿尔及利亚）为作业或权益参与，具体权益比例以公司公告为准。本图坐标为区域/国别级公开地理坐标（非井位级），境内采用 GCJ-02、境外采用 WGS84；底图来源腾讯地图，公网部署需配置腾讯地图 key 并配置 Referer 白名单，未配置时降级为明细表。</div>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>2003-06-13 公司成立，总部上海，创始团队以李春第为核心</li>
+        <li>2017-11-17 上交所主板上市（603619），成为民营油服+资源标的</li>
+        <li>2018 设立阿克苏中曼油气勘探开发有限公司，切入温宿区块自有勘探开发</li>
+        <li>2021 起拓展哈萨克斯坦坚戈/岸边油田、伊拉克、阿尔及利亚等海外区块</li>
+        <li>2024-2026 推进伊拉克 EBN/MF 区块 PDP、阿尔及利亚气田评价</li>
+      </div>
+      <div class="bullet-list">
+        <li>企查查风险扫描（35 项）：裁判文书 60、立案 22、开庭公告 59、法院公告 1、送达公告 1、担保信息 126、股权出质 1、股权质押 57</li>
+        <li>无失信信息、被执行人、限制高消费、破产重整、股权冻结记录</li>
+        <li>无经营异常、行政处罚、严重违法、环保处罚、税务非正常户记录</li>
+        <li>股权质押记录较多（57 条），主要为控股股东/实控人质押，需关注平仓风险</li>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item">
+      <div style="font-weight:600">1. 油价大幅波动风险（高）</div>
+      <div>公司勘探开发板块利润对油价高度敏感，2025 Brent 均价同比 -14.81% 直接拖累归母净利润（-29.80%）；若油价长期低迷，温宿/坚戈产量释放与盈利将承压。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">2. 高负债与现金流风险（中-高）</div>
+      <div>资产负债率持续高于 60%（2026H1 64.28%）、流动比率约 0.93，短期偿债压力偏大；上游勘探开发资本开支重，利息与现金流管理是关键。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 海外项目地缘与执行风险（中）</div>
+      <div>伊拉克、哈萨克斯坦、阿尔及利亚项目受当地政局、安全与合同执行影响；EBN/MF 与 Zerafa II 尚处开发准备/评价阶段，资源转化与产能释放存在不确定性。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 实控人股权质押风险（中）</div>
+      <div>股权质押记录 57 条，实控人及一致行动人质押比例较高，若股价大幅波动可能触发平仓，影响控制权稳定性。</div>
+    </div>
+  </section>
+
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体与资质：</b>中曼石油为 A 股上市民企（603619），实控人李春第通过控股平台持股 19.71%，股权集中；无失信/被执行/行政处罚等重大风险，治理规范。<br>
+      <b>资源禀赋：</b>"钻井工程总包 + 自有油气田"一体化稀缺模式，温宿区块 2025 产油 64.58 万吨、新增探明储量 1232.44 万吨；哈萨克斯坦坚戈产量高增（+35.30%），伊拉克/阿尔及利亚区块提供远期增量。<br>
+      <b>财务与偿债：</b>资产负债率偏高（64.28%）、短期偿债承压；利润对油价敏感，2025/2026H1 业绩明显承压。<br>
+      <b>关注点：</b>油价周期、海外地缘与项目执行、实控人高比例股权质押。<br>
+      <b>建议：</b>作为"工程+资源"型油服标的，适合油价上行周期与资源增储逻辑跟踪；重点监测油价中枢、温宿/坚戈产量兑现、海外区块资本开支节奏及质押比例变化。本报告不构成投资建议。
+    </div>
+  </section>
+
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记/股权/实控人/财务/风险/对外投资/董监高/联系</td><td>企查查 MCP（qcc-company / qcc-risk）</td><td>2026-10-05</td><td>财务以企查查为准；"净利润"为合并净利润（含少数股东），与年报"归母净利润"存在差异</td></tr>
+        <tr><td>招聘动态与官网入口</td><td>中曼石油官网（zpec.com/human/jobs）、中曼招聘公众号、高校就业网</td><td>2026-10-05</td><td>为发布时点快照，不代表实际编制规模；薪酬取公开校招口径</td></tr>
+        <tr><td>油气资产/产量/储量</td><td>公司年报/公告（上交所）、公司官网业务页</td><td>2026-10-05</td><td>以公司披露为准；海外区块权益比例以公告为准</td></tr>
+        <tr><td>行业研究与机构观点</td><td>ima 证券知识库、易有料行业对比、行情数据（2026-09-30）</td><td>2026-10-05</td><td>公开渠道，部分 2026 年快照；机构观点以"机构观点"名义呈现</td></tr>
+        <tr><td>地图渲染</td><td>腾讯地图 GL JS（合规底图）</td><td>—</td><td>公网部署需配置腾讯地图 key 并配置 Referer 白名单；未配置时降级为明细表</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：https://hermes-404.github.io/sinomine-research/中曼石油-尽职调查报告-v1.html · 本报告由 AI 辅助生成 · 数据截至 2026-10-05</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'温宿油田', country:'中国·新疆阿克苏', mineral:'原油/天然气', stake:'100%', status:'在产', lat:41.12, lng:80.24 },
+  { name:'坚戈/岸边油田', country:'哈萨克斯坦', mineral:'原油/天然气', stake:'100%', status:'在产/评价', lat:48.00, lng:67.00 },
+  { name:'伊拉克 EBN/MF 区块', country:'伊拉克', mineral:'原油', stake:'作业者', status:'开发准备', lat:33.31, lng:44.36 },
+  { name:'Zerafa II 气田', country:'阿尔及利亚', mineral:'天然气', stake:'权益方', status:'勘探评价', lat:35.70, lng:2.00 },
+  { name:'香港投资/贸易平台', country:'中国香港', mineral:'投资平台', stake:'100%', status:'在运营', lat:22.32, lng:114.17 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>油气资产位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 2, center: new TMap.LatLng(30, 60) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(30, 60), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
