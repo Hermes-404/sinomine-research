@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国中煤能源股份有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+/* ---------- charts ---------- */
+.chart-wrap{border:1px solid var(--border);border-radius:2px;padding:18px 20px 10px;margin-top:14px;background:var(--bg-card)}
+.chart-title{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px}
+[data-theme="dark"] .chart-title{color:#c9d6e8}
+.chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+.axis{stroke:var(--border);stroke-width:1}
+.gridline{stroke:var(--border-soft);stroke-width:1;stroke-dasharray:3,4}
+.axis-label{fill:var(--text-muted);font-size:10.5px;font-family:'Noto Sans SC',sans-serif}
+.bar-rev{fill:var(--primary)}
+[data-theme="dark"] .bar-rev{fill:#6ea3d8}
+.bar-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.line-np{stroke:var(--accent-red);stroke-width:2.5;fill:none}
+.np-dot{fill:var(--accent-red)}
+.np-label{fill:var(--accent-red);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.legend{display:flex;gap:22px;font-size:11.5px;color:var(--text-muted);margin-top:6px;padding:6px 0}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border-radius:1px}
+.sh-bar{fill:var(--accent-blue)}
+.sh-bar.top{fill:var(--primary)}
+[data-theme="dark"] .sh-bar.top{fill:#6ea3d8}
+.sh-label{fill:var(--text-secondary);font-size:11.5px;font-family:'Noto Sans SC',sans-serif}
+.sh-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">A+H 上市公司 · 601898.SH / 1898.HK · 中国中煤集团核心平台</span>
+        <div class="company-name-cn">中国中煤能源股份有限公司</div>
+        <div class="company-name-en">CHINA COAL ENERGY COMPANY LIMITED · China Coal Energy</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-10-06</span>
+      <span>数据截至：2025 年报（2026-03-28 披露）/ 数据截至 2025-12-31</span>
+      <span>报告编号：DD-CHINACOAL-2026-V1</span>
+    </div>
+  </div>
+</header>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a><a href="#s2">② 财务概览</a><a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a><a href="#s5">⑤ 治理团队</a><a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a><a href="#s8">⑧ 全球矿权地图</a><a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a><a href="#s11">⑪ 尽调结论</a><a href="#s12">附录</a>
+  </div>
+</nav>
+<div class="wrap"><div class="container">
+
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    中煤能源是中国中煤集团核心煤炭上市平台，国务院国资委 100% 直管的煤炭全产业链央企，以山西、蒙陕、江苏、新疆等区域为依托，构建“煤炭 + 煤化工 + 煤矿装备 + 电力”四大核心业务。2025 年营收 1,480.57 亿元（−21.83%，受煤价下行与贸易规模收缩拖累）、归母净利润 178.84 亿元（−7.27%），资产负债率 45.79%，经营现金流 297.92 亿元，财务仍稳健。自产商品煤产量 1.351 亿吨、煤炭销量 2.56 亿吨、煤化工产量 606 万吨，煤矿装备产值 92 亿元。核心变量：煤价超预期下跌对盈利弹性大；公司推进“存量提效、增量转型”，向煤化/煤电/新能源延伸，里必、苇子沟等在建矿井与“两个联营”构成第二曲线。
+  </div>
+  <div class="kpi-grid"><div class="kpi-card kpi-up"><div class="kpi-label">总资产</div><div class="kpi-value num">3,705.18 亿</div><div class="kpi-delta up">2025 ▲ +3.56%</div></div><div class="kpi-card kpi-down"><div class="kpi-label">营业收入</div><div class="kpi-value num">1,480.57 亿</div><div class="kpi-delta down">2025 ▼ −21.83%</div></div><div class="kpi-card kpi-down"><div class="kpi-label">归母净利润</div><div class="kpi-value num">178.84 亿</div><div class="kpi-delta down">2025 ▼ −7.27%</div></div><div class="kpi-card"><div class="kpi-label">资产负债率</div><div class="kpi-value num">45.79%</div><div class="kpi-delta">低位·稳健</div></div></div>
+  <section class="section" id="s1"><div class="section-title">一、主体身份与工商登记</div><table><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>公司全称</td><td>中国中煤能源股份有限公司</td></tr><tr><td>统一社会信用代码</td><td>91110000710934289T</td></tr><tr><td>成立日期</td><td>2006-08-22</td></tr><tr><td>注册资本</td><td>1,325,866.34 万元（约 132.59 亿元）</td></tr><tr><td>法定代表人</td><td>王树东</td></tr><tr><td>注册地址</td><td>北京市朝阳区黄寺大街 1 号</td></tr><tr><td>企业类型</td><td>股份有限公司（上市、国有控股）</td></tr><tr><td>登记状态</td><td>存续（在营）</td></tr><tr><td>经营范围（摘要）</td><td>煤炭开采/洗选/销售，煤化工，煤矿装备制造，电力，以及相关产品的生产与销售；煤炭及化工产品的贸易与运输。</td></tr></tbody></table></section>
+  <section class="section" id="s2"><div class="section-title">二、财务概览（合并报表口径）</div><table><thead><tr><th>指标</th><th>2023</th><th>2024</th><th>2025</th><th>口径说明</th></tr></thead><tbody><tr><td>营业收入（亿元）</td><td class="num">1,929.69</td><td class="num">1,893.96</td><td class="num">1,480.57</td><td>2023/2024/2025 年报（A 股）</td></tr><tr><td>归母净利润（亿元）</td><td class="num">195.34</td><td class="num">192.86</td><td class="num">178.84</td><td>同上；2025 −7.27%</td></tr><tr><td>资产负债率（%）</td><td class="num">47.68</td><td class="num">46.29</td><td class="num">45.79</td><td>同上；连续下降</td></tr><tr><td>经营现金流量净额（亿元）</td><td class="num">—</td><td class="num">341.00</td><td class="num">297.92</td><td>2024（中证报）/2025 年报</td></tr><tr><td>总资产（亿元）</td><td class="num">—</td><td class="num">—</td><td class="num">3,705.18</td><td>2025 年报</td></tr></tbody></table><div class="note-box">注：数据来源于中煤能源 2023–2025 年年度报告（A 股，人民币）；归母净利润为 CAS 口径（与 H 股 IFRS 口径存在差异）。2025 宣告每股股息 0.217 元（含税），派息约 50.74 亿元；自产商品煤 1.351 亿吨、煤炭销量 2.56 亿吨、煤化工产量 606 万吨。2023/2024 部分科目（经营现金流、总资产）以年报披露为准，未单列处标“—”。</div></section>
+  <section class="section" id="s3"><div class="section-title">三、行业研究</div><table><thead><tr><th>指标</th><th>最新值</th><th>同比 / 趋势</th><th>口径与来源</th></tr></thead><tbody><tr><td>全国原煤产量（2025）</td><td class="num">48.32 亿吨</td><td class="num">+1.2%</td><td>中国煤炭工业协会/国家统计局，2026</td></tr><tr><td>中煤集团原煤产量（2025）</td><td class="num">2.73 亿吨</td><td class="num">−0.4%</td><td>中国煤炭工业协会</td></tr><tr><td>秦皇岛 Q5500 动力煤年均价（2025）</td><td class="num">695 元/吨</td><td class="num">−19%</td><td>国投证券，2025-12</td></tr><tr><td>自产商品煤产量（中煤能源 2025）</td><td class="num">1.351 亿吨</td><td class="num">同比小幅回落</td><td>公司 2025 年报</td></tr><tr><td>动力煤 Q5500 长协价（2025）</td><td class="num">678 元/吨</td><td class="num">−3%</td><td>国投证券，2025-12</td></tr><tr><td>炼焦煤均价（2025）</td><td class="num">1,497 元/吨</td><td class="num">−28%</td><td>国投证券，2025-12</td></tr></tbody></table><h3 class="sub">竞争格局与产业链位置</h3><div class="two-col"><div class="bullet-list"><li>中煤能源：中煤集团核心上市平台，煤炭全产业链央企；2025 自产商品煤 1.351 亿吨、煤炭销量 2.56 亿吨。</li><li>同业：国家能源集团、晋能控股、陕煤等；中煤在炼焦煤（华晋王家岭）与动力煤并举。</li><li>“存量提效、增量转型”，向煤化/煤电/新能源延伸，打造致密产业链。</li></div><div class="bullet-list"><li>上游：平朔、王家岭、大海则、葫芦素/门克庆、禾草沟等国内主力矿区。</li><li>中游：煤炭 + 煤化工（聚乙烯/聚丙烯/尿素等 606 万吨）+ 煤矿装备（张煤机/北煤机，产值 92 亿）。</li><li>下游：煤电联营、新能源（“两个联营”：煤炭和煤电联营、煤电和可再生能源联营）。</li></div></div><h3 class="sub">机构观点汇总</h3><table><thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead><tbody><tr><td>2024 经营稳健（归母 193 亿、负债率降至 46.3%），高分红具吸引力。</td><td>中证报</td><td>2025-03</td><td>公开报道</td></tr><tr><td>供给收缩推动 2026 煤价中枢抬升，利好一体化煤企。</td><td>国投证券（煤炭 2026 策略）</td><td>2025-12-03</td><td>公开研报</td></tr><tr><td>2025 营收 −21.83%、归母 −7.27%，受煤价下行与贸易规模收缩拖累（中性/谨慎）。</td><td>公司 2025 年报</td><td>2026-03</td><td>公司披露</td></tr><tr><td>煤价超预期下跌、安全生产、项目资本开支与成本上升为主要风险。</td><td>东方财富证券/公司年报</td><td>2026</td><td>风险提示</td></tr></tbody></table><h3 class="sub">政策与近期动态</h3><div class="bullet-list"><li>“十五五”开年积极财政 + 适度宽松货币；新型电力系统与特高压/配电网投资支撑电力需求。</li><li>《新型储能规模化建设专项行动方案(2025-2027)》：2027 全国新型储能装机 ≥1.8 亿千瓦。</li><li>煤炭行业“反内卷”与超产核查政策短期收缩供给，利好煤价中枢。</li></div><div class="note-box">注：行业数据来源：中国煤炭工业协会、国家统计局、国投证券、公司年报等公开报道；机构观点为分析师/机构研判（截至 2026），仅供研究参考。</div></section>
+  <section class="section" id="s4"><div class="section-title">四、股权结构与实际控制人</div><h3 class="sub">前十大股东（主要）</h3><table><thead><tr><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead><tbody><tr><td>中国中煤能源集团有限公司</td><td>控股股东（多数）</td><td>国有法人（国务院国资委 100% 直管）</td><td>2025 年报/工商</td></tr><tr><td>香港中央结算(代理人)有限公司</td><td>约 30%（H 股名义持有人）</td><td>境外法人（托管）</td><td>2025 年报</td></tr><tr><td>其他 A 股流通股东</td><td>—</td><td>公众股东</td><td>以 2025 年报十大股东为准</td></tr></tbody></table><h3 class="sub">实际控制人穿透</h3><div class="two-col"><div class="bullet-list"><li>国务院国资委 100% → 中国中煤能源集团有限公司 → 直接及间接控股 中煤能源股份。</li><li>中国中煤集团管理资产 &gt;6,000 亿、职工 12 万、煤炭资源储量 700 亿吨、产能 3.1 亿吨/年。</li></div><div class="bullet-list"><li>控股股东所持股份无公开重大质押/冻结记录（以年报披露为准）。</li><li>央企控股结构稳定；需关注集团层面战略调整传导。</li></div></div></section>
+  <section class="section" id="s5"><div class="section-title">五、治理与管理团队</div><table><thead><tr><th>姓名</th><th>职务</th><th>任期/变更</th><th>背景要点</th></tr></thead><tbody><tr><td>王树东</td><td>董事长、执行董事（法定代表人）</td><td>—</td><td>2025 年报</td></tr><tr><td>姜群</td><td>董事会秘书</td><td>—</td><td>2025 年报</td></tr><tr><td>柴乔林</td><td>主管会计工作负责人</td><td>—</td><td>2025 年报</td></tr><tr><td>管理层</td><td>详见 2025 年报</td><td>以最新披露为准</td><td>2025 年报</td></tr></tbody></table></section>
+  <section class="section" id="s6"><div class="section-title">六、人力资源与招聘动态</div><div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://zhaopin.chinacoal.com/home" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent);border-radius:8px;color:var(--accent);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网招聘入口 · 中国中煤招聘官网（校园招聘）</a>
+      <a href="https://www.chinacoalenergy.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-body,#333);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · 中煤能源股份官网</a>
+    </div><h3 class="sub">在招岗位明细</h3><table><thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead><tbody><tr><td>2025-11-12 截止</td><td>煤炭/电力/煤化工/新能源/装备/经营管理/技能岗</td><td>7.0–8.0K/月（本科）</td><td>本≤26/硕≤30/博≤35</td><td>北京/山西/蒙陕/新疆</td><td>中国中煤 2026 校招（1,700+ 人）</td></tr><tr><td>2025-11-12 截止</td><td>“SHINE”闪耀管培生（20 人）</td><td>面议</td><td>全球重点高校</td><td>北京</td><td>同上</td></tr></tbody></table><h3 class="sub">招聘趋势解读</h3><div class="two-col"><div class="bullet-list"><li>职能方向：煤炭矿业/化工/能源动力/新能源/机械电气/电子信息/安全/计算机/财会/法商等；“SHINE”管培生储备骨干管理技术人才。</li><li>人才竞争：行业竞争力薪资（本科 7–8K/月起）+ 落户/公寓/六险二金 + 青年人才计划。</li></div><div class="bullet-list"><li>地点分布：北京总部 + 山西/内蒙古/陕西/新疆/江苏等基地，与平朔、大海则、蒙陕基地先进产能释放呼应。</li><li>招聘动向与业务扩张交叉印证：“煤电联营/新能源”转型与里必、苇子沟等在建矿井支撑技术与生产岗放量。</li></div></div><div class="note-box">注：数据来源于中国中煤 2026 校园招聘公告（招聘官网 zhaopin.chinacoal.com，报名至 2025-11-12，统考 11 月中下旬，计划 1,700+ 人 + “SHINE”管培生 20 人）。招聘数据为发布时点快照，不代表实际编制规模。</div></section>
+  <section class="section" id="s7"><div class="section-title">七、对外投资与经营布局</div><h3 class="sub">核心子公司 / 重大对外投资</h3><table><thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注（海外资产重点标注）</th></tr></thead><tbody><tr><td>中煤平朔集团</td><td>全资</td><td>—</td><td>平朔矿区（安太堡/安家岭/东露天）</td><td>在产</td></tr><tr><td>中煤华晋集团（王家岭）</td><td>控股</td><td>—</td><td>炼焦煤</td><td>在产</td></tr><tr><td>中煤陕西能源化工（大海则）</td><td>全资</td><td>—</td><td>大海则煤矿/榆林煤化工</td><td>在产</td></tr><tr><td>中煤鄂尔多斯能源化工（图克）</td><td>全资</td><td>—</td><td>煤化工</td><td>在产</td></tr><tr><td>上海能源（600508）</td><td>控股</td><td>—</td><td>江苏煤炭/电力</td><td>上市</td></tr><tr><td>新集能源（601918）</td><td>控股</td><td>—</td><td>安徽煤炭/电力</td><td>上市</td></tr><tr><td>中煤张煤机/北煤机</td><td>全资</td><td>—</td><td>煤矿装备（产值 92 亿）</td><td>在产</td></tr><tr><td>中煤能源新疆（苇子沟等）</td><td>全资</td><td>—</td><td>新疆煤炭</td><td>在产/在建</td></tr></tbody></table></section>
+  <section class="section" id="s8"><div class="section-title">八、全球矿权与矿山分布</div><div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)"><div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。</div></div><h3 class="sub">全球矿权/矿山资产明细</h3><table><thead><tr><th>矿山/矿权名称</th><th>所在国/地区</th><th>矿种</th><th>持股比例</th><th>状态</th><th>数据来源</th></tr></thead><tbody><tr><td>平朔矿区（安太堡/安家岭/东露天）</td><td>山西·朔州</td><td>煤炭</td><td>全资</td><td>在产</td><td>公司 2025 年报</td></tr><tr><td>王家岭煤矿</td><td>山西·乡宁/河津</td><td>炼焦煤</td><td>控股</td><td>在产</td><td>公司 2025 年报</td></tr><tr><td>大海则煤矿</td><td>陕西·榆林</td><td>煤炭</td><td>全资</td><td>在产</td><td>公司 2025 年报</td></tr><tr><td>葫芦素煤矿</td><td>内蒙古·鄂尔多斯</td><td>煤炭</td><td>全资</td><td>在产</td><td>公司 2025 年报</td></tr><tr><td>门克庆煤矿</td><td>内蒙古·鄂尔多斯</td><td>煤炭</td><td>全资</td><td>在产</td><td>公司 2025 年报</td></tr><tr><td>禾草沟煤矿</td><td>陕西·延安</td><td>煤炭</td><td>全资</td><td>在产</td><td>公司 2025 年报</td></tr></tbody></table><div class="note-box">注：底图来源：腾讯地图；境内煤矿坐标已转换为 GCJ-02（区域/矿区级，非设施级）。矿权口径以中煤能源 2025 年报披露为准；矿井为公开区域坐标，精确设施坐标以公司披露为准。</div></section>
+  <section class="section" id="s9"><div class="section-title">九、历史沿革、对外担保与合规</div><div class="two-col"><div class="bullet-list"><li>2006-08-22 设立；2006 年 A+H 上市；2009 控股股东改制为中国中煤能源集团。</li><li>2016 起牵头央企煤炭资源整合，接管 10 余家央企煤炭资源。</li><li>2025 完成大额分红与“存量提效、增量转型”，推进里必、苇子沟等在建矿井。</li></div><div class="bullet-list"><li>2025 年报：无控股股东资金占用、无违规担保，审计出具标准无保留意见。</li><li>重点关注：安全生产、环保合规、煤价波动及项目资本开支与成本上升风险。</li></div></div></section>
+  <section class="section" id="s10"><div class="section-title">十、风险提示</div><div class="risk-item"><div style="font-weight:600">煤价超预期下跌风险</div><div>2025 营收 −21.83%、归母 −7.27%，盈利高度依赖煤价；煤价下行直接压缩利润（东方财富证券提示）。</div></div><div class="risk-item"><div style="font-weight:600">安全生产风险</div><div>煤矿开采行业固有风险，王家岭/平朔等大型矿井安全监管压力大。</div></div><div class="risk-item"><div style="font-weight:600">项目投资与成本上升风险</div><div>煤化工/煤电联营资本开支大，成本上行挤压利润（公司年报“重大风险提示”）。</div></div><div class="risk-item"><div style="font-weight:600">新能源挤压火电风险</div><div>能源转型下传统煤电需求承压，新能源布局回报与协同效应待验证。</div></div></section>
+  <section class="section" id="s11"><div class="section-title">十一、尽调结论</div><div class="thesis-box"><p><b>分维度结论：</b></p><p>① <b>规模与地位</b>：中煤集团核心煤炭上市平台，煤炭全产业链央企，自产商品煤 1.351 亿吨、煤化工 606 万吨。② <b>财务</b>：2025 归母 178.84 亿、负债率 45.79%（连续下降）、经营现金流 298 亿，财务稳健但受煤价拖累营收。③ <b>盈利结构</b>：煤价弹性大，2025 煤价下行致盈利回落；煤化工与煤矿装备贡献多元。④ <b>成长</b>：平朔/蒙陕先进产能释放 + 里必/苇子沟在建 + “两个联营”新能源构成第二曲线。⑤ <b>治理</b>：央企治理规范，校招 1,700+ 人印证产业扩张。</p><p><b>建议：</b>关注煤价长协兑现、在建矿井投产节奏与新能源转型落地；校招煤炭/化工/新能源/装备类岗位与产业布局契合，工程类专业值得重点跟踪。</p></div></section>
+  <section class="section" id="s12"><div class="section-title">附录 · 数据来源与方法说明</div><table><thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead><tbody><tr><td>工商登记</td><td>国家企业信用信息公示系统（91110000710934289T）</td><td>2026-10</td><td>集团控股结构以年报/工商为准</td></tr><tr><td>财务数据</td><td>中煤能源 2023–2025 年报（SSE 601898 / HKEX 1898）</td><td>2026-03</td><td>A 股 CAS 口径</td></tr><tr><td>行业研究</td><td>中国煤炭工业协会/国投证券/中证报</td><td>2026</td><td>机构观点为研判</td></tr><tr><td>招聘动态</td><td>中国中煤 2026 校招（zhaopin.chinacoal.com）</td><td>2026</td><td>发布时点快照</td></tr><tr><td>矿权/资产</td><td>中煤能源 2025 年报</td><td>2026</td><td>境内坐标 GCJ-02 区域级</td></tr><tr><td>数据局限</td><td>企查查 MCP 本次未连接，降级至公开渠道</td><td>2026-10</td><td>详见附录 s12</td></tr></tbody></table><div class="disclaimer-box" style="margin-top:14px">免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。</div></section>
+<footer>在线版本：<a href="https://hermes-404.github.io/sinomine-research/%E4%B8%AD%E7%85%A4%E8%83%BD%E6%BA%90-%E5%B0%BD%E8%81%8C%E8%B0%83%E6%9F%A5%E6%8A%A5%E5%91%8A-v1.html" target="_blank" rel="noopener noreferrer">https://hermes-404.github.io/sinomine-research/中煤能源-尽职调查报告-v1.html</a> · 本报告由 AI 辅助生成 · 数据截至 2025 年报（2026-03-28 披露）/ 数据截至 2025-12-31</footer>
+
+</div></div>
+<script>
+function toggleTheme(){ const h=document.documentElement; h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark'; }
+</script>
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+/* ============ 全球矿权地图（腾讯地图 GL JS，合规底图） ============
+ * 合规要求：底图仅可使用腾讯/高德/百度/天地图，禁止 Google/OSM/Mapbox。
+ * 本地预览（WorkBuddy 内）走 _TMapSecurityConfig 本地代理，无需 key；
+ * 部署到 GitHub Pages（公网 + 含海外区域渲染）属非默认场景，
+ * 须在腾讯位置服务开放平台（https://lbs.qq.com）申请 key 并替换 TMAP_KEY，
+ * 同时在控制台配置 Referer 白名单为 Pages 域名（如 https://<user>.github.io/*）。
+ * 坐标口径：境内矿山坐标须为 GCJ-02（火星坐标，WGS84 需转换）；境外矿山直接使用 WGS84 坐标即可。 */
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [{"name": "平朔矿区", "country": "中国山西", "mineral": "煤炭", "stake": "全资", "status": "在产", "lat": 39.45, "lng": 112.44}, {"name": "王家岭煤矿", "country": "中国山西", "mineral": "炼焦煤", "stake": "控股", "status": "在产", "lat": 35.66, "lng": 110.81}, {"name": "大海则煤矿", "country": "中国陕西", "mineral": "煤炭", "stake": "全资", "status": "在产", "lat": 38.3, "lng": 109.73}, {"name": "葫芦素煤矿", "country": "中国内蒙古", "mineral": "煤炭", "stake": "全资", "status": "在产", "lat": 39.08, "lng": 108.99}, {"name": "门克庆煤矿", "country": "中国内蒙古", "mineral": "煤炭", "stake": "全资", "status": "在产", "lat": 39.12, "lng": 109.13}, {"name": "禾草沟煤矿", "country": "中国陕西", "mineral": "煤炭", "stake": "全资", "status": "在产", "lat": 37.12, "lng": 109.36}];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000); /* 超时兜底：保留 fallback 提示 */
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 3, center: new TMap.LatLng(15, 40) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(15, 40), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
