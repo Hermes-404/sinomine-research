@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时代资源集团（厦门）有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- ================= 页头：公司身份条 ================= -->
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">宁德时代全资子公司 · 非上市（私营）</span>
+        <div class="company-name-cn">时代资源集团（厦门）有限公司</div>
+        <div class="company-name-en">Era Resources Group (Xiamen) Co., Ltd. · 新能源关键矿产投资运营平台</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调观察 · NEUTRAL</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-10-14</span>
+      <span>数据截至：2026-10-14</span>
+      <span>报告编号：SDZY-DD-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 粘性导航 ================= -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <!-- ============ 核心结论框 ============ -->
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    时代资源集团（厦门）有限公司是宁德时代于 2026 年 4 月 22 日全资设立的新能源关键矿产投资运营平台，注册资本 300 亿元（认缴，尚未实缴），由宁德时代联席董事长潘健出任董事长、紫金矿业创始人陈景河任首席矿业顾问。主体工商画像极干净——35 项风险因子零记录；但作为新设平台尚无独立财务披露，经营实质取决于母公司矿业资产注入与海外并购落地节奏。其战略定位「稳链保供、控本增效」直指电池级锂/钴/镍/磷的供应链安全，是宁德时代从「点状投资」走向「平台化运营」上游资源的关键落子；对应用户「地质 + 数据 + 多语种」背景，其与「矿物供应链管理岗」的契合度在全部已研究标的中位居前列。
+  </div>
+
+  <!-- ============ KPI 概览卡片 ============ -->
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">注册资本（认缴）</div><div class="kpi-value num">300 亿</div><div class="kpi-delta">尚未实缴 · 货币+股权出资</div></div>
+    <div class="kpi-card"><div class="kpi-label">直接控股子公司</div><div class="kpi-value num">5 家</div><div class="kpi-delta">宜春 / 四川 / 贵州 / 斯诺威 / 海南</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">风险因子有记录</div><div class="kpi-value num">0 / 35</div><div class="kpi-delta down">极干净 · 全新主体</div></div>
+    <div class="kpi-card"><div class="kpi-label">成立时长</div><div class="kpi-value num">2026-04</div><div class="kpi-delta">运营未满 1 年 · 新设平台</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>时代资源集团（厦门）有限公司</td></tr>
+      <tr><td>统一社会信用代码</td><td>91350200MAKCDRJY8M</td></tr>
+      <tr><td>成立日期</td><td>2026-04-22（核准日同揭牌日）</td></tr>
+      <tr><td>注册资本</td><td>3,000,000 万元（约 300 亿元，认缴；实缴资本未公示）</td></tr>
+      <tr><td>法定代表人</td><td>疏志明</td></tr>
+      <tr><td>注册地址</td><td>中国（福建）自由贸易试验区厦门片区象屿路 93 号厦门国际航运中心 C 栋 4 层 431 单元 G</td></tr>
+      <tr><td>企业类型</td><td>有限责任公司（法人独资）— 宁德时代新能源科技股份有限公司 100% 持股</td></tr>
+      <tr><td>登记状态</td><td>存续（在营、开业、在册）</td></tr>
+      <tr><td>国标行业</td><td>科学研究和技术服务业 · 专业技术服务业 · 地质勘查 · 能源矿产地质勘查</td></tr>
+      <tr><td>经营范围（摘要）</td><td>许可项目：矿产资源勘查；非煤矿山矿产资源开采；金属与非金属矿产资源地质勘探；道路货物运输。一般项目：选矿；矿物洗选加工；金属矿石销售；非金属矿及制品销售；以自有资金从事投资活动；企业总部管理 等。</td></tr>
+    </table>
+    <div class="note-box">数据来源：企查查 MCP（工商登记接口），核验时间 2026-10-14。实缴资本、参保人数、人员规模均未公示（新设主体常见状态）。</div>
+  </section>
+
+  <!-- ============ 二、财务概览 ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th> FY-2</th><th>FY-1</th><th>FY（最新）</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td><td>主体成立于 2026-04，无独立年度财报</td></tr>
+        <tr><td>归母净利润</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td><td>财务并入母公司宁德时代合并报表，单体不单独披露</td></tr>
+        <tr><td>资产负债率</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td><td>同上</td></tr>
+        <tr><td>经营现金流</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td><td>同上</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：口径说明——主体成立于 2026-04-22，迄今运营未满一个完整会计年度，尚无年度财报/审计报告；其财务表现将体现在母公司宁德时代（300750.SZ / 3750.HK）合并报表中。参考母公司：2026Q1 宁德时代营收 1,291.31 亿元（同比 +52.45%）、归母净利润 207.38 亿元（同比 +48.52%）；2025 年末货币资金及交易性金融资产合计约 3,925 亿元，经营现金流净额 1,332 亿元，为上游布局提供充足弹药。货币单位：人民币。</div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模（新能源关键矿产 · 锂为核心观测品种）</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>电池级碳酸锂现货价（2026-10-13）</td><td class="num">11.16 万元/吨</td><td class="num down">近 9 个月新低，较 5 月高点 20.98 万回落约 47%</td><td>上海有色网 / 新京报，2026-10-12/13</td></tr>
+        <tr><td>2026 全球锂需求</td><td class="num">约 197 万吨 LCE</td><td class="num">同比 +16%（储能 +60%）</td><td>瑞银研报转述，2026-05</td></tr>
+        <tr><td>2026 全球锂供给</td><td class="num">约 191 万吨 LCE</td><td class="num">供需分歧：瑞银看缺口 / 高盛看 20–22% 过剩</td><td>瑞银 / 高盛研报转述，2026</td></tr>
+        <tr><td>宁德时代锁定锂资源当量</td><td class="num">&gt;1,200 万吨 LCE</td><td class="num">截至 2026-04 整体控制与锁定</td><td>真锂研究，2026-04</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li><b>电池厂向上游延伸成行业趋势</b>：宁德时代、比亚迪、国轩高科等均在锁矿；时代资源 300 亿注册资本高于 A 股 16 家锂矿上游上市公司注册资本总和（214.53 亿元），约为原最高盐湖股份（52.92 亿）的 5.7 倍。</li>
+        <li><b>权益资源卡位</b>：宁德时代通过持有洛阳钼业 24.68% 股权（二股东）锁定刚果（金）KFM 钴储量 310 万吨 / 铜 620 万吨；印尼镍资源锁定量超 5,500 万吨。</li>
+        <li><b>长协对冲</b>：六成以上采购量签 6–12 个月长协锁价，成本波动显著小于同行。</li>
+      </div>
+      <div class="bullet-list">
+        <li><b>全产业链闭环</b>：下游电池制造 → 中游材料（正极/负极/电解液/隔膜） → 上游矿产（锂/钴/镍/磷），时代资源位于最上游「资源端」。</li>
+        <li><b>平台化运营定位</b>：将宁德时代此前「点状投资」的矿业资产（宜春、斯诺威、贵州磷、海外盐湖/镍/钴）整合进统一平台，承接「稳链保供」。</li>
+        <li><b>厦门桥头堡</b>：依托厦门临港、物流、政策与跨境优势，打造一体化资源产业基地与出海并购前沿。</li>
+      </div>
+    </div>
+    <h3 class="sub">机构观点汇总（多空并存）</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>2026 全球锂需求 +16% 至 197 万吨 LCE，供需缺口约 6.5 万吨，看锂价至 25 万元/吨</td><td>瑞银（UBS）</td><td class="num">2026-05</td><td>环球网财经转述研报</td></tr>
+        <tr><td>2026 碳酸锂存在供应缺口，储能+电动车渗透推动锂价至 25 万元/吨</td><td>摩根士丹利</td><td class="num">2026-05</td><td>环球网财经转述研报</td></tr>
+        <tr><td>2026 下半年起全球锂矿 20–22% 供应过剩，价格向边际成本回落；预计 2028 年转 44.4 万吨过剩</td><td>高盛（Goldman Sachs）</td><td class="num">2026-10</td><td>第一财经 / 新京报转述研报</td></tr>
+        <tr><td>曾预计锂价涨至 25 万/吨，但现实碳酸锂跌破 12 万，市场预期已转向「担忧明年过剩」</td><td>中信证券</td><td class="num">2026-10</td><td>中国金融信息网转述研报</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态（含海外资产所在地监管）</h3>
+    <div class="bullet-list">
+      <li>2026-04-15 宁德时代公告拟设时代资源集团（注册资本 300 亿）；4-22 揭牌，潘健任董事长、陈景河任首席矿业顾问。<span class="pill navy">公司动态</span></li>
+      <li>「十五五」新一轮找矿突破行动推进，战略资源自主可控成为政策主线。<span class="pill ok">政策利好</span></li>
+      <li>供给侧变量：津巴布韦锂精矿出口管制、江西宜春锂云母复产节奏、智利出口量。<span class="pill warn">供给扰动</span></li>
+      <li>海外监管风险：刚果（金）钴出口政策、印尼镍资源民族主义、南美盐湖国有化倾向、澳洲外资审查——均影响「出海资源并购」落地。<span class="pill risk">地缘/监管</span></li>
+    </div>
+    <div class="note-box">注：行业数据为公开财经媒体与机构研报转述（非一手），价格随交易日波动，反映 2026-10-13 时点；机构观点仅代表发布机构立场，不作为事实陈述。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">前十大股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>宁德时代新能源科技股份有限公司</td><td class="num">100%</td><td>上市公司法人独资（300750.SZ / 3750.HK）</td><td>企查查 MCP</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>宁德时代（300750.SZ / 3750.HK）持有时代资源 <b>100%</b> 股权，为唯一股东。</li>
+        <li>宁德时代实控人、董事长 <b>曾毓群</b> 通过持股平台持有宁德时代 22.04%（表决权 100%）。</li>
+        <li>时代资源受益所有人 = <b>曾毓群</b>（最终受益股份 22.04%，表决权 100%）。</li>
+      </div>
+      <div class="bullet-list">
+        <li>时代资源层面：股权质押 / 冻结 / 出质 <b>零记录</b>（新设主体，35 项风险因子全无）。</li>
+        <li>母公司宁德时代层面质押/冻结以公司公告为准，本次未单独核查母公司受限情况。</li>
+        <li>穿透结论：单一自然人（曾毓群）通过上市公司实现 100% 控制，决策链条短、意志统一。</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>潘健</td><td>董事长</td><td>2026-04-22 起（第一届董事会）</td><td>宁德时代联席董事长、联合创始团队成员，被称公司「二号人物」；2014 年加入，历任副董事长，2025-01 任联席董事长（CATL 董事会名册确认）</td></tr>
+        <tr><td>疏志明</td><td>法定代表人、经理、董事</td><td>2026-04-22 起</td><td>宁德时代体系委派，负责日常经营</td></tr>
+        <tr><td>林久新</td><td>董事</td><td>2026-04-22 起</td><td>宁德时代体系委派</td></tr>
+        <tr><td>曲涛</td><td>监事</td><td>2026-04-22 起</td><td>宁德时代体系委派</td></tr>
+        <tr><td>崔庆国</td><td>财务负责人</td><td>2026-04-22 起</td><td>宁德时代体系委派</td></tr>
+        <tr><td>陈景河</td><td>首席矿业顾问（非董监高）</td><td>2026 年起</td><td>紫金矿业创始人、前董事长，2026-01 退休后受聘宁德时代首席矿业顾问，矿业生涯 44 年，助力上游矿产供应链拓展</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">数据来源：企查查主要人员接口 + 界面新闻《拒绝被"卡脖子"》+ CATL 官网公告（catl.com/news/9828）+ CATL 董事会名册。治理团队均为宁德时代核心管理层兼任，并引入顶级矿业顾问，人事配置业内顶级。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://www.carlxm.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网招聘入口 · 时代资源官网（校招/社招 + 公众号「CARL时代资源」）</a>
+      <a href="https://www.carlxm.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-secondary);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · CARL时代资源</a>
+    </div>
+    <h3 class="sub">在招岗位明细（2027 届校招，发布于 2026-09-15）</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026-09-15</td><td>地质勘探类（地质学 / 资源勘查工程 / 地质工程）</td><td class="num">面议</td><td>本科及以上</td><td>福建厦门</td><td>牛企直聘 / 官网</td></tr>
+        <tr><td class="num">2026-09-15</td><td>采矿工程类（采矿工程 / 矿业工程）</td><td class="num">面议</td><td>本科及以上</td><td>福建厦门</td><td>牛企直聘 / 官网</td></tr>
+        <tr><td class="num">2026-09-15</td><td>选矿冶金类（矿物加工 / 冶金 / 化工）</td><td class="num">面议</td><td>本科及以上</td><td>福建厦门</td><td>牛企直聘 / 官网</td></tr>
+        <tr><td class="num">2026-09-15</td><td>投资类（资源勘探工程 / 矿物资源工程 / 金融 / 经济）</td><td class="num">面议</td><td>本科及以上</td><td>福建厦门</td><td>牛企直聘 / 官网</td></tr>
+        <tr><td class="num">2026-09-15</td><td>市场投资类（投资 / 采购 / 物流 / 贸易 / 行业研究）</td><td class="num">面议</td><td>本科及以上</td><td>厦门 + 海外轮岗</td><td>牛企直聘 / 官网</td></tr>
+        <tr><td class="num">2026-09-15</td><td>财务类 / 安全环保类 / 运营建设类</td><td class="num">面议</td><td>本科及以上</td><td>福建厦门</td><td>牛企直聘 / 官网</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li><b>职能方向</b>：地质勘探 / 采矿 / 选矿冶金为技术核心；投资 / 市场投资（采购·物流·贸易·行业研究）为商业化与供应链岗——后者直接对应「矿物供应链管理」。</li>
+        <li><b>地点分布</b>：总部厦门 + 国内轮岗 + 海外派驻（按语种/区域匹配），与「出海资源并购」战略呼应。</li>
+      </div>
+      <div class="bullet-list">
+        <li><b>薪酬水位</b>：校招薪资面议，对标宁德时代校招体系（行业领先）；设「山海计划」培养矿业技术领军者。</li>
+        <li><b>与业务扩张呼应</b>：招聘放量（2026-09-15 启动、网申至 2026-11-14、3 次志愿）印证平台实体化运营启动与资产整合加速。</li>
+      </div>
+    </div>
+    <div class="note-box">注：招聘数据来自牛企直聘 / 校招官网 / 公司官网（carlxxm.com），抓取日期 2026-09-15 发布；薪资均为「面议」，未披露具体数，解读时已注明此局限。数据仅为发布时点快照，不代表实际编制规模。</div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（均为 100% 持股）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>时代资源国际投资（海南）有限公司</td><td class="num">100%</td><td class="num">500,000 万元（50 亿）</td><td>全球化资源并购平台（海南自贸港）</td><td>2026-04-28 设；承接海外并购与跨境资金/贸易</td></tr>
+        <tr><td>宜春时代新能源资源有限公司</td><td class="num">100%</td><td class="num">270,000 万元（27 亿）</td><td>江西宜春锂云母资源基地</td><td>2021-11-23；枧下窝矿区（2022 竞得，8.65 亿）锂云母</td></tr>
+        <tr><td>四川时代新能源资源有限公司</td><td class="num">100%</td><td class="num">100,000 万元（10 亿）</td><td>四川锂资源</td><td>2022-01-13</td></tr>
+        <tr><td>宁德时代（贵州）新能源材料有限公司</td><td class="num">100%</td><td class="num">100,000 万元（10 亿）</td><td>贵州磷矿 / 新能源材料</td><td>2021-12-10；大坪磷矿探矿权</td></tr>
+        <tr><td>雅江县斯诺威矿业发展有限公司</td><td class="num">100%</td><td class="num">5,075 万元</td><td>四川雅江锂矿（木绒/德扯弄巴）</td><td>2008-11-19 成立；宁德时代 2024-01 以 64 亿拿下相关权益</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：上述 5 家为企查查披露的<b>时代资源单体直接持股</b>平台。母公司宁德时代层面还持有洛阳钼业 24.68% 二股东、玻利维亚/阿根廷盐湖权益、澳洲锂矿、印尼镍（IBC 联合体）、湖北江家墩磷矿等——按公司表述将「逐步整合进该平台」，属母公司口径、非时代资源单体直接持股，已在 s3/s11 标注。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布（地图） ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:#f6f7f9">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细（国内资源基地）</h3>
+    <table>
+      <thead><tr><th>矿山/矿权名称</th><th>所在国/地区</th><th>矿种</th><th>持股比例</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>宜春锂云母资源基地</td><td>中国·江西宜春</td><td>锂（锂云母）</td><td class="num">100%</td><td>在产 / 整合中</td><td>企查查 + 公开报道</td></tr>
+        <tr><td>四川锂资源基地</td><td>中国·四川</td><td>锂</td><td class="num">100%</td><td>在产</td><td>企查查 + 公开报道</td></tr>
+        <tr><td>贵州新能源材料基地</td><td>中国·贵州</td><td>磷</td><td class="num">100%</td><td>在产</td><td>企查查 + 公开报道</td></tr>
+        <tr><td>雅江斯诺威锂矿</td><td>中国·四川甘孜</td><td>锂</td><td class="num">100%</td><td>整合中</td><td>企查查 + 公开报道</td></tr>
+        <tr><td>海南国际投资平台</td><td>中国·海南海口</td><td>投资平台（非矿山）</td><td class="num">100%</td><td>运营</td><td>企查查</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图腾讯地图；坐标为注册地/资源基地所在城市级近似（GCJ-02，火星坐标），矿权精确坐标未公开披露，以公司公告/官网披露口径为准。海外资源（澳洲锂矿、南美盐湖、非洲刚果金钴、印尼镍）由母公司层面持有、待注入平台，本次未单独标绘，信息局限已说明。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li><b>2026-04-15</b>：宁德时代公告拟设全资子公司「时代资源集团」，注册资本 300 亿元。</li>
+        <li><b>2026-04-19</b>：股东宁德时代认缴出资 300 亿元（认缴制）。</li>
+        <li><b>2026-04-22</b>：核准成立并于厦门高新区揭牌；同日召开第一届一次董事会，完成法人治理建制、实体化运营启动。</li>
+        <li><b>2026-04-28</b>：下设时代资源国际投资（海南）有限公司（50 亿）。</li>
+      </div>
+      <div class="bullet-list">
+        <li><b>对外担保</b>：单体未披露（并入母公司合并报表），本次未取得独立数据。</li>
+        <li><b>诉讼/仲裁</b>：35 项司法类风险因子全零记录。</li>
+        <li><b>行政处罚/经营异常</b>：零记录（新设主体，工商画像干净）。</li>
+        <li><b>合规提示</b>：矿产资源勘查/开采需逐项获批，实际矿权获取以主管部门许可为准。</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item">
+      <div style="font-weight:600">① 实缴资本为零、资产注入节奏不确定</div>
+      <div>300 亿注册资本均为认缴，实缴资本未公示；作为新设平台，实际经营体量取决于母公司矿业资产（宜春/斯诺威/贵州等）注入与海外并购落地节奏，存在「壳大实缓」的整合执行风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">② 关键矿产价格高波动（锂价年内腰斩）</div>
+      <div>电池级碳酸锂 2026 年从 5 月高点 20.98 万/吨跌至 10 月 11.16 万/吨（近 9 个月新低），机构对未来过剩/缺口分歧巨大；资源端盈利与估值对锂/钴/镍价格高度敏感。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">③ 海外资源所在地的监管与地缘风险</div>
+      <div>出海资源并购涉及刚果（金）钴出口政策、印尼镍资源民族主义、南美盐湖国有化倾向、澳洲外资审查等；「稳链保供」目标受东道国政策与地缘博弈制约。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">④ 人才与运营经验短板</div>
+      <div>平台 2026-04 才实体化，自有矿业运营团队尚在搭建；虽引入紫金陈景河为顾问、潘健挂帅，但大规模矿山运营/贸易合规的体系化能力仍需时间验证。</div>
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>主体资质（强）：</b>宁德时代全资、曾毓群实控、潘健 + 陈景河顶配人事，资源战略意志强、资金弹药充足（母公司 3,925 亿现金类资产）。<br>
+      <b>风险画像（中性偏谨慎）：</b>工商极干净（0/35），但财务不透明（无单体披露）、实缴为零，需跟踪资产注入实质。<br>
+      <b>战略价值（高）：</b>电池上游「资源端」平台化运营的标志性落子，对应矿物供应链安全主线，是宁德时代全产业链闭环的最上游一环。<br>
+      <b>求职关联（极高）：</b>市场投资类（采购/物流/贸易/行业研究）与地质勘探/投资岗，精准契合用户「地质 + 数据（Python/ML）+ 多语种（英6.5/日N1/西基础）」背景；建议用满 3 次志愿投「市场投资类 + 投资类 + 地质勘探类」组合。<br>
+      <b>行动建议：</b>网申窗口 2026-11-14 截止，把握节奏；持续跟踪资产注入与海外并购落地、锂价周期位置。
+    </div>
+  </section>
+
+  <!-- ============ 附录 · 数据来源与方法说明 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记/股权/股东/实控/对外投资/主要人员/风险扫描</td><td>企查查 MCP（mcp__qcc-company__*）</td><td>2026-10-14</td><td>单体口径；实缴/参保未公示</td></tr>
+        <tr><td>公司概况/经营范围/揭牌信息</td><td>企查查 MCP + CATL 官网公告（catl.com/news/9828）</td><td>2026-10-14</td><td>简介含公开报道转述</td></tr>
+        <tr><td>行业景气/价格/机构观点</td><td>上海有色网/新京报/环球网/第一财经 + 瑞银/高盛/大摩/中信研报转述</td><td>2026-10-12~13</td><td>非一手；价格随交易日波动</td></tr>
+        <tr><td>母公司资源布局/财务</td><td>新浪财经/界面新闻/央广网 + CATL 2026Q1 财报/年报</td><td>2026-04~10</td><td>母公司层面，非时代资源单体</td></tr>
+        <tr><td>招聘动态</td><td>牛企直聘/校招官网/官网（carlxm.com）</td><td>2026-09-15 发布</td><td>T+0 快照；薪资面议未披露</td></tr>
+        <tr><td>矿权坐标</td><td>注册地/资源基地城市级近似</td><td>2026-10-14</td><td>精确矿权坐标未公开，GCJ-02 近似</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：https://hermes-404.github.io/sinomine-research/时代资源集团（厦门）-尽职调查报告-v1.html · 本报告由 AI 辅助生成 · 数据截至 2026-10-14</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+/* ============ 全球矿权地图（腾讯地图 GL JS，合规底图） ============ */
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'宜春锂云母资源基地', country:'中国·江西宜春', mineral:'锂（锂云母）', stake:'100%', status:'在产/整合中', lat:27.81, lng:114.39 },
+  { name:'四川锂资源基地', country:'中国·四川', mineral:'锂', stake:'100%', status:'在产', lat:28.76, lng:104.64 },
+  { name:'贵州新能源材料基地', country:'中国·贵州', mineral:'磷', stake:'100%', status:'在产', lat:26.65, lng:106.63 },
+  { name:'雅江斯诺威锂矿', country:'中国·四川甘孜', mineral:'锂', stake:'100%', status:'整合中', lat:30.03, lng:101.02 },
+  { name:'海南国际投资平台', country:'中国·海南海口', mineral:'投资平台（非矿山）', stake:'100%', status:'运营', lat:20.04, lng:110.20 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000);
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 4, center: new TMap.LatLng(28, 105) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(28, 105), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
