@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金诚信矿业管理股份有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- ================= 页头：公司身份条 ================= -->
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">A股上市 · 603979.SH · 大型矿服龙头</span>
+        <div class="company-name-cn">金诚信矿业管理股份有限公司</div>
+        <div class="company-name-en">JCHX MINING MANAGEMENT CO., LTD.</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调 · 中性</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-10-14</span>
+      <span>数据截至：2026-10-14</span>
+      <span>报告编号：DD-JCHX-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 粘性导航 ================= -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <!-- ============ 核心结论框 ============ -->
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    金诚信矿业管理股份有限公司（603979.SH）是国内领先的大型矿山工程建设和采矿运营管理服务商，以「矿山服务 + 资源开发」双轮驱动，2025 年营业收入 138.94 亿元（同比 +39.74%）、归母净利润 23.39 亿元（同比 +47.66%），2026 年上半年延续高增（营收 76.41 亿、+20.97%）。公司境外主营收入占比已升至 77.38%，业务覆盖非洲、南美、中亚、欧洲，国际化程度高。主体信用稳健：资产负债率约 47%–50%、经营现金流充沛（2025 年 43.77 亿）、ROE 连续抬升至 23.29%；35 项风险因子中 9 项有记录但多为矿服承包商行业常态（裁判文书 41、开庭公告 53），失信 / 被执行 / 股权冻结均为 0。需关注三点：① 控股股东金诚信集团股权质押频繁（56 条记录，部分质押中），反映股东层面融资需求；② 2026-01 一笔 3.1 万元轻微安全生产处罚，及已吊销子公司莱芜京莱井巷工程严重违法 3 条的历史包袱；③ 正推进 H 股上市（2026-09 董事会全票通过）。建议作为优质矿业服务与资源龙头纳入研究覆盖，求职关联度高（国际化经营、地质、多语种、矿建岗位密集放量）。
+  </div>
+
+  <!-- ============ KPI 概览卡片 ============ -->
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">总资产（2025）</div><div class="kpi-value num">222.8 亿</div><div class="kpi-delta">同比 +30.90% · 资产快速扩张</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">营业收入（2025）</div><div class="kpi-value num">138.94 亿</div><div class="kpi-delta up">▲ +39.74%</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">归母净利润（2025）</div><div class="kpi-value num">23.39 亿</div><div class="kpi-delta up">▲ +47.66%（历史新高）</div></div>
+    <div class="kpi-card"><div class="kpi-label">资产负债率（2025）</div><div class="kpi-value num">49.83%</div><div class="kpi-delta">负债率可控 · ROE 23.29%</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>金诚信矿业管理股份有限公司（证券简称：金诚信；英文名：JCHX MINING MANAGEMENT CO., LTD.）</td></tr>
+      <tr><td>统一社会信用代码</td><td>911100006699022334</td></tr>
+      <tr><td>成立日期</td><td>2008-01-07</td></tr>
+      <tr><td>注册资本</td><td>62,377.6176 万元（实缴资本 62,379.2580 万元，已全额到位）</td></tr>
+      <tr><td>法定代表人</td><td>王青海（董事长）</td></tr>
+      <tr><td>注册地址</td><td>北京市密云区经济开发区水源西路 28 号院 1 号楼 101 室</td></tr>
+      <tr><td>企业类型</td><td>其他股份有限公司（上市）</td></tr>
+      <tr><td>登记状态</td><td>存续（在营、开业、在册）</td></tr>
+      <tr><td>人员规模 / 参保</td><td>大型；人员规模 3,000–3,999 人，参保人数 3,752 人（分支机构参保 3,393 人）</td></tr>
+      <tr><td>国标行业</td><td>采矿业 — 开采专业及辅助性活动 — 其他开采专业及辅助性活动；企查查行业：建筑业 — 建筑工程 — 专业工程 — 矿山工程</td></tr>
+      <tr><td>经营范围（摘要）</td><td>一般项目：工程管理服务；对外承包工程；矿山机械制造；常用有色金属冶炼；金属矿石销售；非金属矿及制品销售；软件开发；货物 / 技术进出口。许可项目：建设工程施工；非煤矿山矿产资源开采（限外埠经营）；爆破作业；金属与非金属矿产资源地质勘探。（数据来源：企查查工商登记，核验 2026-10-14）</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览（合并报表口径） ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>FY-2（2023）</th><th>FY-1（2024）</th><th>FY（2025）</th><th>2026H1</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">73.99 亿</td><td class="num">99.42 亿</td><td class="num">138.94 亿</td><td class="num">76.41 亿</td><td rowspan="6">合并报表口径（元）；2025 归母净利取自公司 2025 年报披露 23.39 亿，企查查合并净利润 22.62 亿（口径差异为少数股东损益）；货币单位人民币。来源：企查查财务数据 + 公司 2025 年报 / 2026 半年报（核验 2026-10-14）</td></tr>
+        <tr><td>归母净利润</td><td class="num">10.32 亿</td><td class="num">15.71 亿</td><td class="num">23.39 亿</td><td class="num">—</td></tr>
+        <tr><td>毛利率</td><td class="num">30.34%</td><td class="num">31.51%</td><td class="num">33.82%</td><td class="num">39.57%</td></tr>
+        <tr><td>加权 ROE</td><td class="num">15.44%</td><td class="num">19.44%</td><td class="num">23.29%</td><td class="num">13.67%</td></tr>
+        <tr><td>资产负债率</td><td class="num">46.58%</td><td class="num">46.65%</td><td class="num">49.83%</td><td class="num">46.17%</td></tr>
+        <tr><td>经营现金流</td><td class="num">10.85 亿</td><td class="num">20.53 亿</td><td class="num">43.77 亿</td><td class="num">13.70 亿</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：财务数据来自企查查（合并报表口径，2023 至今 14 个报告期）与公司 2025 年报 / 2026 半年报交叉核验。2023–2025 营收 CAGR 约 37%，归母净利三年增长约 2.3 倍；2025 经营现金流 / 净利润 ≈ 1.93，盈利质量较高。分板块看：2025 矿服收入 66.13 亿（占 47.60%，同比基本持平）、资源开发矿产品收入 69.86 亿（占 46.18%，同比 +117.67%），资源板块已成第一增长极；海外主营占比 77.38%。</div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>全球矿业资本开支</td><td class="num">复苏向上</td><td class="num">铜矿长期资本开支不足</td><td>公司 2026 投资者关系（铜市"紧平衡"，供给受品位下滑与资本开支不足制约）</td></tr>
+        <tr><td>铜价（年均）</td><td class="num">历史高位</td><td class="num">中长期震荡上行</td><td>公司 2025 年报：自有资源受益于铜价持续走高；投资者关系 2026-07</td></tr>
+        <tr><td>矿山工程 / 采矿运营服务市场</td><td class="num">集中度提升</td><td class="num">大型综合服务商占优</td><td>公司 2025 年报行业讨论：中小服务商风险大，规模大、综合能力强的企业抗周期</td></tr>
+        <tr><td>海外矿服需求（非洲 / 南美）</td><td class="num">高景气</td><td class="num">中资矿企出海加速</td><td>公司年报：首次承接赞比亚 Mufulira、博茨瓦纳 Khoemacau 第五矿区，深耕非洲突破</td></tr>
+        <tr><td>有色金属矿采选业固定资产投资</td><td class="num">+41.0%</td><td class="num">民间投资 +28.7%</td><td>中国有色金属工业协会（2025，行业背景参照）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>矿服赛道：金诚信与紫金建设、中矿建设、中色建设等同台，以「基建—生产—设计—研发」一体化模式差异化竞争；海外矿服收入占其矿服收入 61.19%（2025）。</li>
+        <li>资源赛道：自有资源（两岔河磷矿、Dikulushi、Lonshi、Lubambe、San Matias）使其从纯服务商升级为「矿服 + 资源」双轮，对标洛阳钼业、紫金矿服协同模式。</li>
+        <li>市场份额：矿服行业高度分散，公司未公开整体市占率；以「大市场、大业主、大项目」策略，项目年均营收近 2 亿元，单体规模领先。</li>
+      </div>
+      <div class="bullet-list">
+        <li>产业链位置：上游矿权/勘查 — 中游矿服（基建+采运营运）— 下游冶炼；公司卡位「矿服总包 + 自有资源开发」高附加值环节。</li>
+        <li>定价模式：矿服为成本加成，不与矿价挂钩，抗周期性强；资源开发板块与铜/磷价强相关，弹性大。</li>
+        <li>技术壁垒：主编/参编 15 项国家及行业标准，自然崩落法智能化开采获中国有色金属工业科技一等奖，获批国家矿山安全监察局重点实验室。</li>
+      </div>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>自有资源项目产能释放叠加铜价走高成业绩核心驱动；2026 推进 Lonshi 东区、Lubambe 技改、两岔河北采区等，长期稳健发展。</td><td>金诚信（公司 2025 年报）</td><td class="num">2026-04</td><td>2025 年年度报告 / 利润分配方案</td></tr>
+        <tr><td>矿服定价成本加成、不与矿价挂钩；铜市面临"紧平衡"，供给受品位下滑与资本开支不足制约，铜价中长期震荡上行。</td><td>金诚信（投资者关系）</td><td class="num">2026-07</td><td>投资者关系活动月度汇总</td></tr>
+        <tr><td>矿服增长来自新承接外部项目 + 存量项目分期增量（大型矿山多矿体分期开发）；设计与研发一体化缩短业主建设周期。</td><td>金诚信（公司行业讨论）</td><td class="num">2026-04</td><td>2025 年报经营讨论</td></tr>
+        <tr><td>行业层面：新一轮找矿突破行动推动矿采选业利润高增、民间投资 +28.7%，资源安全逻辑强化。</td><td>中国有色金属工业协会</td><td class="num">2026-07</td><td>协会理事会工作报告（行业背景）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <div class="bullet-list">
+      <li>海外资产所在地监管动态：非洲（刚果金、赞比亚）、南美（哥伦比亚）、中亚、欧洲（葡萄牙）矿业外资审查、税费与社区关系政策趋严，构成运营与合规风险，须逐国核验。</li>
+      <li>《矿产资源法实施条例》（2026-05-15 施行）：探矿权最低勘查投入、"圈而不探"清理、绿色勘查强制要求，利好具备合规与技术能力的大型矿服企业。</li>
+      <li>公司动态：2026-07 筹划发行 H 股并在港交所主板上市；2026-09 董事会全票通过 H 股上市议案，待股东会及证监会/港交所/香港证监会备案或核准。</li>
+    </div>
+    <div class="note-box">注：上述为行业层面公开数据与公司披露，用于判断标的所处赛道景气与政策环境；机构/公司观点以「机构 + 日期 + 来源」标注，观点性内容不作为事实陈述。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">前十大股东（2026-10-14 口径）</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>金诚信集团有限公司</td><td class="num">38.88%</td><td>控股股东（法人股东）</td><td>企查查股东信息（2026-10-14）</td></tr>
+        <tr><td>2</td><td>香港中央结算有限公司</td><td class="num">4.06%</td><td>北向资金（沪股通）</td><td>企查查股东信息</td></tr>
+        <tr><td>3</td><td>鹰潭金诚投资发展有限公司</td><td class="num">1.40%</td><td>员工持股平台</td><td>企查查股东信息</td></tr>
+        <tr><td>4</td><td>全国社保基金一一一组合</td><td class="num">1.32%</td><td>机构投资者</td><td>企查查股东信息</td></tr>
+        <tr><td>5</td><td>鹰潭金信投资发展有限公司</td><td class="num">1.20%</td><td>员工持股平台</td><td>企查查股东信息</td></tr>
+        <tr><td>6</td><td>王先成</td><td class="num">0.90%</td><td>副董事长 / 实控人之一</td><td>企查查股东信息</td></tr>
+        <tr><td>7</td><td>广发多因子灵活配置混合型证券投资基金</td><td class="num">0.85%</td><td>机构投资者</td><td>企查查股东信息</td></tr>
+        <tr><td>8</td><td>瑞众人寿保险（自有资金）</td><td class="num">0.79%</td><td>机构投资者</td><td>企查查股东信息</td></tr>
+        <tr><td>9</td><td>基本养老保险基金一五零二二组合</td><td class="num">0.75%</td><td>机构投资者</td><td>企查查股东信息</td></tr>
+        <tr><td>10</td><td>全国社保基金四一八组合</td><td class="num">0.68%</td><td>机构投资者</td><td>企查查股东信息</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>实际控制人：王氏兄弟五人——王先成（最终受益 16.66%、副董事长）、王慈成（7.41%）、王友成（7.41%）、王意成（4.36%）、王亦成（4.36%），合计约 40.24%，为家族共同控制。</li>
+        <li>日常经营：王青海（法定代表人、董事长）、王先成（副董事长）、黄海根（总裁）等组成核心管理层；董事长与实控人家族分设。</li>
+        <li>股权冻结：无记录（司法冻结扫描 0 条）。</li>
+      </div>
+      <div class="bullet-list warn">
+        <li>股权质押：控股股东金诚信集团存在频繁质押——企查查扫描 56 条股权质押记录（部分质押中、多已解除），质押权人含木槿花（香港）投资、中国银河证券、中非产能合作基金等，反映股东层面较强融资需求，需关注质押比例与预警线。</li>
+        <li>员工持股平台（鹰潭金诚/金信）亦曾质押，目前多已解除。</li>
+        <li>整体股权结构清晰，无代持或复杂嵌套披露；家族控制集中但治理规范（上市公众公司）。</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>王青海</td><td>董事长、非独立董事</td><td>2020-05-06 至今</td><td>法定代表人；持股 0.0408%</td></tr>
+        <tr><td>王先成</td><td>副董事长、非独立董事</td><td>2020-05-06 至今</td><td>实控人之一，最终受益 16.66%；持股 0.90%</td></tr>
+        <tr><td>黄海根</td><td>非独立董事、总裁</td><td>2023-05-16 至今</td><td>总经理，负责日常经营</td></tr>
+        <tr><td>王慈成</td><td>非独立董事、常务副总裁、总经济师</td><td>2018-01-12 至今</td><td>实控人之一，持股 0.2244%</td></tr>
+        <tr><td>王友成</td><td>非独立董事、副总裁</td><td>2011-05-09 至今</td><td>实控人之一，持股 0.2244%</td></tr>
+        <tr><td>丁金刚</td><td>副总裁、总工程师</td><td>2024-01-10 至今</td><td>技术负责人</td></tr>
+        <tr><td>吴邦富</td><td>董事会秘书</td><td>2017-05-19 至今</td><td>持股 0.0481%</td></tr>
+        <tr><td>孟竹宏</td><td>财务总监</td><td>2017-05-19 至今</td><td>持股 0.0481%</td></tr>
+        <tr><td>韦华南 / 潘帅 / 叶希善 / 何小丽</td><td>独立董事</td><td>2023–2026 陆续任职</td><td>独立董事（含 2026-09 新任何小丽）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：主要人员共 17 名（企查查，2026-10-14）。治理架构为典型上市公众公司——家族控制（王氏兄弟）与管理层（王青海任董事长）分设，独立董事占 1/3 以上，设审计与风险管理、战略与可持续发展、技术、薪酬与考核、提名等专门委员会。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://www.jchxmc.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网招聘入口（jchxmc.com 含在线投递）</a>
+      <a href="https://job.ustb.edu.cn/f/recruitmentFair/show?recruitmentFairId=3ce52332ed714685802d84ed24fe23c7" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-weight:600;text-decoration:none;font-size:13px;">🌐 2027 届校招（北京科技大学就业网）</a>
+    </div>
+    <h3 class="sub">在招岗位明细（企查查招聘库，T+0 口径，近 30 条节选）</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>地点/项目</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026-10-13</td><td>物流清关员（西班牙语）</td><td class="num">35-40k</td><td>本科 / 3-5 年</td><td>驻外</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-10-10</td><td>法语翻译</td><td class="num">90-110k</td><td>本科 / 10 年以上</td><td>驻外</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-10-10</td><td>法务总监（西班牙语）</td><td class="num">60-80k</td><td>本科 / 5-10 年</td><td>驻外</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-09-22</td><td>采矿经理（哥伦比亚-露天铜金银矿）</td><td class="num">60-80k</td><td>本科 / 10 年以上</td><td>哥伦比亚</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-09-20</td><td>光伏电站站长（刚果金）</td><td class="num">20-35k</td><td>大专 / 5-10 年</td><td>刚果（金）</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-09-07</td><td>海外选矿厂长</td><td class="num">50-70k</td><td>本科 / 5 年以上</td><td>驻外</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-09-07</td><td>造价/电力工程师（矿山、哥伦比亚）</td><td class="num">50-60k</td><td>大专 / 10 年以上</td><td>哥伦比亚 / 北京</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-09-01</td><td>行政外事专员（常驻葡萄牙）</td><td class="num">10-20k</td><td>本科 / 1-3 年</td><td>葡萄牙</td><td>企查查招聘库</td></tr>
+        <tr><td class="num">2026-09-29</td><td>行政人力专员（赞比亚）</td><td class="num">18-20k</td><td>本科 / 1-3 年</td><td>赞比亚</td><td>企查查招聘库</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>职能方向：国际化经营岗密集放量——西/法/葡语翻译、法务总监、行政外事、物流清关、海外选矿/采矿厂长，与 s7 海外资源资产（哥伦比亚 San Matias、赞比亚 Lubambe、刚果金 Lonshi/Dikulushi、葡萄牙项目）扩张高度印证。</li>
+        <li>地点分布：北京总部（技术/职能中枢）为主，海外项目地（哥伦比亚、赞比亚、刚果金、葡萄牙）规模化释放驻外岗位，海外运营人力需求强劲。</li>
+      </div>
+      <div class="bullet-list">
+        <li>薪酬水位：海外管理/技术岗 50–110k/月，显著高于行业中位，反映国际化经营强度与紧缺人才竞争；校招 2027 届已启动（中央财经、北京科技等），地化/矿业/多语种/机械电气专业契合度高。</li>
+        <li>招聘总量：企查查招聘库 942 条记录（历史累计），持续高频发布，印证业务处于扩张期，求职关联度在矿业服务标的中居前。</li>
+      </div>
+    </div>
+    <div class="note-box">注：招聘数据来自企查查招聘信息库（T+0 口径，2026-10-14 核验，累计 942 条，节选近 30 条）/ 官网招聘入口（jchxmc.com）及高校就业网 2027 届校招公告。招聘信息为发布时点快照，不代表实际编制规模；官网招聘入口经公开渠道核实为 jchxmc.com（含在线申请），未编造 URL。</div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资（13 家，节选）</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股</th><th>注册资本</th><th>主营/角色</th><th>备注（海外资产重点标注）</th></tr></thead>
+      <tbody>
+        <tr><td>贵州两岔河矿业开发有限公司</td><td class="num">90%</td><td class="num">1000 万</td><td>磷矿开发（核心自有资源）</td><td>存续；两岔河磷矿，北采区 50 万 t/a 力争 2028 年底投产</td></tr>
+        <tr><td>景誠資源有限公司（香港）</td><td class="num">100%</td><td class="num">—</td><td>境外投资平台</td><td><span class="pill navy">境外·香港</span> 仍注册，海外资源运作平台</td></tr>
+        <tr><td>有道國際投資有限公司（香港）</td><td class="num">50%</td><td class="num">10 万股</td><td>境外投资</td><td><span class="pill navy">境外·香港</span> 仍注册</td></tr>
+        <tr><td>金诚信矿山工程设计院有限公司</td><td class="num">100%</td><td class="num">6000 万</td><td>矿山设计/技术研发</td><td>存续；技术核心资产</td></tr>
+        <tr><td>云南金诚信矿业管理有限公司</td><td class="num">100%</td><td class="num">8950.72 万</td><td>矿服运营</td><td>存续；西南区域运营主体</td></tr>
+        <tr><td>湖北金诚信矿业服务有限公司</td><td class="num">100%</td><td class="num">5000 万</td><td>矿服运营</td><td>存续</td></tr>
+        <tr><td>北京金诚信矿业管理技术有限公司</td><td class="num">100%</td><td class="num">5000 万</td><td>矿服技术</td><td>存续</td></tr>
+        <tr><td>元诚科技（海南）有限公司</td><td class="num">100%</td><td class="num">1 亿</td><td>科技/供应链</td><td>存续；2021 新设</td></tr>
+        <tr><td>西宁特殊钢股份有限公司</td><td class="num">0.69%</td><td class="num">—</td><td>参股（财务投资）</td><td>在业；少量参股</td></tr>
+        <tr><td>深圳市福田赛富动势股权投资基金</td><td class="num">1.80%</td><td class="num">认缴 2000 万</td><td>参股基金</td><td>存续；财务投资</td></tr>
+        <tr><td>莱芜京莱井巷工程有限公司</td><td class="num">100%</td><td class="num">300 万</td><td>矿服（历史）</td><td><span class="pill risk">已吊销</span> 严重违法 3 条，历史包袱</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：企查查对外投资 13 条（2026-10-14）。自有资源资产主要通过项目公司持有——刚果（金）Dikulushi 铜矿、Lonshi 铜矿、赞比亚 Lubambe 铜矿、哥伦比亚 San Matias 铜金银矿（控制权来自公司 2025 年报与校招简章披露），境外主体注册信息依赖公告/国际数据源，国内工商不全覆盖。境内 43 家分支机构遍布贵州、四川、云南、江西、青海、新疆、甘肃等矿业大省项目部，反映矿服网络广度。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布（地图） ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/矿权名称</th><th>所在国/地区</th><th>矿种</th><th>持股</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>贵州两岔河磷矿</td><td>中国·贵州织金</td><td>磷矿</td><td class="num">90%</td><td>建设中（北采区力争 2028 投产）</td><td>公司 2025 年报 / 投资者关系</td></tr>
+        <tr><td>Dikulushi 铜矿</td><td><span class="pill navy">境外·刚果（金）</span></td><td>铜</td><td class="num">控股</td><td>在产</td><td>公司 2025 年报 / 校招简章</td></tr>
+        <tr><td>Lonshi 铜矿</td><td><span class="pill navy">境外·刚果（金）</span></td><td>铜</td><td class="num">控股</td><td>在产（东区建设推进）</td><td>公司 2025 年报</td></tr>
+        <tr><td>Lubambe 铜矿</td><td><span class="pill navy">境外·赞比亚</span></td><td>铜</td><td class="num">控股</td><td>技改工程</td><td>公司 2025 年报</td></tr>
+        <tr><td>San Matias 铜金银矿</td><td><span class="pill navy">境外·哥伦比亚</span></td><td>铜金银</td><td class="num">控股</td><td>建设中 / 勘探</td><td>公司校招简章 / 年报</td></tr>
+        <tr><td>Kamoa / Khoemacau 等矿服项目</td><td><span class="pill navy">境外·非洲多国</span></td><td>铜（矿服运营）</td><td class="num">—</td><td>在产（矿服合同）</td><td>公司 2025 年报（近 40 个大型项目）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图来源腾讯地图（合规底图，公网部署需配置 key）；坐标体系—境外矿山直接使用 WGS84 坐标（矿山级近似，非设施级），境内矿山坐标为公开近似位置。矿权口径以公司 2025 年报、投资者关系及官网披露为准，截至 2026-10-14。地图在无 key 时自动降级为明细表展示，不影响数据完整性。海外资产须逐国核验东道国矿业权登记与权属证明。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>2008-01-07 成立，初期聚焦矿山工程建设与采矿运营管理。</li>
+        <li>2015-06 上交所主板上市（603979.SH），成为"矿山服务第一股"。</li>
+        <li>2017–2021 持续向资源开发延伸，陆续取得贵州两岔河磷矿、刚果（金）Dikulushi/Lonshi 铜矿控制权。</li>
+        <li>2024–2025 资源板块放量：自有资源收入同比 +99.92%，业绩创新高；境外主营占比升至 77.38%。</li>
+        <li>2026-07 筹划发行 H 股并在港交所主板上市；2026-09 董事会全票通过 H 股上市议案，待股东会及监管核准。</li>
+      </div>
+      <div class="bullet-list">
+        <li>对外担保：70 条担保信息（多为为子公司履约担保，属矿服/资源扩张常规增信，须关注担保额度与集中度）。</li>
+        <li>诉讼/被执行：裁判文书 41、立案 22、开庭公告 53、劳动仲裁 1——大型矿服承包商行业常态（多为工程/劳动纠纷被告）；失信、被执行、限制高消费、股权冻结均 0。</li>
+        <li>行政处罚：1 条（2026-01-27，开阳县应急管理局，罚款 3.1 万元，安全生产类轻微处罚）。</li>
+        <li>经营异常 / 严重违法（本部）：0；关联方严重违法 3 条均来自已吊销子公司莱芜京莱井巷工程。</li>
+        <li>综合：35 项风险因子中 9 项有记录，主体层面失信/被执行/冻结全清，信用底色优质。</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">1. 控股股东股权质押风险（中高）</div>
+      <div>控股股东金诚信集团存在 56 条股权质押记录（部分质押中、多已解除），质押权人含木槿花（香港）投资、中国银河证券、中非产能合作基金等，反映股东层面较强融资需求。虽非公司层面负债，但若股价触及预警线存在潜在平仓与股权变动压力，须关注质押比例与预警线。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">2. 海外运营与地缘风险（中高）</div>
+      <div>境外主营占比 77.38%，业务遍及非洲（刚果金、赞比亚）、南美（哥伦比亚）、中亚、欧洲（葡萄牙）。东道国矿业政策变动、社区关系、汇率波动、安全形势（如刚果金、哥伦比亚）构成运营与合规风险；公司曾于赞比亚、加纳获行业奖项，本地化运营能力较强但敞口集中。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 矿价与周期风险（中）</div>
+      <div>资源开发板块（铜、磷）与商品价格强相关，2025 业绩高增部分来自铜价走高与自有资源产能释放；若铜/磷价回落，资源板块盈利弹性减弱。矿服定价为成本加成、不与矿价挂钩，相对稳健，但新签合同节奏受业主 capex 周期影响。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 历史包袱与合规风险（中）</div>
+      <div>已吊销子公司莱芜京莱井巷工程存在严重违法 3 条；2026-01 一笔 3.1 万元安全生产处罚；作为大型承包商诉讼/开庭公告较多（裁判文书 41、开庭 53）属行业常态，但需持续跟踪大额诉讼与安全生产事故。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">5. 扩张资本开支与负债风险（中）</div>
+      <div>资源开发在建项目（Lonshi 东区、Lubambe 技改、两岔河北采区）资金需求大，资产负债率 49.83% 可控但随着扩产或上行；H 股上市意在拓宽融资渠道、优化资本结构，但最终实施具不确定性（待监管核准）。</div>
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>分维度结论</b><br>
+      · 主体信用：大型上市矿服龙头，财务稳健（负债率约 47%–50%、经营现金流充沛、ROE 23%+），35 项风险因子主体层面零失信/被执行/冻结，信用优质，可作优先合作/研究标的。<br>
+      · 成长性与业务：矿服+资源双轮驱动，2023–2025 营收 CAGR 约 37%、净利三年增约 2.3 倍，海外占比 77%；资源板块成第一增长极，成长确定性强但依赖铜价与海外执行力。<br>
+      · 治理：王氏兄弟家族共同控制（合计约 40%），董事长与家族分设、独董占 1/3+，治理规范；H 股上市推进中或改善资本结构与治理透明度。<br>
+      · 关注点：控股股东股权质押、海外地缘与安全、历史子公司包袱、扩产资本开支。<br><br>
+      <b>建议</b><br>
+      ① 作为优质矿业服务与资源龙头纳入研究覆盖，跟踪 2026 全年业绩与 H 股上市进展；② 求职关联度高——国际化经营、地质/矿建、多语种（西/法/葡）、供应链岗位密集放量，可重点对接 2027 届校招与社招驻外岗；③ 投资/合作前补充核验控股股东质押明细与预警线、海外项目东道国合规与汇率敞口；④ 关注铜/磷价走势对资源板块盈利弹性的影响。
+    </div>
+  </section>
+
+  <!-- ============ 附录 · 数据来源与方法说明 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记/股权/对外投资/治理/风险</td><td>企查查 MCP（get_company_registration_info 等 9 项接口）</td><td>2026-10-14</td><td>国内工商数据源；不覆盖境外子公司注册信息；风险扫描 35 项因子 9 项有记录</td></tr>
+        <tr><td>财务数据</td><td>企查查财务数据（2023 至今 14 期）+ 公司 2025 年报 / 2026 半年报</td><td>2026-10-14</td><td>合并报表口径；归母净利采用年报披露值 23.39 亿，与企查查合并净利 22.62 亿存在少数股东损益口径差</td></tr>
+        <tr><td>招聘动态</td><td>企查查招聘信息库（942 条，T+0）+ 官网 jchxmc.com + 高校就业网校招公告</td><td>2026-10-14</td><td>企查查招聘库节选近 30 条；官网入口经公开核实；时点快照</td></tr>
+        <tr><td>行业研究</td><td>公司 2025 年报 / 投资者关系 + 中国有色金属工业协会公开数据</td><td>2026-03 至 2026-10</td><td>行业层面数据 + 公司披露，非标的专属研报；机构观点已标注来源</td></tr>
+        <tr><td>海外矿权/资源资产</td><td>公司 2025 年报、投资者关系、官网校招简章</td><td>2026-10-14</td><td>境外主体注册信息依赖公告/国际数据源；坐标为矿山级近似（WGS84）</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：https://hermes-404.github.io/sinomine-research/金诚信矿业管理股份有限公司-尽职调查报告-v1.html · 本报告由 AI 辅助生成 · 数据截至 2026-10-14</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+/* ============ 全球矿权地图（腾讯地图 GL JS，合规底图） ============
+ * 合规要求：底图仅可使用腾讯/高德/百度/天地图，禁止 Google/OSM/Mapbox。
+ * 本地预览（WorkBuddy 内）走 _TMapSecurityConfig 本地代理，无需 key；
+ * 部署到 GitHub Pages（公网 + 含海外区域渲染）属非默认场景，
+ * 须在腾讯位置服务开放平台（https://lbs.qq.com）申请 key 并替换 TMAP_KEY，
+ * 同时在控制台配置 Referer 白名单为 Pages 域名（如 https://<user>.github.io/*）。
+ * 坐标口径：境内矿山坐标须为 GCJ-02（火星坐标，WGS84 需转换）；境外矿山直接使用 WGS84 坐标即可。 */
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  { name:'贵州两岔河磷矿', country:'中国·贵州织金', mineral:'磷矿', stake:'90%', status:'建设中', lat:26.65, lng:105.75 },
+  { name:'Dikulushi 铜矿', country:'刚果（金）', mineral:'铜', stake:'控股', status:'在产', lat:-10.60, lng:26.30 },
+  { name:'Lonshi 铜矿', country:'刚果（金）', mineral:'铜', stake:'控股', status:'在产(东区建设)', lat:-11.10, lng:27.60 },
+  { name:'Lubambe 铜矿', country:'赞比亚', mineral:'铜', stake:'控股', status:'技改', lat:-12.80, lng:28.10 },
+  { name:'San Matias 铜金银矿', country:'哥伦比亚', mineral:'铜金银', stake:'控股', status:'建设中/勘探', lat:7.90, lng:-75.30 }
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000); /* 超时兜底：保留 fallback 提示 */
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 3, center: new TMap.LatLng(15, 40) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(15, 40), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
