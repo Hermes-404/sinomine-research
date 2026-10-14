@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巨鼎兴（北京）矿产资源有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- ================= 页头：公司身份条 ================= -->
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">非上市 · 民营企业 · 微型企业</span>
+        <div class="company-name-cn">巨鼎兴（北京）矿产资源有限公司</div>
+        <div class="company-name-en">Judingxing (Beijing) Mineral Resources Co., Ltd.</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调 · 中性</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-10-14</span>
+      <span>数据截至：2026-10-14</span>
+      <span>报告编号：DD-JDX-2026-V1</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 粘性导航 ================= -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <!-- ============ 核心结论框 ============ -->
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    巨鼎兴（北京）矿产资源有限公司是一家自然人控股的微型民营企业，2026 年 5 月由「巨鼎兴（北京）科技有限公司」更名并新增「矿产资源勘查」许可，由科技贸易类企业向矿产资源平台转型。工商与司法风险扫描（35 项因子）全为 0，实缴资本 1000 万元全额到位，合规底色干净；但工商登记参保人数为 0、人员规模少于 50 人，且企查查标注其「控制了 4 家企业」而对外直接投资仅披露 2 家（嘉兴京屹创投 37.5%、内蒙古旺盛矿业 100%）。招聘平台显示其自我描述「海外矿业—中亚、蒙古、非洲布局、国内新疆浩能等核心资产」，然而公开工商与年报数据未披露任何矿权/矿山资产，旗下内蒙古旺盛矿业为 0 参保的矿产品贸易壳公司——业务实质与资产落地尚待核验。建议按「轻资产矿业贸易/投资平台」审慎看待，在取得经审计财报与矿权证明前不宜按成熟矿业运营主体估值。
+  </div>
+
+  <!-- ============ KPI 概览卡片 ============ -->
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">注册资本（实缴）</div><div class="kpi-value num">1000万元</div><div class="kpi-delta">全额实缴，无抽逃记录</div></div>
+    <div class="kpi-card"><div class="kpi-label">对外投资企业</div><div class="kpi-value num">2 家</div><div class="kpi-delta">控股 4 家 · 2026 新设嘉兴京屹创投</div></div>
+    <div class="kpi-card kpi-down"><div class="kpi-label">参保人数（工商）</div><div class="kpi-value num">0 人</div><div class="kpi-delta down">第三方标注 1-50 人/2024 年 3 人，实质运营存疑</div></div>
+    <div class="kpi-card"><div class="kpi-label">风险因子扫描</div><div class="kpi-value num">0 / 35 项</div><div class="kpi-delta">工商·司法·处罚全清，合规干净</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>巨鼎兴（北京）矿产资源有限公司（曾用名：巨鼎兴（北京）科技有限公司、巨鼎德睿（北京）煤矿机械研究院）</td></tr>
+      <tr><td>统一社会信用代码</td><td>91110105592365862P</td></tr>
+      <tr><td>成立日期</td><td>2012-03-15</td></tr>
+      <tr><td>注册资本</td><td>1000 万元（实缴资本 1000 万元，已全额到位）</td></tr>
+      <tr><td>法定代表人</td><td>高玉鹏</td></tr>
+      <tr><td>注册地址</td><td>北京市北京经济技术开发区（通州）马驹桥镇物流基地兴贸二街 16 号二层 2068 室</td></tr>
+      <tr><td>企业类型</td><td>有限责任公司（自然人投资或控股）</td></tr>
+      <tr><td>登记状态</td><td>存续（在营、开业、在册）</td></tr>
+      <tr><td>经营范围（摘要）</td><td>一般项目：金属矿石销售；非金属矿及制品销售；地质勘查技术服务；供应链管理服务；金属材料销售；货物进出口；进出口代理；国内贸易代理；进出口商品检验鉴定；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广。许可项目：矿产资源勘查。（数据来源：企查查工商登记，核验 2026-10-14）</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 二、财务概览（合并报表口径） ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>FY-2</th><th>FY-1</th><th>FY（最新）</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td><td rowspan="4">民营企业无强制信息披露义务，企查查等公开渠道未提供营收、利润、资产负债、现金流等财务数据；须以经审计财务报表核验（来源：企查查工商登记 + 公开渠道检索，2026-10-14）</td></tr>
+        <tr><td>归母净利润</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td></tr>
+        <tr><td>资产负债率</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td></tr>
+        <tr><td>经营现金流</td><td class="num">未披露</td><td class="num">未披露</td><td class="num">未披露</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：该公司为未上市民营企业，无强制审计披露要求，公开渠道未获取近三年财务数据。仅有的资本信息为注册资本/实缴资本 1000 万元（全额到位）。偿债能力、盈利能力与资产规模均不可得，需以经审计财报或银行流水补充核验。</div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>有色金属行业营业收入</td><td class="num">10.2 万亿元</td><td class="num">+13.9%</td><td>中国有色金属工业协会 / 上海有色网（2025 年报，2026-07）</td></tr>
+        <tr><td>有色金属矿采选业利润</td><td class="num">1248.6 亿元</td><td class="num">+36.1%</td><td>中国有色金属工业协会（2025）</td></tr>
+        <tr><td>有色金属矿采选业固定资产投资</td><td class="num">+41.0%</td><td class="num">民间投资 +28.7%</td><td>中国有色金属工业协会 / 中国产业经济信息网（2025）</td></tr>
+        <tr><td>铜精矿进口量</td><td class="num">3031 万吨</td><td class="num">+7.9%</td><td>海关总署 / 中国有色金属工业协会（2025）</td></tr>
+        <tr><td>铜年均价</td><td class="num">8.1 万元/吨</td><td class="num">+8.0%</td><td>国内现货市场（2025，历史高位）</td></tr>
+        <tr><td>锂盐市场规模</td><td class="num">约 1800 亿元</td><td class="num">+28.3%</td><td>中研普华（2025，新能源金属增量引擎）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>行业高度分散：2025 年规模以上有色金属工业企业达 1.2 万家（较 2020 +39.2%），龙头为紫金、洛钼、中铝等，本标的为微型企业无公开市场份额。</li>
+        <li>金属及金属矿批发（企查查四级行业）竞争激烈、同质化，轻资产贸易商普遍规模小、议价能力弱。</li>
+        <li>「矿产资源勘查」许可持有方众多，但具备独立找矿成果与矿权的主体稀缺，中小地勘企业面临整合。</li>
+      </div>
+      <div class="bullet-list">
+        <li>产业链位置：上游矿权/勘查 — 中游贸易/供应链 — 下游冶炼加工；本标的卡位于轻资产的「贸易 + 地质勘查技术服务」环节。</li>
+        <li>资源端高度依赖外部（进口矿/合作矿权），自身不掌握矿源则利润受矿价与上游挤压。</li>
+        <li>海外布局（自我描述的中亚/蒙古/非洲）若落地，可向上游资源端延伸，但未见公开权属佐证。</li>
+      </div>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>新一轮找矿突破战略行动推动矿采选业利润高增（+36.1%）、民间投资 +28.7%，资源安全保障逻辑强化。</td><td>中国有色金属工业协会</td><td class="num">2026-07</td><td>协会理事会工作报告</td></tr>
+        <tr><td>2026-2030 锂、钴、稀土等战略矿产勘查迎百亿增量市场；绿色勘查成硬约束，中小地勘企业或现「合规死亡谷」并购潮。</td><td>中研普华产业研究院</td><td class="num">2026-03</td><td>《地质勘查行业前瞻报告》</td></tr>
+        <tr><td>十五五地勘业向技术密集+现代服务转型，勘查服务 IPO 审核标准提高，盈利能力与合规记录成硬门槛。</td><td>自然资源部 / 青海地调局</td><td class="num">2026-06</td><td>行业公开报道</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <div class="bullet-list">
+      <li>2026-05-15《中华人民共和国矿产资源法实施条例》正式发布：明确矿业权竞争性出让、探矿权最低勘查投入、「圈而不探」清理整治、绿色勘查强制要求。</li>
+      <li>新一轮找矿突破战略行动（至 2030 年）：重点保障锂、钴、稀土等新能源矿产，引导社会资本参与深部找矿与海外布局。</li>
+      <li>海外资产所在地监管动态：中亚、蒙古、非洲多国矿业外资审查与税费政策趋严，跨境矿权取得与汇回存在地缘与合规风险，须逐国核验。</li>
+    </div>
+    <div class="note-box">注：上述为行业层面公开数据（中国有色金属工业协会、中研普华、自然资源部等，2026 年 3-7 月），用于判断标的所处赛道景气与政策环境，非针对本标的的专属研究。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">前十大股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>高玉鹏</td><td class="num">90.00%</td><td>自然人股东（法定代表人、执行董事、经理）</td><td>企查查股东信息（2026-10-14）</td></tr>
+        <tr><td>2</td><td>侯慧</td><td class="num">10.00%</td><td>自然人股东（财务负责人，2017-07-25 入股）</td><td>企查查股东信息（2026-10-14）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>实际控制人：高玉鹏，直接持股 90.00%，表决权 90.00%。</li>
+        <li>受益所有人：高玉鹏，最终受益股份 90%，表决权 90%，任职法定代表人/执行董事/经理（受益形成日 2016-05-31）。</li>
+        <li>日常经营：高玉鹏（法定代表人、执行董事、经理）、侯慧（财务负责人）。</li>
+      </div>
+      <div class="bullet-list">
+        <li>股权质押：无记录（企查查股权出质/股权质押扫描 0 条）。</li>
+        <li>股权冻结：无记录（司法冻结扫描 0 条）。</li>
+        <li>股权结构清晰、无代持或复杂嵌套披露；但「控制 4 家企业、仅披露 2 家对外投资」暗示存在未在本层披露的间接控制主体，需穿透核查。</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>高玉鹏</td><td>执行董事、经理</td><td>2016-05-31 起（接任法定代表人）</td><td>实控人，持股 90%；关联企业 12 家，主导 2026 年更名转型「矿产资源」平台</td></tr>
+        <tr><td>李强</td><td>监事</td><td>2022-07-26 备案</td><td>监督职务，未披露持股</td></tr>
+        <tr><td>侯慧</td><td>财务负责人</td><td>2017-07-25 入股并任职</td><td>持股 10%，分管财务</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://www.zhupinhr.com/store-2059898740684296192.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent);border-radius:8px;color:var(--accent);font-weight:600;text-decoration:none;font-size:13px;">🔗 招聘平台收录（筑招网）· 公司暂无独立官网招聘页</a>
+      <a href="#" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--text-body,#333);font-weight:600;text-decoration:none;font-size:13px;">🌐 官网 · 未披露（企查查官网字段为「-」）</a>
+    </div>
+    <h3 class="sub">在招岗位明细</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026-06-25</td><td>地质工程师</td><td class="num">15-20k</td><td>本科 / 5-7 年（初级职称）</td><td>北京</td><td>筑招网（第三方招聘平台）</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>职能方向：仅释放 1 个地质工程师岗位，指向勘查/矿权评价技术职能，与 2026 年新增「矿产资源勘查」许可方向一致。</li>
+        <li>招聘规模极小（1 岗）与工商参保人数 0 相互印证，反映实际在岗人员极少，更像轻资产平台而非运营型矿企。</li>
+      </div>
+      <div class="bullet-list">
+        <li>与业务扩张的呼应：自我描述「中亚、蒙古、非洲海外矿业布局」但招聘仅北京 1 岗、无海外岗位，海外项目落地存疑。</li>
+        <li>薪酬水位：地质工程师 15-20k（北京、5-7 年）属行业中低位，与微型民企定位相符；未见国际化经营或数字化大规模招兵买马信号。</li>
+      </div>
+    </div>
+    <div class="note-box">注：企查查招聘信息库未检索到记录（T+0 口径）；第三方招聘平台筑招网于 2026-06-25 收录 1 个在招岗位（已核验 2026-10-14）。公司官网招聘入口未披露（企查查官网字段为「-」），故招聘卡片指向第三方平台收录页。招聘数据仅为发布时点快照，不代表实际编制规模。</div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注（海外资产重点标注）</th></tr></thead>
+      <tbody>
+        <tr><td>嘉兴京屹创业投资合伙企业（有限合伙）</td><td class="num">37.50%</td><td class="num">认缴 3000 万元</td><td>创业投资平台（执行事务合伙人：北京长赫投资管理有限公司）</td><td>存续，2026-07-06 成立；参股型创投平台，或与海外矿业投资布局相关，出资来源与资金投向须核验</td></tr>
+        <tr><td>内蒙古旺盛矿业有限公司</td><td class="num">100%</td><td class="num">100 万元</td><td>矿产品加工销售、矿业信息咨询（阿拉善左旗；注册于住宅小区，0 参保）</td><td>存续，2016-07-28 成立；全资矿业贸易子公司，未发现矿权/矿山资产披露，风险因子 0/35</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：企查查标注本标的「控制了 4 家企业」，但对外直接投资仅披露 2 家，另 2 家受控主体或通过嘉兴京屹创投等间接持有，建议穿透核查其完整控制链与资金往来。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布（地图） ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/矿权名称</th><th>所在国/地区</th><th>矿种</th><th>持股比例</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>内蒙古旺盛矿业有限公司（关联矿业主体）</td><td>内蒙古阿拉善</td><td>矿产品贸易（未披露矿权）</td><td class="num">100%</td><td>贸易主体（未披露矿权）</td><td>企查查工商登记（2026-10-14）</td></tr>
+        <tr><td>自我描述「中亚/蒙古/非洲项目」「新疆浩能」</td><td>境外/新疆（待核）</td><td>有色金属矿产（待核）</td><td class="num">未披露</td><td>未披露 · 无公开权属佐证</td><td>筑招网公司简介（2026-06，待独立核验）</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：底图来源腾讯地图（合规底图，公网部署需配置 key）；坐标体系—本报告未披露任何矿权坐标，因公开渠道无对应矿山位置数据；矿权口径以企查查工商登记及公开披露为准，截至 2026-10-14 未检索到该公司及其子公司持有的矿业权/矿山资产。地图在无坐标数据时自动降级为明细表展示，不影响数据完整性。海外资产（如存在）须逐国核验东道国矿业权登记与权属证明。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li>2012-03-15 成立，原名「巨鼎德睿（北京）煤矿机械研究院」，集体所有制（股份合作），主营煤矿机械研究与建材/电子产品销售。</li>
+        <li>2016-05-31 高玉鹏接任法定代表人、执行董事/经理；股东由李宇鹏/李金喜变更为李宇鹏/高玉鹏；经营范围增煤炭销售。</li>
+        <li>2017-07-25 股东李宇鹏→侯慧（侯慧持 10% 至今）。</li>
+        <li>2022-07-26 更名「巨鼎兴（北京）科技有限公司」，转制为有限责任公司（自然人投资或控股）；董监高备案为高玉鹏/侯慧/李强。</li>
+        <li>2026-05-15 迁址：朝阳区→北京经济技术开发区（通州）马驹桥镇；登记机关变更。</li>
+        <li>2026-05-20 更名「巨鼎兴（北京）矿产资源有限公司」，经营范围重大变更，新增金属矿石/非金属矿销售、地质勘查技术服务、供应链管理服务、货物进出口、矿产资源勘查（许可）等。</li>
+      </div>
+      <div class="bullet-list">
+        <li>对外担保：无记录（企查查担保信息扫描 0 条）。</li>
+        <li>诉讼/被执行：无记录（失信、被执行、裁判文书、立案、开庭、法院公告等全 0）。</li>
+        <li>行政处罚：无记录（含环保处罚、税务非正常户、欠税公告均 0）。</li>
+        <li>经营异常：无记录（含严重违法、简易注销、清算均 0）。</li>
+        <li>股权质押/冻结：无记录（质押、冻结、动产/土地抵押均 0）。</li>
+        <li>综合：35 项风险因子全为 0，工商合规底色干净。</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">1. 经营实质与人员规模风险（高）</div>
+      <div>微型企业，工商参保人数 0、人员规模少于 50 人；企查查标注「控制了 4 家企业」但仅披露 2 家对外投资，资产与人员规模与其「海外矿业布局」自我描述明显不匹配，存在壳化或轻资产运作可能，持续经营能力需现场核验。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">2. 业务真实性与资产落地风险（高）</div>
+      <div>招聘平台自我描述「中亚、蒙古、非洲项目布局」「新疆浩能等核心资产」，但公开工商与矿权数据零佐证；旗下内蒙古旺盛矿业为 0 参保的矿产品贸易壳公司。海外资产与矿权的真实性、权属、储量须以矿权证书、股权协议与产能证明独立核验，不可仅凭企业自述。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 财务不透明与出资能力风险（中）</div>
+      <div>民营未上市，无公开财报；实缴资本仅 1000 万元，资金实力有限；对外认缴嘉兴京屹创投 3000 万元（持股 37.5%）远超自身资本规模，出资能力与资金来源待核，存在放大杠杆或代持嫌疑。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 合规与政策风险（中）</div>
+      <div>2026 年 5 月新取「矿产资源勘查」许可，须满足《矿产资源法实施条例》（2026-05-15 施行）最低勘查投入、「圈而不探」清理、绿色勘查硬约束；若海外项目属实，中亚/蒙古/非洲东道国矿业外资审查、税费与汇回政策构成额外合规与地缘风险。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">5. 信息获取边界（中）</div>
+      <div>私人企业无强制披露，财务、矿权、关联交易依赖公开渠道有限；企查查等国内数据源不覆盖境外子公司注册信息。建议以经审计财报、矿权证书、银行流水及实控人访谈补齐信息缺口。</div>
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>分维度结论</b><br>
+      · 主体合规：工商、司法、行政处罚、经营异常 35 项因子零记录，实缴资本到位，主体信用干净，可作为交易对手初步接触。<br>
+      · 业务存疑：由科技贸易企业于 2026 年 5 月更名转型「矿产资源」平台，公开数据未支撑其宣称的海外矿业资产；应视为轻资产贸易/投资壳，而非成熟矿业运营主体。<br>
+      · 财务缺失：无公开财报，资本实力薄弱（实缴 1000 万），对外投资认缴额超资本，出资能力待核。<br><br>
+      <b>建议</b><br>
+      ① 要求提供经审计近三年财报与银行流水；② 核验「中亚/蒙古/非洲项目」及「新疆浩能」的矿权证书、股权协议与产能证明；③ 核查嘉兴京屹创投 3000 万元出资来源与资金投向；④ 对实控人高玉鹏做业务规划访谈；⑤ 在取得上述证据前，按「低确定性、高信息缺口」定价，并设置先决条件（CP）与业绩/资产对赌条款。
+    </div>
+  </section>
+
+  <!-- ============ 附录 · 数据来源与方法说明 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记/股权/对外投资/治理/风险</td><td>企查查 MCP（get_company_registration_info 等 9 项接口）</td><td>2026-10-14</td><td>国内工商数据源；不覆盖境外子公司注册信息；风险扫描 35 项因子全 0</td></tr>
+        <tr><td>招聘动态</td><td>筑招网（第三方招聘平台公开信息）+ 企查查招聘库</td><td>2026-10-14</td><td>非官方渠道；企查查招聘库无记录，筑招网收录 1 岗（2026-06-25）；时点快照</td></tr>
+        <tr><td>行业研究</td><td>中国有色金属工业协会、中研普华、自然资源部/青海地调局公开报道</td><td>2026-03 至 2026-07</td><td>行业层面数据，非标的专属；用于赛道景气与政策环境判断</td></tr>
+        <tr><td>财务数据</td><td>公开渠道检索（未获取）</td><td>2026-10-14</td><td>民营未上市无强制披露；须以经审计财报核验</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：https://hermes-404.github.io/sinomine-research/%E5%B7%A8%E9%BC%8E%E5%85%B4%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89%E7%9F%BF%E4%BA%A7%E8%B5%84%E6%BA%90%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-%E5%B0%BD%E8%81%8C%E8%B0%83%E6%9F%A5%E6%8A%A5%E5%91%8A-v1.html · 本报告由 AI 辅助生成 · 数据截至 2026-10-14</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+/* ============ 全球矿权地图（腾讯地图 GL JS，合规底图） ============
+ * 合规要求：底图仅可使用腾讯/高德/百度/天地图，禁止 Google/OSM/Mapbox。
+ * 本地预览（WorkBuddy 内）走 _TMapSecurityConfig 本地代理，无需 key；
+ * 部署到 GitHub Pages（公网 + 含海外区域渲染）属非默认场景，
+ * 须在腾讯位置服务开放平台（https://lbs.qq.com）申请 key 并替换 TMAP_KEY，
+ * 同时在控制台配置 Referer 白名单为 Pages 域名（如 https://<user>.github.io/*）。
+ * 坐标口径：境内矿山坐标须为 GCJ-02（火星坐标，WGS84 需转换）；境外矿山直接使用 WGS84 坐标即可。 */
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  /* 每个矿山/矿权一条，按实际数据增删：
+     { name:'矿山名', country:'所在国', mineral:'矿种', stake:'持股', status:'在产/建设中/勘探', lat:纬度, lng:经度 } */
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000); /* 超时兜底：保留 fallback 提示 */
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 3, center: new TMap.LatLng(15, 40) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(15, 40), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
