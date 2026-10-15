@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>厦门象屿股份有限公司 · 尽职调查报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a2c4e; --primary-light:#2d4570;
+  --accent-green:#2e7d4f; --accent-red:#a83232; --accent-amber:#b8842a; --accent-blue:#355a8a;
+  --bg:#f5f3ee; --bg-card:#ffffff; --bg-header:#1a2c4e;
+  --text-primary:#1a1a1a; --text-secondary:#3a3a3a; --text-muted:#6e6e6e;
+  --border:#cfc9bd; --border-soft:#e2ddd2;
+  --shadow:0 1px 2px rgba(26,44,78,.06); --shadow-hover:0 2px 6px rgba(26,44,78,.10);
+  --kpi-up-bg:#f5ebea; --kpi-down-bg:#eef3ec; --kpi-flat-bg:#f0ece1;
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,'Times New Roman',serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1620; --bg-card:#18222e; --bg-header:#0a121c;
+  --text-primary:#e8e4dc; --text-secondary:#b8b3a8; --text-muted:#7c7a72;
+  --border:#2c3a4d; --border-soft:#24313f;
+  --shadow:0 1px 2px rgba(0,0,0,.30); --shadow-hover:0 2px 6px rgba(0,0,0,.50);
+  --kpi-up-bg:#2a1717; --kpi-down-bg:#14241a; --kpi-flat-bg:#1c2634;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:var(--bg);color:var(--text-secondary);font-size:14px;line-height:1.8;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.report-header{background:var(--bg-header);color:#f0ece1;padding:30px 0 22px;border-bottom:3px solid var(--accent-amber)}
+.header-main{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.company-exchange-badge{display:inline-block;border:1px solid rgba(240,236,225,.45);border-radius:1px;padding:1px 10px;font-size:11px;letter-spacing:.08em;color:#d8d2c4;margin-bottom:10px}
+.company-name-cn{font-family:var(--serif);font-size:28px;font-weight:600;color:#ffffff;line-height:1.3}
+.company-name-en{font-size:12.5px;color:#b8b3a8;letter-spacing:.04em;margin-top:2px}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-toggle{background:transparent;border:1px solid rgba(240,236,225,.45);border-radius:1px;color:#d8d2c4;font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s}
+.theme-toggle:hover{border-color:var(--accent-amber);color:#fff}
+.rating-badge{border-radius:1px;padding:5px 16px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.15em}
+.rating-badge.neutral{background:var(--accent-amber)}
+.header-meta{margin-top:16px;font-size:11px;color:#9c968a;letter-spacing:.03em}
+.header-meta span{margin-right:22px;white-space:nowrap}
+.header-meta span::before{content:"▪";color:var(--accent-amber);margin-right:7px}
+
+/* ---------- nav ---------- */
+.nav-bar{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:2px;overflow-x:auto}
+.nav-inner a{color:var(--text-muted);text-decoration:none;font-size:12.5px;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.nav-inner a:hover{color:var(--primary);border-bottom-color:var(--accent-amber)}
+[data-theme="dark"] .nav-inner a:hover{color:#6ea3d8}
+
+/* ---------- sections ---------- */
+.container{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:26px 32px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--border-soft);position:relative;margin-bottom:18px}
+[data-theme="dark"] .section-title{color:#e8e4dc}
+.section-title::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:var(--accent-amber)}
+h3.sub{font-size:14px;font-weight:600;color:var(--primary);margin:20px 0 10px}
+[data-theme="dark"] h3.sub{color:#c9d6e8}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text-secondary)}
+th{background:var(--primary);color:#f0ece1;text-align:left;padding:8px 12px;font-weight:500;letter-spacing:.04em;font-size:12px;white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-card) 92%,var(--border-soft))}
+td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:hover td{background:color-mix(in srgb,var(--accent-amber) 6%,var(--bg-card))}
+.kv td:first-child{width:158px;color:var(--text-muted);background:var(--kpi-flat-bg);white-space:nowrap}
+.up{color:var(--accent-red);font-weight:600}
+.down{color:var(--accent-green);font-weight:600}
+
+/* ---------- KPI ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi-card{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:14px 16px;background:var(--kpi-flat-bg);transition:box-shadow .2s}
+.kpi-card:hover{box-shadow:var(--shadow-hover)}
+.kpi-card.kpi-up{border-left-color:var(--accent-red);background:var(--kpi-up-bg)}
+.kpi-card.kpi-down{border-left-color:var(--accent-green);background:var(--kpi-down-bg)}
+.kpi-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em}
+.kpi-value{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--text-primary);margin:4px 0 2px}
+.kpi-delta{font-size:11.5px}
+
+/* ---------- boxes & lists ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.thesis-box{background:var(--primary);border-left:3px solid var(--accent-amber);border-radius:2px;padding:18px 22px;color:#f0ece1;font-size:13px;line-height:1.9;margin-top:18px}
+[data-theme="dark"] .thesis-box{background:#0a121c}
+.bullet-list{list-style:none}
+.bullet-list li{padding:7px 0;border-bottom:1px dashed var(--border-soft);font-size:13px;line-height:1.8}
+.bullet-list li:last-child{border-bottom:none}
+.bullet-list li::before{content:"—";font-weight:700;margin-right:10px}
+.bullet-list.pos li::before{color:var(--accent-green)}
+.bullet-list.neg li::before{color:var(--accent-red)}
+.bullet-list.warn li::before{color:var(--accent-amber)}
+.note-box{border:1px solid var(--border);border-left:3px solid var(--accent-blue);border-radius:2px;padding:12px 18px;font-size:12.5px;color:var(--text-secondary);background:color-mix(in srgb,var(--accent-blue) 4%,var(--bg-card));margin-top:14px;line-height:1.85}
+.risk-item{border:1px solid var(--border);border-left:3px solid var(--accent-amber);border-radius:2px;padding:12px 18px;margin-bottom:10px;font-size:13px;background:var(--bg-card)}
+.risk-item.high{border-left-color:var(--accent-red)}
+.risk-item b{color:var(--text-primary)}
+.disclaimer-box{border:1px dashed var(--border);border-radius:2px;padding:14px 20px;font-size:11.5px;color:var(--text-muted);line-height:1.85}
+.pill{display:inline-block;border-radius:1px;padding:1px 10px;font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.pill.ok{background:var(--accent-green);color:#fff}
+.pill.warn{background:var(--accent-amber);color:#fff}
+.pill.risk{background:var(--accent-red);color:#fff}
+.pill.navy{background:var(--primary);color:#f0ece1}
+
+/* ---------- charts ---------- */
+.chart-wrap{border:1px solid var(--border);border-radius:2px;padding:18px 20px 10px;margin-top:14px;background:var(--bg-card)}
+.chart-title{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:4px}
+[data-theme="dark"] .chart-title{color:#c9d6e8}
+.chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+.axis{stroke:var(--border);stroke-width:1}
+.gridline{stroke:var(--border-soft);stroke-width:1;stroke-dasharray:3,4}
+.axis-label{fill:var(--text-muted);font-size:10.5px;font-family:'Noto Sans SC',sans-serif}
+.bar-rev{fill:var(--primary)}
+[data-theme="dark"] .bar-rev{fill:#6ea3d8}
+.bar-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.line-np{stroke:var(--accent-red);stroke-width:2.5;fill:none}
+.np-dot{fill:var(--accent-red)}
+.np-label{fill:var(--accent-red);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+.legend{display:flex;gap:22px;font-size:11.5px;color:var(--text-muted);margin-top:6px;padding:6px 0}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border-radius:1px}
+.sh-bar{fill:var(--accent-blue)}
+.sh-bar.top{fill:var(--primary)}
+[data-theme="dark"] .sh-bar.top{fill:#6ea3d8}
+.sh-label{fill:var(--text-secondary);font-size:11.5px;font-family:'Noto Sans SC',sans-serif}
+.sh-value{fill:var(--text-primary);font-size:11px;font-weight:600;font-family:'Noto Sans SC',sans-serif}
+
+footer{margin-top:28px;font-size:11.5px;color:var(--text-muted);text-align:center;border-top:1px solid var(--border);padding-top:18px;line-height:1.9}
+@media(max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.section{padding:20px 18px}.header-right{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- ================= 页头：公司身份条 ================= -->
+<header class="report-header">
+  <div class="wrap">
+    <div class="header-main">
+      <div>
+        <span class="company-exchange-badge">上交所主板 · 600057.SH</span>
+        <div class="company-name-cn">厦门象屿股份有限公司</div>
+        <div class="company-name-en">Xiamen Xiangyu Co., Ltd.</div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()">◐ 深色模式</button>
+        <span class="rating-badge neutral">尽调中性 · NEUTRAL</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span>报告日期：2026-10-15</span>
+      <span>数据截至：2026-10-15</span>
+      <span>报告编号：DD-XIANGYU-2026-001</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 粘性导航 ================= -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#s1">① 主体身份</a>
+    <a href="#s2">② 财务概览</a>
+    <a href="#s3">③ 行业研究</a>
+    <a href="#s4">④ 股权与实控</a>
+    <a href="#s5">⑤ 治理团队</a>
+    <a href="#s6">⑥ 招聘动态</a>
+    <a href="#s7">⑦ 投资布局</a>
+    <a href="#s8">⑧ 全球矿权地图</a>
+    <a href="#s9">⑨ 沿革与担保</a>
+    <a href="#s10">⑩ 风险提示</a>
+    <a href="#s11">⑪ 尽调结论</a>
+    <a href="#s12">附录</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="container">
+
+  <!-- ============ 核心结论框（放最前，卖方研报风格） ============ -->
+  <div class="thesis-box">
+    <div style="font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:8px">核心结论摘要</div>
+    厦门象屿是<b>厦门市国资委实控（穿透持股 50.85%）、象屿集团控股（48.01%）</b>的大宗商品供应链龙头国企，2011 年重组上市（600057.SH）。公司主营金属矿产、能源化工、农产品、新能源等大宗商品供应链服务，2025 年经营货量 2.66 亿吨、营收 4,102.91 亿元，但毛利率仅约 2%、净利率不足 1%，呈典型"高周转、低毛利、重资产"特征。<br>
+    财务杠杆处于高位（资产负债率约 70–72%），2025 年<b>归母净利润 12.93 亿元</b>（含少数股东损益的合并净利润 19.67 亿元）；2026 上半年营收 2,090 亿元、扣非净利大增 184%，但经营现金流净流出 138.66 亿元、有息债务升至 332 亿元，需关注存货与套保波动风险。<br>
+    公司正从"贸易商"向"产业链组织者"升级，加速印尼镍矿（预计 2027 年出矿）、几内亚铝土矿等海外资源布局与属地化运营，国际化成为第二增长曲线；风险合规记录良好（企查查全量核查无行政处罚、失信、股权冻结等记录）。
+  </div>
+
+  <!-- ============ KPI 概览卡片 ============ -->
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">总资产（2025 年末）</div><div class="kpi-value num">1,286.97 亿</div><div class="kpi-delta">同比 +3.89% · 合并报表</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">营业收入（2025）</div><div class="kpi-value num">4,102.91 亿</div><div class="kpi-delta up">同比 +11.90%</div></div>
+    <div class="kpi-card kpi-up"><div class="kpi-label">净利润（合并，2025）</div><div class="kpi-value num">19.67 亿</div><div class="kpi-delta up">同比 +4.04%</div></div>
+    <div class="kpi-card"><div class="kpi-label">资产负债率（2026H1）</div><div class="kpi-value num">71.74%</div><div class="kpi-delta">较上年末 +1.31pct · 高杠杆</div></div>
+  </div>
+
+  <!-- ============ 一、主体身份与工商登记 ============ -->
+  <section class="section" id="s1">
+    <div class="section-title">一、主体身份与工商登记</div>
+    <table class="kv">
+      <tr><td>公司全称</td><td>厦门象屿股份有限公司（系象屿集团旗下供应链上市平台；"象屿集团"为控股母公司厦门象屿集团有限公司）</td></tr>
+      <tr><td>统一社会信用代码</td><td>91350200260131285X</td></tr>
+      <tr><td>成立日期</td><td>1997-05-23（2011-08-29 重组上市）</td></tr>
+      <tr><td>注册资本</td><td>284,058.9339 万元（约 28.41 亿元）；实缴资本 283,901.5539 万元</td></tr>
+      <tr><td>法定代表人</td><td>吴捷（公司负责人、董事长）</td></tr>
+      <tr><td>注册地址</td><td>中国（福建）自由贸易试验区厦门片区象屿路 99 号厦门国际航运中心 E 栋 9 层 05 单元之一</td></tr>
+      <tr><td>企业类型</td><td>其他股份有限公司（上市）</td></tr>
+      <tr><td>登记状态</td><td>存续（在营、开业、在册）</td></tr>
+      <tr><td>经营范围（摘要）</td><td>贸易经纪；货物/技术进出口；金属矿石、金属材料、煤炭及制品、石油制品、化肥销售；供应链管理服务；国际/国内货物运输代理；普通货物仓储服务；企业管理咨询；软件开发等</td></tr>
+    </table>
+    <div class="note-box">注：国标行业归类为"批发和零售业—金属及金属矿批发"；进出口企业代码 3502260131285，一般纳税人；所属地区福建省厦门市湖里区，登记机关厦门市市场监督管理局。数据来源：企查查工商登记（核验 2026-10-15）。</div>
+  </section>
+
+  <!-- ============ 二、财务概览（合并报表口径） ============ -->
+  <section class="section" id="s2">
+    <div class="section-title">二、财务概览（合并报表口径）</div>
+    <table>
+      <thead><tr><th>指标</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>口径说明</th></tr></thead>
+      <tbody>
+        <tr><td>营业总收入</td><td class="num">4,590.35 亿</td><td class="num">3,666.71 亿</td><td class="num">4,102.91 亿</td><td>企查查财务 / 年报</td></tr>
+        <tr><td>净利润（合并，含少数股东）</td><td class="num">23.14 亿</td><td class="num">18.91 亿</td><td class="num">19.67 亿</td><td>企查查财务</td></tr>
+        <tr><td>归母净利润</td><td class="num">未单列</td><td class="num">未单列</td><td class="num">12.93 亿</td><td>2025 年报（归母口径）</td></tr>
+        <tr><td>毛利率</td><td class="num">1.92%</td><td class="num">2.32%</td><td class="num">2.08%</td><td>企查查财务</td></tr>
+        <tr><td>资产负债率</td><td class="num">71.33%</td><td class="num">71.96%</td><td class="num">70.43%</td><td>企查查财务</td></tr>
+        <tr><td>经营活动现金流净额</td><td class="num">+55.87 亿</td><td class="num">+56.04 亿</td><td class="num">+100.97 亿</td><td>企查查财务</td></tr>
+        <tr><td>总资产</td><td class="num">1,297.05 亿</td><td class="num">1,238.73 亿</td><td class="num">1,286.97 亿</td><td>企查查财务</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：货币单位人民币；财务数据采用<b>合并报表口径</b>。大宗商品供应链行业毛利率普遍偏低（约 2%），公司盈利高度依赖经营规模与周转效率。2025 年实现<b>归母净利润 12.93 亿元</b>（来源：2025 年年报），因并表范围内存在多家非全资子公司（如南通象屿海装、象道物流、象晖能源等），归母净利润低于合并净利润。2023/2024 年归母净利润未直接获取，本表归母行仅列示 2025 年可比口径。2026 上半年（H1）公司营收 2,090.45 亿元、净利润 15.16 亿元、总资产 1,361.35 亿元、资产负债率 71.74%、经营现金流净额 -138.66 亿元（企查查财务，核验 2026-10-15）。</div>
+  </section>
+
+  <!-- ============ 三、行业研究 ============ -->
+  <section class="section" id="s3">
+    <div class="section-title">三、行业研究</div>
+    <h3 class="sub">行业景气与市场规模</h3>
+    <table>
+      <thead><tr><th>指标</th><th>最新值</th><th>同比/趋势</th><th>口径与来源</th></tr></thead>
+      <tbody>
+        <tr><td>大宗供应链 CR5 集中度</td><td class="num">6.20%–6.24%</td><td class="num">较 2021 年 4.81% 提升</td><td>长江证券 / 腾讯证券，2025</td></tr>
+        <tr><td>公司经营货量（2025）</td><td class="num">2.66 亿吨</td><td class="num">同比 +18.50%</td><td>2025 年年报</td></tr>
+        <tr><td>南华金属指数（2026Q1 均值）</td><td class="num">同比 +12.6%</td><td class="num">环比 +10.1%</td><td>长江证券，2026-05</td></tr>
+        <tr><td>境外公司数量（2026H1）</td><td class="num">52 家</td><td class="num">2025 年新设 11 家</td><td>象屿集团债中期报告，2026-08</td></tr>
+        <tr><td>海外仓储节点</td><td class="num">常态 &gt;70 个</td><td class="num">前瞻布局 &gt;150 个</td><td>象屿集团债中期报告，2026-08</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">竞争格局与产业链位置</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li><b>竞争梯队：</b>大宗供应链 CR5 由建发股份、厦门国贸、厦门象屿（"厦门三杰"）与物产中大、浙商中拓（"浙江系"）主导，行业集中度持续提升。</li>
+        <li><b>公司定位：</b>厦门象屿居 CR5 前列，铝土矿经营量 736 万吨（2025）居全国流通市场前三位。</li>
+        <li><b>份额趋势：</b>行业下行出清期，公司凭资金与风控优势逆势提升份额，2025 经营货量同比 +18.5%。</li>
+      </div>
+      <div class="bullet-list">
+        <li><b>上游：</b>金属矿产、能源化工、农产品、新能源资源国（印尼镍、几内亚铝土、巴西大豆、非洲矿产）。</li>
+        <li><b>中游：</b>一体化供应链服务——采购供应、产成品分销、物流配送、供应链金融、信息咨询（"四流合一"）。</li>
+        <li><b>下游：</b>制造业企业客户；并适度介入加工制造（造船、油脂加工）以缓冲周期波动。</li>
+      </div>
+    </div>
+    <h3 class="sub">机构观点汇总</h3>
+    <table>
+      <thead><tr><th>观点摘要</th><th>机构/券商</th><th>发布日期</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>Q1 套保错配逐步消化，业绩重回同比增长；国际布局初显成效（南非、巴西、几内亚等 11 家境外公司），看好长期成长</td><td>长江证券（韩轶超等）</td><td class="num">2026-05-19</td><td>新浪财经研报</td></tr>
+        <tr><td>大宗供应链龙头，全链布局长期价值；2025 大宗商品经营/物流/制造营收占比 93.9%/2.9%/3.1%，经营韧性强劲</td><td>华源证券（孙延等）</td><td class="num">2026-05-28</td><td>新浪财经研报</td></tr>
+        <tr><td>预计 2026/2027/2028 归母净利润 20.7/24.6/28.3 亿元，对应 PE 9.4/7.9/6.9X，维持"买入"评级</td><td>腾讯证券（研报）</td><td class="num">2026 年</td><td>腾讯证券</td></tr>
+        <tr><td>2026H1 归母净利润同比 +3%，造船毛利高增（收入 +50.24%、毛利 +84.93%），维持"买入"评级</td><td>腾讯证券（半年报点评）</td><td class="num">2026 年</td><td>腾讯证券</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">政策与近期动态</h3>
+    <div class="bullet-list">
+      <li><b>国内：</b>"十五五"开局聚焦现代物流网（"六张网"）建设，强调产业链供应链安全韧性。</li>
+      <li><b>行业：</b>逆全球化下全球供应链向区域化、本地化重构，国企供应链平台战略地位提升。</li>
+      <li><b>海外资产监管动态（矿业场景）：</b>印尼推行矿产下游化与镍出口限制政策；几内亚铝土矿开采与出口受资源国政策主导；南非、巴西等资源国矿业与外汇监管需重点关注——公司"物流先行、属地化运营"策略即针对此类风险。</li>
+      <li><b>公司动态：</b>2026-09 象屿集团总裁吴捷公开表态，印尼镍矿项目进入矿建期、预计 2027 年出矿；铝土矿"以服务换商权"、南山铝业国际 IPO"股权换商权"锁定商权。</li>
+    </div>
+    <div class="note-box">注：行业数据口径与时效：CR5 集中度、货量、指数来自券商研报与年报（2025–2026）；机构观点为第三方研究口径，不作为事实陈述，亦不构成投资建议。海外监管动态基于公开报道整理。</div>
+  </section>
+
+  <!-- ============ 四、股权结构与实际控制人 ============ -->
+  <section class="section" id="s4">
+    <div class="section-title">四、股权结构与实际控制人</div>
+    <h3 class="sub">前十大股东</h3>
+    <table>
+      <thead><tr><th>序</th><th>股东名称</th><th>持股比例</th><th>股东性质</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>厦门象屿集团有限公司</td><td class="num">48.01%</td><td>国有法人（控股）</td><td>企查查股权</td></tr>
+        <tr><td>2</td><td>山东省港口集团有限公司</td><td class="num">6.28%</td><td>国有法人</td><td>企查查股权</td></tr>
+        <tr><td>3</td><td>招商局集团有限公司</td><td class="num">6.28%</td><td>国有法人</td><td>企查查股权</td></tr>
+        <tr><td>4</td><td>全国社保基金一一四组合</td><td class="num">2.25%</td><td>社保基金</td><td>企查查股权</td></tr>
+        <tr><td>5</td><td>厦门海翼集团有限公司</td><td class="num">1.77%</td><td>国有法人</td><td>企查查股权</td></tr>
+        <tr><td>6</td><td>中国农垦产业发展基金（有限合伙）</td><td class="num">1.36%</td><td>产业基金</td><td>企查查股权</td></tr>
+        <tr><td>7</td><td>中泰证券—华夏国证自由现金流 ETF</td><td class="num">1.25%</td><td>指数基金</td><td>企查查股权</td></tr>
+        <tr><td>8</td><td>香港中央结算有限公司</td><td class="num">1.13%</td><td>陆股通</td><td>企查查股权</td></tr>
+        <tr><td>9</td><td>象屿地产集团有限公司</td><td class="num">1.07%</td><td>国有法人（关联方）</td><td>企查查股权</td></tr>
+        <tr><td>10</td><td>易方达中证红利 ETF</td><td class="num">0.60%</td><td>指数基金</td><td>企查查股权</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">实际控制人穿透</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li><b>实际控制人：</b>厦门市人民政府国有资产监督管理委员会（厦门市国资委），穿透总持股比例 <b>50.8502%</b>（企查查实控人穿透引擎终值）。</li>
+        <li><b>控股链条：</b>厦门市国资委 → 厦门象屿集团有限公司（48.01%）→ 厦门象屿股份有限公司。</li>
+        <li><b>战略股东：</b>山东省港口集团、招商局集团各持股 6.28%，体现"供应链+港口/物流"协同属性。</li>
+      </div>
+      <div class="bullet-list">
+        <li><b>质押/冻结：</b>企查查全量核查显示，公司当前<b>无股权冻结记录</b>，资产产权清晰。</li>
+        <li><b>受限情况：</b>未查询到控股股东股份质押或司法冻结等受限披露。</li>
+        <li><b>股权稳定性：</b>国资控股 + 战略国企股东结构，股权稳定性较高。</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五、治理与管理团队 ============ -->
+  <section class="section" id="s5">
+    <div class="section-title">五、治理与管理团队</div>
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th>任期起止</th><th>背景要点</th></tr></thead>
+      <tbody>
+        <tr><td>吴捷</td><td>董事长（兼象屿集团总裁、公司法定代表人）</td><td>2025-12-16 至 2028-12-14</td><td>集团核心领导，主导"产业链组织者"战略与全球化布局</td></tr>
+        <tr><td>齐卫东</td><td>副董事长 / 总经理</td><td>总经理 2021-12-09 起；副董事长 2025-12-16 至 2028-12-14</td><td>长期主持股份公司日常经营</td></tr>
+        <tr><td>苏主权</td><td>副总经理（主管会计工作）</td><td>2024-01-01 起</td><td>财务条线负责人</td></tr>
+        <tr><td>郑芦鱼</td><td>副总经理</td><td>2023-03-08 起</td><td>2025 年薪 222 万元（高管最高）</td></tr>
+        <tr><td>陈代臻</td><td>副总经理</td><td>2022-01-10 起</td><td>业务板块管理</td></tr>
+        <tr><td>范承扬</td><td>副总经理</td><td>2017-04-24 起</td><td>资深业务高管</td></tr>
+        <tr><td>廖杰</td><td>董事会秘书</td><td>2019-09-17 起</td><td>信息披露与投资者关系</td></tr>
+        <tr><td>林靖</td><td>财务负责人</td><td>2023-09-08 起</td><td>财务负责人</td></tr>
+        <tr><td>张水利</td><td>董事（曾任）</td><td>至 2025-03</td><td>集团资深董事</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：管理团队信息来自 2025 年年报及公开高管薪酬披露（搜狐财经，2026-04）。公司董事、高管平均年龄约 50 岁，多数长期在象屿体系任职，团队稳定性较高。2025 年度董事及高管薪酬总额 1,066 万元，较 2023 年（1,521.53 万元）下降 29.94%。</div>
+  </section>
+
+  <!-- ============ 六、人力资源与招聘动态 ============ -->
+  <section class="section" id="s6">
+    <div class="section-title">六、人力资源与招聘动态</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;">
+      <a href="https://xiangyu.zhiye.com/campus/jobs" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--accent-amber);border-radius:8px;color:var(--accent-amber);font-weight:600;text-decoration:none;font-size:13px;">🔗 官网招聘入口 · 象屿股份-校园招聘</a>
+      <a href="http://www.xiangyu.cn/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--border);border-radius:8px;color:var(--primary);font-weight:600;text-decoration:none;font-size:13px;">🌐 公司官网 · 厦门象屿股份</a>
+    </div>
+    <h3 class="sub">在招岗位明细（节选，2026-10）</h3>
+    <table>
+      <thead><tr><th>发布日期</th><th>职位</th><th>月薪</th><th>学历/经验</th><th>办公地点</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2026-10-14</td><td>浆纸业务经理/总监（团队引进）</td><td class="num">8-16k·20薪</td><td>大专 / 3年以上</td><td>武汉</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-14</td><td>甲醇业务经理/总监</td><td class="num">10-15k·20薪</td><td>大专 / 3-5年</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-14</td><td>化肥业务经理</td><td class="num">8-15k·18薪</td><td>大专 / 3年以上</td><td>昌吉</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-14</td><td>磷矿石业务经理/总监</td><td class="num">8-15k·20薪</td><td>大专 / 1年以上</td><td>成都 / 宜昌</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-14</td><td>大宗商品业务经理/总监（团队引进）</td><td class="num">8-15k·15薪</td><td>大专 / 5-10年</td><td>武汉</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-13</td><td>HSE 专业岗（安全监管）</td><td class="num">15-25k·16薪</td><td>本科 / 5年以上</td><td>厦门</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-12</td><td>物流总监（巴西）</td><td class="num">50-60k·15薪</td><td>本科 / 10年以上</td><td>巴西（海外）</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-10</td><td>豆油豆粕出口业务负责人</td><td class="num">20-35k</td><td>大专 / 7年以上</td><td>上海 / 北京</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-09</td><td>海外储能业务拓展经理/高级经理</td><td class="num">10-20k·15薪</td><td>本科 / 3年以上</td><td>厦门</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-09</td><td>国际租船业务负责人</td><td class="num">20-30k</td><td>本科 / 2年以上</td><td>上海</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-09</td><td>投资发展项目经理</td><td class="num">10-15k·16薪</td><td>本科 / 3年以上</td><td>厦门</td><td>企查查 T+0</td></tr>
+        <tr><td class="num">2026-10-08</td><td>国产大豆贸易负责人</td><td class="num">20-40k</td><td>大专 / 8年以上</td><td>哈尔滨</td><td>企查查 T+0</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">招聘趋势解读</h3>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li><b>职能方向：</b>以大宗商品业务（金属/能化/农产/新能源）为核心，物流与安全管理（HSE、仓库安全）、国际化业务（海外储能、国际租船、出口）明显放量。</li>
+        <li><b>地点分布：</b>厦门总部 + 武汉/上海/广州/成都等区域中心 + 海外（巴西物流总监，及校招"国际化大宗业务岗"覆盖印尼、几内亚、沙特、阿联酋、泰国、印度、越南）。</li>
+        <li><b>薪酬水位：</b>多数岗位实行"15薪/20薪"结构，业务负责人可达 20-40k，海外物流总监 50-60k，反映对国际化与风控人才需求旺盛、人才竞争强度高。</li>
+      </div>
+      <div class="bullet-list">
+        <li><b>与 s7/s8 呼应：</b>巴西物流总监、印尼/几内亚国际化岗位，与公司海外资源布局（印尼镍矿、几内亚铝土、巴西农产品平台）扩张高度一致，印证"属地化运营"战略落地。</li>
+        <li><b>与业务扩张交叉印证：</b>2025 新设 11 家境外公司、2026H1 境外公司增至 52 家，招聘侧国际化岗位放量正对应此轮出海。</li>
+        <li><b>校招入口：</b>另有"象屿 2027 届秋招"进行中，网申地址 xiangyu.zhiye.com，集团官网 xiangyu-group.com，微信公众号"象屿招聘/象屿股份校园招聘"。</li>
+      </div>
+    </div>
+    <div class="note-box">注：招聘数据来源企查查招聘信息（T+0），截至 2026-10-15 共 2,145 条在招记录，上表为节选。招聘数据仅为发布时点快照，不代表实际编制规模；校招岗位地点与截止日期以官方公告为准。官网招聘入口经 WebSearch 核实（武汉大学/中国海洋大学/北京大学就业网及云校招公开简章交叉确认），非编造。</div>
+  </section>
+
+  <!-- ============ 七、对外投资与经营布局 ============ -->
+  <section class="section" id="s7">
+    <div class="section-title">七、对外投资与经营布局</div>
+    <h3 class="sub">核心子公司 / 重大对外投资</h3>
+    <table>
+      <thead><tr><th>主体名称</th><th>持股比例</th><th>注册资本</th><th>主营/角色</th><th>备注（海外资产重点标注）</th></tr></thead>
+      <tbody>
+        <tr><td>厦门象屿物流集团有限责任公司</td><td class="num">100%</td><td class="num">59.49 亿</td><td>物流平台核心</td><td>存续</td></tr>
+        <tr><td>黑龙江象屿农业物产有限公司</td><td class="num">100%</td><td class="num">21.25 亿</td><td>农产品（粮食）供应链</td><td>存续</td></tr>
+        <tr><td>象道物流集团有限公司</td><td class="num">60%</td><td class="num">10.80 亿</td><td>铁路/多式联运物流</td><td>存续</td></tr>
+        <tr><td>厦门象屿资本有限公司</td><td class="num">100%</td><td class="num">10.00 亿</td><td>投资平台</td><td>存续</td></tr>
+        <tr><td>厦门象屿新能源有限责任公司</td><td class="num">100%</td><td class="num">9.00 亿</td><td>新能源供应链</td><td>存续</td></tr>
+        <tr><td>海南象屿国际商务有限责任公司</td><td class="num">100%</td><td class="num">8.00 亿</td><td>国际商务（海外窗口）</td><td>存续</td></tr>
+        <tr><td>象晖能源（厦门）有限公司</td><td class="num">51%</td><td class="num">6.12 亿</td><td>能源贸易</td><td>存续</td></tr>
+        <tr><td>南通象屿海洋装备股份有限公司</td><td class="num">51%</td><td class="num">1.84 亿</td><td>造船（制造板块）</td><td>存续；2026H1 净利润 6.68 亿</td></tr>
+        <tr><td>湖北楚象供应链集团有限公司</td><td class="num">35%</td><td class="num">3.50 亿</td><td>区域供应链</td><td>存续</td></tr>
+        <tr><td>厦门象屿有色金属有限责任公司</td><td class="num">100%</td><td class="num">2.80 亿</td><td>有色金属供应链</td><td>2025-12 新设</td></tr>
+        <tr><td>厦门象屿矿产能源有限责任公司</td><td class="num">100%</td><td class="num">2.00 亿</td><td>矿产能源</td><td>2025-11 新设</td></tr>
+        <tr><td>黑龙江象屿储备粮仓储有限公司</td><td class="num">100%</td><td class="num">1.00 亿</td><td>粮储</td><td>2025-12 新设</td></tr>
+        <tr><td>境外公司集群（南非/巴西/几内亚/尼日利亚/马来西亚等）</td><td class="num">—</td><td class="num">—</td><td>海外属地平台</td><td><span class="pill warn">海外资产</span> 2025 新设 11 家，2026H1 增至 52 家</td></tr>
+        <tr><td>印尼镍矿项目（自有矿山）</td><td class="num">自有</td><td class="num">—</td><td>镍矿资源</td><td><span class="pill risk">海外资产</span> 矿建期，预计 2027 年出矿</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：对外投资信息来源企查查（T+0，共 28 条记录），上表列示核心主体。海外资产为国别重点标注项；部分境外子公司注册信息不在国内工商数据源覆盖范围，依赖公司公告与债券中期报告披露。公司亦通过"股权换商权"（南山铝业国际 IPO）、长协等方式布局上游资源。</div>
+  </section>
+
+  <!-- ============ 八、全球矿权与矿山分布（地图） ============ -->
+  <section class="section" id="s8">
+    <div class="section-title">八、全球矿权与矿山分布</div>
+    <div id="mine-map" style="width:100%;height:460px;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;background:var(--bg-body,#f6f7f9)">
+      <div id="map-fallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:13px;line-height:2.2">
+        地图加载中……<br>若长时间未显示：本报告部署到 GitHub Pages 后需配置腾讯地图 key（见附录说明），<br>矿权位置请先参考下方明细表。
+      </div>
+    </div>
+    <h3 class="sub">全球矿权/矿山资产明细</h3>
+    <table>
+      <thead><tr><th>矿山/矿权名称</th><th>所在国/地区</th><th>矿种</th><th>持股比例</th><th>状态</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>印尼镍矿项目（自有矿山）</td><td>印度尼西亚（苏拉威西）</td><td>镍</td><td class="num">自有</td><td>矿建期（预计 2027 出矿）</td><td>新华网采访 / 集团债报告</td></tr>
+        <tr><td>几内亚铝土矿（服务网络）</td><td>几内亚</td><td>铝土矿</td><td class="num">服务换商权（非自有）</td><td>在运营</td><td>新华网采访 / 年报</td></tr>
+        <tr><td>尼日利亚选矿厂（服务节点）</td><td>尼日利亚</td><td>锂/有色矿选矿</td><td class="num">服务节点（非自有）</td><td>在运营（覆盖率 &gt;90%）</td><td>集团债中期报告</td></tr>
+        <tr><td>巴西农产品资源平台</td><td>巴西</td><td>大豆等农产品</td><td class="num">属地平台</td><td>在运营</td><td>集团债中期报告</td></tr>
+        <tr><td>南非矿产资源供应链平台</td><td>南非</td><td>铬/锰/铁矿等</td><td class="num">属地平台</td><td>在运营</td><td>集团债中期报告</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">注：厦门象屿本质为<b>大宗商品供应链服务商</b>，并非传统矿山开采主体。其资源布局以"服务换商权/股权换商权"及属地平台为主；<b>印尼镍矿为其首个自有矿山资产（矿建期）</b>。上表与地图为代表性海外资源/服务节点，坐标采用境外 WGS84 区域级近似（精确矿权坐标未公开披露）。底图来源腾讯地图；公网部署需配置腾讯地图 key（见附录）。信息口径以 2025 年年报、2026 年公司债券中期报告及新华网 2026-09-07 采访为准。</div>
+  </section>
+
+  <!-- ============ 九、历史沿革、对外担保与合规 ============ -->
+  <section class="section" id="s9">
+    <div class="section-title">九、历史沿革、对外担保与合规</div>
+    <div class="two-col">
+      <div class="bullet-list">
+        <li><b>1997-05-23：</b>公司前身设立，注册资本逐步充实。</li>
+        <li><b>2011-08-29：</b>重组上市（股票代码 600057），象屿集团供应链资产注入。</li>
+        <li><b>2025 年：</b>新设有色金属、矿产能源、能源新材料、储备粮仓储等专业化子公司，强化资源端布局。</li>
+        <li><b>2025 年：</b>新设南非、巴西、几内亚、尼日利亚、马来西亚等 11 家境外公司。</li>
+        <li><b>2026H1：</b>境外公司增至 52 家；印尼镍矿进入矿建期，预计 2027 年出矿。</li>
+      </div>
+      <div class="bullet-list">
+        <li><b>对外担保：</b>2023–2025 工商年报均披露"是否有对外提供担保信息：否"。</li>
+        <li><b>行政处罚：</b>企查查全量核查<b>无记录</b>。</li>
+        <li><b>经营异常：</b>企查查全量核查<b>无记录</b>。</li>
+        <li><b>失信/限高/被执行人：</b>企查查全量核查<b>无记录</b>。</li>
+        <li><b>股权冻结 / 严重违法 / 法院公告：</b>企查查全量核查<b>均无记录</b>。</li>
+      </div>
+    </div>
+    <div class="note-box">注：合规记录基于企查查底层数据库全量核查（核验 2026-10-15）。公司作为地方国有控股上市平台，合规表现良好；但需注意其并表范围内部分子公司（尤其海外平台）的合规信息受国内工商数据源覆盖边界限制，建议结合境外公开登记进一步核验。</div>
+  </section>
+
+  <!-- ============ 十、风险提示 ============ -->
+  <section class="section" id="s10">
+    <div class="section-title">十、风险提示</div>
+    <div class="risk-item high">
+      <div style="font-weight:600">1. 商品价格与期货套保波动风险（高）</div>
+      <div>公司盈利高度依赖大宗商品价格与期现匹配精度。2025Q4 受新能源品种价格大幅波动影响，期货套保合约浮亏大幅增加；2026H1 衍生品相关损益波动合计反映为 -6.22 亿元。价格错配会直接冲击当期利润（与 s3 机构观点交叉印证）。</div>
+    </div>
+    <div class="risk-item high">
+      <div style="font-weight:600">2. 现金流与财务杠杆风险（高）</div>
+      <div>2026H1 经营活动现金流净额 -138.66 亿元（阶段性增加备货）；有息债务余额由 197.77 亿元增至 332.27 亿元（+68%），资产负债率 71.74%，财务杠杆上行、资金成本压力加大。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">3. 存货跌价风险（中）</div>
+      <div>2026H1 计提存货跌价损失 6.14 亿元（同比近翻倍），与备货规模扩张直接相关；若行情判断失误，存货跌价将直接侵蚀利润。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">4. 国际化与地缘政策风险（中）</div>
+      <div>印尼镍矿、几内亚铝土、尼日利亚选矿、巴西农产品等海外布局面临东道国资源政策（如印尼镍出口限制）、汇率波动、地缘政治与外汇管制风险；境外公司增至 52 家，管理半径与合规复杂度上升。</div>
+    </div>
+    <div class="risk-item">
+      <div style="font-weight:600">5. 盈利结构脆弱性（中）</div>
+      <div>毛利率仅约 2%、净利率不足 1%，盈利高度依赖规模与周转；虽有造船/油脂加工等制造板块缓冲周期波动，但整体抗周期能力仍偏弱，行业景气下行期利润弹性大。</div>
+    </div>
+  </section>
+
+  <!-- ============ 十一、尽调结论 ============ -->
+  <section class="section" id="s11">
+    <div class="section-title">十一、尽调结论</div>
+    <div class="thesis-box">
+      <b>分维度结论：</b><br>
+      • <b>行业地位：</b>大宗供应链龙头，CR5 集中度持续提升，国资背景 + 资金 + 风控优势显著，逆周期份额扩张能力强。<br>
+      • <b>财务质量：</b>高周转、低毛利、重资产特征鲜明；资产负债率高（约 70–72%），2026H1 现金流阶段性承压、有息债务快速上升，需持续跟踪。<br>
+      • <b>治理与合规：</b>国资控股、治理规范；企查查全量核查无处罚/失信/冻结，合规记录优秀。<br>
+      • <b>战略与成长：</b>从"贸易商"向"产业链组织者"升级，印尼镍矿（2027 出矿）、几内亚铝土等海外资源 + 属地化运营打开第二增长曲线，国际化岗位放量。<br><br>
+      <b>建议：</b>从求职视角，厦门象屿是资源/供应链领域国企平台的优质标的，其"国际化大宗业务岗"（印尼、几内亚、巴西、中东等）与用户的海外矿业/资源投资方向高度契合，可重点关注校招与社招国际化岗位。从投资视角，本报告持尽调中性，无买卖评级；核心观测变量为大宗商品价格走势、套保执行精度、经营现金流与有息债务变化。
+    </div>
+  </section>
+
+  <!-- ============ 附录 · 数据来源与方法说明 ============ -->
+  <section class="section" id="s12">
+    <div class="section-title">附录 · 数据来源与方法说明</div>
+    <table>
+      <thead><tr><th>数据维度</th><th>来源渠道</th><th>获取/核验时间</th><th>口径与局限</th></tr></thead>
+      <tbody>
+        <tr><td>工商登记 / 股权 / 对外投资 / 财务 / 招聘 / 风险</td><td>企查查 MCP 连接器（T+0）</td><td>2026-10-15</td><td>工商/股权/财务/风险为服务端口径；财务比率与增速为服务端精算，未自行重算；部分 2023/2024 归母净利润未直接获取</td></tr>
+        <tr><td>财务年报数据</td><td>公司 2025 年年度报告（容诚会计师事务所标准无保留意见）、2026 年半年报</td><td>2026-10-15</td><td>归母净利润 12.93 亿为年报披露归母口径；合并净利润 19.67 亿含少数股东损益</td></tr>
+        <tr><td>行业研究 / 机构观点</td><td>长江证券(2026-05-19)、华源证券(2026-05-28)、腾讯证券研报、万联网(2026-08)、新华网福建(2026-09-07 象屿集团总裁吴捷采访)</td><td>2026-10-15</td><td>机构观点为第三方研究口径，不作为事实陈述；行业数据含公开报道整理</td></tr>
+        <tr><td>海外资源布局</td><td>象屿集团 2026 年公司债券中期报告（上交所）、2025 年年报、新华网采访</td><td>2026-10-15</td><td>海外子公司注册信息不在国内工商源覆盖；精确矿权坐标未公开披露，地图坐标为区域级近似</td></tr>
+        <tr><td>招聘官网</td><td>xiangyu.zhiye.com（校园招聘）、xiangyu.cn（股份公司官网），经 WebSearch 核实</td><td>2026-10-15</td><td>链接经多所高校就业网及云校招简章交叉确认，非编造</td></tr>
+      </tbody>
+    </table>
+    <div class="disclaimer-box" style="margin-top:14px">
+      免责声明：本报告基于公开渠道信息整理，由 AI 辅助生成，仅供内部研究参考，不构成任何投资建议。
+      数据可能存在滞后或口径差异，重大决策前请以官方披露及专业机构核验为准。
+    </div>
+  </section>
+
+<footer>在线版本：https://hermes-404.github.io/sinomine-research/厦门象屿股份有限公司-尽职调查报告-v1.html · 本报告由 AI 辅助生成 · 数据截至 2026-10-15</footer>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme = h.dataset.theme==='dark' ? 'light' : 'dark';
+}
+</script>
+
+<script>
+/* ============ 全球矿权地图（腾讯地图 GL JS，合规底图） ============
+ * 合规要求：底图仅可使用腾讯/高德/百度/天地图，禁止 Google/OSM/Mapbox。
+ * 本地预览（WorkBuddy 内）走 _TMapSecurityConfig 本地代理，无需 key；
+ * 部署到 GitHub Pages（公网 + 含海外区域渲染）属非默认场景，
+ * 须在腾讯位置服务开放平台（https://lbs.qq.com）申请 key 并替换 TMAP_KEY，
+ * 同时在控制台配置 Referer 白名单为 Pages 域名（如 https://<user>.github.io/*）。
+ * 坐标口径：境内矿山坐标须为 GCJ-02（火星坐标，WGS84 需转换）；境外矿山直接使用 WGS84 坐标即可。 */
+const TMAP_KEY = "__TENCENT_MAP_KEY__";
+window._TMapSecurityConfig = {
+  serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+};
+const MINE_MARKERS = [
+  /* 每个矿山/矿权一条，按实际数据增删：
+     { name:'矿山名', country:'所在国', mineral:'矿种', stake:'持股', status:'在产/建设中/勘探', lat:纬度, lng:经度 } */
+  { name:'印尼镍矿项目（自有矿山）', country:'印度尼西亚', mineral:'镍', stake:'自有', status:'矿建期(2027出矿)', lat:-2.50, lng:121.00 },
+  { name:'几内亚铝土矿（服务网络）', country:'几内亚', mineral:'铝土矿', stake:'服务换商权', status:'在运营', lat:10.50, lng:-14.00 },
+  { name:'尼日利亚选矿厂（服务节点）', country:'尼日利亚', mineral:'锂/有色矿', stake:'服务节点', status:'在运营', lat:9.00, lng:8.00 },
+  { name:'巴西农产品资源平台', country:'巴西', mineral:'大豆等农产品', stake:'属地平台', status:'在运营', lat:-15.79, lng:-47.88 },
+  { name:'南非矿产资源供应链平台', country:'南非', mineral:'铬/锰/铁矿', stake:'属地平台', status:'在运营', lat:-25.75, lng:28.19 },
+];
+(function loadMineMap(){
+  const hasKey = TMAP_KEY && TMAP_KEY.indexOf('__') !== 0;
+  const s = document.createElement('script');
+  s.src = hasKey
+    ? 'https://map.qq.com/api/gljs?v=1.exp&key=' + TMAP_KEY
+    : 'https://map.qq.com/api/gljs?v=1.exp';
+  s.onload = initMineMap;
+  s.onerror = mapLoadFail;
+  document.head.appendChild(s);
+  setTimeout(mapLoadFail, 8000); /* 超时兜底：保留 fallback 提示 */
+})();
+function mapLoadFail(){
+  const fb = document.getElementById('map-fallback');
+  if (fb) fb.innerHTML = '地图未能加载（公网部署需配置腾讯地图 key，本地预览依赖内置代理）。<br>矿权位置请参考下方明细表，不影响数据完整性。';
+}
+function initMineMap(){
+  try{
+    const map = new TMap.Map('mine-map', { zoom: 3, center: new TMap.LatLng(15, 40) });
+    const fb = document.getElementById('map-fallback');
+    if (fb) fb.style.display = 'none';
+    const info = new TMap.InfoWindow({ map: map, position: new TMap.LatLng(15, 40), offset: { x: 0, y: -34 } });
+    const geometries = MINE_MARKERS.map(function(m, i){
+      return { id: String(i), styleId: 'default', position: new TMap.LatLng(m.lat, m.lng), properties: m };
+    });
+    const markers = new TMap.MultiMarker({
+      map: map,
+      styles: { default: new TMap.MarkerStyle({ width: 22, height: 32, anchor: 'bottom-center' }) },
+      geometries: geometries
+    });
+    markers.on('click', function(e){
+      const m = e.geometry.properties;
+      info.open();
+      info.setPosition(e.geometry.position);
+      info.setContent('<div style="font-size:12px;line-height:1.9;max-width:240px;padding:2px 4px"><b>' + m.name + '</b><br>' +
+        m.country + ' · ' + m.mineral + '<br>持股：' + m.stake + ' · ' + m.status + '</div>');
+    });
+  }catch(err){ mapLoadFail(); }
+}
+</script>
+</body>
+</html>
